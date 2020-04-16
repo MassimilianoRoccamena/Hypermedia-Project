@@ -1,0 +1,19 @@
+{
+  "name": "hypermedia-website",
+  "version": "1.0.0",
+  "description": "Hypermedia applications website project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MassimilianoRoccamena/Hypermedia-Project.git"
+  },
+  "author": "Roccamena-Romano-Buttolo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MassimilianoRoccamena/Hypermedia-Project/issues"
+  },
+  "homepage": "https://github.com/MassimilianoRoccamena/Hypermedia-Project#readme"
+}
