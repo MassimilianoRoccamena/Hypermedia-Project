@@ -67,6 +67,7 @@ CREATE TABLE RelatedArticles {
 }
 
 -- Other relations
+
 CREATE TABLE ServiceEvents {
     id_service NOT NULL PRIMARY KEY FOREIGN KEY REFERENCES Service(id_service),
     id_event NOT NULL PRIMARY KEY FOREIGN KEY REFERENCES Event(id_event),
