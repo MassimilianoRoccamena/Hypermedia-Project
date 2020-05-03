@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/MassimilianoRoccamena/Hypermedia-Project/issues"
   },
-  "homepage": "https://github.com/MassimilianoRoccamena/Hypermedia-Project#readme"
+  "homepage": "https://github.com/MassimilianoRoccamena/Hypermedia-Project#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
