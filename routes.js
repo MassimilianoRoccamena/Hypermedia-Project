@@ -9,14 +9,16 @@ function create(app) {
         })
         .put(function(req, res) {
             service = req.body
-        })
+        });
     
-    app.get("/service/:id", function (req, res) {
-        id = req.params.id
-    })
-    app.delete("/service/:id/delete", function (req, res) {
-        id = req.params.id
-    })
+    app.route("/service/:id")
+        .get(function (req, res) {
+            id = req.params.id
+        })
+        .delete(function (req, res) {
+            id = req.params.id
+        });
+
     app.get("/service/:id/related", function (req, res) {
         id = req.params.id
     })
@@ -30,14 +32,16 @@ function create(app) {
         })
         .put(function(req, res) {
             event = req.body
+        });
+    
+    app.route("/event/:id")
+        .get(function (req, res) {
+            id = req.params.id
+        })
+        .delete(function (req, res) {
+            id = req.params.id
         })
 
-    app.get("/event/:id", function (req, res) {
-        id = req.params.id
-    })
-    app.delete("/event/:id/delete", function (req, res) {
-        id = req.params.id
-    })
     app.get("/event/:id/related", function (req, res) {
         id = req.params.id
     })
@@ -54,14 +58,15 @@ function create(app) {
         })
         .put(function(req, res) {
             person = req.body
+        });
+    
+    app.route("/person/:id")
+        .get(function (req, res) {
+            id = req.params.id
         })
-
-    app.get("/person/:id", function (req, res) {
-        id = req.params.id
-    })
-    app.delete("/person/:id/delete", function (req, res) {
-        id = req.params.id
-    })
+        .delete(function (req, res) {
+            id = req.params.id
+        });
 
     //Article
     app.route("/article")
@@ -74,12 +79,14 @@ function create(app) {
             article = req.body
         })
     
-    app.get("/article/:id", function (req, res) {
-        id = req.params.id
-    })
-    app.delete("/article/:id/delete", function (req, res) {
-        id = req.params.id
-    })
+    app.route("/article/:id")
+        .get(function (req, res) {
+            id = req.params.id
+        })
+        .delete(function (req, res) {
+            id = req.params.id
+        })
+
     app.get("/article/:id/related", function (req, res) {
         id = req.params.id
     })
@@ -95,12 +102,13 @@ function create(app) {
             contact = req.body
         })
     
-    app.get("/contact/:id", function (req, res) {
-        id = req.params.id
-    })
-    app.delete("/contact/:id/delete", function (req, res) {
-        id = req.params.id
-    })
+    app.route("/contact/:id")
+        .get(function (req, res) {
+            id = req.params.id
+        })
+        .delete(function (req, res) {
+            id = req.params.id
+        })
 
 }
 
