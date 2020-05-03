@@ -5,13 +5,16 @@ function create(app) {
         .get(function(req, res) {
         })
         .post(function(req, res) {
+            service = req.body
         })
         .put(function(req, res) {
+            service = req.body
         })
-        .delete(function(req, res) {
-        });
     
     app.get("/service/:id", function (req, res) {
+        id = req.params.id
+    })
+    app.delete("/service/:id/delete", function (req, res) {
         id = req.params.id
     })
     app.get("/service/:id/related", function (req, res) {
@@ -23,19 +26,23 @@ function create(app) {
         .get(function(req, res) {
         })
         .post(function(req, res) {
+            event = req.body
         })
         .put(function(req, res) {
+            event = req.body
         })
-        .delete(function(req, res) {
-        });
 
     app.get("/event/:id", function (req, res) {
         id = req.params.id
     })
-    app.get("/event/month/:month", function (req, res) {
+    app.delete("/event/:id/delete", function (req, res) {
+        id = req.params.id
     })
     app.get("/event/:id/related", function (req, res) {
         id = req.params.id
+    })
+    app.get("/event/month/:month", function (req, res) {
+        month = req.params.month
     })
 
     //Person
@@ -43,13 +50,16 @@ function create(app) {
         .get(function(req, res) {
         })
         .post(function(req, res) {
+            person = req.body
         })
         .put(function(req, res) {
+            person = req.body
         })
-        .delete(function(req, res) {
-        });
 
     app.get("/person/:id", function (req, res) {
+        id = req.params.id
+    })
+    app.delete("/person/:id/delete", function (req, res) {
         id = req.params.id
     })
 
@@ -58,13 +68,16 @@ function create(app) {
         .get(function(req, res) {
         })
         .post(function(req, res) {
+            article = req.body
         })
         .put(function(req, res) {
+            article = req.body
         })
-        .delete(function(req, res) {
-        });
     
     app.get("/article/:id", function (req, res) {
+        id = req.params.id
+    })
+    app.delete("/article/:id/delete", function (req, res) {
         id = req.params.id
     })
     app.get("/article/:id/related", function (req, res) {
@@ -76,13 +89,16 @@ function create(app) {
         .get(function(req, res) {
         })
         .post(function(req, res) {
+            contact = req.body
         })
         .put(function(req, res) {
+            contact = req.body
         })
-        .delete(function(req, res) {
-        });
     
     app.get("/contact/:id", function (req, res) {
+        id = req.params.id
+    })
+    app.delete("/contact/:id/delete", function (req, res) {
         id = req.params.id
     })
 
