@@ -1,34 +1,8 @@
 var http = require("http")
-var {EntityHandler, Controller} = require("./controller")
-
-class TempHandler extends EntityHandler {
-    constructor() {
-        super("temp")
-    }
-
-    doCreate(params) {
-        return {}
-    }
-    doRead(params) {
-        return {name:"Mario", content:"Bla bla bla..."}
-    }
-    doUpdate(params) {
-        return {}
-    }
-    doDelete(params) {
-        return {}
-    }
-}
-
-controller = new Controller([new TempHandler()])
+var url = require("url")
+var fs = require("fs")
 
 http.createServer(function (req, res) {
-    return controller.doRequest(req, res)
-}).listen(8080)
-
-
-
-/* http.createServer(function (req, res) {
     var q = url.parse(req.url, true);
     var filename = "./public" + q.pathname;
     
@@ -41,4 +15,4 @@ http.createServer(function (req, res) {
         res.write(data);
         return res.end();
     });
-}).listen(8080); */
+}).listen(8080);
