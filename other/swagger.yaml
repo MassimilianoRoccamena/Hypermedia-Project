@@ -11,11 +11,11 @@ info:
   
 tags:
 - name: "service"
-  description: "Services provided"
+  description: "Services of the association"
 - name: "event"
-  description: "Events organized"
+  description: "Events of the association"
 - name: "person"
-  description: "People involved"
+  description: "People in the association"
 - name: "article"
   description: "Articles about the association"
 - name: "contact"
@@ -558,7 +558,318 @@ paths:
           description: "Invalid input"
         "404":
           description: "Person not found"
-
+  
+  #-------------------------------------- ARTICLE -------------------------------------------
+  
+  /articles:
+    get:
+      tags:
+      - "article"
+      summary: "Get all articles"
+      operationId: "getArticleAll"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Article"
+              
+  /article/{id_article}:
+    get:
+      tags:
+      - "article"
+      summary: "Get a article by ID"
+      operationId: "getArticleByID"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "id_article"
+        in: "path"
+        description: "ID of article to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Article"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Article not found"
+    delete:
+      tags:
+      - "article"
+      summary: "Delete an article by ID"
+      operationId: "deleteArticle"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "id_article"
+        in: "path"
+        description: "ID of article to be deleted"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Article not found"
+          
+  /article:
+    post:
+      tags:
+      - "article"
+      summary: "Add a new article"
+      operationId: "addArticle"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "article"
+        description: "Article object to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/Article"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid input"
+    put:
+      tags:
+      - "article"
+      summary: "Update an article"
+      operationId: "updateArticle"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "article"
+        description: "Article object to be updated"
+        required: true
+        schema:
+          $ref: "#/definitions/Article"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid input"
+        "404":
+          description: "Article not found"
+          
+  /article/{id_article}/related:
+    get:
+      tags:
+      - "article"
+      summary: "Get related articles of a selected article by ID"
+      operationId: "getRelatedArticlesByID"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id_article"
+        in: "path"
+        description: "ID of article to search for related"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Article"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Article not found"
+          
+  /articles/related:
+    post:
+      tags:
+      - "article"
+      summary: "Add new related relation beetween articles"
+      operationId: "addRelatedArticles"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "related"
+        description: "Related articles object to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/RelatedArticles"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid input"
+        "404":
+          description: "Article not found"
+    delete:
+      tags:
+      - "article"
+      summary: "Delete related relation beetween articles"
+      operationId: "deleteRelatedArticles"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "related"
+        description: "Related articles object to be deleted"
+        required: true
+        schema:
+          $ref: "#/definitions/RelatedArticles"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid input"
+        "404":
+          description: "Article not found"
+          
+  #-------------------------------------- CONTACT -------------------------------------------
+  
+  /contacts:
+    get:
+      tags:
+      - "contact"
+      summary: "Get all contacts"
+      operationId: "getContactsAll"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Contact"
+              
+  /contact/{id_contact}:
+    get:
+      tags:
+      - "contact"
+      summary: "Get a contact by ID"
+      operationId: "getContactByID"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "id_contact"
+        in: "path"
+        description: "ID of contact to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Contact"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Contact not found"
+    delete:
+      tags:
+      - "contact"
+      summary: "Delete a contact by ID"
+      operationId: "deleteContact"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "id_contact"
+        in: "path"
+        description: "ID of contact to be deleted"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Contact not found"
+          
+  /contact:
+    post:
+      tags:
+      - "contact"
+      summary: "Add a new contact"
+      operationId: "addContact"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "contact"
+        description: "Contact object to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/Contact"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid input"
+    put:
+      tags:
+      - "contact"
+      summary: "Update a contact"
+      operationId: "updateContact"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "contact"
+        description: "Contact object to be updated"
+        required: true
+        schema:
+          $ref: "#/definitions/Contact"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid input"
+        "404":
+          description: "Contact not found"
+  
 #======================================= DEFINITIONS =========================================
 
 definitions:
@@ -726,7 +1037,6 @@ definitions:
         type: "string"
       phone:
         type: "string"
-        format: "date"
       email_address:
         type: "string"
         format: "email"
