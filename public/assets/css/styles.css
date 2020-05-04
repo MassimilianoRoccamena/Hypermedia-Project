@@ -21,5 +21,17 @@
     text-align: center;
 }
 
+.grey{
+    background-color: darkgray;
+}
+
+.dark-grey{
+    background-color: gray;
+}
+
+.fl{
+    color: white;
+}
+
 
 
