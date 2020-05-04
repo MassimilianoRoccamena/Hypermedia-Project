@@ -22,19 +22,17 @@ tags:
 
 
 paths:
-  /service:
+  /services:
     get:
       tags:
       - "service"
       summary: "Get all services"
       operationId: "getServiceAll"
-      consumes:
-      - "application/json"
       produces:
       - "application/json"
       responses:
         "200":
-          description: "successful operation"
+          description: "Successful operation"
           schema:
             type: "array"
             items:
@@ -45,10 +43,9 @@ paths:
       - "service"
       summary: "Get a service by ID"
       operationId: "getServiceByID"
-      consumes:
-      - "application/json"
       produces:
       - "application/json"
+      - "application/xml"
       parameters:
       - name: "id_service"
         in: "path"
@@ -58,13 +55,162 @@ paths:
         format: "int64"
       responses:
         "200":
-          description: "successful operation"
+          description: "Successful operation"
           schema:
             $ref: "#/definitions/Service"
         "400":
-          description: "invalid ID supplied"
+          description: "Invalid ID"
         "404":
-          description: "service not found"
+          description: "Service not found"
+    delete:
+      tags:
+      - "service"
+      summary: "Delete a service by ID"
+      operationId: "deleteService"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "id_service"
+        in: "path"
+        description: "ID of service to be deleted"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Service not found"
+  /service:
+    post:
+      tags:
+      - "service"
+      summary: "Add a new service"
+      operationId: "addService"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "service"
+        description: "Service object to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/Service"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid input"
+    put:
+      tags:
+      - "service"
+      summary: "Update a service"
+      operationId: "updateService"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "service"
+        description: "Service object to be updated"
+        required: true
+        schema:
+          $ref: "#/definitions/Service"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid input"
+        "404":
+          description: "Service not found"
+  /service/{id_service}/related:
+    get:
+      tags:
+      - "service"
+      summary: "Get related services of a selected service by ID"
+      operationId: "getRelatedServicesByID"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id_service"
+        in: "path"
+        description: "ID of service to search for related"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Service"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Service not found"
+  /services/related:
+    post:
+      tags:
+      - "service"
+      summary: "Add new related relation beetween services"
+      operationId: "addRelatedServices"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "related"
+        description: "Related services object to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/RelatedServices"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid input"
+        "404":
+          description: "Service not found"
+    delete:
+      tags:
+      - "service"
+      summary: "Delete related relation beetween services"
+      operationId: "deleteRelatedServices"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "related"
+        description: "Related services object to be deleted"
+        required: true
+        schema:
+          $ref: "#/definitions/RelatedServices"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid input"
+        "404":
+          description: "Service not found"
+    
 
 
 definitions:
@@ -72,7 +218,6 @@ definitions:
     type: "object"
     required:
     - "id_service"
-    - "name"
     properties:
       id_service:
         type: "integer"
@@ -89,19 +234,30 @@ definitions:
         type: "string"
     xml:
       name: "Service"
+  RelatedServices:
+    type: "object"
+    required:
+    - "id_service1"
+    - "id_service2"
+    properties:
+      id_service1:
+        type: "integer"
+        format: "int64"
+      id_service2:
+        type: "integer"
+        format: "int64"
       
   Event:
     type: "object"
     required:
     - "id_event"
-    - "id_person"
-    - "name"
     properties:
       id_event:
         type: "integer"
         format: "int64"
       id_person:
-        $ref: "#/definitions/Person"
+        type: "integer"
+        format: "int64"
       name:
         type: "string"
       date:
@@ -117,14 +273,23 @@ definitions:
         type: "string"
     xml:
       name: "Event"
+  RelatedEvents:
+    type: "object"
+    required:
+    - "id_event1"
+    - "id_event2"
+    properties:
+      id_event1:
+        type: "integer"
+        format: "int64"
+      id_event2:
+        type: "integer"
+        format: "int64"
       
   Person:
     type: "object"
     required:
     - "id_person"
-    - "name"
-    - "email_address"
-    - "phone_number"
     properties:
       id_person:
         type: "integer"
@@ -152,16 +317,16 @@ definitions:
     type: "object"
     required:
     - "id_article"
-    - "title"
-    - "body"
     properties:
       id_article:
         type: "integer"
         format: "int64"
       id_service:
-        $ref: "#/definitions/Service"
+        type: "integer"
+        format: "int64"
       id_event:
-        $ref: "#/definitions/Event"
+        type: "integer"
+        format: "int64"
       author:
         type: "string"
       publication_date:
@@ -178,12 +343,23 @@ definitions:
         type: "string"
     xml:
       name: "Article"
+  RelatedArticles:
+    type: "object"
+    required:
+    - "id_article1"
+    - "id_article"
+    properties:
+      id_article1:
+        type: "integer"
+        format: "int64"
+      id_article2:
+        type: "integer"
+        format: "int64"
       
   Contact:
     type: "object"
     required:
     - "id_contact"
-    - "email_address"
     properties:
       id_contact:
         type: "integer"
