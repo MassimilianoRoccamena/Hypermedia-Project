@@ -44,7 +44,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Service"
+              $ref: "#/definitions/ServiceItem"
               
   /service/{id_service}:
     get:
@@ -165,7 +165,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Service"
+              $ref: "#/definitions/ServiceItem"
         "400":
           description: "Invalid ID"
         "404":
@@ -192,7 +192,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Event"
+              $ref: "#/definitions/EventItem"
         "400":
           description: "Invalid ID"
         "404":
@@ -219,7 +219,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Person"
+              $ref: "#/definitions/PersonItem"
         "400":
           description: "Invalid ID"
         "404":
@@ -246,7 +246,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Article"
+              $ref: "#/definitions/ArticleItem"
         "400":
           description: "Invalid ID"
         "404":
@@ -268,7 +268,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Event"
+              $ref: "#/definitions/EventItem"
               
   /events/{month}:
     get:
@@ -293,7 +293,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Event"
+              $ref: "#/definitions/EventItem"
         "400":
           description: "Invalid month"
           
@@ -416,7 +416,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Event"
+              $ref: "#/definitions/EventItem"
         "400":
           description: "Invalid ID"
         "404":
@@ -443,7 +443,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Service"
+              $ref: "#/definitions/ServiceItem"
         "400":
           description: "Invalid ID"
         "404":
@@ -469,7 +469,7 @@ paths:
         "200":
           description: "Successful operation"
           schema:
-            $ref: "#/definitions/Person"
+            $ref: "#/definitions/PersonItem"
         "400":
           description: "Invalid ID"
         "404":
@@ -496,7 +496,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Article"
+              $ref: "#/definitions/ArticleItem"
         "400":
           description: "Invalid ID"
         "404":
@@ -518,7 +518,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Person"
+              $ref: "#/definitions/PersonItem"
               
   /person/{id_person}:
     get:
@@ -639,7 +639,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Service"
+              $ref: "#/definitions/ServiceItem"
         "400":
           description: "Invalid ID"
         "404":
@@ -666,7 +666,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Event"
+              $ref: "#/definitions/EventItem"
         "400":
           description: "Invalid ID"
         "404":
@@ -688,7 +688,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Article"
+              $ref: "#/definitions/ArticleItem"
               
   /article/{id_article}:
     get:
@@ -809,7 +809,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/Article"
+              $ref: "#/definitions/ArticleItem"
         "400":
           description: "Invalid ID"
         "404":
@@ -835,7 +835,7 @@ paths:
         "200":
           description: "Successful operation"
           schema:
-            $ref: "#/definitions/Service"
+            $ref: "#/definitions/ServiceItem"
         "400":
           description: "Invalid ID"
         "404":
@@ -861,7 +861,7 @@ paths:
         "200":
           description: "Successful operation"
           schema:
-            $ref: "#/definitions/Event"
+            $ref: "#/definitions/EventItem"
         "400":
           description: "Invalid ID"
         "404":
@@ -1429,6 +1429,21 @@ definitions:
     xml:
       name: "Service"
       
+  ServiceItem:
+    type: "object"
+    required:
+    - "id_service"
+    properties:
+      id_service:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      photo_url:
+        type: "string"
+    xml:
+      name: "ServiceItem"
+      
   Event:
     type: "object"
     required:
@@ -1456,6 +1471,21 @@ definitions:
     xml:
       name: "Event"
       
+  EventItem:
+    type: "object"
+    required:
+    - "id_event"
+    properties:
+      id_event:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      photo_url:
+        type: "string"
+    xml:
+      name: "EventItem"
+      
   Person:
     type: "object"
     required:
@@ -1482,6 +1512,21 @@ definitions:
         format: "date"
     xml:
       name: "Person"
+      
+  PersonItem:
+    type: "object"
+    required:
+    - "id_person"
+    properties:
+      id_person:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      photo_url:
+        type: "string"
+    xml:
+      name: "PersonItem"
     
   Article:
     type: "object"
@@ -1513,6 +1558,21 @@ definitions:
         type: "string"
     xml:
       name: "Article"
+      
+  ArticleItem:
+    type: "object"
+    required:
+    - "id_article"
+    properties:
+      id_article:
+        type: "integer"
+        format: "int64"
+      title:
+        type: "string"
+      photo_url:
+        type: "string"
+    xml:
+      name: "ArticleItem"
       
   Contact:
     type: "object"
