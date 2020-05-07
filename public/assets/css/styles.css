@@ -17,8 +17,9 @@
     width: 50%;
 }
 
-.center{
-    text-align: center;
+.upper-position{
+    position: relative;
+    top: 70px;
 }
 
 .gray{
