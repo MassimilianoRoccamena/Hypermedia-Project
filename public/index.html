@@ -10,7 +10,7 @@
     </head>
     <body>
 
-    <!--navigation bar-->
+    <!--navbar-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="index.html">Child4Help</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,10 +37,10 @@
         </div>
     </nav>
 
-    <!--carousel-->
+    <!--carousel intro-->
     <header>
-        <div id="carousel" class="carousel slide" data-ride="carousel" style="padding-bottom: 3vh">
-            <ol class="carousel-indicators" style="padding-bottom: 5vh">
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
                 <li data-target="#carousel" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel" data-slide-to="1"></li>
             </ol>
@@ -69,19 +69,17 @@
         </div>
     </header>
 
-    <!--breadcrumb-->
-     <nav aria-label="breadcrumb" class="container">
+    <!--orientation info-->
+    <nav aria-label="breadcrumb" class="container" style="margin-top: 4vh; margin-bottom: 2vh;">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Library</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Data</li>
         </ol>
     </nav>
 
     <!--video-->
-    <div>
+    <div style="margin-top: 2vh; margin-bottom: 4vh;">
         <center>
-            <video class="video" controls>
+            <video class="video mb-3">
                 <source src="assets/img/test.mp4" type="video/mp4">
             </video>
         </center>
@@ -104,12 +102,8 @@
     </div>
     
     <!--list of services-->
-    <div class="container">
-        <div class="row text-center">
-            <div class="col">
-                <h2>Our Missions</h2>
-            </div>
-        </div>
+    <div class="container mb-2">
+        <h1 class="text-center mt-4 mb-0">Our Services</h1>
         <hr class="mt-2 mb-5">
         <div class="row text-center mb-3">
             <div class="col">
@@ -149,8 +143,8 @@
     </div>
 
     <!--photo gallery-->
-    <div class="container">
-        <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Photo Gallery</h1>
+    <div class="container mt-5">
+        <h1 class="text-center mt-4 mb-0">Photo Gallery</h1>
         <hr class="mt-2 mb-5">
         <div class="row text-center text-lg-left">
             <div class="col-lg-3 col-md-4 col-6">
@@ -217,39 +211,41 @@
     </div>
         
     <!--footer-->
-    <footer class="page-footer font-small dark-gray">
-      <div class="container">
-        <div class="row text-center d-flex justify-content-center pt-5 mb-3">
-          <div class="col-md-2 mb-3">
-            <h6 class="text-uppercase font-weight-bold">
-              <a href="#!" class="fl">Donate</a>
-            </h6>
-          </div>
-          <div class="col-md-2 mb-3">
-            <h6 class="text-uppercase">
-              <a href="#!" class="fl">FAQ</a>
-            </h6>
-          </div>
-          <div class="col-md-2 mb-3">
-            <h6 class="text-uppercase font-weight-bold">
-              <a href="#!" class="fl">Contact us</a>
-            </h6>
-          </div>
-        </div>
-        <hr class="rgba-white-light" style="margin: 0 15%;">
-        <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
-          <div class="col-md-8 col-12 mt-2">
-            <p style="font-size: large">CHILD4HELP</p>
-          </div>
-        </div>
+    <footer class="page-footer font-small dark-gray" style="margin-top: 12vh;">
+        <div class="container">
+            <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+                <div class="col-md-2 mb-3">
+                    <h6 class="text-uppercase font-weight-bold">
+                    <a href="#!" class="fl">Donate</a>
+                    </h6>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h6 class="text-uppercase">
+                    <a href="#!" class="fl">FAQ</a>
+                    </h6>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h6 class="text-uppercase font-weight-bold">
+                    <a href="#!" class="fl">Contact us</a>
+                    </h6>
+                </div>
+            </div>
+            <hr class="rgba-white-light" style="margin: 0 15%;">
+            <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+                <div class="col-md-8 col-12 mt-2">
+                    <p style="font-size: large">CHILD4HELP</p>
+                </div>
+            </div>
         </div>
         <div class="footer-copyright text-center py-3 gray">
             © 2020 Copyright: Lorenzo, Elena, Massimiliano
         </div>    
     </footer>
-        
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    <!--basic scripts-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
     </body>
 </html>
