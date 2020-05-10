@@ -8,7 +8,9 @@ info:
   title: "Child4Help"
   termsOfService: "http://swagger.io/terms/"
   
-  
+host: "localhost:8080"
+basePath: "/api"
+
 tags:
 - name: "service"
   description: "Services of the association"
@@ -23,6 +25,9 @@ tags:
 - name: "link"
   description: "State changes of overall relations"
 
+schemes:
+- "https"
+- "http"
 
 #========================================= PATHS ============================================
 
@@ -982,6 +987,39 @@ paths:
           description: "Invalid input"
         "404":
           description: "Contact not found"
+          
+  /contact/send:
+    post:
+      tags:
+      - "contact"
+      summary: "Send new message to a contact"
+      operationId: "sendContact"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "query"
+        name: "from"
+        required: true
+        description: "Sender email"
+        type: "string"
+        format: "email"
+      - in: "query"
+        name: "to"
+        required: true
+        description: "Recipient email"
+        type: "string"
+        format: "email"
+      - in: "query"
+        name: "body"
+        required: true
+        description: "Body of the message"
+        type: "string"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid operation"
           
   #-------------------------------------- RELATION ------------------------------------------
           
