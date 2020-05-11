@@ -2,45 +2,230 @@
 
 <html>
     <head>
-        <title>Volutary Association</title>
+        <title>Service</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
     </head>
+
     <body>
-        <h1>Service1</h1>
-        <p>We give food to children!</p>
-        <div>
-            <a href="http://localhost:8080/pages/person.html">Member 1</a>
+
+    <!--navbar-->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="../index.html">Child4Help</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Association</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/all-services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/all-events.html">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/all-people.html">People</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/all-articles.html">Articles</a>
+                </li>
+            </ul>
         </div>
-        <div>
-            <a href="http://localhost:8080/pages/person.html">Member 2</a>
+    </nav>
+
+    <!--orientation info-->
+    <section id="orientation-info" class="pt-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Services</a></li>
+                <li class="breadcrumb-item">Service</li>
+            </ol>
+        </nav>
+    </section>
+
+    <!--presentation-->
+    <section id="presentation" class="py-3">
+        <div class="container align-items-center justify-content-center">
+            <h1 class="text-center">Name</h1>
+            <hr class="mt-2 mb-5">
+            <div class="row">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent gravida, odio ut tempus maximus, purus purus gravida risus, non hendrerit ligula mi ut arcu. Integer ut aliquam nunc. Duis eget faucibus tellus, et sagittis velit. Aliquam posuere, felis sed porta dapibus, odio mauris sodales orci, eu sollicitudin sapien dui eu purus. Proin aliquam tortor sit amet eros rhoncus auctor. Phasellus a dictum neque, ut convallis elit. Fusce pulvinar ultrices odio nec ornare. Nullam ornare nisl sit amet bibendum dignissim. Maecenas tincidunt, sem id dapibus efficitur, orci lectus rhoncus elit, sit amet suscipit risus nisl ac arcu. Nunc molestie sem congue consequat sollicitudin. Proin ex mauris, tristique eget consequat ac, placerat nec erat. Proin in dolor lobortis, interdum arcu et, elementum lacus. Etiam nec mollis purus. Mauris interdum nisl vitae velit ultricies, ut scelerisque est pellentesque. Nam arcu purus, facilisis a sapien eu, facilisis maximus diam. Mauris quis interdum metus. 
+                    Nulla facilisi. Pellentesque ultricies felis eu risus venenatis tristique. Ut gravida hendrerit aliquam. Aenean vitae tortor eros. Sed justo nunc, vulputate ac rutrum vitae, aliquam in ante. Phasellus sodales bibendum lectus et pretium. Donec commodo, lacus eu volutpat efficitur, ipsum lectus maximus magna, vitae rhoncus lectus magna ac sem. Curabitur condimentum vestibulum neque et porttitor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vulputate leo eu felis rutrum accumsan. Donec ornare suscipit tortor, id commodo nisi malesuada eu. Phasellus pharetra faucibus maximus. 
+                </p>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm">
+                    <h3 class="text-center">What has been written about</h3>
+                    <center>
+                        <a href="article.html" class="btn btn-info" role="button">Go to related articles</a>
+                    </center>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!--photo gallery-->
+    <section id="photo-gallery" class="py-5">
+        <div class="container">
+            <h1 class="text-center">Photo Gallery</h1>
+            <hr class="mt-2 mb-5">
+            <div class="row text-center text-lg-left">
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/pWkk7iiCoDM/400x300" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/aob0ukAYfuI/400x300" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/EUfxH-pze7s/400x300" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/M185_qYH8vg/400x300" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/sesveuG_rNo/400x300" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/AvhMzHwiE_0/400x300" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/2gYsZUmockw/400x300" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/EMSDtjVHdQ8/400x300" alt="">
+                    </a>
+                </div>
+            </div>
         </div>
-        <div>
-            <a href="http://localhost:8080/pages/person.html">Member 3</a>
+    </section>
+
+    <!--events-->
+    <section id="events" class="py-5">
+        <div class="container">
+            <h1 class="text-center">Presented in these events</h1>
+            <hr class="mt-2 mb-5">
+            <div class="row align-items-center">
+                <div class="col-sm-4">
+                    <div class="card mb-4">
+                        <img class="card-img-top" src='../assets/img/service1.jpg'>
+                        <div class="card-body">
+                            <a href="#"><h5 class="card-title text-center">Event1</h5></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card mb-4">
+                        <img class="card-img-top" src='../assets/img/service2.jpg'>
+                        <div class="card-body">
+                            <a href="#"><h5 class="card-title text-center">Event2</h5></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card mb-4">
+                        <img class="card-img-top" src='../assets/img/service3.jpg'>
+                        <div class="card-body">
+                            <a href="#"><h5 class="card-title text-center">Event3</h5></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <a href="http://localhost:8080/pages/person.html">Member 4</a>
+    </section>
+
+    <!--services-->
+    <section id="services" class="py-5">
+        <div class="container">
+            <h1 class="text-center">Related services</h1>
+            <hr class="mt-2 mb-5">
+            <div class="row align-items-center">
+                <div class="col-sm-4">
+                    <div class="card mb-4">
+                        <img class="card-img-top" src='../assets/img/service2.jpg'>
+                        <div class="card-body">
+                            <a href="#"><h5 class="card-title text-center">Service1</h5></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card mb-4">
+                        <img class="card-img-top" src='../assets/img/service3.jpg'>
+                        <div class="card-body">
+                            <a href="#"><h5 class="card-title text-center">Service2</h5></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card mb-4">
+                        <img class="card-img-top" src='../assets/img/service5.jpg'>
+                        <div class="card-body">
+                            <a href="#"><h5 class="card-title text-center">Service3</h5></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <a href="http://localhost:8080/pages/person.html">Member 5</a>
+    </section>
+
+    <!--footer-->
+    <footer class="page-footer font-small dark-gray mt-5">
+        <div class="container">
+            <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+                <div class="col-md-2 mb-3">
+                    <h6 class="text-uppercase font-weight-bold">
+                    <a href="#!" class="fl">Donate</a>
+                    </h6>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h6 class="text-uppercase">
+                    <a href="#!" class="fl">FAQ</a>
+                    </h6>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h6 class="text-uppercase font-weight-bold">
+                    <a href="#!" class="fl">Contact us</a>
+                    </h6>
+                </div>
+            </div>
+            <hr class="rgba-white-light" style="margin: 0 15%;">
+            <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+                <div class="col-md-8 col-12 mt-2">
+                    <p style="font-size: large">CHILD4HELP</p>
+                </div>
+            </div>
         </div>
-        <br>
-        <div>
-            <a href="http://localhost:8080/pages/event.html">Presented in</a>
-        </div>
-        <br>
-        <div>
-            <a href="http://localhost:8080/pages/service-articles.html">Articles about this</a>
-        </div>
-        <br>
-        <h3>Related services</h3>
-        <div>
-            <a href="http://localhost:8080/pages/service.html">Service1</a>
-        </div>
-        <div>
-            <a href="http://localhost:8080/pages/service.html">Service1</a>
-        </div>
-        <div>
-            <a href="http://localhost:8080/pages/service.html">Service1</a>
-        </div>
+        <div class="footer-copyright text-center py-3 gray">
+            © 2020 Copyright: Lorenzo, Elena, Massimiliano
+        </div>    
+    </footer>
+
+    <!--basic scripts-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
     </body>
 </html>
