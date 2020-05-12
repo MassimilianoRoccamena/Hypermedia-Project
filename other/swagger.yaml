@@ -699,7 +699,7 @@ paths:
     get:
       tags:
       - "article"
-      summary: "Get a article by ID"
+      summary: "Get an article by ID"
       operationId: "getArticleByID"
       produces:
       - "application/json"
@@ -1477,6 +1477,8 @@ definitions:
         format: "int64"
       name:
         type: "string"
+      presentation:
+        type: "string"
       photo_url:
         type: "string"
     xml:
@@ -1519,6 +1521,9 @@ definitions:
         format: "int64"
       name:
         type: "string"
+      date:
+        type: "string"
+        format: "date"
       photo_url:
         type: "string"
     xml:
@@ -1605,6 +1610,11 @@ definitions:
       id_article:
         type: "integer"
         format: "int64"
+      author:
+        type: "string"
+      publication_date:
+        type: "string"
+        format: "date"
       title:
         type: "string"
       photo_url:
