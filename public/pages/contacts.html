@@ -9,7 +9,9 @@
         <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
+
     <body>
+
     <!--navbar-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="../index.html">Child4Help</a>
@@ -36,25 +38,31 @@
             </ul>
         </div>
     </nav>
-     <!--orientation info-->
+
+    <!--orientation info-->
     <section id="orientation-info" class="pt-3">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-                <li class="breadcrumb-item">Contact us</li>
-            </ol>
-        </nav>
+        <div class="container">
+            <nav class="breadcrumb-box d-flex justify-content-lg-end" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="">Home</a></li>
+                    <li class="breadcrumb-item">Contacts</li>
+                </ol>
+            </nav>
+        </div>
     </section>
-     <section id="intro" class="pt-5">
+
+    <!--title-->
+    <section id="title" class="py-3">
         <div class="container">
             <h1 class="text-center">Contact us</h1>
             <br>
         </div>
     </section>
+
     <!--form-->
-    <section id="contact">
+    <section id="contact" class="pt-2 pb-5">
         <div class="container">
-            <div class="row mt-5 justify-content-center">
+            <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <form>
                         <div class="form-row">
@@ -71,20 +79,21 @@
                         <div class="form-group">
                             <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
                         </div>
+                        <br>
                         <div class="text-center">
-                            <button type="submit">Send Message</button>
+                            <a href="" class="btn btn-info" role="button">Send Message</a>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-    <!--social buttons-->
-    <section id="socials">
-        <div class="container">
 
+    <!--social buttons-->
+    <section id="socials" class="pt-5 pb-2">
+        <div class="container">
             <div class="row">
-              <div class="col-md-12 py-5">
+              <div class="col-md-12">
                 <div class="mb-5 text-center">
                   <a class="fa fa-facebook" href="#"></a>
                   <a class="fa fa-instagram" href="#"></a>
@@ -98,8 +107,8 @@
     </section>
     
     <!--headquarters contacts-->
-    <section id="headquarters-contacts">
-        <div class="container mt-4">
+    <section id="headquarters-contacts" class="py-5">
+        <div class="container">
             <h2>Headquarters contacts</h2>
             <hr class="mt-2 mb-5">
             <div class="row">
