@@ -1,4 +1,4 @@
 $(document).ready(function(){
-    $('#navbar').load("templates/navbar.html");
-    $('#footer').load("templates/footer.html");
+    $('#navbar').load("/pages/templates/navbar.html");
+    $('#footer').load("/pages/templates/footer.html");
 });
