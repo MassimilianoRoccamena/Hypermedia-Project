@@ -1,20 +1,21 @@
 {
-  "name": "hypermedia-website",
+  "name": "child4help",
   "version": "1.0.0",
-  "description": "Hypermedia applications website project",
+  "description": "Hypermedia project by Roccamena, Romanò, Buttolo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prestart": "npm install",
+    "start": "node index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MassimilianoRoccamena/Hypermedia-Project.git"
-  },
-  "author": "Roccamena-Romano-Buttolo",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MassimilianoRoccamena/Hypermedia-Project/issues"
-  },
-  "homepage": "https://github.com/MassimilianoRoccamena/Hypermedia-Project#readme",
-  "dependencies": {}
+  "keywords": [
+    "swagger"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "connect": "^3.2.0",
+    "js-yaml": "^3.3.0",
+    "serve-static": "^1.14.1",
+    "swagger-tools": "0.10.1"
+  }
 }
