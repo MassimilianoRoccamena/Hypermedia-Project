@@ -23,7 +23,7 @@ tags:
 - name: "contact"
   description: "Contacts of the association"
 - name: "message"
-  description: "messages sent by user to the association"
+  description: "Messages sent by user to the association"
 - name: "link"
   description: "State changes of overall relations"
 
@@ -45,6 +45,13 @@ paths:
       operationId: "getServiceAll"
       produces:
       - "application/json"
+      parameters:
+      - in: "query"
+        name: "page"
+        required: true
+        description: "Services page number to get"
+        type: "integer"
+        format: "int64"
       responses:
         "200":
           description: "Successful operation"
@@ -269,6 +276,13 @@ paths:
       operationId: "getEventAll"
       produces:
       - "application/json"
+      parameters:
+      - in: "query"
+        name: "page"
+        required: true
+        description: "Events page number to get"
+        type: "integer"
+        format: "int64"
       responses:
         "200":
           description: "Successful operation"
@@ -519,6 +533,13 @@ paths:
       operationId: "getPeopleAll"
       produces:
       - "application/json"
+      parameters:
+      - in: "query"
+        name: "page"
+        required: true
+        description: "People page number to get"
+        type: "integer"
+        format: "int64"
       responses:
         "200":
           description: "Successful operation"
@@ -689,6 +710,13 @@ paths:
       operationId: "getArticleAll"
       produces:
       - "application/json"
+      parameters:
+      - in: "query"
+        name: "page"
+        required: true
+        description: "Articles page number to get"
+        type: "integer"
+        format: "int64"
       responses:
         "200":
           description: "Successful operation"
@@ -989,39 +1017,6 @@ paths:
           description: "Invalid input"
         "404":
           description: "Contact not found"
-          
-  /contact/send:
-    post:
-      tags:
-      - "contact"
-      summary: "Send new message to a contact"
-      operationId: "sendContact"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - in: "query"
-        name: "from"
-        required: true
-        description: "Sender email"
-        type: "string"
-        format: "email"
-      - in: "query"
-        name: "to"
-        required: true
-        description: "Recipient email"
-        type: "string"
-        format: "email"
-      - in: "query"
-        name: "body"
-        required: true
-        description: "Body of the message"
-        type: "string"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid operation"
           
 #-------------------------------------- MESSAGE -------------------------------------------
   
