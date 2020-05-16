@@ -1854,6 +1854,8 @@ definitions:
       date:
         type: "string"
         format: "date"
+      location:
+        type: "string"
       photo_url:
         type: "string"
     xml:
