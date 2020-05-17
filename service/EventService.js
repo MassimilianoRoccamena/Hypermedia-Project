@@ -128,8 +128,8 @@ exports.getEventPage1ByID = function(id_event) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "name" : "name",
-  "description" : "description",
+  "name" : "Ciao",
+  "description" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
   "id_event" : 0,
   "photo_url" : "photo_url"
 };
@@ -153,9 +153,9 @@ exports.getEventPage2ByID = function(id_event) {
     var examples = {};
     examples['application/json'] = {
   "date" : "2000-01-23",
-  "name" : "name",
-  "pract_info" : "pract_info",
-  "location" : "location",
+  "name" : "Ciao",
+  "pract_info" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "location" : "Piazza del Duomo, 20122 Milano MI",
   "id_event" : 0
 };
     if (Object.keys(examples).length > 0) {
