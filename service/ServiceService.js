@@ -154,8 +154,8 @@ exports.getServicePage1ByID = function(id_service) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "presentation" : "presentation",
-  "name" : "name",
+  "presentation" : "bla bla bla bla bla bla bla",
+  "name" : "Education",
   "photo_url" : "photo_url",
   "id_service" : 0
 };
@@ -180,7 +180,8 @@ exports.getServicePage2ByID = function(id_service) {
     examples['application/json'] = {
   "name" : "name",
   "id_service" : 0,
-  "informations" : "informations"
+  "informations" : "bwdiuqwbdubuqwuidbwqjdbnqwudbqwjbdwqbdubnwqdnbbwuqbndabdwabdbwqui",
+  "location" : "Kenya Somalia Zimbabwe"
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);

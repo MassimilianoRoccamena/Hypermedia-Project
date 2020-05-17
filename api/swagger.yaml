@@ -1764,12 +1764,15 @@ definitions:
         type: "string"
       informations:
         type: "string"
+      location:
+        type: "string"
     xml:
       name: "ServicePage2"
     example:
       name: "name"
       id_service: 0
       informations: "informations"
+      location: "Kenya Somalia Zimbabwe"
   ServiceItem:
     type: "object"
     required:

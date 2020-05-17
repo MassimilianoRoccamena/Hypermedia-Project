@@ -1,4 +1,6 @@
-var h1 = $("#service_name");
+
+var h1 = document.querySelector("#name");
+var p = document.querySelector("#presentation_text");
 
 fetch("/api/service/0/page1").then(function(response){
     if(!response.ok){
@@ -7,7 +9,7 @@ fetch("/api/service/0/page1").then(function(response){
     return response.json();
 })
 .then(function(json){
-    var title = json.name;
-    h1.innerHTML = title;
+    h1.innerHTML = json.name;
+    p.innerHTML = json.presentation;
 });
    
