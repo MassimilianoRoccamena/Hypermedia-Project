@@ -7,7 +7,7 @@ $(document).ready(function () {
     }).then(function (json) {
         var row = $("#people-row");
 
-        for (var i=0; i<json.length; i++) {
+        for (let i=0; i<json.length; i++) {
             let data = json[i];
 
             let col = $("<div class='col-sm-4'></div>");
