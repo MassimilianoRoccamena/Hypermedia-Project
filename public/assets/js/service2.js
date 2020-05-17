@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     var h1 = $("#name");
     var p = $("#information_text");
