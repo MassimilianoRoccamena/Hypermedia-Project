@@ -1,22 +1,21 @@
 $(document).ready(function () {
-    //Create columns
-    var row = $("#people-row");
-    for (var i=0; i<6; i++) {
-        id = "people-col" + i;
-        row.append("<div id=${id} class='col-sm-4'></div>");
-    }
-
-    //Load data
-    fetch("/people/items").then(function (res) {
+    fetch("/api/people/items?page=1").then(function (res) {
         if (!res.ok) { 
-            throw new Error("HTTP error, status = " + response.status); 
+            throw new Error("HTTP error, status = " + res.status); 
         }
-        return response.json()
+        return res.json()
     }).then(function (json) {
         for (var i=0; i<json.length; i++) {
             var data = json[i];
-            col = $("#people-col"+i)
-            col.load("/pages/templates/person-item.html")
+
+            var row = $("#people-row");
+            var col = $("<div class='col-sm-4'></div>");
+            
+            col.appendTo(row);
+            col.load("/pages/templates/person-item.html");
+
+            var name = col.find(".card-title");
+            name.text(data.name);
         }
     })
 });
