@@ -21,9 +21,6 @@ var options = {
 var spec = fs.readFileSync(path.join(__dirname,'api/swagger.yaml'), 'utf8');
 var swaggerDoc = jsyaml.safeLoad(spec);
 
-// Provide public data
-app.use(serveStatic(__dirname + '/public'));
-
 // Initialize the Swagger middleware
 swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
 
@@ -38,6 +35,9 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
 
   // Serve the Swagger documents and Swagger UI
   app.use(middleware.swaggerUi());
+
+  // Provide public data
+  app.use(serveStatic(__dirname + '/public'));
 
   // Start the server
   http.createServer(app).listen(serverPort, function () {
