@@ -8,7 +8,7 @@ $(document).ready(function () {
         var row = $("#people-row");
 
         for (var i=0; i<json.length; i++) {
-            var data = json[i];
+            let data = json[i];
 
             let col = $("<div class='col-sm-4'></div>");
             col.load("/pages/templates/person-item.html", function(responseTxt, statusTxt, xhr) {
