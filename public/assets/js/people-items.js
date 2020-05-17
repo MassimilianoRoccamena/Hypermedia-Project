@@ -1,6 +1,6 @@
 $(document).ready(function () {
     //Create columns
-    row = $("#people-row");
+    var row = $("#people-row");
     for (var i=0; i<6; i++) {
         id = "people-col" + i;
         row.append("<div id=${id} class='col-sm-4'></div>");
@@ -14,7 +14,7 @@ $(document).ready(function () {
         return response.json()
     }).then(function (json) {
         for (var i=0; i<json.length; i++) {
-            data = json[i];
+            var data = json[i];
             col = $("#people-col"+i)
             col.load("/pages/templates/person-item.html")
         }

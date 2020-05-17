@@ -1,4 +1,4 @@
-var h1 = document.querySelector("#service_name");
+var h1 = $("#service_name");
 
 $(document).ready(function () {
     fetch("/api/service/0/page1").then(function(response){
@@ -9,6 +9,6 @@ $(document).ready(function () {
     })
     .then(function(json){
         var data = json;
-        h1.innerHTML = '${data.name}';
+        h1.text(data.name);
     });
-}
+});
