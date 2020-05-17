@@ -10,13 +10,13 @@ $(document).ready(function () {
         for (var i=0; i<json.length; i++) {
             var data = json[i];
 
-            var col = $("<div class='col-sm-4'></div>");
-
+            let col = $("<div class='col-sm-4'></div>");
+            col.load("/pages/templates/person-item.html", function(responseTxt, statusTxt, xhr) {
+                var name = col.find(".card-title");
+                name.text(data.name);
+            });
+            
             row.append(col);
-            col.load("/pages/templates/person-item.html");
-
-            var name = col.find(".card-title");
-            name.text(data.name);
         }
     })
 });
