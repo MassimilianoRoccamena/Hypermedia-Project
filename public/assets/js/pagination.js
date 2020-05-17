@@ -1,7 +1,6 @@
-$("document").ready(function () {
-    $("#previous").click(function() {
-    });
+$(document).ready(function () {
     $("#next").click(function() {
-
-    });
-})
+    })
+    $("#previous").click(function() {
+    })
+});
