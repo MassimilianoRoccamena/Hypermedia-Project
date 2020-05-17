@@ -10,9 +10,11 @@ $(document).ready(function () {
 
             var row = $("#people-row");
             var col = $("<div class='col-sm-4'></div>");
-            
+
             col.appendTo(row);
             col.load("/pages/templates/person-item.html");
+
+            $(".card-title").css( "background-color", "red" );
 
             var name = col.find(".card-title");
             name.text(data.name);
