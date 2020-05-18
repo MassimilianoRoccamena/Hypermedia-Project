@@ -1,7 +1,4 @@
 $(document).ready(function () {
-    createCols(peopleCount);
-    loadPage(1);
-    
     $('#pagination').load("/pages/components/pagination.html", function(responseTxt, statusTxt, xhr) {
         $("#previous").click(function() {
             previousPage();
@@ -10,35 +7,41 @@ $(document).ready(function () {
             nextPage();
         })
     });
+
+    createCols(itemsCount);
+    loadPage();
 });
 
-var peopleCount = 15;
-var peoplePage = 1;
+//Global variables
+var currentPage = 1;
+var itemsCount = 12;
+var idGroup = "people";
+var idItem = "person";
 
 //Create columns
 function createCols() {
-    let row = $("#people-row");
+    let row = $("#" + idGroup + "-row");
     
-    for (let i=0; i<peopleCount; i++) {
-        let id = "person-col-" + i;
+    for (let i=0; i<itemsCount; i++) {
+        let id = idItem + "-col-" + i;
         let col = $("<div id='" + id + "' class='col-sm-4'></div>");
 
         row.append(col);
     }
 }
 
-//Load people page
+//Load items page
 function loadPage(first=true) {
     if (!first) {
-        for (let i=0; i<peopleCount; i++) {
-            let id = "person-col-" + i;
+        for (let i=0; i<itemsCount; i++) {
+            let id = idItem + "-col-" + i;
             let col = $(id)
 
             col.empty();
         }
     }
 
-    fetch("/api/people/items?page=" + peoplePage).then(function (res) {
+    fetch("/api/" + idGroup + "/items?page=" + currentPage).then(function (res) {
         if (!res.ok) { 
             throw new Error("HTTP error, status = " + res.status); 
         }
@@ -46,11 +49,11 @@ function loadPage(first=true) {
     }).then(function (json) {
         let component = $("<div></div>");
 
-        component.load("/pages/components/person-item.html", function(responseTxt, statusTxt, xhr) {
+        component.load("/pages/components/" + idItem + "-item.html", function(responseTxt, statusTxt, xhr) {
             for (let i=0; i<json.length; i++) {
                 let data = json[i];
     
-                let id = "person-col-" + i;
+                let id = idItem + "-col-" + i;
                 let col = $("#"+id);
     
                 col.html(component.html());
@@ -61,32 +64,30 @@ function loadPage(first=true) {
     });
 }
 
-//Switch next people page
+//Switch next items page
 function nextPage() {
-    peoplePage += 1;
+    currentPage += 1;
     loadPage(false);
 
-    if (peoplePage == 2) {
+    if (currentPage == 2) {
         $("#previous").removeClass("disabled");
     }
 
-    $("#page-number").text("Page " + peoplePage);
+    $("#page-number").text("Page " + currentPage);
 }
 
-//Switch next people page
+//Switch next items page
 function previousPage() {
-    if (peoplePage > 1) {
-        peoplePage -= 1;
+    if (currentPage > 1) {
+        currentPage -= 1;
         loadPage(false);
 
-        if (peoplePage == 1) {
+        if (currentPage == 1) {
             $("#previous").addClass("disabled");
         }
 
-        $("#page-number").text("Page " + peoplePage);
+        $("#page-number").text("Page " + currentPage);
     } else {
         throw new Error("page 1 is first page")
     }
 }
-
-
