@@ -22,7 +22,7 @@ var currentPage = 1,
     idGroup = "people",
     idItem = "person",
     itemType = "card",
-    fillItem = function(col, data) {
+    fillItem = function(item, data) {
 
     }
 

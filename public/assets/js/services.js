@@ -42,7 +42,6 @@ var currentPage = 1,
     itemsCount = 12,
     idGroup = "services",
     idItem = "service",
-    itemType = "row",
     fillItem = function(row, data) {
         console.log("")
         let name = row.find("h4");
@@ -54,13 +53,8 @@ var currentPage = 1,
 //Init component
 function initPagination() {
     let root = $("#" + idGroup);
-
-    if (itemType == "row") {
-        let container = $("<div class='container'></div>");
-        root.append(container);
-    } else {
-        throw new Error("invalid item type");
-    }
+    let container = $("<div class='container'></div>");
+    root.append(container);
 }
 
 //Load items page

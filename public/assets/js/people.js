@@ -42,7 +42,6 @@ var currentPage = 1,
     itemsCount = 12,
     idGroup = "people",
     idItem = "person",
-    itemType = "card",
     fillItem = function(col, data) {
         let name = col.find(".card-title");
         name.text(data.name);
@@ -51,21 +50,16 @@ var currentPage = 1,
 //Init component
 function initPagination() {
     let root = $("#" + idGroup);
+    let container = $("<div class='container'></div>");
+    root.append(container);
+    let row = $("<div class='row'></div>");
+    container.append(row);
 
-    if (itemType == "card") {
-        let container = $("<div class='container'></div>");
-        root.append(container);
-        let row = $("<div class='row'></div>");
-        container.append(row);
-    
-        for (let i=0; i<itemsCount; i++) {
-            let id = idItem + "-col-" + i;
-            let col = $("<div id='" + id + "' class='col-sm-4'></div>");
+    for (let i=0; i<itemsCount; i++) {
+        let id = idItem + "-col-" + i;
+        let col = $("<div id='" + id + "' class='col-sm-4'></div>");
 
-            row.append(col);
-        }
-    } else {
-        throw new Error("invalid item type");
+        row.append(col);
     }
 }
 
