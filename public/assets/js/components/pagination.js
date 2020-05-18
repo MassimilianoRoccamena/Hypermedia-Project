@@ -13,10 +13,13 @@ $(document).ready(function () {
 });
 
 //Global variables
-var currentPage = 1;
-var itemsCount = 12;
-var idGroup = "people";
-var idItem = "person";
+var currentPage = 1,
+    itemsCount = 12,
+    idGroup = "people",
+    idItem = "person",
+    fillItem = function(col, data) {
+        
+}
 
 //Create columns
 function createCols() {
@@ -57,8 +60,7 @@ function loadPage(first=true) {
                 let col = $("#"+id);
     
                 col.html(component.html());
-                let name = col.find(".card-title");
-                name.text(data.name);
+                fillItem(col, data);
             }
         });
     });
