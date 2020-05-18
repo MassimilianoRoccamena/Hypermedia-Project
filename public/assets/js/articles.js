@@ -21,3 +21,6 @@ function addLink(text, link) {
     let li = $("<li class='breadcrumb-item'><a href='" + link + "'>"+ text +"</a></li>")
     $("#orientation-ol").append(li);
 }
+
+//----------------------------------------- DATA LOAD -------------------------------------------
+

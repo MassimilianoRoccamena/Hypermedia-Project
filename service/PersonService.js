@@ -107,7 +107,7 @@ exports.getPersonByID = function(id_person) {
   "name" : "name",
   "description" : "description",
   "phone_number" : "phone_number",
-  "photo_url" : "photo_url"
+  "photo_url" : "/assets/img/person1.jpg"
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);

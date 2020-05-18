@@ -6,6 +6,9 @@ $(document).ready(function () {
         addLink("Articles", "/pages/articles.html");
         addLabel("Title");
     });
+
+    //data loading
+    loadData();
 });
 
 //------------------------------------- ORIENTATION INFO -----------------------------------------
@@ -21,4 +24,27 @@ function addLabel(text) {
 function addLink(text, link) {
     let li = $("<li class='breadcrumb-item'><a href='" + link + "'>"+ text +"</a></li>")
     $("#orientation-ol").append(li);
+}
+
+//----------------------------------------- DATA LOAD -------------------------------------------
+
+//Load event data
+function loadData() {
+    var title = $("#name");
+    var author = $("#author");
+    var date = $("#date");
+    var body = $("#text");
+
+    fetch("/api/article/0").then(function(response){
+        if(!response.ok){
+            throw new Error("HTTP error, status =  " + response.status);
+        }
+        return response.json();
+    })
+    .then(function(json){
+        title.append(json.title);
+        author.append(json.author);
+        date.append(json.publication_date);
+        text.append(json.body);
+    });
 }
