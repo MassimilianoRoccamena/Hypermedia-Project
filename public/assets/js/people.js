@@ -22,7 +22,7 @@ $(document).ready(function () {
 
             let id = "person-col-" + i;
             let col = $("#"+id);
-            col.load("/pages/templates/person-item.html", function(responseTxt, statusTxt, xhr) {
+            col.load("/pages/components/person-item.html", function(responseTxt, statusTxt, xhr) {
                 var name = col.find(".card-title");
                 name.text(data.name);
             });
