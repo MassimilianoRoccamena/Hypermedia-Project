@@ -16,7 +16,7 @@ $(document).ready(function () {
         })
     });
 
-    createCols(itemsCount);
+    initPagination();
     loadPage();
 });
 
@@ -42,20 +42,32 @@ var currentPage = 1,
     itemsCount = 12,
     idGroup = "people",
     idItem = "person",
+    itemType = "card",
     fillItem = function(col, data) {
         let name = col.find(".card-title");
         name.text(data.name);
     }
 
-//Create columns
-function createCols() {
-    let row = $("#" + idGroup + "-row");
-    
-    for (let i=0; i<itemsCount; i++) {
-        let id = idItem + "-col-" + i;
-        let col = $("<div id='" + id + "' class='col-sm-4'></div>");
+//Init component
+function initPagination() {
+    let root = $("#" + idGroup);
 
-        row.append(col);
+    if (itemType == "card") {
+        let container = $("<div class='container'></div>");
+        root.append(container);
+        let row = $("<div class='row'></div>");
+        container.append(row);
+    
+        for (let i=0; i<itemsCount; i++) {
+            let id = idItem + "-col-" + i;
+            let col = $("<div id='" + id + "' class='col-sm-4'></div>");
+
+            row.append(col);
+        }
+    } else if (itemType == "row") {
+
+    } else {
+        throw new Error("invalid item type");
     }
 }
 
@@ -76,16 +88,16 @@ function loadPage(first=true) {
         }
         return res.json();
     }).then(function (json) {
-        let component = $("<div></div>");
+        let item = $("<div></div>");
 
-        component.load("/pages/components/" + idItem + "-item.html", function(responseTxt, statusTxt, xhr) {
+        item.load("/pages/components/" + idItem + "-card.html", function(responseTxt, statusTxt, xhr) {
             for (let i=0; i<json.length; i++) {
                 let data = json[i];
     
                 let id = idItem + "-col-" + i;
                 let col = $("#"+id);
     
-                col.html(component.html());
+                col.html(item.html());
                 fillItem(col, data);
             }
         });
