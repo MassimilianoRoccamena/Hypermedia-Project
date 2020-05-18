@@ -2,12 +2,14 @@ $(document).ready(function () {
     createCols(peopleCount);
     loadPage(1);
     
-    $("#previous").click(function() {
-        previousPage();
-    })
-    $("#next").click(function() {
-        nextPage();
-    })
+    $('#pagination').load("/pages/components/pagination.html", function(responseTxt, statusTxt, xhr) {
+        $("#previous").click(function() {
+            previousPage();
+        })
+        $("#next").click(function() {
+            nextPage();
+        })
+    });
 });
 
 var peopleCount = 15;
@@ -65,7 +67,7 @@ function nextPage() {
     loadPage(false);
 
     if (peoplePage == 2) {
-        $("previous").removeAttr("disabled");
+        $("#previous").removeClass("disabled");
     }
 
     $("#page-number").text("Page " + peoplePage);
@@ -73,12 +75,12 @@ function nextPage() {
 
 //Switch next people page
 function previousPage() {
-    if (page > 1) {
+    if (peoplePage > 1) {
         peoplePage -= 1;
         loadPage(false);
 
         if (peoplePage == 1) {
-            $("previous").addAttr("disabled");
+            $("#previous").addClass("disabled");
         }
 
         $("#page-number").text("Page " + peoplePage);
