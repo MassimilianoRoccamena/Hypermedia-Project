@@ -4,11 +4,9 @@ $(document).ready(function () {
     $('#orientation-info').load("/pages/components/orientation-info.html", function(responseTxt, statusTxt, xhr) {
         addLink("Home", "/");
         addLink("Events", "/pages/events.html");
-        addLabel("Label");
+        addLink("Name", "/pages/event1.html");
+        addLabel("Articles");
     });
-
-    //Data load
-    loadData();
 });
 
 //------------------------------------- ORIENTATION INFO -----------------------------------------
@@ -24,23 +22,4 @@ function addLabel(text) {
 function addLink(text, link) {
     let li = $("<li class='breadcrumb-item'><a href='" + link + "'>"+ text +"</a></li>")
     $("#orientation-ol").append(li);
-}
-
-//----------------------------------------- DATA LOAD -------------------------------------------
-
-//Load event data
-function loadData() {
-    var h1 = $("#name");
-    var p = $("#description_text");
-
-    fetch("/api/event/0/page1").then(function(response){
-        if(!response.ok){
-            throw new Error("HTTP error, status =  " + response.status);
-        }
-        return response.json();
-    })
-    .then(function(json){
-        h1.append(json.name);
-        p.append(json.description);
-    });
 }

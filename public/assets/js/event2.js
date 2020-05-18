@@ -1,4 +1,35 @@
-$(document).ready(function(){
+$(document).ready(function () {
+
+    //Orientation info
+    $('#orientation-info').load("/pages/components/orientation-info.html", function(responseTxt, statusTxt, xhr) {
+        addLink("Home", "/");
+        addLink("Events", "/pages/events.html");
+        addLabel("Label");
+    });
+
+    //Data load
+    loadData();
+});
+
+//------------------------------------- ORIENTATION INFO -----------------------------------------
+
+//Create orientation info label
+function addLabel(text) {
+    let li = $("<li class='breadcrumb-item'></li>")
+    li.text(text);
+    $("#orientation-ol").append(li);
+}
+
+//Create orientation info link
+function addLink(text, link) {
+    let li = $("<li class='breadcrumb-item'><a href='" + link + "'>"+ text +"</a></li>")
+    $("#orientation-ol").append(li);
+}
+
+//----------------------------------------- DATA LOAD -------------------------------------------
+
+//Load event data
+function loadData() {
     var name = $("#name");
     var info = $("#info");
     var date = $("#date");
@@ -16,4 +47,4 @@ $(document).ready(function(){
         date.append(json.date);
         location.append(json.location);
     });
-});
+}
