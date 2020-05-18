@@ -10,6 +10,19 @@ To install project dependencies, run:
 npm install .
 ```
 
+### Joining Heroku
+Install globally heroku environment:
+
+```
+npm install -g heroku
+```
+
+Login to keroku in your browser:
+
+```
+heroku login
+```
+
 ### Running the server
 To run the server, run:
 
