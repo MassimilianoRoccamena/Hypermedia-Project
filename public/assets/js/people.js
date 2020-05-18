@@ -20,7 +20,7 @@ var currentPage = 1,
     fillItem = function(col, data) {
         let name = col.find(".card-title");
         name.text(data.name);
-}
+    }
 
 //Create columns
 function createCols() {

@@ -18,8 +18,8 @@ var currentPage = 1,
     idGroup = "people",
     idItem = "person",
     fillItem = function(col, data) {
-        
-}
+
+    }
 
 //Create columns
 function createCols() {
