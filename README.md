@@ -23,6 +23,12 @@ Login to keroku in your browser:
 heroku login
 ```
 
+Heroku repository
+`https://git.heroku.com/child4help.git'
+Deployed app links
+
+'https://child4help.herokuapp.com/'
+
 ### Running the server
 To run the server, run:
 
