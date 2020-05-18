@@ -1,23 +1,49 @@
 $(document).ready(function () {
-    var row = $("#people-row");
-    var count = 15;
-    var page = 1;
+    createCols(peopleCount);
+    loadPage(1);
+    
+    $("#previous").click(function() {
+        previousPage();
+    })
+    $("#next").click(function() {
+        nextPage();
+    })
+});
 
-    //Create cols
-    for (let i=0; i<count; i++) {
+var peopleCount = 15;
+var peoplePage = 1;
+
+//Create columns
+function createCols() {
+    let row = $("#people-row");
+    
+    for (let i=0; i<peopleCount; i++) {
         let id = "person-col-" + i;
         let col = $("<div id='" + id + "' class='col-sm-4'></div>");
+
         row.append(col);
     }
-    
-    //Load page 1
-    fetch("/api/people/items?page=1").then(function (res) {
+}
+
+//Load people page
+function loadPage(first=true) {
+    if (!first) {
+        for (let i=0; i<peopleCount; i++) {
+            let id = "person-col-" + i;
+            let col = $(id)
+
+            col.empty();
+        }
+    }
+
+    fetch("/api/people/items?page=" + peoplePage).then(function (res) {
         if (!res.ok) { 
             throw new Error("HTTP error, status = " + res.status); 
         }
         return res.json();
     }).then(function (json) {
         let component = $("<div></div>");
+
         component.load("/pages/components/person-item.html", function(responseTxt, statusTxt, xhr) {
             for (let i=0; i<json.length; i++) {
                 let data = json[i];
@@ -30,7 +56,35 @@ $(document).ready(function () {
                 name.text(data.name);
             }
         });
-    })
-});
+    });
+}
+
+//Switch next people page
+function nextPage() {
+    peoplePage += 1;
+    loadPage(false);
+
+    if (peoplePage == 2) {
+        $("previous").removeAttr("disabled");
+    }
+
+    $("#page-number").text("Page " + peoplePage);
+}
+
+//Switch next people page
+function previousPage() {
+    if (page > 1) {
+        peoplePage -= 1;
+        loadPage(false);
+
+        if (peoplePage == 1) {
+            $("previous").addAttr("disabled");
+        }
+
+        $("#page-number").text("Page " + peoplePage);
+    } else {
+        throw new Error("page 1 is first page")
+    }
+}
 
 
