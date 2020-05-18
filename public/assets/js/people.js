@@ -64,8 +64,6 @@ function initPagination() {
 
             row.append(col);
         }
-    } else if (itemType == "row") {
-
     } else {
         throw new Error("invalid item type");
     }
