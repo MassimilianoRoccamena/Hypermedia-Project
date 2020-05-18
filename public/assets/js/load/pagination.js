@@ -1,3 +1,3 @@
 $(document).ready(function(){
-    $('#pagination').load("/pages/templates/pagination.html");
+    $('#pagination').load("/pages/components/pagination.html");
 });
