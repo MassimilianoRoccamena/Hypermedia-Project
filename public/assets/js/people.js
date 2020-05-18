@@ -17,16 +17,19 @@ $(document).ready(function () {
         }
         return res.json();
     }).then(function (json) {
-        for (let i=0; i<json.length; i++) {
-            let data = json[i];
-
-            let id = "person-col-" + i;
-            let col = $("#"+id);
-            col.load("/pages/components/person-item.html", function(responseTxt, statusTxt, xhr) {
-                var name = col.find(".card-title");
+        let component = $("<div></div>");
+        component.load("/pages/components/person-item.html", function(responseTxt, statusTxt, xhr) {
+            for (let i=0; i<json.length; i++) {
+                let data = json[i];
+    
+                let id = "person-col-" + i;
+                let col = $("#"+id);
+    
+                col.html(component.html());
+                let name = col.find(".card-title");
                 name.text(data.name);
-            });
-        }
+            }
+        });
     })
 });
 
