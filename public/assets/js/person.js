@@ -3,7 +3,7 @@ $(document).ready(function () {
     //Orientation info
     $('#orientation-info').load("/pages/components/orientation-info.html", function(responseTxt, statusTxt, xhr) {
         addLink("Home", "/");
-        addLink("People", "/pages/person.html");
+        addLink("People", "/pages/people.html");
         addLabel("Name");
     });
 });
