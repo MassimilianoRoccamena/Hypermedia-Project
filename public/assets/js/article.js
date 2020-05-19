@@ -32,7 +32,7 @@ function addLink(text, link) {
 let item = "article"
 let id = "0";
 
-//Load event data
+//Load article data
 function loadData() {
     //load article content
     fetch("/api/" + item + "/" + id).then(function(response){
