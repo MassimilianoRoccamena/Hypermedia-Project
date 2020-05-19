@@ -10,27 +10,6 @@ To install project dependencies, run:
 npm install .
 ```
 
-### Joining Heroku
-Install globally heroku environment:
-
-```
-npm install -g heroku
-```
-
-Login to keroku in your browser:
-
-```
-heroku login
-```
-
-Heroku repository
-
-`https://git.heroku.com/child4help.git'
-
-Deployed app link
-
-'https://child4help.herokuapp.com/'
-
 ### Running the server
 To run the server, run:
 
