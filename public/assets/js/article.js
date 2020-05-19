@@ -28,23 +28,51 @@ function addLink(text, link) {
 
 //----------------------------------------- DATA LOAD -------------------------------------------
 
+
+let item = "article"
+let id = "0";
+
 //Load event data
 function loadData() {
-    var title = $("#name");
-    var author = $("#author");
-    var date = $("#date");
-    var body = $("#text");
-
-    fetch("/api/article/0").then(function(response){
+    //load article content
+    fetch("/api/" + item + "/" + id).then(function(response){
         if(!response.ok){
             throw new Error("HTTP error, status =  " + response.status);
         }
         return response.json();
     })
     .then(function(json){
+        var title = $("#name");
+        var author = $("#author");
+        var date = $("#date");
+        var body = $("#text");
         title.append(json.title);
         author.append(json.author);
         date.append(json.publication_date);
         text.append(json.body);
+    });
+    //load related articles
+    fetch("/api/" + item + "/" + id + "/related").then(function(response){
+        if(!response.ok){
+            throw new Error("HTTP error, status =  " + response.status);
+        }
+        return response.json();
+    })
+    .then(function(json){
+        let row = $("#cards");
+        for(let i=0;i<json.length;i++){
+            let col = $("<div class='col-sm-4'></div>");
+            row.append(col);
+            col.load("/pages/components/" + item + "-card.html", function(responseTxt, statusTxt, xhr) {
+                let relatedImage = col.find("#cardPhoto");
+                relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url + "'></img>");
+                let relatedTitle = col.find(".card-title");
+                relatedTitle.append(json[i].title);
+                let relatedAuthor = col.find("#cardAuthor");
+                relatedAuthor.append(json[i].author);
+                let relatedDate = col.find("#cardDate");
+                relatedDate.append(json[i].publication_date);
+            }); 
+        }
     });
 }

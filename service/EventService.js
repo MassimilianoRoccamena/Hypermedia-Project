@@ -129,7 +129,7 @@ exports.getEventPage1ByID = function(id_event) {
     var examples = {};
     examples['application/json'] = {
   "name" : "Ciao",
-  "description" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "description" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
   "id_event" : 0,
   "photo_url" : "photo_url"
 };
@@ -154,7 +154,7 @@ exports.getEventPage2ByID = function(id_event) {
     examples['application/json'] = {
   "date" : "2000-01-23",
   "name" : "Ciao",
-  "pract_info" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "pract_info" : "aaaaaaaaaaaaaaaaaaaaaaaaaa",
   "location" : "Piazza del Duomo, 20122 Milano MI",
   "id_event" : 0
 };

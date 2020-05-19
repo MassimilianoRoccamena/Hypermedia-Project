@@ -30,11 +30,8 @@ function addLink(text, link) {
 
 //Load event data
 function loadData() {
-    var name = $("#name");
-    var info = $("#info");
-    var date = $("#date");
-    var location = $("#location"); 
-
+ 
+    //Load page2 informations
     fetch("/api/event/0/page2").then(function(response){
         if(!response.ok){
             throw new Error("HTTP error, status =  " + response.status);
@@ -42,9 +39,25 @@ function loadData() {
         return response.json();
     })
     .then(function(json){
+        let name = $("#name");
+        let info = $("#info");
+        let date = $("#date");
+        let location = $("#location");
         name.append(json.name);
         info.append(json.pract_info);
         date.append(json.date);
         location.append(json.location);
+    });
+
+    //Load event contact
+    fetch("/api/event/0/person").then(function(response){
+        if(!response.ok){
+            throw new Error("HTTP error, status =  " + response.status);
+        }
+        return response.json();
+    })
+    .then(function(json){
+        let contact = $("#contact");
+        contact.append(json.name);
     });
 }

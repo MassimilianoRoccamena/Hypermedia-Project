@@ -187,13 +187,13 @@ exports.getRelatedArticlesByID = function(id_article) {
   "id_article" : 0,
   "author" : "author",
   "publication_date" : "2000-01-23",
-  "photo_url" : "photo_url",
+  "photo_url" : "/assets/img/service1.jpg",
   "title" : "title"
 }, {
   "id_article" : 0,
   "author" : "author",
   "publication_date" : "2000-01-23",
-  "photo_url" : "photo_url",
+  "photo_url" : "/assets/img/service2.jpg",
   "title" : "title"
 } ];
     if (Object.keys(examples).length > 0) {
