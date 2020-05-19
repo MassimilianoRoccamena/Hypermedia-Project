@@ -33,12 +33,16 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "page"
+      - name: "offset"
         in: "query"
-        description: "Services page number to get"
+        description: "Pagination offset"
         required: true
         type: "integer"
-        format: "int64"
+      - name: "search"
+        in: "query"
+        description: "Text search"
+        required: true
+        type: "string"
       responses:
         "200":
           description: "Successful operation"
@@ -217,12 +221,16 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "page"
+      - name: "offset"
         in: "query"
-        description: "Events page number to get"
+        description: "Pagination offset"
         required: true
         type: "integer"
-        format: "int64"
+      - name: "search"
+        in: "query"
+        description: "Text search"
+        required: true
+        type: "string"
       responses:
         "200":
           description: "Successful operation"
@@ -231,7 +239,7 @@ paths:
             items:
               $ref: "#/definitions/EventItem"
       x-swagger-router-controller: "Event"
-  /events/{month}:
+  /events/month/{month}:
     get:
       tags:
       - "event"
@@ -248,12 +256,16 @@ paths:
         maximum: 12
         minimum: 1
         format: "int64"
-      - name: "page"
+      - name: "offset"
         in: "query"
-        description: "Events page number to get"
+        description: "Pagination offset"
         required: true
         type: "integer"
-        format: "int64"
+      - name: "search"
+        in: "query"
+        description: "Text search"
+        required: true
+        type: "string"
       responses:
         "200":
           description: "Successful operation"
@@ -432,12 +444,16 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "page"
+      - name: "offset"
         in: "query"
-        description: "People page number to get"
+        description: "Pagination offset"
         required: true
         type: "integer"
-        format: "int64"
+      - name: "search"
+        in: "query"
+        description: "Text search"
+        required: true
+        type: "string"
       responses:
         "200":
           description: "Successful operation"
@@ -535,12 +551,16 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "page"
+      - name: "offset"
         in: "query"
-        description: "Articles page number to get"
+        description: "Pagination offset"
         required: true
         type: "integer"
-        format: "int64"
+      - name: "search"
+        in: "query"
+        description: "Text search"
+        required: true
+        type: "string"
       responses:
         "200":
           description: "Successful operation"
@@ -736,7 +756,9 @@ definitions:
       presentation:
         type: "string"
       photo_url:
-        type: "string"
+        type: "array"
+        items:
+          type: "string"
     xml:
       name: "Service1"
   Service2:
@@ -784,7 +806,9 @@ definitions:
       description:
         type: "string"
       photo_url:
-        type: "string"
+        type: "array"
+        items:
+          type: "string"
     xml:
       name: "EventPage1"
   Event2:
@@ -891,7 +915,9 @@ definitions:
         type: "string"
       body:
         type: "string"
-      photo_url:
+      photo1_url:
+        type: "string"
+      photo2_url:
         type: "string"
     xml:
       name: "Article"
