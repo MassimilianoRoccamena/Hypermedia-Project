@@ -2,33 +2,7 @@
 
 
 /**
- * Add a new article
- *
- * article Article Article object to be added
- * no response value expected for this operation
- **/
-exports.addArticle = function(article) {
-  return new Promise(function(resolve, reject) {
-    resolve();
-  });
-}
-
-
-/**
- * Delete an article by ID
- *
- * id_article Long ID of article to be deleted
- * no response value expected for this operation
- **/
-exports.deleteArticle = function(id_article) {
-  return new Promise(function(resolve, reject) {
-    resolve();
-  });
-}
-
-
-/**
- * Get an article by ID
+ * Get article page data by ID
  *
  * id_article Long ID of article to return
  * returns Article
@@ -38,11 +12,12 @@ exports.getArticleByID = function(id_article) {
     var examples = {};
     examples['application/json'] = {
   "id_article" : 0,
+  "photo1_url" : "photo1_url",
   "email_address" : "email_address",
   "author" : "author",
   "publication_date" : "2000-01-23",
   "id_event" : 1,
-  "photo_url" : "photo_url",
+  "photo2_url" : "photo2_url",
   "title" : "title",
   "body" : "body",
   "id_service" : 6
@@ -57,12 +32,12 @@ exports.getArticleByID = function(id_article) {
 
 
 /**
- * Get event of a selected article by ID
+ * Get event item of a selected article by ID
  *
  * id_article Long ID of article to search for event
  * returns EventItem
  **/
-exports.getArticleEventByID = function(id_article) {
+exports.getArticleEventItemByID = function(id_article) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
@@ -82,12 +57,12 @@ exports.getArticleEventByID = function(id_article) {
 
 
 /**
- * Get service of a selected article by ID
+ * Get service item of a selected article by ID
  *
  * id_article Long ID of article to search for service
  * returns ServiceItem
  **/
-exports.getArticleServiceByID = function(id_article) {
+exports.getArticleServiceItemByID = function(id_article) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
@@ -106,50 +81,13 @@ exports.getArticleServiceByID = function(id_article) {
 
 
 /**
- * Get all articles
+ * Get articles items
  *
+ * offset Integer Pagination offset
+ * search String Text search
  * returns List
  **/
-exports.getArticlesAll = function() {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "id_article" : 0,
-  "email_address" : "email_address",
-  "author" : "author",
-  "publication_date" : "2000-01-23",
-  "id_event" : 1,
-  "photo_url" : "photo_url",
-  "title" : "title",
-  "body" : "body",
-  "id_service" : 6
-}, {
-  "id_article" : 0,
-  "email_address" : "email_address",
-  "author" : "author",
-  "publication_date" : "2000-01-23",
-  "id_event" : 1,
-  "photo_url" : "photo_url",
-  "title" : "title",
-  "body" : "body",
-  "id_service" : 6
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
-}
-
-
-/**
- * Get all articles items
- *
- * page Long Articles page number to get
- * returns List
- **/
-exports.getArticlesItemsAll = function(page) {
+exports.getArticlesItems = function(offset,search) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
@@ -175,25 +113,25 @@ exports.getArticlesItemsAll = function(page) {
 
 
 /**
- * Get related articles of a selected article by ID
+ * Get related articles items of a selected article by ID
  *
  * id_article Long ID of article to search for related
  * returns List
  **/
-exports.getRelatedArticlesByID = function(id_article) {
+exports.getRelatedArticlesItemsByID = function(id_article) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
   "id_article" : 0,
   "author" : "author",
   "publication_date" : "2000-01-23",
-  "photo_url" : "/assets/img/service1.jpg",
+  "photo_url" : "photo_url",
   "title" : "title"
 }, {
   "id_article" : 0,
   "author" : "author",
   "publication_date" : "2000-01-23",
-  "photo_url" : "/assets/img/service2.jpg",
+  "photo_url" : "photo_url",
   "title" : "title"
 } ];
     if (Object.keys(examples).length > 0) {
@@ -201,19 +139,6 @@ exports.getRelatedArticlesByID = function(id_article) {
     } else {
       resolve();
     }
-  });
-}
-
-
-/**
- * Update an article
- *
- * article Article Article object to be updated
- * no response value expected for this operation
- **/
-exports.updateArticle = function(article) {
-  return new Promise(function(resolve, reject) {
-    resolve();
   });
 }
 

@@ -2,38 +2,12 @@
 
 
 /**
- * Add a new service
- *
- * service Service Service object to be added
- * no response value expected for this operation
- **/
-exports.addService = function(service) {
-  return new Promise(function(resolve, reject) {
-    resolve();
-  });
-}
-
-
-/**
- * Delete a service by ID
- *
- * id_service Long ID of service to be deleted
- * no response value expected for this operation
- **/
-exports.deleteService = function(id_service) {
-  return new Promise(function(resolve, reject) {
-    resolve();
-  });
-}
-
-
-/**
- * Get related services of a selected service by ID
+ * Get related services items of a selected service by ID
  *
  * id_service Long ID of service to search for related
  * returns List
  **/
-exports.getRelatedServicesByID = function(id_service) {
+exports.getRelatedServicesItemsByID = function(id_service) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
@@ -57,12 +31,60 @@ exports.getRelatedServicesByID = function(id_service) {
 
 
 /**
- * Get articles of a selected service by ID
+ * Get service page 1 data by ID
+ *
+ * id_service Long ID of service to return
+ * returns Service1
+ **/
+exports.getService1ByID = function(id_service) {
+  return new Promise(function(resolve, reject) {
+    var examples = {};
+    examples['application/json'] = {
+  "presentation" : "presentation",
+  "name" : "name",
+  "photo_url" : [ "photo_url", "photo_url" ],
+  "id_service" : 0
+};
+    if (Object.keys(examples).length > 0) {
+      resolve(examples[Object.keys(examples)[0]]);
+    } else {
+      resolve();
+    }
+  });
+}
+
+
+/**
+ * Get service page 2 data by ID
+ *
+ * id_service Long ID of service to return
+ * returns Service2
+ **/
+exports.getService2ByID = function(id_service) {
+  return new Promise(function(resolve, reject) {
+    var examples = {};
+    examples['application/json'] = {
+  "name" : "name",
+  "location" : "location",
+  "id_service" : 0,
+  "informations" : "informations"
+};
+    if (Object.keys(examples).length > 0) {
+      resolve(examples[Object.keys(examples)[0]]);
+    } else {
+      resolve();
+    }
+  });
+}
+
+
+/**
+ * Get articles items of a selected service by ID
  *
  * id_service Long ID of service to search for articles
  * returns List
  **/
-exports.getServiceArticlesByID = function(id_service) {
+exports.getServiceArticlesItemsByID = function(id_service) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
@@ -88,38 +110,12 @@ exports.getServiceArticlesByID = function(id_service) {
 
 
 /**
- * Get a service by ID
- *
- * id_service Long ID of service to return
- * returns Service
- **/
-exports.getServiceByID = function(id_service) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "presentation" : "presentation",
-  "name" : "name",
-  "location" : "location",
-  "photo_url" : "photo_url",
-  "id_service" : 0,
-  "informations" : "informations"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
-}
-
-
-/**
- * Get events of a selected service by ID
+ * Get events items of a selected service by ID
  *
  * id_service Long ID of service to search for events
  * returns List
  **/
-exports.getServiceEventsByID = function(id_service) {
+exports.getServiceEventsItemsByID = function(id_service) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
@@ -145,60 +141,12 @@ exports.getServiceEventsByID = function(id_service) {
 
 
 /**
- * Get a service page 1 data by ID
- *
- * id_service Long ID of service to return
- * returns ServicePage1
- **/
-exports.getServicePage1ByID = function(id_service) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "presentation" : "bla bla bla bla bla bla bla",
-  "name" : "Education",
-  "photo_url" : "photo_url",
-  "id_service" : 0
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
-}
-
-
-/**
- * Get a service page 2 data by ID
- *
- * id_service Long ID of service to return
- * returns ServicePage2
- **/
-exports.getServicePage2ByID = function(id_service) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "name" : "name",
-  "id_service" : 0,
-  "informations" : "bwdiuqwbdubuqwuidbwqjdbnqwudbqwjbdwqbdubnwqdnbbwuqbndabdwabdbwqui",
-  "location" : "Kenya Somalia Zimbabwe"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
-}
-
-
-/**
- * Get people of a selected service by ID
+ * Get people items of a selected service by ID
  *
  * id_service Long ID of service to search for people
  * returns List
  **/
-exports.getServicePeopleByID = function(id_service) {
+exports.getServicePeopleItemsByID = function(id_service) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
@@ -220,44 +168,13 @@ exports.getServicePeopleByID = function(id_service) {
 
 
 /**
- * Get all services
+ * Get services items
  *
+ * offset Integer Pagination offset
+ * search String Text search
  * returns List
  **/
-exports.getServicesAll = function() {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "presentation" : "presentation",
-  "name" : "name",
-  "location" : "location",
-  "photo_url" : "photo_url",
-  "id_service" : 0,
-  "informations" : "informations"
-}, {
-  "presentation" : "presentation",
-  "name" : "name",
-  "location" : "location",
-  "photo_url" : "photo_url",
-  "id_service" : 0,
-  "informations" : "informations"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
-}
-
-
-/**
- * Get all services items
- *
- * page Long Services page number to get
- * returns List
- **/
-exports.getServicesItemsAll = function(page) {
+exports.getServicesItems = function(offset,search) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
@@ -276,19 +193,6 @@ exports.getServicesItemsAll = function(page) {
     } else {
       resolve();
     }
-  });
-}
-
-
-/**
- * Update a service
- *
- * service Service Service object to be updated
- * no response value expected for this operation
- **/
-exports.updateService = function(service) {
-  return new Promise(function(resolve, reject) {
-    resolve();
   });
 }
 

@@ -103,7 +103,6 @@ paths:
         "404":
           description: "Service not found"
       x-swagger-router-controller: "Service"
-  
   /service/{id_service}/related:
     get:
       tags:
@@ -761,6 +760,13 @@ definitions:
           type: "string"
     xml:
       name: "Service1"
+    example:
+      presentation: "presentation"
+      name: "name"
+      photo_url:
+      - "photo_url"
+      - "photo_url"
+      id_service: 0
   Service2:
     type: "object"
     required:
@@ -777,6 +783,11 @@ definitions:
         type: "string"
     xml:
       name: "Service2"
+    example:
+      name: "name"
+      location: "location"
+      id_service: 0
+      informations: "informations"
   ServiceItem:
     type: "object"
     required:
@@ -793,6 +804,11 @@ definitions:
         type: "string"
     xml:
       name: "ServiceItem"
+    example:
+      presentation: "presentation"
+      name: "name"
+      photo_url: "photo_url"
+      id_service: 0
   Event1:
     type: "object"
     required:
@@ -811,6 +827,13 @@ definitions:
           type: "string"
     xml:
       name: "EventPage1"
+    example:
+      name: "name"
+      description: "description"
+      id_event: 0
+      photo_url:
+      - "photo_url"
+      - "photo_url"
   Event2:
     type: "object"
     required:
@@ -830,6 +853,12 @@ definitions:
         type: "string"
     xml:
       name: "Event2"
+    example:
+      date: "2000-01-23"
+      name: "name"
+      pract_info: "pract_info"
+      location: "location"
+      id_event: 0
   EventItem:
     type: "object"
     required:
@@ -849,6 +878,12 @@ definitions:
         type: "string"
     xml:
       name: "EventItem"
+    example:
+      date: "2000-01-23"
+      name: "name"
+      location: "location"
+      id_event: 0
+      photo_url: "photo_url"
   Person:
     type: "object"
     required:
@@ -875,6 +910,15 @@ definitions:
         format: "date"
     xml:
       name: "Person"
+    example:
+      id_person: 0
+      role: "role"
+      email_address: "email_address"
+      starting_date: "2000-01-23"
+      name: "name"
+      description: "description"
+      phone_number: "phone_number"
+      photo_url: "photo_url"
   PersonItem:
     type: "object"
     required:
@@ -889,6 +933,10 @@ definitions:
         type: "string"
     xml:
       name: "PersonItem"
+    example:
+      id_person: 0
+      name: "name"
+      photo_url: "photo_url"
   Article:
     type: "object"
     required:
@@ -921,6 +969,17 @@ definitions:
         type: "string"
     xml:
       name: "Article"
+    example:
+      id_article: 0
+      photo1_url: "photo1_url"
+      email_address: "email_address"
+      author: "author"
+      publication_date: "2000-01-23"
+      id_event: 1
+      photo2_url: "photo2_url"
+      title: "title"
+      body: "body"
+      id_service: 6
   ArticleItem:
     type: "object"
     required:
@@ -940,6 +999,12 @@ definitions:
         type: "string"
     xml:
       name: "ArticleItem"
+    example:
+      id_article: 0
+      author: "author"
+      publication_date: "2000-01-23"
+      photo_url: "photo_url"
+      title: "title"
   Contact:
     type: "object"
     required:
@@ -959,6 +1024,12 @@ definitions:
         type: "string"
     xml:
       name: "Contact"
+    example:
+      email_address: "email_address"
+      phone: "phone"
+      name: "name"
+      location: "location"
+      id_contact: 0
   Message:
     type: "object"
     required:
@@ -978,3 +1049,9 @@ definitions:
         type: "string"
     xml:
       name: "Message"
+    example:
+      id_message: 0
+      sender_name: "sender_name"
+      title: "title"
+      body: "body"
+      sender_email: "sender_email"

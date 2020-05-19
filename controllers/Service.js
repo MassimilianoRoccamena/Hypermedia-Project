@@ -3,20 +3,9 @@
 var utils = require('../utils/writer.js');
 var Service = require('../service/ServiceService');
 
-module.exports.addService = function addService (req, res, next) {
-  var service = req.swagger.params['service'].value;
-  Service.addService(service)
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
-    });
-};
-
-module.exports.deleteService = function deleteService (req, res, next) {
+module.exports.getRelatedServicesItemsByID = function getRelatedServicesItemsByID (req, res, next) {
   var id_service = req.swagger.params['id_service'].value;
-  Service.deleteService(id_service)
+  Service.getRelatedServicesItemsByID(id_service)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -25,9 +14,9 @@ module.exports.deleteService = function deleteService (req, res, next) {
     });
 };
 
-module.exports.getRelatedServicesByID = function getRelatedServicesByID (req, res, next) {
+module.exports.getService1ByID = function getService1ByID (req, res, next) {
   var id_service = req.swagger.params['id_service'].value;
-  Service.getRelatedServicesByID(id_service)
+  Service.getService1ByID(id_service)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -36,9 +25,9 @@ module.exports.getRelatedServicesByID = function getRelatedServicesByID (req, re
     });
 };
 
-module.exports.getServiceArticlesByID = function getServiceArticlesByID (req, res, next) {
+module.exports.getService2ByID = function getService2ByID (req, res, next) {
   var id_service = req.swagger.params['id_service'].value;
-  Service.getServiceArticlesByID(id_service)
+  Service.getService2ByID(id_service)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -47,9 +36,9 @@ module.exports.getServiceArticlesByID = function getServiceArticlesByID (req, re
     });
 };
 
-module.exports.getServiceByID = function getServiceByID (req, res, next) {
+module.exports.getServiceArticlesItemsByID = function getServiceArticlesItemsByID (req, res, next) {
   var id_service = req.swagger.params['id_service'].value;
-  Service.getServiceByID(id_service)
+  Service.getServiceArticlesItemsByID(id_service)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -58,9 +47,9 @@ module.exports.getServiceByID = function getServiceByID (req, res, next) {
     });
 };
 
-module.exports.getServiceEventsByID = function getServiceEventsByID (req, res, next) {
+module.exports.getServiceEventsItemsByID = function getServiceEventsItemsByID (req, res, next) {
   var id_service = req.swagger.params['id_service'].value;
-  Service.getServiceEventsByID(id_service)
+  Service.getServiceEventsItemsByID(id_service)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -69,9 +58,9 @@ module.exports.getServiceEventsByID = function getServiceEventsByID (req, res, n
     });
 };
 
-module.exports.getServicePage1ByID = function getServicePage1ByID (req, res, next) {
+module.exports.getServicePeopleItemsByID = function getServicePeopleItemsByID (req, res, next) {
   var id_service = req.swagger.params['id_service'].value;
-  Service.getServicePage1ByID(id_service)
+  Service.getServicePeopleItemsByID(id_service)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -80,52 +69,10 @@ module.exports.getServicePage1ByID = function getServicePage1ByID (req, res, nex
     });
 };
 
-module.exports.getServicePage2ByID = function getServicePage2ByID (req, res, next) {
-  var id_service = req.swagger.params['id_service'].value;
-  Service.getServicePage2ByID(id_service)
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
-    });
-};
-
-module.exports.getServicePeopleByID = function getServicePeopleByID (req, res, next) {
-  var id_service = req.swagger.params['id_service'].value;
-  Service.getServicePeopleByID(id_service)
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
-    });
-};
-
-module.exports.getServicesAll = function getServicesAll (req, res, next) {
-  Service.getServicesAll()
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
-    });
-};
-
-module.exports.getServicesItemsAll = function getServicesItemsAll (req, res, next) {
-  var page = req.swagger.params['page'].value;
-  Service.getServicesItemsAll(page)
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
-    });
-};
-
-module.exports.updateService = function updateService (req, res, next) {
-  var service = req.swagger.params['service'].value;
-  Service.updateService(service)
+module.exports.getServicesItems = function getServicesItems (req, res, next) {
+  var offset = req.swagger.params['offset'].value;
+  var search = req.swagger.params['search'].value;
+  Service.getServicesItems(offset,search)
     .then(function (response) {
       utils.writeJson(res, response);
     })

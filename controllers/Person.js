@@ -3,41 +3,10 @@
 var utils = require('../utils/writer.js');
 var Person = require('../service/PersonService');
 
-module.exports.addPerson = function addPerson (req, res, next) {
-  var person = req.swagger.params['person'].value;
-  Person.addPerson(person)
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
-    });
-};
-
-module.exports.deletePerson = function deletePerson (req, res, next) {
-  var id_person = req.swagger.params['id_person'].value;
-  Person.deletePerson(id_person)
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
-    });
-};
-
-module.exports.getPeopleAll = function getPeopleAll (req, res, next) {
-  Person.getPeopleAll()
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
-    });
-};
-
-module.exports.getPeopleItemsAll = function getPeopleItemsAll (req, res, next) {
-  var page = req.swagger.params['page'].value;
-  Person.getPeopleItemsAll(page)
+module.exports.getPeopleItems = function getPeopleItems (req, res, next) {
+  var offset = req.swagger.params['offset'].value;
+  var search = req.swagger.params['search'].value;
+  Person.getPeopleItems(offset,search)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -57,9 +26,9 @@ module.exports.getPersonByID = function getPersonByID (req, res, next) {
     });
 };
 
-module.exports.getPersonEventsByID = function getPersonEventsByID (req, res, next) {
+module.exports.getPersonEventsItemsByID = function getPersonEventsItemsByID (req, res, next) {
   var id_person = req.swagger.params['id_person'].value;
-  Person.getPersonEventsByID(id_person)
+  Person.getPersonEventsItemsByID(id_person)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -68,20 +37,9 @@ module.exports.getPersonEventsByID = function getPersonEventsByID (req, res, nex
     });
 };
 
-module.exports.getPersonServicesByID = function getPersonServicesByID (req, res, next) {
+module.exports.getPersonServicesItemsByID = function getPersonServicesItemsByID (req, res, next) {
   var id_person = req.swagger.params['id_person'].value;
-  Person.getPersonServicesByID(id_person)
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
-    });
-};
-
-module.exports.updatePerson = function updatePerson (req, res, next) {
-  var person = req.swagger.params['person'].value;
-  Person.updatePerson(person)
+  Person.getPersonServicesItemsByID(id_person)
     .then(function (response) {
       utils.writeJson(res, response);
     })

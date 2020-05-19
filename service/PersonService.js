@@ -2,74 +2,13 @@
 
 
 /**
- * Add a new person
+ * Getl people items
  *
- * person Person Person object to be added
- * no response value expected for this operation
- **/
-exports.addPerson = function(person) {
-  return new Promise(function(resolve, reject) {
-    resolve();
-  });
-}
-
-
-/**
- * Delete a person by ID
- *
- * id_person Long ID of person to be deleted
- * no response value expected for this operation
- **/
-exports.deletePerson = function(id_person) {
-  return new Promise(function(resolve, reject) {
-    resolve();
-  });
-}
-
-
-/**
- * Get all people
- *
+ * offset Integer Pagination offset
+ * search String Text search
  * returns List
  **/
-exports.getPeopleAll = function() {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "id_person" : 0,
-  "role" : "role",
-  "email_address" : "email_address",
-  "starting_date" : "2000-01-23",
-  "name" : "name",
-  "description" : "description",
-  "phone_number" : "phone_number",
-  "photo_url" : "photo_url"
-}, {
-  "id_person" : 0,
-  "role" : "role",
-  "email_address" : "email_address",
-  "starting_date" : "2000-01-23",
-  "name" : "name",
-  "description" : "description",
-  "phone_number" : "phone_number",
-  "photo_url" : "photo_url"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });
-}
-
-
-/**
- * Get all people items
- *
- * page Long People page number to get
- * returns List
- **/
-exports.getPeopleItemsAll = function(page) {
+exports.getPeopleItems = function(offset,search) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
@@ -91,7 +30,7 @@ exports.getPeopleItemsAll = function(page) {
 
 
 /**
- * Get a person by ID
+ * Get person page data by ID
  *
  * id_person Long ID of person to return
  * returns Person
@@ -107,7 +46,7 @@ exports.getPersonByID = function(id_person) {
   "name" : "name",
   "description" : "description",
   "phone_number" : "phone_number",
-  "photo_url" : "/assets/img/person1.jpg"
+  "photo_url" : "photo_url"
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -119,12 +58,12 @@ exports.getPersonByID = function(id_person) {
 
 
 /**
- * Get events of a selected person by ID
+ * Get events items of a selected person by ID
  *
  * id_person Long ID of person to search for events
  * returns List
  **/
-exports.getPersonEventsByID = function(id_person) {
+exports.getPersonEventsItemsByID = function(id_person) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
@@ -150,12 +89,12 @@ exports.getPersonEventsByID = function(id_person) {
 
 
 /**
- * Get services of a selected person by ID
+ * Get services items of a selected person by ID
  *
  * id_person Long ID of person to search for services
  * returns List
  **/
-exports.getPersonServicesByID = function(id_person) {
+exports.getPersonServicesItemsByID = function(id_person) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
@@ -174,19 +113,6 @@ exports.getPersonServicesByID = function(id_person) {
     } else {
       resolve();
     }
-  });
-}
-
-
-/**
- * Update a person
- *
- * person Person Person object to be updated
- * no response value expected for this operation
- **/
-exports.updatePerson = function(person) {
-  return new Promise(function(resolve, reject) {
-    resolve();
   });
 }
 

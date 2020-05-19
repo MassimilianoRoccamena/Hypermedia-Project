@@ -2,33 +2,7 @@
 
 
 /**
- * Add a new contact
- *
- * contact Contact Contact object to be added
- * no response value expected for this operation
- **/
-exports.addContact = function(contact) {
-  return new Promise(function(resolve, reject) {
-    resolve();
-  });
-}
-
-
-/**
- * Delete a contact by ID
- *
- * id_contact Long ID of contact to be deleted
- * no response value expected for this operation
- **/
-exports.deleteContact = function(id_contact) {
-  return new Promise(function(resolve, reject) {
-    resolve();
-  });
-}
-
-
-/**
- * Get a contact by ID
+ * Get contact by ID
  *
  * id_contact Long ID of contact to return
  * returns Contact
@@ -53,11 +27,11 @@ exports.getContactByID = function(id_contact) {
 
 
 /**
- * Get all contacts
+ * Get contacts
  *
  * returns List
  **/
-exports.getContactsAll = function() {
+exports.getContacts = function() {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
@@ -78,19 +52,6 @@ exports.getContactsAll = function() {
     } else {
       resolve();
     }
-  });
-}
-
-
-/**
- * Update a contact
- *
- * contact Contact Contact object to be updated
- * no response value expected for this operation
- **/
-exports.updateContact = function(contact) {
-  return new Promise(function(resolve, reject) {
-    resolve();
   });
 }
 
