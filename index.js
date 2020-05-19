@@ -42,14 +42,15 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
   // Provide public static assets
   app.use(serveStatic(__dirname + '/public'));
 
+  // Setup data layer
+  setupDataLayer();
+
   // Start the server
-  setupDataLayer().then(function() {
-    console.log('Data layer ready');
-    let port = process.env.PORT || serverPort;
-    http.createServer(app).listen(port, function () {
-      console.log('Your server is listening on (http://localhost:%d)', port);
-      console.log('Swagger-ui is available on http://localhost:%d/docs', port);
-    });
+  let port = process.env.PORT || serverPort;
+
+  http.createServer(app).listen(port, function () {
+    console.log('Your server is listening on (http://localhost:%d)', port);
+    console.log('Swagger-ui is available on http://localhost:%d/docs', port);
   });
 
 });
