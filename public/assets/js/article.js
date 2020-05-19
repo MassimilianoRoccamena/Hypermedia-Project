@@ -42,14 +42,21 @@ function loadData() {
         return response.json();
     })
     .then(function(json){
-        var title = $("#name");
-        var author = $("#author");
-        var date = $("#date");
-        var body = $("#text");
+        let title = $("#name");
+        let author = $("#author");
+        let image1 = $("#image1");
+        let image2 = $("#image2");
+        let date = $("#date");
+        let text = $("#text");
         title.append(json.title);
         author.append(json.author);
         date.append(json.publication_date);
         text.append(json.body);
+        let firstImage = $("<img src='" + json.photo1_url + "' style='width: 100%;'>");
+        let secondImage = $("<img src='" + json.photo2_url + "' style='width: 100%;'>");
+        image1.append(firstImage);
+        image2.append(secondImage);
+        imageDiv.append(image);
     });
     //load related articles
     fetch("/api/" + item + "/" + id + "/related").then(function(response){

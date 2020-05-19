@@ -34,7 +34,7 @@ function loadData() {
     let id = "0";
     let relatedItem;
 
-    fetch("/api/" + item + "/" + id).then(function(response){
+    fetch("/api/" + item + "1/" + id).then(function(response){
         if(!response.ok){
             throw new Error("HTTP error, status =  " + response.status);
         }
@@ -45,6 +45,16 @@ function loadData() {
         var p = $("#presentation_text");
         h1.append(json.name)
         p.append(json.presentation)
+        //Load photo gallery 
+        let gallery = $("#gallery");
+        for (let i = 0; i < json.photo_url.length; i++) {
+            let col = $("<div class='col-lg-3 col-md-4 col-6'></div>");
+            col.load("/pages/components/photo-gallery.html", function(responseTxt, statusTxt, xhr){
+                let image = col.find("#image");
+                image.append("<img class='img-fluid img-thumbnail' src='" + json.photo_url[i] + "' alt=''>");
+            })
+            gallery.append(col);
+        }
     });
 
     //Load related events

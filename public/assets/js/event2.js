@@ -32,7 +32,7 @@ function addLink(text, link) {
 function loadData() {
  
     //Load page2 informations
-    fetch("/api/event/0/page2").then(function(response){
+    fetch("/api/event2/0").then(function(response){
         if(!response.ok){
             throw new Error("HTTP error, status =  " + response.status);
         }
