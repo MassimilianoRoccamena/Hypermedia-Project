@@ -18,7 +18,7 @@ exports.eventDbSetup = function(s) {
  * returns Event1
  **/
 exports.getEvent1ByID = function(id_event) {
-  return new Promise(function(resolve, reject) {
+  /* return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
   "name" : "name",
@@ -31,7 +31,9 @@ exports.getEvent1ByID = function(id_event) {
     } else {
       resolve();
     }
-  });
+  }); */
+
+  return sqlDb.from("Event").select("*").where("id_event", "=", id_event);
 }
 
 
@@ -42,7 +44,7 @@ exports.getEvent1ByID = function(id_event) {
  * returns Event2
  **/
 exports.getEvent2ByID = function(id_event) {
-  return new Promise(function(resolve, reject) {
+  /* return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
   "date" : "2000-01-23",
@@ -56,7 +58,9 @@ exports.getEvent2ByID = function(id_event) {
     } else {
       resolve();
     }
-  });
+  }); */
+
+  return sqlDb.from("Event").select("*").where("id_event", "=", id_event);
 }
 
 
@@ -215,7 +219,7 @@ exports.getEventsItemsByMonth = function(month,offset,search) {
  * returns List
  **/
 exports.getRelatedEventsItemsByID = function(id_event) {
-  return new Promise(function(resolve, reject) {
+  /* return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
   "date" : "2000-01-23",
@@ -235,6 +239,8 @@ exports.getRelatedEventsItemsByID = function(id_event) {
     } else {
       resolve();
     }
-  });
+  }); */
+
+  return sqlDb.from("Event").select("*");
 }
 

@@ -18,7 +18,7 @@ exports.contactDbSetup = function(s) {
  * returns Contact
  **/
 exports.getContactByID = function(id_contact) {
-  return new Promise(function(resolve, reject) {
+  /* return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
   "email_address" : "email_address",
@@ -32,7 +32,9 @@ exports.getContactByID = function(id_contact) {
     } else {
       resolve();
     }
-  });
+  }); */
+
+  return sqlDb.from("Contact").select("*").where("id_contact", "=", id_contact);
 }
 
 
@@ -42,7 +44,7 @@ exports.getContactByID = function(id_contact) {
  * returns List
  **/
 exports.getContacts = function() {
-  return new Promise(function(resolve, reject) {
+  /* return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
   "email_address" : "email_address",
@@ -62,6 +64,8 @@ exports.getContacts = function() {
     } else {
       resolve();
     }
-  });
+  }); */
+
+  return sqlDb.from("Contact").select("*");
 }
 

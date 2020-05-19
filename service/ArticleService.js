@@ -19,7 +19,7 @@ exports.articleDbSetup = function(s) {
  * returns Article
  **/
 exports.getArticleByID = function(id_article) {
-  return new Promise(function(resolve, reject) {
+  /* return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
   "id_article" : 0,
@@ -38,7 +38,9 @@ exports.getArticleByID = function(id_article) {
     } else {
       resolve();
     }
-  });
+  }); */
+
+  return sqlDb.from("Article").select("*").where("id_article", "=", id_article);
 }
 
 
@@ -130,7 +132,7 @@ exports.getArticlesItems = function(offset,search) {
  * returns List
  **/
 exports.getRelatedArticlesItemsByID = function(id_article) {
-  return new Promise(function(resolve, reject) {
+  /* return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
   "id_article" : 0,
@@ -150,6 +152,8 @@ exports.getRelatedArticlesItemsByID = function(id_article) {
     } else {
       resolve();
     }
-  });
+  }); */
+
+  return sqlDb.from("Event").select("*");
 }
 

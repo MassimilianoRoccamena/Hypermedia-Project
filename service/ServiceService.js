@@ -47,7 +47,7 @@ exports.getRelatedServicesItemsByID = function(id_service) {
  * returns Service1
  **/
 exports.getService1ByID = function(id_service) {
-  return new Promise(function(resolve, reject) {
+  /* return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
   "presentation" : "presentation",
@@ -60,7 +60,9 @@ exports.getService1ByID = function(id_service) {
     } else {
       resolve();
     }
-  });
+  }); */
+
+  return sqlDb.from("Service").select("*").where("id_service", "=", id_service);
 }
 
 
@@ -71,7 +73,7 @@ exports.getService1ByID = function(id_service) {
  * returns Service2
  **/
 exports.getService2ByID = function(id_service) {
-  return new Promise(function(resolve, reject) {
+  /* return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
   "name" : "name",
@@ -84,7 +86,9 @@ exports.getService2ByID = function(id_service) {
     } else {
       resolve();
     }
-  });
+  }); */
+
+  return sqlDb.from("Service").select("*").where("id_service", "=", id_service);
 }
 
 
@@ -205,7 +209,6 @@ exports.getServicesItems = function(offset,search) {
     }
   }); */
 
-  console.log(sqlDb);
   return sqlDb.from("Service").select("*");
 }
 

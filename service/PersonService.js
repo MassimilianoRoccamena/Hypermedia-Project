@@ -46,7 +46,7 @@ exports.getPeopleItems = function(offset,search) {
  * returns Person
  **/
 exports.getPersonByID = function(id_person) {
-  return new Promise(function(resolve, reject) {
+  /* return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
   "id_person" : 0,
@@ -63,7 +63,9 @@ exports.getPersonByID = function(id_person) {
     } else {
       resolve();
     }
-  });
+  }); */
+
+  return sqlDb.from("Person").select("*").where("id_person", "=", id_person);
 }
 
 
@@ -105,7 +107,7 @@ exports.getPersonEventsItemsByID = function(id_person) {
  * returns List
  **/
 exports.getPersonServicesItemsByID = function(id_person) {
-  return new Promise(function(resolve, reject) {
+  /* return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
   "presentation" : "presentation",
@@ -123,6 +125,8 @@ exports.getPersonServicesItemsByID = function(id_person) {
     } else {
       resolve();
     }
-  });
+  }); */
+
+  return sqlDb.from("Person").select("*");
 }
 
