@@ -45,14 +45,14 @@ function loadData() {
         var name = $("#name");
         var role = $("#role");
         var text = $("#text");
-        var imageDiv = $("#image");
+        var image = $("#image");
         var email = $("#email");
         var number = $("#number"); 
         name.append(json.name);
         role.append(json.role);
         text.append(json.description);
         let image = $("<img class='p-3' src='" + json.photo_url + "' style='border-radius: 50%; width: 100%;'>");
-        imageDiv.append(image);
+        image.append(image);
         email.append(json.email_address);
         number.append(json.phone_number);
     });
