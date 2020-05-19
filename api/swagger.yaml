@@ -19,9 +19,7 @@ tags:
 - name: "contact"
   description: "Contacts of the association"
 - name: "message"
-  description: "Messages sent by user to the association"
-- name: "link"
-  description: "State changes of overall relations"
+  description: "Messages posted by users for the association"
 schemes:
 - "https"
 - "http"
