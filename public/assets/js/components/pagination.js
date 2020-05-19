@@ -50,7 +50,7 @@ function initPagination() {
     }
 }
 
-//Load items page
+//Load group page
 function loadPage(first=true) {
     if (itemType == "card") {
         if (!first) {

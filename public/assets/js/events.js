@@ -63,7 +63,7 @@ function initPagination() {
     }
 }
 
-//Load items page
+//Load group page
 function loadPage(first=true) {
     if (!first) {
         for (let i=0; i<itemsCount; i++) {

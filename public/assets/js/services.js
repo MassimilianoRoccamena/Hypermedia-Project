@@ -57,7 +57,7 @@ function initPagination() {
     root.append(container);
 }
 
-//Load items page
+//Load group page
 function loadPage(first=true) {
     let container = $("#" + idGroup).find(".container")
 

@@ -45,6 +45,7 @@ function loadData() {
         var p = $("#presentation_text");
         h1.append(json.name)
         p.append(json.presentation)
+
         //Load photo gallery 
         let gallery = $("#gallery");
         for (let i = 0; i < json.photo_url.length; i++) {
@@ -71,13 +72,13 @@ function loadData() {
             row.append(col);
             relatedItem = "event";
             col.load("/pages/components/" + relatedItem + "-card.html", function(responseTxt, statusTxt, xhr) {
-                let relatedImage = col.find("#cardPhoto");
+                let relatedImage = col.find("#photo");
                 relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url + "'></img>");
                 let relatedTitle = col.find(".card-title");
                 relatedTitle.append(json[i].name);
-                let relatedDate = col.find("#cardDate");
+                let relatedDate = col.find("#date");
                 relatedDate.append(json[i].date);
-                let relatedLocation = col.find("#cardLocation");
+                let relatedLocation = col.find("#location");
                 relatedLocation.append(json[i].location);
             }); 
         }
@@ -97,7 +98,7 @@ function loadData() {
             row.append(col);
             relatedItem = "service";
             col.load("/pages/components/" + relatedItem + "-card.html", function(responseTxt, statusTxt, xhr) {
-                let relatedImage = col.find("#relatedPhoto");
+                let relatedImage = col.find("#photo");
                 relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url + "'></img>");
                 let relatedTitle = col.find(".card-title");
                 relatedTitle.append(json[i].name);
