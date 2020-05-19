@@ -34,7 +34,7 @@ let relatedItem;
 //Load event data
 function loadData() {
     
-    //Load person informations
+    //Load informations
     fetch("/api/" + item + "/" + id).then(function(response){
         if(!response.ok){
             throw new Error("HTTP error, status =  " + response.status);
@@ -45,14 +45,14 @@ function loadData() {
         var name = $("#name");
         var role = $("#role");
         var text = $("#text");
-        var image = $("#image");
+        var image = $("#photo");
         var email = $("#email");
         var number = $("#number"); 
         name.append(json.name);
         role.append(json.role);
         text.append(json.description);
-        let image = $("<img class='p-3' src='" + json.photo_url + "' style='border-radius: 50%; width: 100%;'>");
-        image.append(image);
+        let img = $("<img class='p-3' src='" + json.photo_url + "' style='border-radius: 50%; width: 100%;'>");
+        image.append(img);
         email.append(json.email_address);
         number.append(json.phone_number);
     });
@@ -88,13 +88,13 @@ function loadData() {
             row.append(col);
             relatedItem = "event";
             col.load("/pages/components/" + relatedItem + "-card.html", function(responseTxt, statusTxt, xhr) {
-                let relatedImage = col.find("#cardPhoto");
+                let relatedImage = col.find("#photo");
                 relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url + "'></img>");
                 let relatedTitle = col.find(".card-title");
                 relatedTitle.append(json[i].name);
-                let relatedDate = col.find("#cardDate");
+                let relatedDate = col.find("#date");
                 relatedDate.append(json[i].date);
-                let relatedLocation = col.find("#cardLocation");
+                let relatedLocation = col.find("#location");
                 relatedLocation.append(json[i].location);
             }); 
         }

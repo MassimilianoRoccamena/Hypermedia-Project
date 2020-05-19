@@ -154,6 +154,6 @@ exports.getRelatedArticlesItemsByID = function(id_article) {
     }
   }); */
 
-  return sqlDb.from("Event").select("*");
+  return sqlDb.from("Article").select("*");
 }
 
