@@ -30,25 +30,8 @@ paths:
     get:
       tags:
       - "service"
-      summary: "Get all services"
-      operationId: "getServicesAll"
-      produces:
-      - "application/json"
-      parameters: []
-      responses:
-        "200":
-          description: "Successful operation"
-          schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/Service"
-      x-swagger-router-controller: "Service"
-  /services/items:
-    get:
-      tags:
-      - "service"
-      summary: "Get all services items"
-      operationId: "getServicesItemsAll"
+      summary: "Get services items"
+      operationId: "getServicesItems"
       produces:
       - "application/json"
       parameters:
@@ -66,12 +49,12 @@ paths:
             items:
               $ref: "#/definitions/ServiceItem"
       x-swagger-router-controller: "Service"
-  /service/{id_service}:
+  /service1/{id_service}:
     get:
       tags:
       - "service"
-      summary: "Get a service by ID"
-      operationId: "getServiceByID"
+      summary: "Get service page 1 data by ID"
+      operationId: "getService1ByID"
       produces:
       - "application/json"
       - "application/xml"
@@ -86,41 +69,18 @@ paths:
         "200":
           description: "Successful operation"
           schema:
-            $ref: "#/definitions/Service"
+            $ref: "#/definitions/Service1"
         "400":
           description: "Invalid ID"
         "404":
           description: "Service not found"
       x-swagger-router-controller: "Service"
-    delete:
-      tags:
-      - "service"
-      summary: "Delete a service by ID"
-      operationId: "deleteService"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_service"
-        in: "path"
-        description: "ID of service to be deleted"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid ID"
-        "404":
-          description: "Service not found"
-      x-swagger-router-controller: "Service"
-  /service/{id_service}/page1:
+  /service2/{id_service}:
     get:
       tags:
       - "service"
-      summary: "Get a service page 1 data by ID"
-      operationId: "getServicePage1ByID"
+      summary: "Get service page 2 data by ID"
+      operationId: "getService2ByID"
       produces:
       - "application/json"
       - "application/xml"
@@ -135,95 +95,19 @@ paths:
         "200":
           description: "Successful operation"
           schema:
-            $ref: "#/definitions/ServicePage1"
+            $ref: "#/definitions/Service2"
         "400":
           description: "Invalid ID"
         "404":
           description: "Service not found"
       x-swagger-router-controller: "Service"
-  /service/{id_service}/page2:
-    get:
-      tags:
-      - "service"
-      summary: "Get a service page 2 data by ID"
-      operationId: "getServicePage2ByID"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_service"
-        in: "path"
-        description: "ID of service to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-          schema:
-            $ref: "#/definitions/ServicePage2"
-        "400":
-          description: "Invalid ID"
-        "404":
-          description: "Service not found"
-      x-swagger-router-controller: "Service"
-  /service:
-    post:
-      tags:
-      - "service"
-      summary: "Add a new service"
-      operationId: "addService"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - in: "body"
-        name: "service"
-        description: "Service object to be added"
-        required: true
-        schema:
-          $ref: "#/definitions/Service"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid input"
-      x-swagger-router-controller: "Service"
-    put:
-      tags:
-      - "service"
-      summary: "Update a service"
-      operationId: "updateService"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - in: "body"
-        name: "service"
-        description: "Service object to be updated"
-        required: true
-        schema:
-          $ref: "#/definitions/Service"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid input"
-        "404":
-          description: "Service not found"
-      x-swagger-router-controller: "Service"
+  
   /service/{id_service}/related:
     get:
       tags:
       - "service"
-      summary: "Get related services of a selected service by ID"
-      operationId: "getRelatedServicesByID"
+      summary: "Get related services items of a selected service by ID"
+      operationId: "getRelatedServicesItemsByID"
       produces:
       - "application/json"
       parameters:
@@ -249,8 +133,8 @@ paths:
     get:
       tags:
       - "service"
-      summary: "Get events of a selected service by ID"
-      operationId: "getServiceEventsByID"
+      summary: "Get events items of a selected service by ID"
+      operationId: "getServiceEventsItemsByID"
       produces:
       - "application/json"
       parameters:
@@ -276,8 +160,8 @@ paths:
     get:
       tags:
       - "service"
-      summary: "Get people of a selected service by ID"
-      operationId: "getServicePeopleByID"
+      summary: "Get people items of a selected service by ID"
+      operationId: "getServicePeopleItemsByID"
       produces:
       - "application/json"
       parameters:
@@ -303,8 +187,8 @@ paths:
     get:
       tags:
       - "service"
-      summary: "Get articles of a selected service by ID"
-      operationId: "getServiceArticlesByID"
+      summary: "Get articles items of a selected service by ID"
+      operationId: "getServiceArticlesItemsByID"
       produces:
       - "application/json"
       parameters:
@@ -330,25 +214,8 @@ paths:
     get:
       tags:
       - "event"
-      summary: "Get all events"
-      operationId: "getEventsAll"
-      produces:
-      - "application/json"
-      parameters: []
-      responses:
-        "200":
-          description: "Successful operation"
-          schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/Event"
-      x-swagger-router-controller: "Event"
-  /events/items:
-    get:
-      tags:
-      - "event"
-      summary: "Get all events items"
-      operationId: "getEventsItemAll"
+      summary: "Get events items"
+      operationId: "getEventsItems"
       produces:
       - "application/json"
       parameters:
@@ -366,12 +233,12 @@ paths:
             items:
               $ref: "#/definitions/EventItem"
       x-swagger-router-controller: "Event"
-  /events/items/{month}:
+  /events/{month}:
     get:
       tags:
       - "event"
-      summary: "Get all events by month"
-      operationId: "getEventByMonth"
+      summary: "Get events items by month"
+      operationId: "getEventsItemsByMonth"
       produces:
       - "application/json"
       parameters:
@@ -399,12 +266,12 @@ paths:
         "400":
           description: "Invalid month"
       x-swagger-router-controller: "Event"
-  /event/{id_event}:
+  /event1/{id_event}:
     get:
       tags:
       - "event"
-      summary: "Get an event by ID"
-      operationId: "getEventByID"
+      summary: "Get event page 1 data by ID"
+      operationId: "getEvent1ByID"
       produces:
       - "application/json"
       - "application/xml"
@@ -419,41 +286,18 @@ paths:
         "200":
           description: "Successful operation"
           schema:
-            $ref: "#/definitions/Event"
+            $ref: "#/definitions/Event1"
         "400":
           description: "Invalid ID"
         "404":
           description: "Event not found"
       x-swagger-router-controller: "Event"
-    delete:
-      tags:
-      - "event"
-      summary: "Delete an event by ID"
-      operationId: "deleteEvent"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_event"
-        in: "path"
-        description: "ID of event to be deleted"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid ID"
-        "404":
-          description: "Event not found"
-      x-swagger-router-controller: "Event"
-  /event/{id_event}/page1:
+  /event2/{id_event}:
     get:
       tags:
       - "event"
-      summary: "Get an event page 1 data by ID"
-      operationId: "getEventPage1ByID"
+      summary: "Get event page 2 data by ID"
+      operationId: "getEvent2ByID"
       produces:
       - "application/json"
       - "application/xml"
@@ -468,86 +312,9 @@ paths:
         "200":
           description: "Successful operation"
           schema:
-            $ref: "#/definitions/EventPage1"
+            $ref: "#/definitions/Event2"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Event not found"
-      x-swagger-router-controller: "Event"
-  /event/{id_event}/page2:
-    get:
-      tags:
-      - "event"
-      summary: "Get an event page 2 data by ID"
-      operationId: "getEventPage2ByID"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_event"
-        in: "path"
-        description: "ID of event to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-          schema:
-            $ref: "#/definitions/EventPage2"
-        "400":
-          description: "Invalid ID"
-        "404":
-          description: "Event not found"
-      x-swagger-router-controller: "Event"
-  /event:
-    post:
-      tags:
-      - "event"
-      summary: "Add a new event"
-      operationId: "addEvent"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - in: "body"
-        name: "event"
-        description: "Event object to be added"
-        required: true
-        schema:
-          $ref: "#/definitions/Event"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid input"
-      x-swagger-router-controller: "Event"
-    put:
-      tags:
-      - "event"
-      summary: "Update an event"
-      operationId: "updateEvent"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - in: "body"
-        name: "event"
-        description: "Event object to be updated"
-        required: true
-        schema:
-          $ref: "#/definitions/Event"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid input"
         "404":
           description: "Event not found"
       x-swagger-router-controller: "Event"
@@ -555,8 +322,8 @@ paths:
     get:
       tags:
       - "event"
-      summary: "Get related events of a selected event by ID"
-      operationId: "getRelatedEventsByID"
+      summary: "Get related events items of a selected event by ID"
+      operationId: "getRelatedEventsItemsByID"
       produces:
       - "application/json"
       parameters:
@@ -582,8 +349,8 @@ paths:
     get:
       tags:
       - "event"
-      summary: "Get services of a selected event by ID"
-      operationId: "getEventServicesByID"
+      summary: "Get services items of a selected event by ID"
+      operationId: "getEventServicesItemsByID"
       produces:
       - "application/json"
       parameters:
@@ -609,8 +376,8 @@ paths:
     get:
       tags:
       - "event"
-      summary: "Get person of a selected event by ID"
-      operationId: "getEventPersonByID"
+      summary: "Get person item of a selected event by ID"
+      operationId: "getEventPersonItemByID"
       produces:
       - "application/json"
       - "application/xml"
@@ -635,8 +402,8 @@ paths:
     get:
       tags:
       - "event"
-      summary: "Get articles of a selected event by ID"
-      operationId: "getEventArticlesByID"
+      summary: "Get articles items of a selected event by ID"
+      operationId: "getEventArticlesItemsByID"
       produces:
       - "application/json"
       parameters:
@@ -662,25 +429,8 @@ paths:
     get:
       tags:
       - "person"
-      summary: "Get all people"
-      operationId: "getPeopleAll"
-      produces:
-      - "application/json"
-      parameters: []
-      responses:
-        "200":
-          description: "Successful operation"
-          schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/Person"
-      x-swagger-router-controller: "Person"
-  /people/items:
-    get:
-      tags:
-      - "person"
-      summary: "Get all people items"
-      operationId: "getPeopleItemsAll"
+      summary: "Getl people items"
+      operationId: "getPeopleItems"
       produces:
       - "application/json"
       parameters:
@@ -702,7 +452,7 @@ paths:
     get:
       tags:
       - "person"
-      summary: "Get a person by ID"
+      summary: "Get person page data by ID"
       operationId: "getPersonByID"
       produces:
       - "application/json"
@@ -724,86 +474,12 @@ paths:
         "404":
           description: "Person not found"
       x-swagger-router-controller: "Person"
-    delete:
-      tags:
-      - "person"
-      summary: "Delete a person by ID"
-      operationId: "deletePerson"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_person"
-        in: "path"
-        description: "ID of person to be deleted"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid ID"
-        "404":
-          description: "Person not found"
-      x-swagger-router-controller: "Person"
-  /person:
-    post:
-      tags:
-      - "person"
-      summary: "Add a new person"
-      operationId: "addPerson"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - in: "body"
-        name: "person"
-        description: "Person object to be added"
-        required: true
-        schema:
-          $ref: "#/definitions/Person"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid input"
-      x-swagger-router-controller: "Person"
-    put:
-      tags:
-      - "person"
-      summary: "Update a person"
-      operationId: "updatePerson"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - in: "body"
-        name: "person"
-        description: "Person object to be updated"
-        required: true
-        schema:
-          $ref: "#/definitions/Person"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid input"
-        "404":
-          description: "Person not found"
-      x-swagger-router-controller: "Person"
   /person/{id_person}/services:
     get:
       tags:
       - "person"
-      summary: "Get services of a selected person by ID"
-      operationId: "getPersonServicesByID"
+      summary: "Get services items of a selected person by ID"
+      operationId: "getPersonServicesItemsByID"
       produces:
       - "application/json"
       parameters:
@@ -829,8 +505,8 @@ paths:
     get:
       tags:
       - "person"
-      summary: "Get events of a selected person by ID"
-      operationId: "getPersonEventsByID"
+      summary: "Get events items of a selected person by ID"
+      operationId: "getPersonEventsItemsByID"
       produces:
       - "application/json"
       parameters:
@@ -856,25 +532,8 @@ paths:
     get:
       tags:
       - "article"
-      summary: "Get all articles"
-      operationId: "getArticlesAll"
-      produces:
-      - "application/json"
-      parameters: []
-      responses:
-        "200":
-          description: "Successful operation"
-          schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/Article"
-      x-swagger-router-controller: "Article"
-  /articles/items:
-    get:
-      tags:
-      - "article"
-      summary: "Get all articles items"
-      operationId: "getArticlesItemsAll"
+      summary: "Get articles items"
+      operationId: "getArticlesItems"
       produces:
       - "application/json"
       parameters:
@@ -896,15 +555,15 @@ paths:
     get:
       tags:
       - "article"
-      summary: "Get an article by ID"
+      summary: "Get article page data by ID"
       operationId: "getArticleByID"
       produces:
       - "application/json"
       - "application/xml"
       parameters:
-      - name: "id_article"
-        in: "path"
-        description: "ID of article to return"
+      - name: "page"
+        in: "query"
+        description: "Articles page number to get"
         required: true
         type: "integer"
         format: "int64"
@@ -918,86 +577,12 @@ paths:
         "404":
           description: "Article not found"
       x-swagger-router-controller: "Article"
-    delete:
-      tags:
-      - "article"
-      summary: "Delete an article by ID"
-      operationId: "deleteArticle"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_article"
-        in: "path"
-        description: "ID of article to be deleted"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid ID"
-        "404":
-          description: "Article not found"
-      x-swagger-router-controller: "Article"
-  /article:
-    post:
-      tags:
-      - "article"
-      summary: "Add a new article"
-      operationId: "addArticle"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - in: "body"
-        name: "article"
-        description: "Article object to be added"
-        required: true
-        schema:
-          $ref: "#/definitions/Article"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid input"
-      x-swagger-router-controller: "Article"
-    put:
-      tags:
-      - "article"
-      summary: "Update an article"
-      operationId: "updateArticle"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - in: "body"
-        name: "article"
-        description: "Article object to be updated"
-        required: true
-        schema:
-          $ref: "#/definitions/Article"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid input"
-        "404":
-          description: "Article not found"
-      x-swagger-router-controller: "Article"
   /article/{id_article}/related:
     get:
       tags:
       - "article"
-      summary: "Get related articles of a selected article by ID"
-      operationId: "getRelatedArticlesByID"
+      summary: "Get related articles items of a selected article by ID"
+      operationId: "getRelatedArticlesItemsByID"
       produces:
       - "application/json"
       parameters:
@@ -1023,8 +608,8 @@ paths:
     get:
       tags:
       - "article"
-      summary: "Get service of a selected article by ID"
-      operationId: "getArticleServiceByID"
+      summary: "Get service item of a selected article by ID"
+      operationId: "getArticleServiceItemByID"
       produces:
       - "application/json"
       - "application/xml"
@@ -1049,8 +634,8 @@ paths:
     get:
       tags:
       - "article"
-      summary: "Get event of a selected article by ID"
-      operationId: "getArticleEventByID"
+      summary: "Get event item of a selected article by ID"
+      operationId: "getArticleEventItemByID"
       produces:
       - "application/json"
       - "application/xml"
@@ -1075,8 +660,8 @@ paths:
     get:
       tags:
       - "contact"
-      summary: "Get all contacts"
-      operationId: "getContactsAll"
+      summary: "Get contacts"
+      operationId: "getContacts"
       produces:
       - "application/json"
       parameters: []
@@ -1092,7 +677,7 @@ paths:
     get:
       tags:
       - "contact"
-      summary: "Get a contact by ID"
+      summary: "Get contact by ID"
       operationId: "getContactByID"
       produces:
       - "application/json"
@@ -1114,151 +699,11 @@ paths:
         "404":
           description: "Contact not found"
       x-swagger-router-controller: "Contact"
-    delete:
-      tags:
-      - "contact"
-      summary: "Delete a contact by ID"
-      operationId: "deleteContact"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_contact"
-        in: "path"
-        description: "ID of contact to be deleted"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid ID"
-        "404":
-          description: "Contact not found"
-      x-swagger-router-controller: "Contact"
-  /contact:
-    post:
-      tags:
-      - "contact"
-      summary: "Add a new contact"
-      operationId: "addContact"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - in: "body"
-        name: "contact"
-        description: "Contact object to be added"
-        required: true
-        schema:
-          $ref: "#/definitions/Contact"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid input"
-      x-swagger-router-controller: "Contact"
-    put:
-      tags:
-      - "contact"
-      summary: "Update a contact"
-      operationId: "updateContact"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - in: "body"
-        name: "contact"
-        description: "Contact object to be updated"
-        required: true
-        schema:
-          $ref: "#/definitions/Contact"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid input"
-        "404":
-          description: "Contact not found"
-      x-swagger-router-controller: "Contact"
-  /messages:
-    get:
-      tags:
-      - "message"
-      summary: "Get all messages"
-      operationId: "getMessagesAll"
-      produces:
-      - "application/json"
-      parameters: []
-      responses:
-        "200":
-          description: "Successful operation"
-          schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/Message"
-      x-swagger-router-controller: "Message"
-  /message/{id_message}:
-    get:
-      tags:
-      - "message"
-      summary: "Get a message by ID"
-      operationId: "getMessageByID"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_message"
-        in: "path"
-        description: "ID of message to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-          schema:
-            $ref: "#/definitions/Message"
-        "400":
-          description: "Invalid ID"
-        "404":
-          description: "Message not found"
-      x-swagger-router-controller: "Message"
-    delete:
-      tags:
-      - "message"
-      summary: "Delete a message by ID"
-      operationId: "deleteMessage"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_message"
-        in: "path"
-        description: "ID of message to be deleted"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid ID"
-        "404":
-          description: "Message not found"
-      x-swagger-router-controller: "Message"
   /message:
     post:
       tags:
       - "message"
-      summary: "Add a new message"
+      summary: "Post new message"
       operationId: "addMessage"
       consumes:
       - "application/json"
@@ -1269,7 +714,7 @@ paths:
       parameters:
       - in: "body"
         name: "message"
-        description: "Message object to be added"
+        description: "Message object to be posted"
         required: true
         schema:
           $ref: "#/definitions/Message"
@@ -1279,459 +724,8 @@ paths:
         "400":
           description: "Invalid input"
       x-swagger-router-controller: "Message"
-  /link/related/service:
-    post:
-      tags:
-      - "link"
-      summary: "Add new related relation beetween services"
-      operationId: "addRelatedServices"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_service1"
-        in: "query"
-        description: "ID of first service"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "id_service2"
-        in: "query"
-        description: "ID of second service"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid operation"
-        "404":
-          description: "Services not found"
-      x-swagger-router-controller: "Link"
-    delete:
-      tags:
-      - "link"
-      summary: "Delete related relation beetween services"
-      operationId: "deleteRelatedServices"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_service1"
-        in: "query"
-        description: "ID of first service"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "id_service2"
-        in: "query"
-        description: "ID of second service"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid operation"
-        "404":
-          description: "Services not found"
-      x-swagger-router-controller: "Link"
-  /link/related/event:
-    post:
-      tags:
-      - "link"
-      summary: "Add new related relation beetween events"
-      operationId: "addRelatedEvents"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_event1"
-        in: "query"
-        description: "ID of first event"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "id_event2"
-        in: "query"
-        description: "ID of second event"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid operation"
-        "404":
-          description: "Events not found"
-      x-swagger-router-controller: "Link"
-    delete:
-      tags:
-      - "link"
-      summary: "Delete related relation beetween events"
-      operationId: "deleteRelatedEvents"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_event1"
-        in: "query"
-        description: "ID of first event"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "id_event2"
-        in: "query"
-        description: "ID of second event"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid operation"
-        "404":
-          description: "Events not found"
-      x-swagger-router-controller: "Link"
-  /link/related/article:
-    post:
-      tags:
-      - "link"
-      summary: "Add new related relation beetween articles"
-      operationId: "addRelatedArticles"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_article1"
-        in: "query"
-        description: "ID of first article"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "id_article2"
-        in: "query"
-        description: "ID of second article"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid operation"
-        "404":
-          description: "Articles not found"
-      x-swagger-router-controller: "Link"
-    delete:
-      tags:
-      - "link"
-      summary: "Delete related relation beetween articles"
-      operationId: "deleteRelatedArticles"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_article1"
-        in: "query"
-        description: "ID of first article"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "id_article2"
-        in: "query"
-        description: "ID of second article"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid operation"
-        "404":
-          description: "Articles not found"
-      x-swagger-router-controller: "Link"
-  /link/presented:
-    post:
-      tags:
-      - "link"
-      summary: "Add new service presented in event relation"
-      operationId: "addServicesEvents"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_service"
-        in: "query"
-        description: "ID of service"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "id_event"
-        in: "query"
-        description: "ID of event"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid operation"
-        "404":
-          description: "Service or event not found"
-      x-swagger-router-controller: "Link"
-    delete:
-      tags:
-      - "link"
-      summary: "Delete service presented in event relation"
-      operationId: "deleteServicesEvents"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_service"
-        in: "query"
-        description: "ID of service"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "id_event"
-        in: "query"
-        description: "ID of event"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid operation"
-        "404":
-          description: "Service or event not found"
-      x-swagger-router-controller: "Link"
-  /link/involved:
-    post:
-      tags:
-      - "link"
-      summary: "Add new person involved in service relation"
-      operationId: "addPeopleServices"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_person"
-        in: "query"
-        description: "ID of person"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "id_service"
-        in: "query"
-        description: "ID of service"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid operation"
-        "404":
-          description: "Person or service not found"
-      x-swagger-router-controller: "Link"
-    delete:
-      tags:
-      - "link"
-      summary: "Delete person involved in service relation"
-      operationId: "deletePeopleServices"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_person"
-        in: "query"
-        description: "ID of person"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "id_service"
-        in: "query"
-        description: "ID of service"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid operation"
-        "404":
-          description: "Person or service not found"
-      x-swagger-router-controller: "Link"
-  /link/contact:
-    put:
-      tags:
-      - "link"
-      summary: "Update event's contact relation"
-      operationId: "updateEventContact"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_event"
-        in: "query"
-        description: "ID of event"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "id_person"
-        in: "query"
-        description: "ID of person"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid operation"
-        "404":
-          description: "Event or person not found"
-      x-swagger-router-controller: "Link"
-  /link/discussed/service:
-    put:
-      tags:
-      - "link"
-      summary: "Update service discussed in article relation"
-      operationId: "updateServiceArticles"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_article"
-        in: "query"
-        description: "ID of article"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "id_service"
-        in: "query"
-        description: "ID of service"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid operation"
-        "404":
-          description: "Article or service not found"
-      x-swagger-router-controller: "Link"
-  /link/discussed/event:
-    put:
-      tags:
-      - "link"
-      summary: "Update event discussed in article relation"
-      operationId: "updateEventArticles"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "id_article"
-        in: "query"
-        description: "ID of article"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "id_event"
-        in: "query"
-        description: "ID of event"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid operation"
-        "404":
-          description: "Article or event not found"
-      x-swagger-router-controller: "Link"
 definitions:
-  Service:
-    type: "object"
-    required:
-    - "id_service"
-    properties:
-      id_service:
-        type: "integer"
-        format: "int64"
-      name:
-        type: "string"
-      presentation:
-        type: "string"
-      informations:
-        type: "string"
-      location:
-        type: "string"
-      photo_url:
-        type: "string"
-    xml:
-      name: "Service"
-    example:
-      presentation: "presentation"
-      name: "name"
-      location: "location"
-      photo_url: "photo_url"
-      id_service: 0
-      informations: "informations"
-  ServicePage1:
+  Service1:
     type: "object"
     required:
     - "id_service"
@@ -1746,13 +740,8 @@ definitions:
       photo_url:
         type: "string"
     xml:
-      name: "ServicePage1"
-    example:
-      presentation: "presentation"
-      name: "name"
-      photo_url: "photo_url"
-      id_service: 0
-  ServicePage2:
+      name: "Service1"
+  Service2:
     type: "object"
     required:
     - "id_service"
@@ -1767,12 +756,7 @@ definitions:
       location:
         type: "string"
     xml:
-      name: "ServicePage2"
-    example:
-      name: "name"
-      id_service: 0
-      informations: "informations"
-      location: "Kenya Somalia Zimbabwe"
+      name: "Service2"
   ServiceItem:
     type: "object"
     required:
@@ -1789,47 +773,7 @@ definitions:
         type: "string"
     xml:
       name: "ServiceItem"
-    example:
-      presentation: "presentation"
-      name: "name"
-      photo_url: "photo_url"
-      id_service: 0
-  Event:
-    type: "object"
-    required:
-    - "id_event"
-    properties:
-      id_event:
-        type: "integer"
-        format: "int64"
-      id_person:
-        type: "integer"
-        format: "int64"
-      name:
-        type: "string"
-      date:
-        type: "string"
-        format: "date"
-      location:
-        type: "string"
-      description:
-        type: "string"
-      pract_info:
-        type: "string"
-      photo_url:
-        type: "string"
-    xml:
-      name: "Event"
-    example:
-      date: "2000-01-23"
-      id_person: 6
-      name: "name"
-      description: "description"
-      pract_info: "pract_info"
-      location: "location"
-      id_event: 0
-      photo_url: "photo_url"
-  EventPage1:
+  Event1:
     type: "object"
     required:
     - "id_event"
@@ -1845,12 +789,7 @@ definitions:
         type: "string"
     xml:
       name: "EventPage1"
-    example:
-      name: "name"
-      description: "description"
-      id_event: 0
-      photo_url: "photo_url"
-  EventPage2:
+  Event2:
     type: "object"
     required:
     - "id_event"
@@ -1868,13 +807,7 @@ definitions:
       pract_info:
         type: "string"
     xml:
-      name: "EventPage2"
-    example:
-      date: "2000-01-23"
-      name: "name"
-      pract_info: "pract_info"
-      location: "location"
-      id_event: 0
+      name: "Event2"
   EventItem:
     type: "object"
     required:
@@ -1894,12 +827,6 @@ definitions:
         type: "string"
     xml:
       name: "EventItem"
-    example:
-      date: "2000-01-23"
-      name: "name"
-      location: "location"
-      id_event: 0
-      photo_url: "photo_url"
   Person:
     type: "object"
     required:
@@ -1926,15 +853,6 @@ definitions:
         format: "date"
     xml:
       name: "Person"
-    example:
-      id_person: 0
-      role: "role"
-      email_address: "email_address"
-      starting_date: "2000-01-23"
-      name: "name"
-      description: "description"
-      phone_number: "phone_number"
-      photo_url: "photo_url"
   PersonItem:
     type: "object"
     required:
@@ -1949,10 +867,6 @@ definitions:
         type: "string"
     xml:
       name: "PersonItem"
-    example:
-      id_person: 0
-      name: "name"
-      photo_url: "photo_url"
   Article:
     type: "object"
     required:
@@ -1983,16 +897,6 @@ definitions:
         type: "string"
     xml:
       name: "Article"
-    example:
-      id_article: 0
-      email_address: "email_address"
-      author: "author"
-      publication_date: "2000-01-23"
-      id_event: 1
-      photo_url: "photo_url"
-      title: "title"
-      body: "body"
-      id_service: 6
   ArticleItem:
     type: "object"
     required:
@@ -2012,12 +916,6 @@ definitions:
         type: "string"
     xml:
       name: "ArticleItem"
-    example:
-      id_article: 0
-      author: "author"
-      publication_date: "2000-01-23"
-      photo_url: "photo_url"
-      title: "title"
   Contact:
     type: "object"
     required:
@@ -2037,12 +935,6 @@ definitions:
         type: "string"
     xml:
       name: "Contact"
-    example:
-      email_address: "email_address"
-      phone: "phone"
-      name: "name"
-      location: "location"
-      id_contact: 0
   Message:
     type: "object"
     required:
@@ -2062,9 +954,3 @@ definitions:
         type: "string"
     xml:
       name: "Message"
-    example:
-      id_message: 0
-      sender_name: "sender_name"
-      title: "title"
-      body: "body"
-      sender_email: "sender_email"
