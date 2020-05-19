@@ -27,7 +27,7 @@ Heroku repository
 
 `https://git.heroku.com/child4help.git'
 
-Deployed app links
+Deployed app link
 
 'https://child4help.herokuapp.com/'
 

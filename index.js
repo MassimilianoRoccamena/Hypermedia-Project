@@ -36,11 +36,11 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
   // Serve the Swagger documents and Swagger UI
   app.use(middleware.swaggerUi());
 
-  // Provide public data
+  // Provide public assets
   app.use(serveStatic(__dirname + '/public'));
 
   // Start the server
-  http.createServer(app).listen(serverPort, function () {
+  http.createServer(app).listen(process.env.PORT || serverPort, function () {
     console.log('Your server is listening on port %d (http://localhost:%d)', serverPort, serverPort);
     console.log('Swagger-ui is available on http://localhost:%d/docs', serverPort);
   });
