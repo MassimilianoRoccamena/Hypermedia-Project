@@ -1,7 +1,6 @@
 'use strict';
 
 
-
 /**
  * Data layer setup
  */

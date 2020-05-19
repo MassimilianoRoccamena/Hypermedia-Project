@@ -198,11 +198,13 @@ exports.getServicesItems = function(offset,search) {
   "photo_url" : "photo_url",
   "id_service" : 0
 } ];
-    if (Object.keys(examples).length > 0) {
+    /*if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
     } else {
       resolve();
-    }
+    }*/
+
+    return sqlDb.from("Service").select("*");
   });
 }
 
