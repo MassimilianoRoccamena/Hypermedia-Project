@@ -40,9 +40,10 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
   app.use(serveStatic(__dirname + '/public'));
 
   // Start the server
-  http.createServer(app).listen(process.env.PORT || serverPort, function () {
-    console.log('Your server is listening on port %d (http://localhost:%d)', serverPort, serverPort);
-    console.log('Swagger-ui is available on http://localhost:%d/docs', serverPort);
+  port = process.env.PORT || serverPort
+  http.createServer(app).listen(port, function () {
+    console.log('Your server is listening on port %d (http://localhost:%d)', port, port);
+    console.log('Swagger-ui is available on http://localhost:%d/docs', port);
   });
 
 });
