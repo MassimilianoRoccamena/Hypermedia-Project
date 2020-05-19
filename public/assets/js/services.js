@@ -65,7 +65,7 @@ function loadPage(first=true) {
         container.empty();
     }
 
-    fetch("/api/" + idGroup + "/items?page=" + currentPage).then(function (res) {
+    fetch("/api/" + idGroup + "/?offset=" + currentPage + "&search=ciao").then(function (res) {
         if (!res.ok) { 
             throw new Error("HTTP error, status = " + res.status); 
         }
