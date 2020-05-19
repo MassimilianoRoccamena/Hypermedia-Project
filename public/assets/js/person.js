@@ -27,22 +27,27 @@ function addLink(text, link) {
 
 //----------------------------------------- DATA LOAD -------------------------------------------
 
+let item = "person"
+let id = "0";
+let relatedItem;
+
 //Load event data
 function loadData() {
-    var name = $("#name");
-    var role = $("#role");
-    var text = $("#text");
-    var imageDiv = $("#image");
-    var email = $("#email");
-    var number = $("#number"); 
-
-    fetch("/api/person/0").then(function(response){
+    
+    //Load person informations
+    fetch("/api/" + item + "/" + id).then(function(response){
         if(!response.ok){
             throw new Error("HTTP error, status =  " + response.status);
         }
         return response.json();
     })
     .then(function(json){
+        var name = $("#name");
+        var role = $("#role");
+        var text = $("#text");
+        var imageDiv = $("#image");
+        var email = $("#email");
+        var number = $("#number"); 
         name.append(json.name);
         role.append(json.role);
         text.append(json.description);
@@ -51,4 +56,48 @@ function loadData() {
         email.append(json.email_address);
         number.append(json.phone_number);
     });
+
+    fetch("/api/" + item + "/" + id + "/services").then(function(response){
+        if(!response.ok){
+            throw new Error("HTTP error, status =  " + response.status);
+        }
+        return response.json();
+    })
+    .then(function(json){
+        let servicesList = $("#related-services");
+        for(let i = 0; i < json.length; i++){
+            let service = "<a href='/pages/service1.html'><h6>";
+            service = service.concat(json[i].name);
+            service = service.concat("</h6></a>");
+            serviceElement = $(service);
+            servicesList.append(serviceElement);
+        }
+    });
+
+    //Load related events
+    fetch("/api/" + item + "/" + id + "/events").then(function(response){
+        if(!response.ok){
+            throw new Error("HTTP error, status =  " + response.status);
+        }
+        return response.json();
+    })
+    .then(function(json){
+        let row = $("#related-events");
+        for(let i=0;i<json.length;i++){
+            let col = $("<div class='col-sm-4'></div>");
+            row.append(col);
+            relatedItem = "event";
+            col.load("/pages/components/" + relatedItem + "-card.html", function(responseTxt, statusTxt, xhr) {
+                let relatedImage = col.find("#cardPhoto");
+                relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url + "'></img>");
+                let relatedTitle = col.find(".card-title");
+                relatedTitle.append(json[i].name);
+                let relatedDate = col.find("#cardDate");
+                relatedDate.append(json[i].date);
+                let relatedLocation = col.find("#cardLocation");
+                relatedLocation.append(json[i].location);
+            }); 
+        }
+    });
+
 }
