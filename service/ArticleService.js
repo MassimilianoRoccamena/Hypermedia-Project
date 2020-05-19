@@ -1,6 +1,17 @@
 'use strict';
 
 
+
+/**
+ * Data layer setup
+ */
+let sqlDb;
+
+exports.articleDbSetup = function(s) {
+  sqlDb = s;
+}
+
+
 /**
  * Get article page data by ID
  *

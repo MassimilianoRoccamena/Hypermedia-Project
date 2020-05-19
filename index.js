@@ -21,6 +21,9 @@ var options = {
 var spec = fs.readFileSync(path.join(__dirname,'api/swagger.yaml'), 'utf8');
 var swaggerDoc = jsyaml.safeLoad(spec);
 
+// Data layer
+var {setupDataLayer}= require("./service/DataLayer");
+
 // Initialize the Swagger middleware
 swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
 
@@ -40,10 +43,13 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
   app.use(serveStatic(__dirname + '/public'));
 
   // Start the server
-  let port = process.env.PORT || serverPort;
-  http.createServer(app).listen(port, function () {
-    console.log('Your server is listening on (http://localhost:%d)', port);
-    console.log('Swagger-ui is available on http://localhost:%d/docs', port);
+  setupDataLayer().then(function() {
+    console.log('Data layer ready');
+    let port = process.env.PORT || serverPort;
+    http.createServer(app).listen(port, function () {
+      console.log('Your server is listening on (http://localhost:%d)', port);
+      console.log('Swagger-ui is available on http://localhost:%d/docs', port);
+    });
   });
 
 });

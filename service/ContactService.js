@@ -1,6 +1,17 @@
 'use strict';
 
 
+
+/**
+ * Data layer setup
+ */
+let sqlDb;
+
+exports.contactDbSetup = function(s) {
+  sqlDb = s;
+}
+
+
 /**
  * Get contact by ID
  *

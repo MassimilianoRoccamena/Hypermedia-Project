@@ -2,6 +2,16 @@
 
 
 /**
+ * Data layer setup
+ */
+let sqlDb;
+
+exports.personDbSetup = function(s) {
+  sqlDb = s;
+}
+
+
+/**
  * Getl people items
  *
  * offset Integer Pagination offset

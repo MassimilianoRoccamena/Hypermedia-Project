@@ -2,6 +2,16 @@
 
 
 /**
+ * Data layer setup
+ */
+let sqlDb;
+
+exports.messageDbSetup = function(s) {
+  sqlDb = s;
+}
+
+
+/**
  * Post new message
  *
  * message Message Message object to be posted

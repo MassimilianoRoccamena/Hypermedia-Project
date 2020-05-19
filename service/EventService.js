@@ -2,6 +2,16 @@
 
 
 /**
+ * Data layer setup
+ */
+let sqlDb;
+
+exports.eventDbSetup = function(s) {
+  sqlDb = s;
+}
+
+
+/**
  * Get event page 1 data by ID
  *
  * id_event Long ID of event to return

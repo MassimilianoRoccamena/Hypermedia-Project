@@ -2,6 +2,16 @@
 
 
 /**
+ * Data layer setup
+ */
+let sqlDb;
+
+exports.serviceDbSetup = function(s) {
+  sqlDb = s;
+}
+
+
+/**
  * Get related services items of a selected service by ID
  *
  * id_service Long ID of service to search for related
