@@ -36,7 +36,7 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
   // Serve the Swagger documents and Swagger UI
   app.use(middleware.swaggerUi());
 
-  // Provide public assets
+  // Provide public static assets
   app.use(serveStatic(__dirname + '/public'));
 
   // Start the server
