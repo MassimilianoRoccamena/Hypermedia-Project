@@ -185,7 +185,7 @@ exports.getServicePeopleItemsByID = function(id_service) {
  * returns List
  **/
 exports.getServicesItems = function(offset,search) {
-  return new Promise(function(resolve, reject) {
+  /* return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
   "presentation" : "presentation",
@@ -198,13 +198,14 @@ exports.getServicesItems = function(offset,search) {
   "photo_url" : "photo_url",
   "id_service" : 0
 } ];
-    /*if (Object.keys(examples).length > 0) {
+    if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
     } else {
       resolve();
-    }*/
+    }
+  }); */
 
-    return sqlDb.from("Service").select("*");
-  });
+  console.log(sqlDb);
+  return sqlDb.from("Service").select("*");
 }
 
