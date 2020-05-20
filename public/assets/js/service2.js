@@ -46,9 +46,9 @@ function loadData() {
         return response.json();
     })
     .then(function(json){
-        h1.append(json.name);
-        p.append(json.informations);
-        var locations = json.location.split(" ");
+        h1.append(json[0].name);
+        p.append(json[0].informations);
+        var locations = json[0].location.split(" ");
         var h5 = "<h5>"
         for(i = 0; i < locations.length; i++){
             h5 = h5.concat(locations[i] + "<br>");

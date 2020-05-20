@@ -49,13 +49,13 @@ function loadData() {
         var email = $("#email");
         var number = $("#number"); 
         
-        name.append(json.name);
-        role.append(json.role);
-        text.append(json.description);
-        let img = $("<img class='p-3' src='" + json.photo_url + "' style='border-radius: 50%; width: 100%;'>");
+        name.append(json[0].name);
+        role.append(json[0].role);
+        text.append(json[0].description);
+        let img = $("<img class='p-3' src='" + json[0].photo_url + "' style='border-radius: 50%; width: 100%;'>");
         photo.append(img);
-        email.append(json.email_address);
-        number.append(json.phone_number);
+        email.append(json[0].email_address);
+        number.append(json[0].phone_number);
     });
 
     //Load related services

@@ -43,10 +43,10 @@ function loadData() {
         let info = $("#info");
         let date = $("#date");
         let location = $("#location");
-        name.append(json.name);
-        info.append(json.pract_info);
-        date.append(json.date);
-        location.append(json.location);
+        name.append(json[0].name);
+        info.append(json[0].pract_info);
+        date.append(json[0].date);
+        location.append(json[0].location);
     });
 
     //Load event contact
@@ -58,6 +58,6 @@ function loadData() {
     })
     .then(function(json){
         let contact = $("#contact");
-        contact.append(json.name);
+        contact.append(json[0].name);
     });
 }
