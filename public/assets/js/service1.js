@@ -41,14 +41,14 @@ function loadData() {
         return response.json();
     })
     .then(function(json){
-        var h1 = $("#name");
-        var p = $("#presentation_text");
-        h1.append(json.name)
-        p.append(json.presentation)
+        let h1 = $("#name");
+        let p = $("#presentation_text");
+        h1.append(json[0].name)
+        p.append(json[0].presentation)
 
         //Load photo gallery 
         let gallery = $("#gallery");
-        for (let i = 0; i < json.photo_url.length; i++) {
+        for (let i = 0; i < json[0].photo_url.length; i++) {
             let col = $("<div class='col-lg-3 col-md-4 col-6'></div>");
             col.load("/pages/components/photo-gallery.html", function(responseTxt, statusTxt, xhr){
                 let image = col.find("#image");
