@@ -27,6 +27,40 @@ function addLink(text, link) {
 
 //--------------------------------------- SEND BUTTON -------------------------------------------
 
+//Load contacts data
+function LoadData() {
+
+    //Load content
+    fetch("/api/contacts").then(function(response){
+        if(!response.ok){
+            throw new Error("HTTP error, status =  " + response.status);
+        }
+        return response.json();
+    })
+    .then(function(json){
+        let ul = $("#contacts-ul");
+        
+        for (let i=0; i<json.length; i++) {
+            let li = $("<li></li>")
+            let name = $("<h4></h4>");
+            let phone = $("<h4></h4>");
+            let email = $("<h4></h4>");
+            let location = $("<h4></h4>");
+
+            elem = json[i];
+            name.text(elem.name);
+            li.append(name);
+            phone.text(elem.phone);
+            li.append(phone);
+            email.text(elem.email);
+            li.append(email);
+            location.text(elem.location);
+            li.append(location)
+            ul.append(li);
+        }
+    });
+}
+
 function sendHandler() {
     $("#send").click(function() {
         var name = $("#name").val();
