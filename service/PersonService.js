@@ -19,7 +19,7 @@ exports.personDbSetup = function(s) {
  * returns List
  **/
 exports.getPeopleItems = function(offset,search) {
-  return new Promise(function(resolve, reject) {
+/*  return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
   "id_person" : 0,
@@ -35,7 +35,8 @@ exports.getPeopleItems = function(offset,search) {
     } else {
       resolve();
     }
-  });
+  });*/
+  return sqlDb.from("Person").select('photo_url','name','id_person');
 }
 
 
@@ -65,7 +66,7 @@ exports.getPersonByID = function(id_person) {
     }
   }); */
 
-  return sqlDb.from("Person").select("*").where("id_person", "=", id_person);
+  return sqlDb.from("Person").select('*').where("id_person", "=", id_person);
 }
 
 
@@ -76,7 +77,7 @@ exports.getPersonByID = function(id_person) {
  * returns List
  **/
 exports.getPersonEventsItemsByID = function(id_person) {
-  return new Promise(function(resolve, reject) {
+/*  return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
   "date" : "2000-01-23",
@@ -96,7 +97,10 @@ exports.getPersonEventsItemsByID = function(id_person) {
     } else {
       resolve();
     }
-  });
+  });*/
+  return sqlDb('Event')
+        .where('id_person',id_person)
+        .select('id_event','date','name','location','photo_url');
 }
 
 
@@ -127,6 +131,9 @@ exports.getPersonServicesItemsByID = function(id_person) {
     }
   }); */
 
-  return sqlDb.from("Person").select("*");
+  return sqlDb('Service')
+          .join('PeopleServices','Service.id_service','=','PeopleServices.id_service')
+          .select('Service.id_service','Service.presentation','Service.name','Service.photo_url')
+          .where('PeopleServices.id_person', id_person);
 }
 

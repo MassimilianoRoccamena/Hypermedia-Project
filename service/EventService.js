@@ -33,7 +33,7 @@ exports.getEvent1ByID = function(id_event) {
     }
   }); */
 
-  return sqlDb.from("Event").select("*").where("id_event", "=", id_event);
+  return sqlDb.from("Event").select('id_event','name','description','photo_url').where("id_event", "=", id_event);
 }
 
 
@@ -60,7 +60,7 @@ exports.getEvent2ByID = function(id_event) {
     }
   }); */
 
-  return sqlDb.from("Event").select("*").where("id_event", "=", id_event);
+  return sqlDb.from("Event").select('id_event','name','date','pract_info','location').where("id_event", "=", id_event);
 }
 
 
@@ -71,7 +71,7 @@ exports.getEvent2ByID = function(id_event) {
  * returns List
  **/
 exports.getEventArticlesItemsByID = function(id_event) {
-  return new Promise(function(resolve, reject) {
+/*  return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
   "id_article" : 0,
@@ -91,7 +91,10 @@ exports.getEventArticlesItemsByID = function(id_event) {
     } else {
       resolve();
     }
-  });
+  });*/
+  return sqlDb('Article')
+          .select('Article.id_article','Article.author','Article.publication_date','Article.photo_url','Article.title')
+          .where('Article.id_event', id_event);
 }
 
 
@@ -102,7 +105,7 @@ exports.getEventArticlesItemsByID = function(id_event) {
  * returns PersonItem
  **/
 exports.getEventPersonItemByID = function(id_event) {
-  return new Promise(function(resolve, reject) {
+/*  return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
   "id_person" : 0,
@@ -114,7 +117,11 @@ exports.getEventPersonItemByID = function(id_event) {
     } else {
       resolve();
     }
-  });
+  });*/
+  return sqlDb('Person')
+          .join('Event', 'Person.id_person','=','Event.id_person')
+          .where('Event.id_event', id_event)
+          .select('Person.id_person','Person.name','Person.photo_url');
 }
 
 
@@ -125,7 +132,7 @@ exports.getEventPersonItemByID = function(id_event) {
  * returns List
  **/
 exports.getEventServicesItemsByID = function(id_event) {
-  return new Promise(function(resolve, reject) {
+/*  return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
   "presentation" : "presentation",
@@ -143,7 +150,11 @@ exports.getEventServicesItemsByID = function(id_event) {
     } else {
       resolve();
     }
-  });
+  });*/
+  return sqlDb('Service')
+          .join('ServicesEvents','Service.id_service','=','ServicesEvents.id_service')
+          .select('Service.id_service','Service.presentation','Service.name','Service.photo_url')
+          .where('ServicesEvents.id_event', id_event);
 }
 
 
@@ -155,7 +166,7 @@ exports.getEventServicesItemsByID = function(id_event) {
  * returns List
  **/
 exports.getEventsItems = function(offset,search) {
-  return new Promise(function(resolve, reject) {
+/*  return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
   "date" : "2000-01-23",
@@ -175,7 +186,9 @@ exports.getEventsItems = function(offset,search) {
     } else {
       resolve();
     }
-  });
+  });*/
+  return sqlDb('Event')
+        .select('id_event','location','date','name','photo_url');
 }
 
 
@@ -188,7 +201,7 @@ exports.getEventsItems = function(offset,search) {
  * returns List
  **/
 exports.getEventsItemsByMonth = function(month,offset,search) {
-  return new Promise(function(resolve, reject) {
+/*  return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
   "date" : "2000-01-23",
@@ -208,7 +221,10 @@ exports.getEventsItemsByMonth = function(month,offset,search) {
     } else {
       resolve();
     }
-  });
+  });*/
+  return sqlDb('Event')
+        .select('id_event','location','date','name','photo_url')
+        .where('MONTH(date)','=',month);
 }
 
 
@@ -241,6 +257,15 @@ exports.getRelatedEventsItemsByID = function(id_event) {
     }
   }); */
 
-  return sqlDb.from("Event").select("*");
+  return sqlDb.from('Event')
+        .join('RelatedEvents','Event.id_event','=','RelatedEvents.id_event1')
+        .where('RelatedEvents.id_event1',id_event)
+        .select('Event.location','Event.name','Event.photo_url','Event.id_event','Event.date')
+        .union(function(){
+          sqlDb.select('Event.location','Event.name','Event.photo_url','Event.id_event','Event.date')
+              .where('RelatedEvents.id_event2',id_event)
+              .from('Event')
+              .join('RelatedEvents','Event.id_event','=','RelatedEvents.id_event2')
+        });
 }
 

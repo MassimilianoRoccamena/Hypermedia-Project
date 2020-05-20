@@ -18,7 +18,7 @@ exports.serviceDbSetup = function(s) {
  * returns List
  **/
 exports.getRelatedServicesItemsByID = function(id_service) {
-  return new Promise(function(resolve, reject) {
+/*  return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
   "presentation" : "presentation",
@@ -36,7 +36,17 @@ exports.getRelatedServicesItemsByID = function(id_service) {
     } else {
       resolve();
     }
-  });
+  });*/
+  return sqlDb.from('Service')
+        .join('RelatedServices','Service.id_service','=','RelatedServices.id_service1')
+        .where('RelatedServices.id_service1',id_service)
+        .select('Service.presentation','Service.name','Service.photo_url','Service.id_service')
+        .union(function(){
+          sqlDb.select('Service.presentation','Service.name','Service.photo_url','Service.id_service')
+              .where('RelatedServices.id_service2',id_service)
+              .from('Service')
+              .join('RelatedServices','Service.id_service','=','RelatedServices.id_service2')
+        });
 }
 
 
@@ -62,7 +72,7 @@ exports.getService1ByID = function(id_service) {
     }
   }); */
 
-  return sqlDb.from("Service").select("*").where("id_service", "=", id_service);
+  return sqlDb.from("Service").select('presentation','name','photo_url','id_service').where("id_service", "=", id_service);
 }
 
 
@@ -88,7 +98,7 @@ exports.getService2ByID = function(id_service) {
     }
   }); */
 
-  return sqlDb.from("Service").select("*").where("id_service", "=", id_service);
+  return sqlDb.from("Service").select('name','location','id_service','informations').where("id_service", "=", id_service);
 }
 
 
@@ -99,7 +109,7 @@ exports.getService2ByID = function(id_service) {
  * returns List
  **/
 exports.getServiceArticlesItemsByID = function(id_service) {
-  return new Promise(function(resolve, reject) {
+/*  return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
   "id_article" : 0,
@@ -119,7 +129,10 @@ exports.getServiceArticlesItemsByID = function(id_service) {
     } else {
       resolve();
     }
-  });
+  });*/
+  return sqlDb('Article')
+          .select('Article.id_article','Article.author','Article.publication_date','Article.photo_url','Article.title')
+          .where('Article.id_service', id_service);
 }
 
 
@@ -130,7 +143,7 @@ exports.getServiceArticlesItemsByID = function(id_service) {
  * returns List
  **/
 exports.getServiceEventsItemsByID = function(id_service) {
-  return new Promise(function(resolve, reject) {
+/*  return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
   "date" : "2000-01-23",
@@ -150,7 +163,11 @@ exports.getServiceEventsItemsByID = function(id_service) {
     } else {
       resolve();
     }
-  });
+  });*/
+  return sqlDb('Event')
+          .join('ServicesEvents', 'ServicesEvents.id_event','=','Event.id_event')
+          .where('ServicesEvents.id_service', id_service)
+          .select('Event.id_event','Event.date','Event.name','Event.location','Event.photo_url');
 }
 
 
@@ -161,7 +178,7 @@ exports.getServiceEventsItemsByID = function(id_service) {
  * returns List
  **/
 exports.getServicePeopleItemsByID = function(id_service) {
-  return new Promise(function(resolve, reject) {
+/*  return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
   "id_person" : 0,
@@ -177,7 +194,11 @@ exports.getServicePeopleItemsByID = function(id_service) {
     } else {
       resolve();
     }
-  });
+  });*/
+  return sqlDb('Person')
+          .join('PeopleServices', 'PeopleServices.id_person','=','Person.id_person')
+          .where('PeopleServices.id_service', id_service)
+          .select('Person.id_person','Person.name','Person.photo_url');
 }
 
 
@@ -209,6 +230,6 @@ exports.getServicesItems = function(offset,search) {
     }
   }); */
 
-  return sqlDb.from("Service").select("*");
+  return sqlDb.from("Service").select('presentation','name','photo_url','id_service');
 }
 
