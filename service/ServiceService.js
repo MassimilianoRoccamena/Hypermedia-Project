@@ -42,7 +42,7 @@ exports.getRelatedServicesItemsByID = function(id_service) {
         .where('RelatedServices.id_service1',id_service)
         .select('Service.presentation','Service.name','Service.photo_url','Service.id_service')
         .union(function(){
-          sqlDb.select('Service.presentation','Service.name','Service.photo_url','Service.id_service')
+          this.select('Service.presentation','Service.name','Service.photo_url','Service.id_service')
               .where('RelatedServices.id_service2',id_service)
               .from('Service')
               .join('RelatedServices','Service.id_service','=','RelatedServices.id_service2')
