@@ -44,7 +44,11 @@ var currentPage = 1,
     idItem = "person",
     fillItem = function(col, data) {
         let name = col.find(".card-title");
+        let photo = $("#photo");
+
         name.text(data.name);
+        let img = $("<img src='" + data.photo_url + "' style='width: 100%;'>");
+        photo.append(img);
     }
 
 //Init component

@@ -47,8 +47,17 @@ var currentPage = 1,
     idGroup = "articles",
     idItem = "article",
     fillItem = function(col, data) {
-        let name = col.find(".card-title");
-        name.text(data.name);
+        let title = $("#title");
+        let author = $("#author");
+        let photo = $("#photo1");
+        let date = $("#date");
+        
+        title.text(data.name);
+        author.append(data.author);
+        date.append(data.publication_date);
+        body.append(data.body);
+        let img = $("<img src='" + data.photo1_url + "' style='width: 100%;'>");
+        photo.append(img);
     }
 
 //Init component

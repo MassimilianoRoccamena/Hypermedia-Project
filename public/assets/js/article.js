@@ -48,11 +48,12 @@ function loadData() {
         let photo1 = $("#photo1");
         let photo2 = $("#photo2");
         let date = $("#date");
-        let text = $("#text");
+        let body = $("#text");
+        
         title.append(json.title);
         author.append(json.author);
         date.append(json.publication_date);
-        text.append(json.body);
+        body.append(json.body);
         let img1 = $("<img src='" + json.photo1_url + "' style='width: 100%;'>");
         let img2 = $("<img src='" + json.photo2_url + "' style='width: 100%;'>");
         photo1.append(img1);
