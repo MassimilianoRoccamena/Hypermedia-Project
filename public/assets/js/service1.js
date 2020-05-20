@@ -52,7 +52,7 @@ function loadData() {
             let col = $("<div class='col-lg-3 col-md-4 col-6'></div>");
             col.load("/pages/components/photo-gallery.html", function(responseTxt, statusTxt, xhr){
                 let image = col.find("#image");
-                image.append("<img class='img-fluid img-thumbnail' src='" + json.photo_url[i] + "' alt=''>");
+                image.append("<img class='img-fluid img-thumbnail' src='" + json[0].photo_url[i] + "' alt=''>");
             })
             gallery.append(col);
         }
