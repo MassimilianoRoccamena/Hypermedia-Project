@@ -47,7 +47,7 @@ var currentPage = 1,
         let photo = col.find("#photo");
         
         name.text(data.name);
-        let img = $("<img src='" + data.photo_url + "' style='width: 100%;'>");
+        let img = $("<img src='" + data.photo_url[0] + "' style='width: 100%;'>");
         photo.append(img);
     }
 

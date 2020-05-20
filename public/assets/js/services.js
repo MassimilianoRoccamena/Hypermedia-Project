@@ -47,7 +47,7 @@ var currentPage = 1,
         let name = row.find("h4");
         let presentation = row.find("p");
         
-        let img = $("<img src='" + data.photo_url + "' style='width: 100%;'>");
+        let img = $("<img src='" + data.photo_url[0] + "' style='width: 100%;'>");
         photo.append(img);
         name.text(data.name);
         presentation.text(data.presentation);
