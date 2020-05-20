@@ -1,1 +1,1 @@
-node index.js
+DATABASE_URL=postgres://fchjeiiurnekwx:473f4abf9471cbb2dec1956e65c7b6fdfc17bc151ba123257cdd5f158d04d45b@ec2-3-216-129-140.compute-1.amazonaws.com:5432/dbo5vnbf2o5en5 node index.js

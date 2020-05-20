@@ -22,7 +22,7 @@ function setupDataLayer() {
     messageDbSetup(sqlDb);
     personDbSetup(sqlDb);
     serviceDbSetup(sqlDb);
-    console.log('Data layer ready');
+    console.log('Data layer ready at ' + process.env.DATABASE_URL);
 }
 
 module.exports = { database: sqlDb, setupDataLayer };

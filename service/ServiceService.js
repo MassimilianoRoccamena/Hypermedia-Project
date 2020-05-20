@@ -39,7 +39,7 @@ exports.getRelatedServicesItemsByID = function(id_service) {
   });*/
   return sqlDb.from('Service')
         .join('RelatedServices','Service.id_service','=','RelatedServices.id_service1')
-        .where('RelatedServices.id_service1',id_service)
+        .where('RelatedServices.id_service1', id_service)
         .select('Service.presentation','Service.name','Service.photo_url','Service.id_service')
         .union(function(){
           sqlDb.select('Service.presentation','Service.name','Service.photo_url','Service.id_service')
@@ -72,7 +72,8 @@ exports.getService1ByID = function(id_service) {
     }
   }); */
 
-  return sqlDb.from("Service").select('presentation','name','photo_url','id_service').where("id_service", "=", id_service);
+  return sqlDb.from("Service")
+          .select('presentation','name','photo_url','id_service').where("id_service", "=", id_service);
 }
 
 
