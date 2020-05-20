@@ -51,7 +51,7 @@ exports.getArticleByID = function(id_article) {
  * returns EventItem
  **/
 exports.getArticleEventItemByID = function(id_article) {
-  return new Promise(function(resolve, reject) {
+/*  return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
   "date" : "2000-01-23",
@@ -65,7 +65,11 @@ exports.getArticleEventItemByID = function(id_article) {
     } else {
       resolve();
     }
-  });
+  });*/
+  return sqlDb('Event')
+          .join('Article', 'Article.id_event','=','Event.id_event')
+          .where('Article.id_article', id_article)
+          .select('Event.id_event','Event.name','Event.date','Event.location','Event.photo_url');
 }
 
 
@@ -76,7 +80,7 @@ exports.getArticleEventItemByID = function(id_article) {
  * returns ServiceItem
  **/
 exports.getArticleServiceItemByID = function(id_article) {
-  return new Promise(function(resolve, reject) {
+/*  return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
   "presentation" : "presentation",
@@ -89,7 +93,11 @@ exports.getArticleServiceItemByID = function(id_article) {
     } else {
       resolve();
     }
-  });
+  });*/
+  return sqlDb('Service')
+          .join('Article', 'Article.id_service','=','Service.id_service')
+          .where('Article.id_article', id_article)
+          .select('Service.id_service','Service.name','Service.presentation','Service.photo_url');
 }
 
 
@@ -101,7 +109,7 @@ exports.getArticleServiceItemByID = function(id_article) {
  * returns List
  **/
 exports.getArticlesItems = function(offset,search) {
-  return new Promise(function(resolve, reject) {
+/*  return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
   "id_article" : 0,
@@ -121,7 +129,9 @@ exports.getArticlesItems = function(offset,search) {
     } else {
       resolve();
     }
-  });
+  });*/
+  return sqlDb("Article")
+          .select('id_article','author','publiction_date','photo_url','title')
 }
 
 
@@ -154,6 +164,15 @@ exports.getRelatedArticlesItemsByID = function(id_article) {
     }
   }); */
 
-  return sqlDb.from("Article").select("*");
+  return sqlDb.from('Article')
+        .join('RelatedArticles','Article.id_article','=','RelatedArticles.id_article1')
+        .where('RelatedArticles.id_article1',id_article)
+        .select('Article.id_article','Article.author','Article.publication_date','Article.photo_url','Article.title')
+        .union(function(){
+          sqlDb.select('Article.id_article','Article.author','Article.publication_date','Article.photo_url','Article.title')
+              .where('RelatedArticles.id_article2',id_article)
+              .from('Article')
+              .join('RelatedArticles','Article.id_article','=','RelatedArticles.id_article2')
+        });
 }
 
