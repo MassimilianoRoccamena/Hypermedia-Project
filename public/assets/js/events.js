@@ -45,7 +45,10 @@ var currentPage = 1,
     fillItem = function(col, data) {
         let name = col.find(".card-title");
         let photo = col.find("#photo");
-        
+        let date = col.find("#date");
+        let location = col.find("#location");
+        date.append(data.date);
+        location.append(data.location);
         name.text(data.name);
         let img = $("<img src='" + data.photo_url[0] + "' style='width: 100%;'>");
         photo.append(img);
