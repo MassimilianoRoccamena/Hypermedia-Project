@@ -43,7 +43,7 @@ function loadData() {
         return response.json();
     })
     .then(function(json){
-        let title = $("#title");
+        let title = $("#head");
         let author = $("#author");
         let photo1 = $("#photo1");
         let photo2 = $("#photo2");
