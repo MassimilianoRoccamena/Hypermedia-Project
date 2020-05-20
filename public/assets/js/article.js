@@ -74,7 +74,7 @@ function loadData() {
             row.append(col);
             col.load("/pages/components/" + item + "-card.html", function(responseTxt, statusTxt, xhr) {
                 let relatedImage = col.find("#photo");
-                relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url + "'></img>");
+                relatedImage.append("<img class='card-img-top' src='" + json[i].photo1_url + "'></img>");
                 let relatedTitle = col.find(".card-title");
                 relatedTitle.append(json[i].title);
                 let relatedAuthor = col.find("#author");
