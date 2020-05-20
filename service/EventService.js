@@ -194,7 +194,7 @@ exports.getEventsItems = function(offset,search) {
               data["photo_url"] = data["photo_url"][0];
             }
             return data;
-      });
+        });
 }
 
 
