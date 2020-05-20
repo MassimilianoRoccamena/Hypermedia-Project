@@ -58,6 +58,7 @@ function loadData() {
         number.append(json.phone_number);
     });
 
+    //Load related services
     fetch("/api/" + item + "/" + id + "/services").then(function(response){
         if(!response.ok){
             throw new Error("HTTP error, status =  " + response.status);
