@@ -188,7 +188,13 @@ exports.getEventsItems = function(offset,search) {
     }
   });*/
   return sqlDb('Event')
-        .select('id_event','location','date','name','photo_url');
+        .select('id_event','location','date','name','photo_url')
+        .then((data) => {
+            for (let i=0; i<data.length; i++) {
+              data["photo_url"] = data["photo_url"][0];
+            }
+            return data;
+      });
 }
 
 

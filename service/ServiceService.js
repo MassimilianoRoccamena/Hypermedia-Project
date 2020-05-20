@@ -231,6 +231,13 @@ exports.getServicesItems = function(offset,search) {
     }
   }); */
 
-  return sqlDb.from("Service").select('presentation','name','photo_url','id_service');
+  return sqlDb('Service')
+        .select('presentation','name','photo_url','id_service')
+        .then((data) => {
+            for (let i=0; i<data.length; i++) {
+              data["photo_url"] = data["photo_url"][0];
+            }
+            return data;
+        });
 }
 
