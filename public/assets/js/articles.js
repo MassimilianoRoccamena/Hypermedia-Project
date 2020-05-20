@@ -45,7 +45,7 @@ var currentPage = 1,
     fillItem = function(col, data) {
         let title = col.find("#title");
         let author = col.find("#author");
-        let photo = col.find("#photo1");
+        let photo = col.find("#photo");
         let date = col.find("#date");
         
         title.text(data.title);

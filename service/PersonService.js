@@ -36,7 +36,9 @@ exports.getPeopleItems = function(offset,search) {
       resolve();
     }
   });*/
-  return sqlDb.from("Person").select('photo_url','name','id_person');
+  return sqlDb("Person")
+          .select('id_person','photo_url','name')
+          .wehereBetween('id_person', 12*(offset), 12*(offset+1));
 }
 
 

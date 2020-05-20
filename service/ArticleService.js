@@ -132,6 +132,7 @@ exports.getArticlesItems = function(offset,search) {
   });*/
   return sqlDb("Article")
           .select('id_article','author','publication_date','photo1_url','title')
+          .wehereBetween('id_article', 12*(offset), 12*(offset+1));
 }
 
 
