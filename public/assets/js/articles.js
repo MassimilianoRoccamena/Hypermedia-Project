@@ -43,7 +43,7 @@ var currentPage = 1,
     idGroup = "articles",
     idItem = "article",
     fillItem = function(col, data) {
-        let title = col.find("#title");
+        let title = col.find(".card-title");
         let author = col.find("#author");
         let photo = col.find("#photo");
         let date = col.find("#date");
@@ -51,7 +51,6 @@ var currentPage = 1,
         title.text(data.title);
         author.append(data.author);
         date.append(data.publication_date);
-        body.append(data.body);
         let img = $("<img src='" + data.photo1_url + "' style='width: 100%;'>");
         photo.append(img);
     }
