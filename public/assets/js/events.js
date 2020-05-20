@@ -44,7 +44,7 @@ var currentPage = 1,
     idItem = "event",
     fillItem = function(col, data) {
         let name = col.find(".card-title");
-        let photo = $("#photo");
+        let photo = col.find("#photo");
         
         name.text(data.name);
         let img = $("<img src='" + json.photo_url + "' style='width: 100%;'>");

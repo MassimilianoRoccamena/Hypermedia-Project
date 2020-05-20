@@ -47,10 +47,10 @@ var currentPage = 1,
     idGroup = "articles",
     idItem = "article",
     fillItem = function(col, data) {
-        let title = $("#title");
-        let author = $("#author");
-        let photo = $("#photo1");
-        let date = $("#date");
+        let title = col.find("#title");
+        let author = col.find("#author");
+        let photo = col.find("#photo1");
+        let date = col.find("#date");
         
         title.text(data.name);
         author.append(data.author);

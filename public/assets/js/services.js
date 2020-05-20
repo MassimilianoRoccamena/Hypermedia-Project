@@ -43,7 +43,7 @@ var currentPage = 1,
     idGroup = "services",
     idItem = "service",
     fillItem = function(row, data) {
-        var photo = $("#photo");
+        var photo = row.find("#photo");
         let name = row.find("h4");
         let presentation = row.find("p");
         
