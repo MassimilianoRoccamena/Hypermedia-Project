@@ -58,6 +58,7 @@ function loadData() {
             gallery.append(col);
         }
     });
+
     //Load related services
     fetch("/api/" + item + "/" + id + "/services").then(function(response){
         if(!response.ok){
@@ -73,7 +74,7 @@ function loadData() {
             relatedItem = "service";
             col.load("/pages/components/" + relatedItem + "-card.html", function(responseTxt, statusTxt, xhr) {
                 let relatedImage = col.find("#photo");
-                relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url + "'></img>");
+                relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url[0] + "'></img>");
                 let relatedTitle = col.find(".card-title");
                 relatedTitle.append(json[i].name);
             }); 
@@ -95,7 +96,7 @@ function loadData() {
             relatedItem = "event";
             col.load("/pages/components/" + relatedItem + "-card.html", function(responseTxt, statusTxt, xhr) {
                 let relatedImage = col.find("#photo");
-                relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url + "'></img>");
+                relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url[0] + "'></img>");
                 let relatedTitle = col.find(".card-title");
                 relatedTitle.append(json[i].name);
                 let relatedDate = col.find("#date");
