@@ -48,7 +48,7 @@ var currentPage = 1,
         let photo = col.find("#photo1");
         let date = col.find("#date");
         
-        title.text(data.name);
+        title.text(data.title);
         author.append(data.author);
         date.append(data.publication_date);
         body.append(data.body);
