@@ -131,7 +131,7 @@ exports.getArticlesItems = function(offset,search) {
     }
   });*/
   return sqlDb("Article")
-          .select('id_article','author','publiction_date','photo_url','title')
+          .select('id_article','author','publication_date','photo_url','title')
 }
 
 
@@ -169,7 +169,7 @@ exports.getRelatedArticlesItemsByID = function(id_article) {
         .where('RelatedArticles.id_article1',id_article)
         .select('Article.id_article','Article.author','Article.publication_date','Article.photo_url','Article.title')
         .union(function(){
-          sqlDb.select('Article.id_article','Article.author','Article.publication_date','Article.photo_url','Article.title')
+          this.select('Article.id_article','Article.author','Article.publication_date','Article.photo_url','Article.title')
               .where('RelatedArticles.id_article2',id_article)
               .from('Article')
               .join('RelatedArticles','Article.id_article','=','RelatedArticles.id_article2')
