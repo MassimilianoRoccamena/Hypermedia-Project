@@ -165,14 +165,14 @@ exports.getRelatedArticlesItemsByID = function(id_article) {
   }); */
 
   return sqlDb.from('Article')
-        .join('RelatedArticles','Article.id_article','=','RelatedArticles.id_article1')
+        .join('RelatedArticles','Article.id_article','=','RelatedArticles.id_article2')
         .where('RelatedArticles.id_article1',id_article)
         .select('Article.id_article','Article.author','Article.publication_date','Article.photo1_url','Article.title')
         .union(function(){
           this.select('Article.id_article','Article.author','Article.publication_date','Article.photo1_url','Article.title')
               .where('RelatedArticles.id_article2',id_article)
               .from('Article')
-              .join('RelatedArticles','Article.id_article','=','RelatedArticles.id_article2')
+              .join('RelatedArticles','Article.id_article','=','RelatedArticles.id_article1')
         });
 }
 

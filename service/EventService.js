@@ -258,14 +258,14 @@ exports.getRelatedEventsItemsByID = function(id_event) {
   }); */
 
   return sqlDb.from('Event')
-        .join('RelatedEvents','Event.id_event','=','RelatedEvents.id_event1')
+        .join('RelatedEvents','Event.id_event','=','RelatedEvents.id_event2')
         .where('RelatedEvents.id_event1',id_event)
         .select('Event.location','Event.name','Event.photo_url','Event.id_event','Event.date')
         .union(function(){
           this.select('Event.location','Event.name','Event.photo_url','Event.id_event','Event.date')
               .where('RelatedEvents.id_event2',id_event)
               .from('Event')
-              .join('RelatedEvents','Event.id_event','=','RelatedEvents.id_event2')
+              .join('RelatedEvents','Event.id_event','=','RelatedEvents.id_event1')
         });
 }
 
