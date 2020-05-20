@@ -232,7 +232,6 @@ exports.getServicesItems = function(offset,search) {
   }); */
 
   return sqlDb('Service')
-        .select('id_service','presentation','name','photo_url')
-        .wehereBetween('id_service', 12*(offset), 12*(offset+1));
+        .select('id_service','presentation','name','photo_url');
 }
 

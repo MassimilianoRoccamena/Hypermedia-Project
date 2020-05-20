@@ -188,8 +188,7 @@ exports.getEventsItems = function(offset,search) {
     }
   });*/
   return sqlDb('Event')
-        .select('id_event','location','date','name','photo_url')
-        .wehereBetween('id_event', 12*(offset), 12*(offset+1));
+        .select('id_event','location','date','name','photo_url');
 }
 
 
