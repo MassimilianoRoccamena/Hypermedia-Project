@@ -43,6 +43,9 @@ var currentPage = 1,
     idGroup = "people",
     idItem = "person",
     fillItem = function(col, data) {
+        let personLink = col.find("#personLink");
+        let href = $("<a href='/pages/person.html?id=" + data.id_person + "'><h5 class='card-title text-center'></h5></a>")
+        personLink.append(href);
         let name = col.find(".card-title");
         let photo = col.find("#photo");
 

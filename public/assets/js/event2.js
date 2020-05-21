@@ -28,11 +28,12 @@ function addLink(text, link) {
 
 //----------------------------------------- DATA LOAD -------------------------------------------
 
+let id = getParameter();
 //Load event data
 function loadData() {
  
     //Load page2 informations
-    fetch("/api/event2/0").then(function(response){
+    fetch("/api/event2/" + id).then(function(response){
         if(!response.ok){
             throw new Error("HTTP error, status =  " + response.status);
         }
@@ -50,14 +51,22 @@ function loadData() {
     });
 
     //Load event contact
-    fetch("/api/event/0/person").then(function(response){
+    fetch("/api/event/" + id + "/person").then(function(response){
         if(!response.ok){
             throw new Error("HTTP error, status =  " + response.status);
         }
         return response.json();
     })
     .then(function(json){
-        let contact = $("#contact");
-        contact.append(json[0].name);
+        let personLink = $("#personLink");
+        let href = $("<a href='/pages/person.html?id=" + json[0].id_person +"'><h5>" + json[0].name + "</h5></a>")
     });
+}
+//----------------------------------------- GET URL PARAMETER -------------------------------------------
+
+function getParameter(){
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var p = url.searchParams.get("id");
+    return p;
 }

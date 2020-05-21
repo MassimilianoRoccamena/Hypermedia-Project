@@ -30,7 +30,7 @@ function addLink(text, link) {
 
 let item = "event"
 let relatedItem;
-let id = "0";
+let id = getParameter();
 //Load event data
 function loadData() {
     
@@ -44,6 +44,9 @@ function loadData() {
     .then(function(json){
         var h1 = $("#name");
         var p = $("#description_text");
+        let page2Link = $("#page2Link");
+        let href = $("<a href='/pages/event2.html?id=" + id + "' class='btn btn-info' role='button'>Go to informations</a>");
+        page2Link.append(href);
         h1.append(json[0].name);
         p.append(json[0].description);
 
@@ -73,6 +76,9 @@ function loadData() {
             row.append(col);
             relatedItem = "service";
             col.load("/pages/components/" + relatedItem + "-card.html", function(responseTxt, statusTxt, xhr) {
+                let serviceLink = col.find("#serviceLink");
+                let href = $("<a href='/pages/service1.html?id=" + json[i].id_service + "'><h5 class='card-title text-center'></h5></a>");
+                serviceLink.append(href);
                 let relatedImage = col.find("#photo");
                 relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url[0] + "'></img>");
                 let relatedTitle = col.find(".card-title");
@@ -95,6 +101,9 @@ function loadData() {
             row.append(col);
             relatedItem = "event";
             col.load("/pages/components/" + relatedItem + "-card.html", function(responseTxt, statusTxt, xhr) {
+                let eventLink = col.find("#eventLink");
+                let href = $("<a href='/pages/event1.html?id=" + json[i].id_event + "'><h5 class='card-title mb-3'></h5></a>");
+                eventLink.append(href);
                 let relatedImage = col.find("#photo");
                 relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url[0] + "'></img>");
                 let relatedTitle = col.find(".card-title");
@@ -106,4 +115,12 @@ function loadData() {
             }); 
         }
     });
+}
+//----------------------------------------- GET URL PARAMETER -------------------------------------------
+
+function getParameter(){
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var p = url.searchParams.get("id");
+    return p;
 }

@@ -43,6 +43,9 @@ var currentPage = 1,
     idGroup = "events",
     idItem = "event",
     fillItem = function(col, data) {
+        let eventLInk = col.find("#eventLink");
+        let href = $("<a href='/pages/event1.html?id=" + data.id_event + "'><h5 class='card-title mb-3'></h5></a>")
+        eventLInk.append(href);
         let name = col.find(".card-title");
         let photo = col.find("#photo");
         let date = col.find("#date");
