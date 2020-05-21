@@ -31,7 +31,7 @@ function addLink(text, link) {
 //Load service data
 function loadData() {
     let item = "service"
-    let id = "0";
+    let id = getParameter();
     let relatedItem;
 
     fetch("/api/" + item + "1/" + id).then(function(response){
@@ -45,7 +45,6 @@ function loadData() {
         let p = $("#presentation_text");
         h1.append(json[0].name)
         p.append(json[0].presentation)
-        var ciao = getParameter();
 
         //Load photo gallery 
         let gallery = $("#gallery");
@@ -113,6 +112,6 @@ function loadData() {
 function getParameter(){
     var url_string = window.location.href;
     var url = new URL(url_string);
-    var p = url.searchParams.get("ciao");
+    var p = url.searchParams.get("id");
     return p;
 }
