@@ -47,8 +47,11 @@ var currentPage = 1,
     id = getParameter();
     
     fillItem = function(row, data) {
+        let ev = $("#event");
+        let href = $("<a href='/pages/event1.html?id=" + data.id_event +"'>" + data.name + "</a>");
+        ev.append(href);
         let articleLink = row.find("#articleLink");
-        let href = $("<a href='/pages/article.html?id=" + data.id_article + "'><h4></h4></a>");
+        href = $("<a href='/pages/article.html?id=" + data.id_article + "'><h4></h4></a>");
         articleLink.append(href);
         var photo = row.find("#photo");
         let name = row.find("h4");
