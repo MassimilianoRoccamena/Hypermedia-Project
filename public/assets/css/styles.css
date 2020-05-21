@@ -1,16 +1,59 @@
+/*
+    Navbar
+*/
 body {
-    padding-top: 3.5rem;
+    padding-top: 3rem;
+}
+.navbar {
+    box-shadow: 0 12px 12px -5px #795548;
+    background-color: #e65100;
+    font-size: 130%;
+}
+.navbar-brand {
+    color: #fff3e0;
+    font-size: 130%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+    
+}
+.navbar-brand:hover {
+    color: #795548 ;
+}
+.nav-link {
+    color: #fff3e0;
+    font-size: 90%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.nav-link:hover {
+    color: #795548 ;
 }
 
-.nav li {
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
+/*
+    Orientation info
+*/
 .breadcrumb {
     background-color: white;
 }
 
+/*
+    Footer
+*/
+#footer-1 {
+    background-color: #ffcc80 ;
+}
+#footer-2 {
+    background-color: #ffa726;
+}
+#footer-3 {
+    background-color: #fb8c00;
+}
+
+/*
+    Home
+*/
 .carousel-item {
     height: 92.5vh;
     min-height: 350px;
@@ -30,44 +73,41 @@ body {
     top: 70px;
 }
 
+/*
+    Color
+*/
 .gray{
     background-color: gray;
 }
-
 .dark-gray{
     background-color: darkgray;
 }
 
+/*
+    Social
+*/
 .fl{
     color: white;
 }
-
 .fa {
-  padding: 20px;
-  font-size: 40px;
-  width: 60px;
-  text-align: center;
-  text-decoration: none;
+    padding: 20px;
+    font-size: 40px;
+    width: 60px;
+    text-align: center;
+    text-decoration: none;
     border-radius: 100%;
 }
-
-
 .fa:hover {
-  opacity: 0.7;
+    opacity: 0.7;
 }
-
-
 .fa-facebook {
-  background: #3B5998;
-  color: white;
+    background: #3B5998;
+    color: white;
 }
-
-
 .fa-instagram{
     background: #C13584;
     color: white;
 }
-
 .fa-twitter{
     background: #38A1F3;
     color: white;
@@ -76,5 +116,3 @@ body {
     background: #FF5700;
     color: white;
 }
-
-
