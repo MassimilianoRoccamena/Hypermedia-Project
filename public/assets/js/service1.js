@@ -45,6 +45,7 @@ function loadData() {
         let p = $("#presentation_text");
         h1.append(json[0].name)
         p.append(json[0].presentation)
+        var ciao = getParameter();
 
         //Load photo gallery 
         let gallery = $("#gallery");
@@ -105,4 +106,13 @@ function loadData() {
             }); 
         }
     });
+}
+
+//----------------------------------------- GET URL PARAMETER -------------------------------------------
+
+function getParameter(){
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var p = url.searchParams.get("ciao");
+    return p;
 }
