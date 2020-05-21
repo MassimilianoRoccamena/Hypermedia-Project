@@ -55,7 +55,7 @@ function LoadData() {
             email.text(elem.email);
             li.append(email);
             location.text(elem.location);
-            li.append(location)
+            li.append(location);
             ul.append(li);
         }
     });
@@ -80,7 +80,7 @@ function sendHandler() {
                     if (body == "") {
                         alert("You must insert a body!");
                     } else {
-                        //Send email
+                        message = {"name":name,"email":email,"title":title,"body":body}
                         alert("Message sent!");
                     }
                 }
