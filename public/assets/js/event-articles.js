@@ -1,10 +1,11 @@
 $(document).ready(function () {
 
     //Orientation info
+    let id = getParameter();
     $('#orientation-info').load("/pages/components/orientation-info.html", function(responseTxt, statusTxt, xhr) {
         addLink("Home", "/");
         addLink("Events", "/pages/events.html");
-        addLink("Name", "/pages/event1.html");
+        addLink("Name", "/pages/event1.html?id=" + id);
         addLabel("Articles");
     });
     //Pagination

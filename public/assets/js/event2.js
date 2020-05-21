@@ -1,10 +1,12 @@
 $(document).ready(function () {
 
     //Orientation info
+    let id = getParameter();
     $('#orientation-info').load("/pages/components/orientation-info.html", function(responseTxt, statusTxt, xhr) {
         addLink("Home", "/");
         addLink("Events", "/pages/events.html");
-        addLabel("Label");
+        addLink("Name", "/pages/event1.html?id=" + id);
+        addLabel("Informations");
     });
 
     //Data load
@@ -29,6 +31,7 @@ function addLink(text, link) {
 //----------------------------------------- DATA LOAD -------------------------------------------
 
 let id = getParameter();
+
 //Load event data
 function loadData() {
  
