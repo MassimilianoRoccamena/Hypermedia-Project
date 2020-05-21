@@ -30,7 +30,7 @@ function addLink(text, link) {
 //----------------------------------------- DATA LOAD -------------------------------------------
 
 let item = "service"
-let id = "0";
+let id = getParameter();
 
 //Load service data
 function loadData() {
@@ -39,7 +39,7 @@ function loadData() {
     var locationDiv = $("#location");
 
     //Load page 2 informations
-    fetch("/api/service2/0").then(function(response){
+    fetch("/api/service2/" + id).then(function(response){
         if(!response.ok){
             throw new Error("HTTP error, status =  " + response.status);
         }
@@ -78,4 +78,13 @@ function loadData() {
             }); 
         }
     });
+}
+
+//----------------------------------------- GET URL PARAMETER -------------------------------------------
+
+function getParameter(){
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var p = url.searchParams.get("id");
+    return p;
 }
