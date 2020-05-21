@@ -54,8 +54,8 @@ function loadData() {
         author.append(json[0].author);
         date.append(json[0].publication_date);
         body.append(json[0].body);
-        let img1 = $("<img src='" + json[0].photo1_url + "' class='img-shadow' width: 100%>");
-        let img2 = $("<img src='" + json[0].photo2_url + "' class='img-shadow' width: 100%>");
+        let img1 = $("<img src='" + json[0].photo1_url + "' class='img-shadow' style='width: 100%;'>");
+        let img2 = $("<img src='" + json[0].photo2_url + "' class='img-shadow' style='width: 100%;'>");
         photo1.append(img1);
         photo2.append(img2);
     });
