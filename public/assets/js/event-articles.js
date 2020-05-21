@@ -83,6 +83,11 @@ function loadPage(first=true) {
         }
         return res.json();
     }).then(function (json) {
+        if(json.length == 0){
+            let error = $("#label");
+            error.text("There are no articles for this Event!")
+            return;
+        }
         let item = $("<div></div>");
         let ev = $("#event");
         let href = $("<a href='/pages/event1.html?id=" + json[0].id_event +"'>" + json[0].name + "</a>");

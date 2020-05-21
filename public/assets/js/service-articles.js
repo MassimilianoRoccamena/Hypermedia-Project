@@ -83,6 +83,11 @@ function loadPage(first=true) {
         }
         return res.json();
     }).then(function (json) {
+        if(json.length == 0){
+            let error = $("#label");
+            error.text("There are no articles for this Service!")
+            return;
+        }
         let item = $("<div></div>");
         let se = $("#service");
         let href = $("<a href='/pages/service1.html?id=" + json[0].id_service +"'>" + json[0].name + "</a>");
