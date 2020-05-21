@@ -93,7 +93,7 @@ exports.getEventArticlesItemsByID = function(id_event) {
     }
   });*/
   return sqlDb('Article')
-          .select('Article.id_article','Article.author','Article.publication_date','Article.photo_url','Article.title')
+          .select('Article.id_article','Article.author','Article.publication_date','Article.photo1_url','Article.title')
           .where('Article.id_event', id_event);
 }
 

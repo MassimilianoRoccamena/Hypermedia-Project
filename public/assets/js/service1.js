@@ -31,7 +31,7 @@ function addLink(text, link) {
 //Load service data
 function loadData() {
     let item = "service"
-    let id = "0";
+    let id = getParameter();
     let relatedItem;
 
     fetch("/api/" + item + "1/" + id).then(function(response){
@@ -105,4 +105,13 @@ function loadData() {
             }); 
         }
     });
+}
+
+//----------------------------------------- GET URL PARAMETER -------------------------------------------
+
+function getParameter(){
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var p = url.searchParams.get("id");
+    return p;
 }
