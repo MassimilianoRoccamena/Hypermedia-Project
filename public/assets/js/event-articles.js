@@ -44,7 +44,7 @@ var currentPage = 1,
         
         let img = $("<img src='" + data.photo1_url + "' style='width: 100%;'>");
         photo.append(img);
-        name.text(data.name);
+        name.text(data.title);
         date.text(data.publication_date);
         author.text(data.author);
     }
@@ -60,9 +60,7 @@ function initPagination() {
 function loadPage(first=true) {
     let container = $("#" + idGroup).find(".container")
     let hr = $("<hr>");
-    container.append(hr);
 
-    container.append(hr);
     if (!first) {
         container.empty();
     }
@@ -76,6 +74,7 @@ function loadPage(first=true) {
         let item = $("<div></div>");
 
         item.load("/pages/components/" + idItem + "-row.html", function(responseTxt, statusTxt, xhr) {
+            container.append(hr);
             for (let i=0; i<json.length; i++) {
                 let data = json[i];
                 
