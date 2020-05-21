@@ -79,6 +79,9 @@ function loadData() {
                 let serviceLink = col.find("#serviceLink");
                 let href = $("<a href='/pages/service1.html?id=" + json[i].id_service + "'><h5 class='card-title text-center'></h5></a>");
                 serviceLink.append(href);
+                let articleLink = $("#articleLink");
+                href = $("<a href='/pages/event-articles.html?id=" + id +"' class='btn btn-info' role='button'>Go to related articles</a>");
+                articleLink.append(href);
                 let relatedImage = col.find("#photo");
                 relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url[0] + "'></img>");
                 let relatedTitle = col.find(".card-title");

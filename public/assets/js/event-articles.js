@@ -44,7 +44,8 @@ var currentPage = 1,
     idGroup = "articles",
     idItem = "article",
     idParent = "event",
-    id = "0"
+    id = getParameter();
+    
     fillItem = function(row, data) {
         let articleLink = row.find("#articleLink");
         let href = $("<a href='/pages/article.html?id=" + data.id_article + "'><h4></h4></a>");
@@ -124,4 +125,12 @@ function previousPage() {
     } else {
         throw new Error("page 1 is first page")
     }
+}
+//----------------------------------------- GET URL PARAMETER -------------------------------------------
+
+function getParameter(){
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var p = url.searchParams.get("id");
+    return p;
 }
