@@ -47,9 +47,6 @@ var currentPage = 1,
     id = getParameter();
     
     fillItem = function(row, data) {
-        let ev = $("#event");
-        let href = $("<a href='/pages/event1.html?id=" + data.id_event +"'>" + data.name + "</a>");
-        ev.append(href);
         let articleLink = row.find("#articleLink");
         href = $("<a href='/pages/article.html?id=" + data.id_article + "'><h4></h4></a>");
         articleLink.append(href);
@@ -86,7 +83,15 @@ function loadPage(first=true) {
         }
         return res.json();
     }).then(function (json) {
+        if(json.length == 0){
+            let error = $("#label");
+            error.text("There are no articles for this Event!")
+            return;
+        }
         let item = $("<div></div>");
+        let ev = $("#event");
+        let href = $("<a href='/pages/event1.html?id=" + json[0].id_event +"'>" + json[0].name + "</a>");
+        ev.append(href);
 
         item.load("/pages/components/" + idItem + "-row.html", function(responseTxt, statusTxt, xhr) {
             for (let i=0; i<json.length; i++) {

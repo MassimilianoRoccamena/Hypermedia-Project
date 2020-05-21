@@ -47,11 +47,8 @@ var currentPage = 1,
     id = getParameter();
     
     fillItem = function(row, data) {
-        let se = $("#service");
-        let href = $("<a href='/pages/service1.html?id=" + data.id_service +"'>" + data.name + "</a>");
-        ev.append(href);
         let articleLink = row.find("#articleLink");
-        let href = $("<a href='/pages/article.html?id=" + data.id_article + "'><h4></h4></a>");
+        href = $("<a href='/pages/article.html?id=" + data.id_article + "'><h4></h4></a>");
         articleLink.append(href);
         var photo = row.find("#photo");
         let name = row.find("h4");
@@ -86,7 +83,15 @@ function loadPage(first=true) {
         }
         return res.json();
     }).then(function (json) {
+        if(json.length == 0){
+            let error = $("#label");
+            error.text("There are no articles for this Service!")
+            return;
+        }
         let item = $("<div></div>");
+        let se = $("#service");
+        let href = $("<a href='/pages/service1.html?id=" + json[0].id_service +"'>" + json[0].name + "</a>");
+        se.append(href);
 
         item.load("/pages/components/" + idItem + "-row.html", function(responseTxt, statusTxt, xhr) {
             for (let i=0; i<json.length; i++) {
