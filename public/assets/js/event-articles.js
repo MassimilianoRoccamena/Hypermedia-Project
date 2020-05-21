@@ -60,6 +60,7 @@ function initPagination() {
 function loadPage(first=true) {
     let container = $("#" + idGroup).find(".container")
     let hr = $("<hr>");
+    container.append(hr);
 
     container.append(hr);
     if (!first) {
