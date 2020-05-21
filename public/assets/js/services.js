@@ -46,12 +46,11 @@ var currentPage = 1,
         var photo = row.find("#photo");
         let link = row.find("#link");
         let href = $("<a href='/pages/service1.html?id=" + data.id_service + "><h4>" + data.name + "</h4></a>");
-        link.append(href);
         let presentation = row.find("p");
         
         let img = $("<img src='" + data.photo_url[0] + "' style='width: 100%;'>");
         photo.append(img);
-        name.text(data.name);
+        link.append(href);
         presentation.text(data.presentation);
     }
 
