@@ -40,15 +40,15 @@ iframe {
     Navbar
 */
 body {
-    padding-top: 10vh;
+    margin-top: 4.3rem;
 }
 .navbar {
     box-shadow: 0px 0px 20px #3e2723;
     background-color: #e65100;
     font-size: 130%;
 }
-.navbar-toggler-icon {
-    color: #fff3e0;
+.navbar-toggler {
+    box-shadow: 0px 0px 2px #3e2723;
 }
 .navbar-brand {
     color: #fff3e0;
@@ -130,7 +130,7 @@ body {
     Home
 */
 .carousel-item {
-    height: 90vh;
+    height: 89vh;
     min-height: 350px;
     background: no-repeat center center scroll;
     -webkit-background-size: cover;
