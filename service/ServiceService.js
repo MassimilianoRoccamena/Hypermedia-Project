@@ -132,7 +132,7 @@ exports.getServiceArticlesItemsByID = function(id_service) {
     }
   });*/
   return sqlDb('Article')
-          .select('Article.id_article','Article.author','Article.publication_date','Article.photo_url','Article.title')
+          .select('Article.id_article','Article.author','Article.publication_date','Article.photo1_url','Article.title')
           .where('Article.id_service', id_service);
 }
 
