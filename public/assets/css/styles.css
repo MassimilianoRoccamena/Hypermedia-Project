@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #bcaaa4;
     border-color: #bcaaa4;
 }
-img {
+.img-shadow {
     box-shadow: 0 0 15px #795548;
 }
 video {
@@ -31,6 +31,9 @@ video {
 }
 iframe {
     box-shadow: 0 0 15px #795548;
+}
+.jumbotron {
+    background-color: #ffcc80;
 }
 
 /*
@@ -110,7 +113,7 @@ body {
     box-shadow: 0px 0px 6px #3e2723;
 }
 #footer-2-text {
-    color: #5d4037;
+    color: #3e2723;
     text-shadow: 0px 0px 5px white;
     font-size: 140%;
 }
@@ -137,16 +140,6 @@ body {
 }
 .video{
     width: 60%;
-}
-
-/*
-    Color
-*/
-.gray{
-    background-color: gray;
-}
-.dark-gray{
-    background-color: darkgray;
 }
 
 /*
