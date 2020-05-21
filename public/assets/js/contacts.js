@@ -41,20 +41,17 @@ function LoadData() {
         let ul = $("#contacts-ul");
         
         for (let i=0; i<json.length; i++) {
-            let li = $("<li></li>")
-            let name = $("<h4></h4>");
-            let phone = $("<h4></h4>");
-            let email = $("<h4></h4>");
-            let location = $("<h4></h4>");
-
             elem = json[i];
-            name.text(elem.name);
+
+            let li = $("<li></li>")
+            let name = $("<h4>" + elem.name + "</h4>");
+            let phone = $("<h4>" + elem.phone + "</h4>");
+            let email = $("<h4>" + elem.email + "</h4>");
+            let location = $("<h4>" + elem.location + "</h4>");
+
             li.append(name);
-            phone.text(elem.phone);
             li.append(phone);
-            email.text(elem.email);
             li.append(email);
-            location.text(elem.location);
             li.append(location);
             ul.append(li);
         }

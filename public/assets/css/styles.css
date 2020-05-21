@@ -38,7 +38,7 @@ iframe {
     Navbar
 */
 body {
-    margin-top: 4.3rem;
+    margin-top: 3.9rem;
 }
 .navbar {
     box-shadow: 0px 0px 20px #3e2723;
@@ -128,7 +128,7 @@ body {
     Home
 */
 .carousel-item {
-    height: 89vh;
+    height: 90vh;
     min-height: 350px;
     background: no-repeat center center scroll;
     -webkit-background-size: cover;
