@@ -59,7 +59,6 @@ function initPagination() {
 //Load group page
 function loadPage(first=true) {
     let container = $("#" + idGroup).find(".container")
-    let hr = $("<hr>");
 
     if (!first) {
         container.empty();
@@ -74,7 +73,6 @@ function loadPage(first=true) {
         let item = $("<div></div>");
 
         item.load("/pages/components/" + idItem + "-row.html", function(responseTxt, statusTxt, xhr) {
-            container.append(hr);
             for (let i=0; i<json.length; i++) {
                 let data = json[i];
                 
@@ -83,7 +81,6 @@ function loadPage(first=true) {
                 container.append(row);
 
                 fillItem(row, data);
-                container.append(hr);
             }
         });
     });
