@@ -85,7 +85,7 @@ function loadPage(first=true) {
     }).then(function (json) {
         let item = $("<div></div>");
         let se = $("#service");
-        let href = $("<a href='/pages/service1.html?id=" + data.id_service +"'>" + data.name + "</a>");
+        let href = $("<a href='/pages/service1.html?id=" + json[0].id_service +"'>" + json[0].name + "</a>");
         se.append(href);
 
         item.load("/pages/components/" + idItem + "-row.html", function(responseTxt, statusTxt, xhr) {
