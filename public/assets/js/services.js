@@ -44,7 +44,7 @@ var currentPage = 1,
     idItem = "service",
     fillItem = function(row, data) {
         var photo = row.find("#photo");
-        let link = row.find("#link");
+        let link = row.find("#serviceLink");
         let href = $("<a href='/pages/service1.html?id=" + data.id_service + "'><h4>" + data.name + "</h4></a>");
         let presentation = row.find("p");
         
