@@ -7,6 +7,15 @@ $(document).ready(function () {
         addLink("Name", "/pages/event1.html");
         addLabel("Articles");
     });
+    //Pagination
+    $('#pagination').load("/pages/components/pagination.html", function(responseTxt, statusTxt, xhr) {
+        $("#previous").click(function() {
+            previousPage();
+        })
+        $("#next").click(function() {
+            nextPage();
+        })
+    });
 
     initPagination();
     loadPage();
