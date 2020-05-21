@@ -30,7 +30,7 @@ function addLink(text, link) {
 
 
 let item = "article"
-let id = "0";
+let id = getParameter();
 
 //Load article data
 function loadData() {
@@ -74,6 +74,9 @@ function loadData() {
             row.append(col);
             col.load("/pages/components/" + item + "-card.html", function(responseTxt, statusTxt, xhr) {
                 let relatedImage = col.find("#photo");
+                let articleLink = col.find("#articleLink");
+                let href = $("<a href='/pages/article.html?id=" + json[i].id_article +"'><h5 class='card-title text-center'></h5></a>");
+                articleLink.append(href);
                 relatedImage.append("<img class='card-img-top' src='" + json[i].photo1_url + "'></img>");
                 let relatedTitle = col.find(".card-title");
                 relatedTitle.append(json[i].title);
@@ -84,4 +87,13 @@ function loadData() {
             }); 
         }
     });
+}
+
+//----------------------------------------- GET URL PARAMETER -------------------------------------------
+
+function getParameter(){
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var p = url.searchParams.get("id");
+    return p;
 }
