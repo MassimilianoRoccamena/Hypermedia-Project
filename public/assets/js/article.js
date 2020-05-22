@@ -62,12 +62,12 @@ function loadData() {
         let subjectLink = $("#subjectLink");
         let subject;
         let page;
-        if(json[0].id_service === "null"){
-            subject = json[0].id_event;
-            page = "event";
-        }else{
+        if(json[0].id_service){
             subject = json[0].id_service;
             page = "service";
+        }else{
+            subject = json[0].id_event;
+            page = "event";
         }
         let href = $("<a href='/pages/" + page + "1.html?id=" + subject +"' class='btn btn-info' role='button'>Subject of this article</a>");
         subjectLink.append(href);
