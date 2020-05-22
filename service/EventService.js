@@ -18,21 +18,6 @@ exports.eventDbSetup = function(s) {
  * returns Event1
  **/
 exports.getEvent1ByID = function(id_event) {
-  /* return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "name" : "name",
-  "description" : "description",
-  "id_event" : 0,
-  "photo_url" : [ "photo_url", "photo_url" ]
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  }); */
-
   return sqlDb.from("Event").select('id_event','name','description','photo_url').where("id_event", "=", id_event);
 }
 
@@ -44,22 +29,6 @@ exports.getEvent1ByID = function(id_event) {
  * returns Event2
  **/
 exports.getEvent2ByID = function(id_event) {
-  /* return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "date" : "2000-01-23",
-  "name" : "name",
-  "pract_info" : "pract_info",
-  "location" : "location",
-  "id_event" : 0
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  }); */
-
   return sqlDb.from("Event").select('id_event','name','date','pract_info','location').where("id_event", "=", id_event);
 }
 
@@ -71,27 +40,6 @@ exports.getEvent2ByID = function(id_event) {
  * returns List
  **/
 exports.getEventArticlesItemsByID = function(id_event) {
-/*  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "id_article" : 0,
-  "author" : "author",
-  "publication_date" : "2000-01-23",
-  "photo_url" : "photo_url",
-  "title" : "title"
-}, {
-  "id_article" : 0,
-  "author" : "author",
-  "publication_date" : "2000-01-23",
-  "photo_url" : "photo_url",
-  "title" : "title"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });*/
   return sqlDb('Article')
           .join('Event','Article.id_event','=','Event.id_event')
           .select('Article.id_article','Article.author','Article.publication_date','Article.photo1_url','Article.title','Article.id_event','Event.name')
@@ -106,19 +54,6 @@ exports.getEventArticlesItemsByID = function(id_event) {
  * returns PersonItem
  **/
 exports.getEventPersonItemByID = function(id_event) {
-/*  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "id_person" : 0,
-  "name" : "name",
-  "photo_url" : "photo_url"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });*/
   return sqlDb('Person')
           .join('Event', 'Person.id_person','=','Event.id_person')
           .where('Event.id_event', id_event)
@@ -133,25 +68,6 @@ exports.getEventPersonItemByID = function(id_event) {
  * returns List
  **/
 exports.getEventServicesItemsByID = function(id_event) {
-/*  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "presentation" : "presentation",
-  "name" : "name",
-  "photo_url" : "photo_url",
-  "id_service" : 0
-}, {
-  "presentation" : "presentation",
-  "name" : "name",
-  "photo_url" : "photo_url",
-  "id_service" : 0
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });*/
   return sqlDb('Service')
           .join('ServicesEvents','Service.id_service','=','ServicesEvents.id_service')
           .select('Service.id_service','Service.presentation','Service.name','Service.photo_url')
@@ -167,27 +83,6 @@ exports.getEventServicesItemsByID = function(id_event) {
  * returns List
  **/
 exports.getEventsItems = function(offset,search) {
-/*  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "date" : "2000-01-23",
-  "name" : "name",
-  "location" : "location",
-  "id_event" : 0,
-  "photo_url" : "photo_url"
-}, {
-  "date" : "2000-01-23",
-  "name" : "name",
-  "location" : "location",
-  "id_event" : 0,
-  "photo_url" : "photo_url"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });*/
   return sqlDb('Event')
         .select('id_event','location','date','name','photo_url');
 }
@@ -202,27 +97,6 @@ exports.getEventsItems = function(offset,search) {
  * returns List
  **/
 exports.getEventsItemsByMonth = function(month,offset,search) {
-/*  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "date" : "2000-01-23",
-  "name" : "name",
-  "location" : "location",
-  "id_event" : 0,
-  "photo_url" : "photo_url"
-}, {
-  "date" : "2000-01-23",
-  "name" : "name",
-  "location" : "location",
-  "id_event" : 0,
-  "photo_url" : "photo_url"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });*/
   return sqlDb('Event')
         .select('id_event','location','date','name','photo_url')
         .where('MONTH(date)','=',month);
@@ -236,28 +110,6 @@ exports.getEventsItemsByMonth = function(month,offset,search) {
  * returns List
  **/
 exports.getRelatedEventsItemsByID = function(id_event) {
-  /* return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "date" : "2000-01-23",
-  "name" : "name",
-  "location" : "location",
-  "id_event" : 0,
-  "photo_url" : "photo_url"
-}, {
-  "date" : "2000-01-23",
-  "name" : "name",
-  "location" : "location",
-  "id_event" : 0,
-  "photo_url" : "photo_url"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  }); */
-
   return sqlDb.from('Event')
         .join('RelatedEvents','Event.id_event','=','RelatedEvents.id_event2')
         .where('RelatedEvents.id_event1',id_event)

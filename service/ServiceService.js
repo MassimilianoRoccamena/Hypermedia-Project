@@ -110,27 +110,6 @@ exports.getService2ByID = function(id_service) {
  * returns List
  **/
 exports.getServiceArticlesItemsByID = function(id_service) {
-/*  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "id_article" : 0,
-  "author" : "author",
-  "publication_date" : "2000-01-23",
-  "photo_url" : "photo_url",
-  "title" : "title"
-}, {
-  "id_article" : 0,
-  "author" : "author",
-  "publication_date" : "2000-01-23",
-  "photo_url" : "photo_url",
-  "title" : "title"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });*/
   return sqlDb('Article')
           .join('Service','Service.id_service','=','Article.id_service')
           .select('Article.id_article','Article.author','Article.publication_date','Article.photo1_url','Article.title','Article.id_service','Service.name')
@@ -145,27 +124,6 @@ exports.getServiceArticlesItemsByID = function(id_service) {
  * returns List
  **/
 exports.getServiceEventsItemsByID = function(id_service) {
-/*  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "date" : "2000-01-23",
-  "name" : "name",
-  "location" : "location",
-  "id_event" : 0,
-  "photo_url" : "photo_url"
-}, {
-  "date" : "2000-01-23",
-  "name" : "name",
-  "location" : "location",
-  "id_event" : 0,
-  "photo_url" : "photo_url"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });*/
   return sqlDb('Event')
           .join('ServicesEvents', 'ServicesEvents.id_event','=','Event.id_event')
           .where('ServicesEvents.id_service', id_service)
@@ -180,23 +138,6 @@ exports.getServiceEventsItemsByID = function(id_service) {
  * returns List
  **/
 exports.getServicePeopleItemsByID = function(id_service) {
-/*  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "id_person" : 0,
-  "name" : "name",
-  "photo_url" : "photo_url"
-}, {
-  "id_person" : 0,
-  "name" : "name",
-  "photo_url" : "photo_url"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });*/
   return sqlDb('Person')
           .join('PeopleServices', 'PeopleServices.id_person','=','Person.id_person')
           .where('PeopleServices.id_service', id_service)
@@ -212,26 +153,6 @@ exports.getServicePeopleItemsByID = function(id_service) {
  * returns List
  **/
 exports.getServicesItems = function(offset,search) {
-  /* return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "presentation" : "presentation",
-  "name" : "name",
-  "photo_url" : "photo_url",
-  "id_service" : 0
-}, {
-  "presentation" : "presentation",
-  "name" : "name",
-  "photo_url" : "photo_url",
-  "id_service" : 0
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  }); */
-
   return sqlDb('Service')
         .select('id_service','presentation','name','photo_url');
 }

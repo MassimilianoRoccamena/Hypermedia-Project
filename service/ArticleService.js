@@ -19,27 +19,6 @@ exports.articleDbSetup = function(s) {
  * returns Article
  **/
 exports.getArticleByID = function(id_article) {
-  /* return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "id_article" : 0,
-  "photo1_url" : "photo1_url",
-  "email_address" : "email_address",
-  "author" : "author",
-  "publication_date" : "2000-01-23",
-  "id_event" : 1,
-  "photo2_url" : "photo2_url",
-  "title" : "title",
-  "body" : "body",
-  "id_service" : 6
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  }); */
-
   return sqlDb.from("Article").select("*").where("id_article", "=", id_article);
 }
 
@@ -51,21 +30,6 @@ exports.getArticleByID = function(id_article) {
  * returns EventItem
  **/
 exports.getArticleEventItemByID = function(id_article) {
-/*  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "date" : "2000-01-23",
-  "name" : "name",
-  "location" : "location",
-  "id_event" : 0,
-  "photo_url" : "photo_url"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });*/
   return sqlDb('Event')
           .join('Article', 'Article.id_event','=','Event.id_event')
           .where('Article.id_article', id_article)
@@ -80,20 +44,6 @@ exports.getArticleEventItemByID = function(id_article) {
  * returns ServiceItem
  **/
 exports.getArticleServiceItemByID = function(id_article) {
-/*  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "presentation" : "presentation",
-  "name" : "name",
-  "photo_url" : "photo_url",
-  "id_service" : 0
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });*/
   return sqlDb('Service')
           .join('Article', 'Article.id_service','=','Service.id_service')
           .where('Article.id_article', id_article)
@@ -109,27 +59,6 @@ exports.getArticleServiceItemByID = function(id_article) {
  * returns List
  **/
 exports.getArticlesItems = function(offset,search) {
-/*  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "id_article" : 0,
-  "author" : "author",
-  "publication_date" : "2000-01-23",
-  "photo_url" : "photo_url",
-  "title" : "title"
-}, {
-  "id_article" : 0,
-  "author" : "author",
-  "publication_date" : "2000-01-23",
-  "photo_url" : "photo_url",
-  "title" : "title"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });*/
   return sqlDb("Article")
           .select('id_article','author','publication_date','photo1_url','title');
 }
@@ -142,28 +71,6 @@ exports.getArticlesItems = function(offset,search) {
  * returns List
  **/
 exports.getRelatedArticlesItemsByID = function(id_article) {
-  /* return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "id_article" : 0,
-  "author" : "author",
-  "publication_date" : "2000-01-23",
-  "photo_url" : "photo_url",
-  "title" : "title"
-}, {
-  "id_article" : 0,
-  "author" : "author",
-  "publication_date" : "2000-01-23",
-  "photo_url" : "photo_url",
-  "title" : "title"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  }); */
-
   return sqlDb.from('Article')
         .join('RelatedArticles','Article.id_article','=','RelatedArticles.id_article2')
         .where('RelatedArticles.id_article1',id_article)
