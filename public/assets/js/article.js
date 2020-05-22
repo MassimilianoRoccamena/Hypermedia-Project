@@ -96,7 +96,7 @@ function loadData() {
                 let relatedAuthor = col.find("#author");
                 relatedAuthor.append(json[i].author);
                 let relatedDate = col.find("#date");
-                relatedDate.append(json[i].publication_date);
+                relatedDate.append(json[i].publication_date.substring(0,10));
             }); 
         }
     });

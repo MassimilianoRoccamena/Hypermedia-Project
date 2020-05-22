@@ -50,7 +50,7 @@ var currentPage = 1,
         let photo = col.find("#photo");
         let date = col.find("#date");
         let location = col.find("#location");
-        date.append(data.date);
+        date.append(data.date.substring(0,10));
         location.append(data.location);
         name.text(data.name);
         let img = $("<img src='" + data.photo_url[0] + "' style='width: 100%;'>");

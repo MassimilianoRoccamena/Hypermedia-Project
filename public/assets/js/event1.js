@@ -112,7 +112,7 @@ function loadData() {
                 let relatedTitle = col.find(".card-title");
                 relatedTitle.append(json[i].name);
                 let relatedDate = col.find("#date");
-                relatedDate.append(json[i].date);
+                relatedDate.append(json[i].date.substring(0,10));
                 let relatedLocation = col.find("#location");
                 relatedLocation.append(json[i].location);
             }); 
