@@ -8,7 +8,6 @@ $(document).ready(function () {
 
     //Send button
     sendHandler();
-    LoadData();
 });
 
 //------------------------------------- ORIENTATION INFO -----------------------------------------
@@ -28,37 +27,7 @@ function addLink(text, link) {
 
 //--------------------------------------- SEND BUTTON -------------------------------------------
 
-//Load contacts data
-function LoadData() {
-
-    //Load content
-    fetch("/api/contacts").then(function(response){
-        if(!response.ok){
-            throw new Error("HTTP error, status =  " + response.status);
-        }
-        return response.json();
-    })
-    .then(function(json){
-        let ul = $("#contacts-ul");
-        
-        for (let i=0; i<json.length; i++) {
-            elem = json[i];
-
-            let li = $("<li></li>")
-            let name = $("<h4>" + elem.name + "</h4>");
-            let phone = $("<h4>" + elem.phone + "</h4>");
-            let email = $("<h4>" + elem.email + "</h4>");
-            let location = $("<h4>" + elem.location + "</h4>");
-
-            li.append(name);
-            li.append(phone);
-            li.append(email);
-            li.append(location);
-            ul.append(li);
-        }
-    });
-}
-
+//Handles send click
 function sendHandler() {
     $("#send").click(function() {
         var name = $("#name").val();

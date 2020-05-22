@@ -31,7 +31,7 @@ let item = "person"
 let id = getParameter();
 let relatedItem;
 
-//Load event data
+//Load person data
 function loadData() {
     
     //Load informations
