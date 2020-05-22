@@ -53,7 +53,7 @@ var currentPage = 1,
         
         title.text(data.title);
         author.append(data.author);
-        date.append(data.publication_date);
+        date.append(data.publication_date.substring(0,10));
         let img = $("<img src='" + data.photo1_url + "' style='width: 100%;'>");
         photo.append(img);
     }

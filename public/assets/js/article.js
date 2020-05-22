@@ -52,12 +52,25 @@ function loadData() {
         
         title.append(json[0].title);
         author.append(json[0].author);
-        date.append(json[0].publication_date);
+        date.append(json[0].publication_date.substring(0,10));
         body.append(json[0].body);
         let img1 = $("<img src='" + json[0].photo1_url + "' class='img-shadow' style='width: 100%;'>");
         let img2 = $("<img src='" + json[0].photo2_url + "' class='img-shadow' style='width: 100%;'>");
         photo1.append(img1);
         photo2.append(img2);
+
+        let subjectLink = $("#subjectLink");
+        let subject;
+        let page;
+        if(json[0].id_service){
+            subject = json[0].id_service;
+            page = "service";
+        }else{
+            subject = json[0].id_event;
+            page = "event";
+        }
+        let href = $("<a href='/pages/" + page + "1.html?id=" + subject +"' class='btn btn-info' role='button'>Subject of this article</a>");
+        subjectLink.append(href);
     });
 
     //Load related articles
@@ -83,7 +96,7 @@ function loadData() {
                 let relatedAuthor = col.find("#author");
                 relatedAuthor.append(json[i].author);
                 let relatedDate = col.find("#date");
-                relatedDate.append(json[i].publication_date);
+                relatedDate.append(json[i].publication_date.substring(0,10));
             }); 
         }
     });

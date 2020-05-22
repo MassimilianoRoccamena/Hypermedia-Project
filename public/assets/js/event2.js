@@ -55,7 +55,7 @@ function loadData() {
         let location = $("#location");
         name.append(json[0].name);
         info.append(json[0].pract_info);
-        date.append(json[0].date);
+        date.append(json[0].date.substring(0,10));
         location.append(json[0].location);
     });
 
