@@ -55,13 +55,12 @@ function loadData() {
         articleLink.append(href);
         h1.append(json[0].name);
         p.append(json[0].informations);
-        var locations = json[0].location.split(" ");
-        var h5 = "<h5>"
-        for(i = 0; i < locations.length; i++){
-            h5 = h5.concat(locations[i] + "<br>");
+        
+        for(i = 0; i < json[0].location.length; i++){
+            let h5 = $("<h5>" + json[0].location[i] +"</h5>");
+            locationDiv.append(h5);
         }
-         h5 = h5.concat("</h5>");
-        locationDiv.append(h5);
+        
     });
 
     //Load related people
