@@ -57,6 +57,27 @@ var currentPage = 1,
         photo.append(img);
     }
 
+
+//Translate month
+let ref = { 
+        "All" : 0,
+        "January" : 1,
+        "February" : 2,
+        "March" : 3,
+        "April" : 4,
+        "May" : 5,
+        "June" : 6,
+        "July" : 7,
+        "August" : 8,
+        "September" : 9,
+        "October" : 10,
+        "November" : 11,
+        "December" : 12
+    };
+function getMonth(month) {
+    return ref[month];
+}
+
 //Init component
 function initPagination() {
     let root = $("#" + idGroup);
@@ -84,7 +105,18 @@ function loadPage(first=true) {
         }
     }
 
-    fetch("/api/" + idGroup + "/?offset=" + currentPage).then(function (res) {
+    let search = $("#filter-search").val(),
+        month = $("#filter-month").val(),
+        m = getMonth(month);
+    let path = "/api/" + idGroup + "/?offset=" + currentPage-1;
+    if (search) {
+        path += "&search=" + search;
+    }
+    if (m != 0) {
+        path += "&month=" + m;
+    }
+
+    fetch(path).then(function (res) {
         if (!res.ok) { 
             throw new Error("HTTP error, status = " + res.status); 
         }

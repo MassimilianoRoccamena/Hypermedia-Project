@@ -83,23 +83,31 @@ exports.getEventServicesItemsByID = function(id_event) {
  * returns List
  **/
 exports.getEventsItems = function(offset,search,month) {
-  return sqlDb('Event')
-        .select('id_event','location','date','name','photo_url');
-}
-
-
-/**
- * Get events items by month
- *
- * month Long Month of events to return
- * offset Integer Pagination offset
- * search String Text search
- * returns List
- **/
-exports.getEventsItemsByMonth = function(month,offset,search) {
-  return sqlDb('Event')
+  if (search) {
+    if (month) {
+      return sqlDb('Event')
         .select('id_event','location','date','name','photo_url')
-        .where('MONTH(date)','=',month);
+        .whereBetween('id_event',offset*12,(offset+1)*12)
+        .where('name','like','%' + search + '%')
+        .where('date', 'like', '%-' + month + '-%');
+    } else {
+      return sqlDb('Event')
+        .select('id_event','location','date','name','photo_url')
+        .whereBetween('id_event',offset*12,(offset+1)*12)
+        .where('name','like','%' + search + '%');
+    }
+  } else {
+    if (month) {
+      return sqlDb('Event')
+        .select('id_event','location','date','name','photo_url')
+        .whereBetween('id_event',offset*12,(offset+1)*12)
+        .where('date', 'like', '%-' + month + '-%');
+    } else {
+      return sqlDb('Event')
+        .select('id_event','location','date','name','photo_url')
+        .whereBetween('id_event',offset*12,(offset+1)*12);
+    }
+  }
 }
 
 

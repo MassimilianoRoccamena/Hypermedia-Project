@@ -71,19 +71,6 @@ module.exports.getEventsItems = function getEventsItems (req, res, next) {
     });
 };
 
-module.exports.getEventsItemsByMonth = function getEventsItemsByMonth (req, res, next) {
-  var month = req.swagger.params['month'].value;
-  var offset = req.swagger.params['offset'].value;
-  var search = req.swagger.params['search'].value;
-  Event.getEventsItemsByMonth(month,offset,search)
-    .then(function (response) {
-      utils.writeJson(res, response);
-    })
-    .catch(function (response) {
-      utils.writeJson(res, response);
-    });
-};
-
 module.exports.getRelatedEventsItemsByID = function getRelatedEventsItemsByID (req, res, next) {
   var id_event = req.swagger.params['id_event'].value;
   Event.getRelatedEventsItemsByID(id_event)
