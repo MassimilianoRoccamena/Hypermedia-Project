@@ -37,9 +37,9 @@ module.exports.getPersonEventsItemsByID = function getPersonEventsItemsByID (req
     });
 };
 
-module.exports.getPersonServicesItemsByID = function getPersonServicesItemsByID (req, res, next) {
+module.exports.getPersonServicesLabelsByID = function getPersonServicesLabelsByID (req, res, next) {
   var id_person = req.swagger.params['id_person'].value;
-  Person.getPersonServicesItemsByID(id_person)
+  Person.getPersonServicesLabelsByID(id_person)
     .then(function (response) {
       utils.writeJson(res, response);
     })

@@ -41,6 +41,7 @@ paths:
       - name: "search"
         in: "query"
         description: "Text search"
+        required: false
         type: "string"
       responses:
         "200":
@@ -227,41 +228,16 @@ paths:
       - name: "search"
         in: "query"
         description: "Text search"
+        required: false
         type: "string"
-      responses:
-        "200":
-          description: "Successful operation"
-          schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/EventItem"
-      x-swagger-router-controller: "Event"
-  /events/month/{month}:
-    get:
-      tags:
-      - "event"
-      summary: "Get events items by month"
-      operationId: "getEventsItemsByMonth"
-      produces:
-      - "application/json"
-      parameters:
       - name: "month"
-        in: "path"
-        description: "Month of events to return"
-        required: true
+        in: "query"
+        description: "Month search"
+        required: false
         type: "integer"
         maximum: 12
         minimum: 1
         format: "int64"
-      - name: "offset"
-        in: "query"
-        description: "Pagination offset"
-        required: true
-        type: "integer"
-      - name: "search"
-        in: "query"
-        description: "Text search"
-        type: "string"
       responses:
         "200":
           description: "Successful operation"
@@ -269,8 +245,6 @@ paths:
             type: "array"
             items:
               $ref: "#/definitions/EventItem"
-        "400":
-          description: "Invalid month"
       x-swagger-router-controller: "Event"
   /event1/{id_event}:
     get:
@@ -382,8 +356,8 @@ paths:
     get:
       tags:
       - "event"
-      summary: "Get person item of a selected event by ID"
-      operationId: "getEventPersonItemByID"
+      summary: "Get person label of a selected event by ID"
+      operationId: "getEventPersonLabelByID"
       produces:
       - "application/json"
       - "application/xml"
@@ -398,7 +372,7 @@ paths:
         "200":
           description: "Successful operation"
           schema:
-            $ref: "#/definitions/PersonItem"
+            $ref: "#/definitions/PersonLabel"
         "400":
           description: "Invalid ID"
         "404":
@@ -448,6 +422,7 @@ paths:
       - name: "search"
         in: "query"
         description: "Text search"
+        required: false
         type: "string"
       responses:
         "200":
@@ -487,8 +462,8 @@ paths:
     get:
       tags:
       - "person"
-      summary: "Get services items of a selected person by ID"
-      operationId: "getPersonServicesItemsByID"
+      summary: "Get services labels of a selected person by ID"
+      operationId: "getPersonServicesLabelsByID"
       produces:
       - "application/json"
       parameters:
@@ -504,7 +479,7 @@ paths:
           schema:
             type: "array"
             items:
-              $ref: "#/definitions/ServiceItem"
+              $ref: "#/definitions/ServiceLabel"
         "400":
           description: "Invalid ID"
         "404":
@@ -554,6 +529,7 @@ paths:
       - name: "search"
         in: "query"
         description: "Text search"
+        required: false
         type: "string"
       responses:
         "200":
@@ -775,7 +751,9 @@ definitions:
       informations:
         type: "string"
       location:
-        type: "string"
+        type: "array"
+        items:
+          type: "string"
     xml:
       name: "Service2"
     example:
@@ -803,6 +781,21 @@ definitions:
       presentation: "presentation"
       name: "name"
       photo_url: "photo_url"
+      id_service: 0
+  ServiceLabel:
+    type: "object"
+    required:
+    - "id_service"
+    properties:
+      id_service:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+    xml:
+      name: "ServiceLabel"
+    example:
+      name: "name"
       id_service: 0
   Event1:
     type: "object"
@@ -932,6 +925,21 @@ definitions:
       id_person: 0
       name: "name"
       photo_url: "photo_url"
+  PersonLabel:
+    type: "object"
+    required:
+    - "id_person"
+    properties:
+      id_person:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+    xml:
+      name: "PersonLabel"
+    example:
+      id_person: 0
+      name: "name"
   Article:
     type: "object"
     required:

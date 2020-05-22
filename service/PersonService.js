@@ -54,10 +54,10 @@ exports.getPersonEventsItemsByID = function(id_person) {
  * id_person Long ID of person to search for services
  * returns List
  **/
-exports.getPersonServicesItemsByID = function(id_person) {
+exports.getPersonServicesLabelsByID = function(id_person) {
   return sqlDb('Service')
           .join('PeopleServices','Service.id_service','=','PeopleServices.id_service')
-          .select('Service.id_service','Service.presentation','Service.name','Service.photo_url')
-          .where('PeopleServices.id_person', id_person);
+          .where('PeopleServices.id_person', id_person)
+          .select('Service.id_service', 'Service.name');
 }
 

@@ -53,11 +53,11 @@ exports.getEventArticlesItemsByID = function(id_event) {
  * id_event Long ID of event to search for person
  * returns PersonItem
  **/
-exports.getEventPersonItemByID = function(id_event) {
+exports.getEventPersonLabelByID = function(id_event) {
   return sqlDb('Person')
           .join('Event', 'Person.id_person','=','Event.id_person')
           .where('Event.id_event', id_event)
-          .select('Person.id_person','Person.name','Person.photo_url');
+          .select('Person.id_person', 'Person.name');
 }
 
 
@@ -82,7 +82,7 @@ exports.getEventServicesItemsByID = function(id_event) {
  * search String Text search
  * returns List
  **/
-exports.getEventsItems = function(offset,search) {
+exports.getEventsItems = function(offset,search,month) {
   return sqlDb('Event')
         .select('id_event','location','date','name','photo_url');
 }

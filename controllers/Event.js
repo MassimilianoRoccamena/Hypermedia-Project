@@ -36,9 +36,9 @@ module.exports.getEventArticlesItemsByID = function getEventArticlesItemsByID (r
     });
 };
 
-module.exports.getEventPersonItemByID = function getEventPersonItemByID (req, res, next) {
+module.exports.getEventPersonLabelByID = function getEventPersonLabelByID (req, res, next) {
   var id_event = req.swagger.params['id_event'].value;
-  Event.getEventPersonItemByID(id_event)
+  Event.getEventPersonLabelByID(id_event)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -61,7 +61,8 @@ module.exports.getEventServicesItemsByID = function getEventServicesItemsByID (r
 module.exports.getEventsItems = function getEventsItems (req, res, next) {
   var offset = req.swagger.params['offset'].value;
   var search = req.swagger.params['search'].value;
-  Event.getEventsItems(offset,search)
+  var month = req.swagger.params['month'].value;
+  Event.getEventsItems(offset,search,month)
     .then(function (response) {
       utils.writeJson(res, response);
     })
