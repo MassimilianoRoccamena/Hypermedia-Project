@@ -8,6 +8,7 @@ $(document).ready(function () {
 
     //Send button
     sendHandler();
+    LoadData();
 });
 
 //------------------------------------- ORIENTATION INFO -----------------------------------------
