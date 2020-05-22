@@ -103,6 +103,10 @@ function loadPage(first=true) {
                 container.append(row);
 
                 fillItem(row, data);
+                
+                if (i < json.length-1) {
+                    container.append($("<hr>"));
+                }
             }
         });
     });

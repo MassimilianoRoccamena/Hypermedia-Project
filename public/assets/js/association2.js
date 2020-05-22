@@ -39,22 +39,26 @@ function LoadData() {
         return response.json();
     })
     .then(function(json){
-        let ul = $("#contacts-ul");
+        let container = $("#headquarters-container");
         
         for (let i=0; i<json.length; i++) {
             elem = json[i];
 
-            let li = $("<li></li>")
-            let name = $("<h4>" + elem.name + "</h4>");
-            let phone = $("<h4>" + elem.phone + "</h4>");
-            let email = $("<h4>" + elem.email + "</h4>");
-            let location = $("<h4>" + elem.location + "</h4>");
+            let div = $("<div></div>")
+            let name = $("<h3>" + elem.name + "</h3>");
+            let phone = $("<h5>" + elem.phone + "</h5>");
+            let email = $("<h5>" + elem.email + "</h5>");
+            let location = $("<h5>" + elem.location + "</h5>");
 
-            li.append(name);
-            li.append(phone);
-            li.append(email);
-            li.append(location);
-            ul.append(li);
+            div.append(name);
+            div.append(phone);
+            div.append(email);
+            div.append(location);
+            container.append(div);
+
+            if (i < json.length-1) {
+                container.append($("<br>"));
+            }
         }
     });
 }
