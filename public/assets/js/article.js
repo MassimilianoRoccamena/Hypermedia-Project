@@ -62,7 +62,7 @@ function loadData() {
         let subjectLink = $("#subjectLink");
         let subject;
         let page;
-        if(json[0].id_service == "null"){
+        if(json[0].id_service === "null"){
             subject = json[0].id_event;
             page = "event";
         }else{
