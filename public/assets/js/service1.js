@@ -43,10 +43,10 @@ function loadData() {
     .then(function(json){
         let h1 = $("#name");
         let page2Link = $("#page2Link");
-        let href = $("<a href='/pages/service2.html?id=" + id + "' class='btn btn-info' role='button'>Go to informations</a>");
+        let href = $("<a href='/pages/service2.html?id=" + id + "' class='btn btn-info btn-custom' role='button'>Go to informations</a>");
         page2Link.append(href);
         let articleLink = $("#articleLink");
-        href = $("<a href='/pages/service-articles.html?id=" + id +"' class='btn btn-info' role='button'>Go to related articles</a>");
+        href = $("<a href='/pages/service-articles.html?id=" + id +"' class='btn btn-info btn-custom' role='button'>Go to related articles</a>");
         articleLink.append(href);
         let p = $("#presentation_text");
         h1.append(json[0].name)
@@ -112,7 +112,7 @@ function loadData() {
                 let serviceLInk = col.find("#serviceLink");
                 let href = $("<a href='/pages/service1.html?id=" + json[i].id_service + "'><h5 class='card-title text-center'></h5></a>");
                 serviceLInk.append(href);
-                relatedImage.append("<img class='card-img-top img-shadow' src='" + json[i].photo_url[0] + "'></img>");
+                relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url[0] + "'></img>");
                 let relatedTitle = col.find(".card-title");
                 relatedTitle.append(json[i].name);
             }); 

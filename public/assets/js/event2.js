@@ -68,7 +68,7 @@ function loadData() {
     })
     .then(function(json){
         let personLink = $("#personLink");
-        let href = $("<a href='/pages/person.html?id=" + json[0].id_person +"'><h5>" + json[0].name + "</h5></a>")
+        let href = $("<a href='/pages/person.html?id=" + json[0].id_person +"' class='link-custom'><h5>" + json[0].name + "</h5></a>")
         personLink.append(href);
     });
 }
