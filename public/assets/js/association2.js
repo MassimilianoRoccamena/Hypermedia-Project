@@ -45,10 +45,10 @@ function LoadData() {
             elem = json[i];
 
             let div = $("<div></div>")
-            let name = $("<h3>" + elem.name + "</h3>");
-            let phone = $("<h5>" + elem.phone + "</h5>");
-            let email = $("<h5>" + elem.email + "</h5>");
-            let location = $("<h5>" + elem.location + "</h5>");
+            let name = $("<h4>" + elem.name + "</h4>");
+            let phone = $("<h6>" + elem.phone + "</h6>");
+            let email = $("<h6>" + elem.email + "</h6>");
+            let location = $("<h6>" + elem.location + "</h6>");
 
             div.append(name);
             div.append(phone);
