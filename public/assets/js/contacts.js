@@ -48,7 +48,13 @@ function sendHandler() {
                         alert("You must insert a body!");
                     } else {
                         message = {"name":name,"email":email,"title":title,"body":body}
-                        alert("Message sent!");
+                        $.post("/mesage", message, function(data, status) {
+                            if (status=="success") {
+                                alert("Message sent");
+                            } else {
+                                alert("Error sending message");
+                            }
+                        });
                     }
                 }
             }
