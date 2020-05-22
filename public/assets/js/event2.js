@@ -44,10 +44,10 @@ function loadData() {
     })
     .then(function(json){
         let page1Link = $("#page1Link");
-        let href = $("<a href='/pages/event1.html?id=" + id +"' class='btn btn-info' role='button'>Go to presentation</a>");
+        let href = $("<a href='/pages/event1.html?id=" + id +"' class='btn btn-info btn-custom' role='button'>Go to presentation</a>");
         page1Link.append(href);
         let articleLink = $("#articleLink");
-        href = $("<a href='/pages/event-articles.html?id=" + id +"' class='btn btn-info' role='button'>Go to related articles</a>");
+        href = $("<a href='/pages/event-articles.html?id=" + id +"' class='btn btn-info btn-custom' role='button'>Go to related articles</a>");
         articleLink.append(href);
         let name = $("#name");
         let info = $("#info");
@@ -68,7 +68,7 @@ function loadData() {
     })
     .then(function(json){
         let personLink = $("#personLink");
-        let href = $("<a href='/pages/person.html?id=" + json[0].id_person +"' class='link-custom'><h5>" + json[0].name + "</h5></a>")
+        let href = $("<a href='/pages/person.html?id=" + json[0].id_person +"'><h5 class='link-custom'>" + json[0].name + "</h5></a>")
         personLink.append(href);
     });
 }

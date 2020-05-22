@@ -68,7 +68,7 @@ function loadData() {
     .then(function(json){
         let servicesList = $("#related-services");
         for(let i = 0; i < json.length; i++){
-            let service = "<a href='/pages/service1.html?id=" + json[i].id_service +"' class='link-custom'><h6>";
+            let service = "<a href='/pages/service1.html?id=" + json[i].id_service +"'><h6 class='link-custom'>";
             service = service.concat(json[i].name);
             service = service.concat("</h6></a>");
             serviceElement = $(service);
@@ -92,7 +92,7 @@ function loadData() {
             col.load("/pages/components/" + relatedItem + "-card.html", function(responseTxt, statusTxt, xhr) {
                 let relatedImage = col.find("#photo");
                 let eventLink = col.find("#eventLink");
-                let href = $("<a href='/pages/event1.html?id=" + json[i].id_event + "' class='link-custom'><h5 class='card-title mb-3'></h5></a>");
+                let href = $("<a href='/pages/event1.html?id=" + json[i].id_event + "'><h5 class='card-title mb-3'></h5></a>");
                 eventLink.append(href);
                 relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url[0] + "'></img>");
                 let relatedTitle = col.find(".card-title");

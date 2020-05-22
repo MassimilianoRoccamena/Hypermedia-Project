@@ -44,7 +44,7 @@ var currentPage = 1,
     idItem = "article",
     fillItem = function(col, data) {
         let articleLink = col.find("#articleLink");
-        let href = $("<a href='/pages/article.html?id=" + data.id_article +"'><h5 class='card-title text-center'></h5></a>")
+        let href = $("<a href='/pages/article.html?id=" + data.id_article +"'><h5 class='card-title'></h5></a>")
         articleLink.append(href);
         let title = col.find(".card-title");
         let author = col.find("#author");
