@@ -87,7 +87,7 @@ exports.getEventsItems = function(offset,search,month) {
   //seaarch&month
   if (search != "" && search != null && search != undefined) {
     //11
-    if (month != "" && month != null && month != undefined) {
+    if (month != "all" && month != null && month != undefined) {
       return sqlDb('Event')
           .where('name','like','%'+search+'%')
           .andWhere('date','like','%-'+month+'-%')
@@ -104,7 +104,7 @@ exports.getEventsItems = function(offset,search,month) {
     }
   } else {
     //01
-    if (month != "" && month != null && month != undefined) {
+    if (month != "all" && month != null && month != undefined) {
       return sqlDb('Event')
           .where('date','like','%-'+month+'-%')
           .limit(limVal)

@@ -162,4 +162,3 @@ exports.getServicesItems = function(offset,search) {
           })
         });
 }
-
