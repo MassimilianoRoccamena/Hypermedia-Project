@@ -44,7 +44,7 @@ function loadData() {
     .then(function(json){
         var name = $("#name");
         var role = $("#role");
-        var description = $("#description");
+        var description = $("#description-text");
         var photo = $("#photo");
         var email = $("#email");
         var number = $("#number"); 
