@@ -62,10 +62,10 @@ function loadData() {
         let subjectLink = $("#subjectLink");
         let idSubject;
         let entitySubject;
-        if(json[0].id_service){
+        if (json[0].id_service){
             idSubject = json[0].id_service;
             entitySubject = "service";
-        }else{
+        } else{
             idSubject = json[0].id_event;
             entitySubject = "event";
         }
