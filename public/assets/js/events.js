@@ -78,7 +78,6 @@ function getMonth(month) {
     let num = ref[month];
     if (num == null || num == undefined) {
         throw new Error("Invalid month encountered");
-        return "00";
     } else {
         if (num < 10) {
             return "0" + num;

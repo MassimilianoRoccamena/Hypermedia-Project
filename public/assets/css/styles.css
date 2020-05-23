@@ -11,6 +11,13 @@ h1, h2, h3, h4, h5, h6 {
     color: #3e2723;
 }
 
+.link-custom {
+    color: #bcaaa4;
+}
+.link-custom:hover {
+    color: #3e2723;
+}
+
 .img-shadow {
     box-shadow: 0 0 15px #795548;
 }
@@ -23,6 +30,7 @@ video {
 iframe {
     box-shadow: 0 0 15px #795548;
 }
+
 .jumbotron {
     background-color: #ffcc80;
     width: 60%;
@@ -74,11 +82,23 @@ iframe {
     border-color: #bcaaa4;
 }
 
-.link-custom {
-    color: #bcaaa4;
+.accordion-custom {
+    box-shadow: 0 0 10px #795548;
 }
-.link-custom:hover {
+.accordion-custom-card {
+    border-color: #f57c00;
+}
+.accordion-custom-card > .card-header {
+    background-color: #ffb74d;
+}
+.accordion-custom-title {
     color: #3e2723;
+}
+.accordion-custom-title:hover {
+    color: #ffecb3;
+}
+.accordion-custom-body {
+    background-color: #ffecb3;
 }
 
 /*
