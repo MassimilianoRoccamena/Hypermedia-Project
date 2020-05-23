@@ -75,7 +75,16 @@ let ref = {
         "December" : 12
     };
 function getMonth(month) {
-    return ref[month];
+    let num = ref[month];
+    if (num == null || num == undefined) {
+        throw new Error("Invalid month encountered");
+    } else {
+        if (num < 10) {
+            return "0" + num;
+        } else {
+            return "" + num;
+        }
+    }
 }
 
 //Init component
@@ -124,7 +133,7 @@ function loadPage(first=true) {
     if (search) {
         path += "&search=" + search;
     }
-    if (m != 0) {
+    if (m != "00") {
         path += "&month=" + m;
     }
 
