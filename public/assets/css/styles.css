@@ -26,11 +26,16 @@ iframe {
 .jumbotron {
     background-color: #ffcc80;
     width: 60%;
+    box-shadow: 0 0 15px #795548;
 }
 @media only screen and (max-width: 768px) {
     .jumbotron {
         width: 80%;
     }
+}
+.input-contacts {
+    box-shadow: 0 0 10px #8d6e63;
+    border-color: #a59590;
 }
 
 .btn-custom {
@@ -62,6 +67,7 @@ iframe {
     padding: 3%;
     background-color: #8d6e63;
     border-color: #8d6e63;
+    box-shadow: 0 0 10px #795548;
 }
 .btn-send:hover {
     background-color: #bcaaa4;
