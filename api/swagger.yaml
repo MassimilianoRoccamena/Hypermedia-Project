@@ -732,11 +732,11 @@ definitions:
     xml:
       name: "Service1"
     example:
-      presentation: "presentation"
-      name: "name"
+      presentation: "Presentation"
+      name: "Name"
       photo_url:
-      - "photo_url"
-      - "photo_url"
+      - "/assets/img/service1.jpg"
+      - "/assets/img/service1.jpg"
       id_service: 0
   Service2:
     type: "object"
@@ -757,10 +757,12 @@ definitions:
     xml:
       name: "Service2"
     example:
-      name: "name"
-      location: "location"
+      name: "Name"
+      location:
+      - "Location1"
+      - "Location2"
       id_service: 0
-      informations: "informations"
+      informations: "Informations"
   ServiceItem:
     type: "object"
     required:
@@ -778,9 +780,9 @@ definitions:
     xml:
       name: "ServiceItem"
     example:
-      presentation: "presentation"
-      name: "name"
-      photo_url: "photo_url"
+      presentation: "Presentation"
+      name: "Name"
+      photo_url: "/assets/img/service1.jpg"
       id_service: 0
   ServiceLabel:
     type: "object"
@@ -795,7 +797,7 @@ definitions:
     xml:
       name: "ServiceLabel"
     example:
-      name: "name"
+      name: "Name"
       id_service: 0
   Event1:
     type: "object"
@@ -816,12 +818,12 @@ definitions:
     xml:
       name: "EventPage1"
     example:
-      name: "name"
-      description: "description"
+      name: "Name"
+      description: "Description"
       id_event: 0
       photo_url:
-      - "photo_url"
-      - "photo_url"
+      - "/assets/img/event1.jpg"
+      - "/assets/img/event1.jpg"
   Event2:
     type: "object"
     required:
@@ -843,9 +845,9 @@ definitions:
       name: "Event2"
     example:
       date: "2000-01-23"
-      name: "name"
-      pract_info: "pract_info"
-      location: "location"
+      name: "Name"
+      pract_info: "Informations"
+      location: "Location"
       id_event: 0
   EventItem:
     type: "object"
@@ -868,10 +870,10 @@ definitions:
       name: "EventItem"
     example:
       date: "2000-01-23"
-      name: "name"
-      location: "location"
+      name: "Name"
+      location: "Location"
       id_event: 0
-      photo_url: "photo_url"
+      photo_url: "/assets/img/event1.jpg"
   Person:
     type: "object"
     required:
@@ -900,13 +902,13 @@ definitions:
       name: "Person"
     example:
       id_person: 0
-      role: "role"
-      email_address: "email_address"
+      role: "Role"
+      email_address: "abc@def.com"
       starting_date: "2000-01-23"
-      name: "name"
-      description: "description"
-      phone_number: "phone_number"
-      photo_url: "photo_url"
+      name: "Name"
+      description: "Description"
+      phone_number: "332702093"
+      photo_url: "/assets/img/event1.jpg"
   PersonItem:
     type: "object"
     required:
@@ -923,8 +925,8 @@ definitions:
       name: "PersonItem"
     example:
       id_person: 0
-      name: "name"
-      photo_url: "photo_url"
+      name: "Name"
+      photo_url: "/assets/img/event1.jpg"
   PersonLabel:
     type: "object"
     required:
@@ -939,7 +941,7 @@ definitions:
       name: "PersonLabel"
     example:
       id_person: 0
-      name: "name"
+      name: "Name"
   Article:
     type: "object"
     required:
@@ -974,14 +976,14 @@ definitions:
       name: "Article"
     example:
       id_article: 0
-      photo1_url: "photo1_url"
-      email_address: "email_address"
-      author: "author"
+      photo1_url: "/assets/img/service1.jpg"
+      email_address: "abc@def.com"
+      author: "Author"
       publication_date: "2000-01-23"
       id_event: 1
-      photo2_url: "photo2_url"
-      title: "title"
-      body: "body"
+      photo2_url: "/assets/img/event1.jpg"
+      title: "Title"
+      body: "Body"
       id_service: 6
   ArticleItem:
     type: "object"
@@ -1004,10 +1006,10 @@ definitions:
       name: "ArticleItem"
     example:
       id_article: 0
-      author: "author"
+      author: "Author"
       publication_date: "2000-01-23"
-      photo_url: "photo_url"
-      title: "title"
+      photo_url: "/assets/img/event1.jpg"
+      title: "Title"
   Contact:
     type: "object"
     required:
@@ -1028,10 +1030,10 @@ definitions:
     xml:
       name: "Contact"
     example:
-      email_address: "email_address"
-      phone: "phone"
-      name: "name"
-      location: "location"
+      email_address: "abc@def.com"
+      phone: "3472383072"
+      name: "Name"
+      location: "Location"
       id_contact: 0
   Message:
     type: "object"
@@ -1054,7 +1056,7 @@ definitions:
       name: "Message"
     example:
       id_message: 0
-      sender_name: "sender_name"
+      sender_name: "Name"
       title: "title"
       body: "body"
-      sender_email: "sender_email"
+      sender_email: "abc@def.com"
