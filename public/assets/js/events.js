@@ -78,6 +78,7 @@ function getMonth(month) {
     let num = ref[month];
     if (num == null || num == undefined) {
         throw new Error("Invalid month encountered");
+        return "00";
     } else {
         if (num < 10) {
             return "0" + num;
@@ -129,11 +130,11 @@ function loadPage(first=true) {
     let search = $("#filter-search").val(),
         month = $("#filter-month").val(),
         m = getMonth(month);
-    let path = "/api/" + idGroup + "/?offset=" + currentPage-1;
-    if (search) {
+    let path = "/api/" + idGroup + "/?offset=" + (currentPage-1);
+    if (search != "" && search != null && search != undefined) {
         path += "&search=" + search;
     }
-    if (m != "00") {
+    if (m != "00" && m != null && m != undefined) {
         path += "&month=" + m;
     }
 
