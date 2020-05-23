@@ -70,7 +70,7 @@ function loadData() {
             entitySubject = "event";
         }
         let href = "/pages/" + entitySubject + "1.html?id=" + idSubject;
-        subjectLink.href("href", href);
+        subjectLink.attr("href", href);
     });
 
     //Load related articles
