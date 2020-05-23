@@ -94,6 +94,18 @@ function initPagination() {
     }
 }
 
+//Init filtering
+function initFiltering() {
+    let search = $("#filter-search"),
+        month = $("#filter-month");
+    search.change(function() {
+        loadPage(false);
+    })
+    month.change(function() {
+        loadPage(false);
+    })
+}
+
 //Load group page
 function loadPage(first=true) {
     if (!first) {
