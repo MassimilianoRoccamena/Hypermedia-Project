@@ -60,17 +60,17 @@ function loadData() {
         photo2.append(img2);
 
         let subjectLink = $("#subjectLink");
-        let subject;
-        let page;
+        let idSubject;
+        let entitySubject;
         if(json[0].id_service){
-            subject = json[0].id_service;
-            page = "service";
+            idSubject = json[0].id_service;
+            entitySubject = "service";
         }else{
-            subject = json[0].id_event;
-            page = "event";
+            idSubject = json[0].id_event;
+            entitySubject = "event";
         }
-        let href = $("<a href='/pages/" + page + "1.html?id=" + subject +"' class='btn btn-info' role='button'>Subject of this article</a>");
-        subjectLink.append(href);
+        let href = "/pages/" + entitySubject + "1.html?id=" + idSubject;
+        subjectLink.href("href", href);
     });
 
     //Load related articles
