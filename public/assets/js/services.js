@@ -51,7 +51,7 @@ var currentPage = 1,
         let img = $("<img src='" + data.photo_url[0] + "' class='img-shadow' style='width: 100%;'>");
         photo.append(img);
         link.append(href);
-        presentation.text(data.presentation);
+        presentation.text(data.presentation+"...");
     }
 
 //Init component

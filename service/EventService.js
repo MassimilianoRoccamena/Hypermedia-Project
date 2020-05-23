@@ -83,24 +83,10 @@ exports.getEventServicesItemsByID = function(id_event) {
  * returns List
  **/
 exports.getEventsItems = function(offset,search,month) {
-  let out = sqlDb('Event')
-            .select('id_event','location','date','name','photo_url')
-            .whereBetween('id_event',offset*12,(offset+1)*12);
-
-  if (search != null && search != undefined) {
-    if (month != null && month != undefined) {
-      out.where('name','like','%' + search + '%')
-          .where('date', 'like', '%-' + month + '-%');
-    } else {
-      out.where('name','like','%' + search + '%');
-    }
-  } else {
-    if (month != null && month != undefined) {
-      out.where('date', 'like', '%-' + month + '-%');
-    }
-  }
-
-  return out;
+  return sqlDb('Event')
+          .limit(12)
+          .offset(offset)
+          .select('id_event','location','date','name','photo_url');
 }
 
 
