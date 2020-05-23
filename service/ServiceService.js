@@ -155,7 +155,7 @@ exports.getServicePeopleItemsByID = function(id_service) {
 exports.getServicesItems = function(offset,search) {
   return sqlDb('Service')
         .select('id_service','presentation','name','photo_url')
-        .then(function(services) {
+        .then((services) => {
           for (let i=0; i<services.length; i++) {
             services[i].presentation = services[i].presentation.substring(0,31);
           }
