@@ -158,6 +158,7 @@ exports.getServicesItems = function(offset,search) {
         .then(data => {
           return data.map(e => {
             e.presentation = e.presentation.substring(0,31);
+            return e;
           })
         });
 }
