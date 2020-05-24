@@ -88,24 +88,21 @@ function getMonth(month) {
 }
 
 //Init component
-let itemHtml = $("<div></div>");
 function initPagination() {
-    itemHtml.load("/pages/components/" + idItem + "-card.html", function(responseTxt, statusTxt, xhr) {
-        let root = $("#" + idGroup);
-        let container = $("<div class='container'></div>");
-        root.append(container);
-        let row = $("<div class='row'></div>");
-        container.append(row);
+    let root = $("#" + idGroup);
+    let container = $("<div class='container'></div>");
+    root.append(container);
+    let row = $("<div class='row'></div>");
+    container.append(row);
 
-        for (let i=0; i<itemsCount; i++) {
-            let id = idItem + "-col-" + i;
-            let col = $("<div id='" + id + "' class='col-sm-4'></div>");
+    for (let i=0; i<itemsCount; i++) {
+        let id = idItem + "-col-" + i;
+        let col = $("<div id='" + id + "' class='col-sm-4'></div>");
 
-            row.append(col);
-        }
+        row.append(col);
+    }
 
-        initFiltering();
-    });
+    initFiltering();
 }
 function initFiltering() {
     let search = $("#filter-search"),
@@ -166,7 +163,7 @@ function loadPage(first=true) {
             clearPagination();
         }
 
-        let item = $(itemHtml.html());
+        let item = $("<div></div>");
 
         if (json.length == 0) {
             let id = idItem + "-col-" + 0;
@@ -177,17 +174,19 @@ function loadPage(first=true) {
 
             $("#next").addClass("disabled");
         } else {
-            for (let i=0; i<json.length; i++) {
-                let data = json[i];
-    
-                let id = idItem + "-col-" + i;
-                let col = $("#"+id);
-    
-                col.html(item.html());
-                fillItem(col, data);
-            }
+            item.load("/pages/components/" + idItem + "-card.html", function(responseTxt, statusTxt, xhr) {
+                for (let i=0; i<json.length; i++) {
+                    let data = json[i];
+        
+                    let id = idItem + "-col-" + i;
+                    let col = $("#"+id);
+        
+                    col.html(item.html());
+                    fillItem(col, data);
+                }
 
-            $("#next").removeClass("disabled");
+                $("#next").removeClass("disabled");
+            });
         }
         
     });
