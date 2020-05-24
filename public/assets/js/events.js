@@ -129,7 +129,7 @@ function loadPage(first=true) {
     let search = $("#filter-search").val(),
         month = $("#filter-month").val(),
         m = getMonth(month);
-    let path = "/api/" + idGroup + "/?offset=" + (currentPage-1);
+    let path = "/api/" + idGroup + "?offset=" + (currentPage-1);
     if (search != "" && search != null && search != undefined) {
         path += "&search=" + search;
     }
