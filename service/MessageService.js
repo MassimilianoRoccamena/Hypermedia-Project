@@ -18,6 +18,6 @@ exports.messageDbSetup = function(s) {
  * no response value expected for this operation
  **/
 exports.addMessage = function(message) {
-  sqldqb("Message").insert(message);
+  sqlDb("Message").insert(message);
 }
 
