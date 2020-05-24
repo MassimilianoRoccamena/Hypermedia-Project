@@ -47,7 +47,7 @@ function sendHandler() {
                     if (body == "") {
                         alert("You must insert a body!");
                     } else {
-                        message = {"name":name,"email":email,"title":title,"body":body}
+                        let message = {"name":name,"email":email,"title":title,"body":body}
                         
                         fetch("/api/message",{ 
                                             method: "post",
