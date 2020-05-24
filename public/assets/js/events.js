@@ -168,25 +168,29 @@ function loadPage(first=true) {
         let item = $("<div></div>");
 
         if (json.length == 0) {
-            let id = idItem + "-col-" + 1;
+            let id = idItem + "-col-" + 0;
             let col = $("#"+id);
 
             item.html("<h4 class='text-center'>No events found<h4>")
             col.html(item.html());
-            return;
-        }
 
-        item.load("/pages/components/" + idItem + "-card.html", function(responseTxt, statusTxt, xhr) {
-            for (let i=0; i<json.length; i++) {
-                let data = json[i];
-    
-                let id = idItem + "-col-" + i;
-                let col = $("#"+id);
-    
-                col.html(item.html());
-                fillItem(col, data);
-            }
-        });
+            $("#next").addClass("disabled");
+        } else {
+            item.load("/pages/components/" + idItem + "-card.html", function(responseTxt, statusTxt, xhr) {
+                for (let i=0; i<json.length; i++) {
+                    let data = json[i];
+        
+                    let id = idItem + "-col-" + i;
+                    let col = $("#"+id);
+        
+                    col.html(item.html());
+                    fillItem(col, data);
+                }
+
+                $("#next").removeClass("disabled");
+            });
+        }
+        
     });
 }
 
