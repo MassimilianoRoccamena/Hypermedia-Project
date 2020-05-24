@@ -80,9 +80,9 @@ function getMonth(month) {
         throw new Error("Invalid month encountered");
     } else {
         if (num < 10) {
-            return "0" + num;
+            return num;
         } else {
-            return "" + num;
+            return num;
         }
     }
 }
@@ -115,12 +115,18 @@ function clearPagination() {
 function initFiltering() {
     let search = $("#filter-search"),
         month = $("#filter-month");
-    search.change(function() {
+    /* search.change(function() {
         loadPage(false);
     })
     month.change(function() {
         loadPage(false);
-    })
+    }) */
+
+    let handler = () => {
+        loadPage(false);
+    }
+    search.attr("onchange", "handler()")
+    month.attr("onchange", "handler()")
 }
 
 //Load group page
