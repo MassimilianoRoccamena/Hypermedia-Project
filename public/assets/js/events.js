@@ -88,7 +88,7 @@ function getMonth(month) {
 }
 
 //Init component
-let itemHtml = $("<div></div>");;
+let itemHtml = $("<div></div>");
 function initPagination() {
     itemHtml.load("/pages/components/" + idItem + "-card.html", function(responseTxt, statusTxt, xhr) {
         let root = $("#" + idGroup);
