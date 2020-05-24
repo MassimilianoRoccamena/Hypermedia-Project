@@ -114,11 +114,13 @@ function initFiltering() {
         currentPage = 1;
         loadPage(false);
         $("#previous").addClass("disabled");
+        $("#page-number").text("Page " + currentPage);
     })
     month.change(function() {
         currentPage = 1;
         loadPage(false);
         $("#previous").addClass("disabled");
+        $("#page-number").text("Page " + currentPage);
     })
 }
 
@@ -169,7 +171,7 @@ function loadPage(first=true) {
             let id = idItem + "-col-" + 1;
             let col = $("#"+id);
 
-            item.html("<h4>No events found<h4>")
+            item.html("<h4 class='text-center'>No events found<h4>")
             col.html(item.html());
             return;
         }
