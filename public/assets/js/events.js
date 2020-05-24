@@ -102,6 +102,14 @@ function initPagination() {
         row.append(col);
     }
 }
+//Clear items
+function clearPagination() {
+    for (let i=0; i<itemsCount; i++) {
+        let id = idItem + "-col-" + i;
+        let col = $("#"+id);
+        col.empty();
+    }
+}
 
 //Init filtering
 function initFiltering() {
@@ -146,6 +154,9 @@ function loadPage(first=true) {
         let item = $("<div></div>");
 
         item.load("/pages/components/" + idItem + "-card.html", function(responseTxt, statusTxt, xhr) {
+            if (!first) {
+                clearPagination();
+            }
             for (let i=0; i<json.length; i++) {
                 let data = json[i];
     
