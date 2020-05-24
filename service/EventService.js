@@ -122,7 +122,7 @@ exports.getEventsItems = function(offset,search,month) {
 
   return sqlDb('Event')
           .limit(limVal)
-          .offset(offset)
+          .offset(offset*12)
           .select('id_event','location','date','name','photo_url');
 }
 
