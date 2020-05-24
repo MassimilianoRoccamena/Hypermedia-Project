@@ -83,7 +83,8 @@ exports.getEventServicesItemsByID = function(id_event) {
  * returns List
  **/
 exports.getEventsItems = function(offset,search,month) {
-  /* limVal=12
+  limVal=12
+  /*
   //seaarch&month
   if (search != "" && search != null && search != undefined) {
     //11

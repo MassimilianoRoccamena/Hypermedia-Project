@@ -43,7 +43,7 @@ function loadData() {
     })
     .then(function(json){
         var h1 = $("#name");
-        var p = $("#description_text");
+        var p = $("#description-text");
         let page2Link = $("#page2Link");
         let href = $("<a href='/pages/event2.html?id=" + id + "' class='btn btn-info btn-custom' role='button'>Go to informations</a>");
         page2Link.append(href);
