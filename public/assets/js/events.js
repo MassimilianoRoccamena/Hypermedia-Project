@@ -116,22 +116,6 @@ function initFiltering() {
     month.change(function() {
         loadPage(false);
     })
-
-    /* let handler = () => {
-        loadPage(false);
-    }
-    search.attr("onchange", "handler()")
-    month.attr("onchange", "handler()") */
-    
-    /* let search = document.getElementById("filter-search"),
-        month = document.getElementById("filter-month"); */
-
-    /*search.onchange = function() {
-        loadPage(false);
-    }
-    month.onchange = function() {
-        loadPage(false);
-    }*/
 }
 
 //Clear items
@@ -172,6 +156,15 @@ function loadPage(first=true) {
         return res.json();
     }).then(function (json) {
         let item = $("<div></div>");
+
+        if (json.length == 0) {
+            let id = idItem + "-col-" + 0;
+            let col = $("#"+id);
+
+            item.html("<h4>No events found<h4>")
+            col.html(item.html());
+            return;
+        }
 
         item.load("/pages/components/" + idItem + "-card.html", function(responseTxt, statusTxt, xhr) {
             if (!first) {
