@@ -113,8 +113,9 @@ function clearPagination() {
 
 //Init filtering
 function initFiltering() {
-    let search = $("#filter-search"),
-        month = $("#filter-month");
+    /* let search = $("#filter-search"),
+        month = $("#filter-month"); */
+
     /* search.change(function() {
         loadPage(false);
     })
@@ -122,11 +123,21 @@ function initFiltering() {
         loadPage(false);
     }) */
 
-    let handler = () => {
+    /* let handler = () => {
         loadPage(false);
     }
     search.attr("onchange", "handler()")
-    month.attr("onchange", "handler()")
+    month.attr("onchange", "handler()") */
+    
+    let search = document.getElementById("filter-search"),
+        month = document.getElementById("filter-month");
+
+    search.onchange = function() {
+        loadPage(false);
+    }
+    month.onchange = function() {
+        loadPage(false);
+    }
 }
 
 //Load group page
