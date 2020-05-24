@@ -49,9 +49,9 @@ function loadData() {
         href = $("<a href='/pages/service-articles.html?id=" + id +"' class='btn btn-info btn-custom' role='button'>Go to related articles</a>");
         articleLink.append(href);
         let p = $("#presentation_text");
-        h1.append(json[0].name)
+        h1.append(json[0].name);
         
-        p.append(json[0].presentation)
+        p.append(json[0].presentation);
 
         //Load photo gallery 
         let gallery = $("#gallery");

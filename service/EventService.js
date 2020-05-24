@@ -123,7 +123,6 @@ exports.getEventsItems = function(offset,search,month) {
           .limit(limVal)
           .offset(offset)
           .select('id_event','location','date','name','photo_url');
-    }
 }
 
 
