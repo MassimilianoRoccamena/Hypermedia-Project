@@ -56,10 +56,12 @@ function loadData() {
         //Load photo gallery 
         let gallery = $("#gallery");
         for (let i = 0; i < json[0].photo_url.length; i++) {
-            let col = $("<div class='col-lg-3 col-md-4 col-6'></div>");
+            let col = $("<div class='col-lg-3 col-md-4 col-6 gallery-elem'></div>");
             col.load("/pages/components/photo-gallery.html", function(responseTxt, statusTxt, xhr){
                 let image = col.find("#image");
-                image.append("<img class='img-fluid img-thumbnail img-shadow' src='" + json[0].photo_url[i] + "' alt=''>");
+                href = json[0].photo_url[i];
+                image.attr("href",href)
+                image.append("<img class='img-fluid img-thumbnail gallery-shadow' src='" + href + "' alt=''>");
             })
             gallery.append(col);
         }

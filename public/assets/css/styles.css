@@ -38,6 +38,9 @@ iframe {
 /*
     Photo gallery
 */
+.gallery-shadow {
+    box-shadow: 0 0 10px #795548;
+}
 .gallery-row {
     overflow-x: auto;
     overflow-y:hidden;
