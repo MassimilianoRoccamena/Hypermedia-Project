@@ -84,7 +84,7 @@ exports.getEventServicesItemsByID = function(id_event) {
  **/
 exports.getEventsItems = function(offset,search,month) {
   let limVal=12
-  /*
+  
   //seaarch&month
   if (search != "" && search != null && search != undefined) {
     //11
@@ -93,14 +93,14 @@ exports.getEventsItems = function(offset,search,month) {
           .where('name','like','%'+search+'%')
           .andWhere('date','like','%-'+month+'-%')
           .limit(limVal)
-          .offset(offset)
+          .offset(offset*12)
           .select('id_event','location','date','name','photo_url');
     //10
     } else {
       return sqlDb('Event')
           .where('name','like','%'+search+'%')
           .limit(limVal)
-          .offset(offset)
+          .offset(offset*12)
           .select('id_event','location','date','name','photo_url');
     }
   } else {
@@ -109,21 +109,16 @@ exports.getEventsItems = function(offset,search,month) {
       return sqlDb('Event')
           .where('date','like','%-'+month+'-%')
           .limit(limVal)
-          .offset(offset)
+          .offset(offset*12)
           .select('id_event','location','date','name','photo_url');
     //00
     } else {
       return sqlDb('Event')
           .limit(limVal)
-          .offset(offset)
-          .select('id_event','location','date','name','photo_url');
-    }
-  } */
-
-  return sqlDb('Event')
-          .limit(limVal)
           .offset(offset*12)
           .select('id_event','location','date','name','photo_url');
+    }
+  }
 }
 
 
