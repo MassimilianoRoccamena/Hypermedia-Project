@@ -49,7 +49,7 @@ function sendHandler() {
                     } else {
                         message = {"name":name,"email":email,"title":title,"body":body}
                         
-                        fetch("message",{ 
+                        fetch("/api/message",{ 
                                             method: "post",
                                             body: JSON.stringify(message)
                                         })
