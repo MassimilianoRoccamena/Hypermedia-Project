@@ -83,7 +83,7 @@ exports.getEventServicesItemsByID = function(id_event) {
  * returns List
  **/
 exports.getEventsItems = function(offset,search,month) {
-  limVal=12
+  /* limVal=12
   //seaarch&month
   if (search != "" && search != null && search != undefined) {
     //11
@@ -117,7 +117,13 @@ exports.getEventsItems = function(offset,search,month) {
           .offset(offset)
           .select('id_event','location','date','name','photo_url');
     }
-  }
+  } */
+
+  return sqlDb('Event')
+          .limit(limVal)
+          .offset(offset)
+          .select('id_event','location','date','name','photo_url');
+    }
 }
 
 

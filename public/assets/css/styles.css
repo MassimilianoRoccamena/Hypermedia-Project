@@ -45,6 +45,10 @@ iframe {
     box-shadow: 0 0 10px #8d6e63;
     border-color: #a59590;
 }
+#filter-search, #filter-month {
+    box-shadow: 0 0 10px #8d6e63;
+    border-color: #a59590;
+}
 
 .btn-custom {
     font-size: 130%;
