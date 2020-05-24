@@ -101,27 +101,21 @@ function initPagination() {
 
         row.append(col);
     }
-}
-//Clear items
-function clearPagination() {
-    for (let i=0; i<itemsCount; i++) {
-        let id = idItem + "-col-" + i;
-        let col = $("#"+id);
-        col.empty();
-    }
+
+    initFiltering();
 }
 
 //Init filtering
 function initFiltering() {
-    /* let search = $("#filter-search"),
-        month = $("#filter-month"); */
+    let search = $("#filter-search"),
+        month = $("#filter-month");
 
-    /* search.change(function() {
+    search.change(function() {
         loadPage(false);
     })
     month.change(function() {
         loadPage(false);
-    }) */
+    })
 
     /* let handler = () => {
         loadPage(false);
@@ -129,14 +123,23 @@ function initFiltering() {
     search.attr("onchange", "handler()")
     month.attr("onchange", "handler()") */
     
-    let search = document.getElementById("filter-search"),
-        month = document.getElementById("filter-month");
+    /* let search = document.getElementById("filter-search"),
+        month = document.getElementById("filter-month"); */
 
-    search.onchange = function() {
+    /*search.onchange = function() {
         loadPage(false);
     }
     month.onchange = function() {
         loadPage(false);
+    }*/
+}
+
+//Clear items
+function clearPagination() {
+    for (let i=0; i<itemsCount; i++) {
+        let id = idItem + "-col-" + i;
+        let col = $("#"+id);
+        col.empty();
     }
 }
 
