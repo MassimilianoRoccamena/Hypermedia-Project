@@ -88,24 +88,25 @@ function getMonth(month) {
 }
 
 //Init component
+let itemHtml = $("<div></div>");;
 function initPagination() {
-    let root = $("#" + idGroup);
-    let container = $("<div class='container'></div>");
-    root.append(container);
-    let row = $("<div class='row'></div>");
-    container.append(row);
+    itemHtml.load("/pages/components/" + idItem + "-card.html", function(responseTxt, statusTxt, xhr) {
+        let root = $("#" + idGroup);
+        let container = $("<div class='container'></div>");
+        root.append(container);
+        let row = $("<div class='row'></div>");
+        container.append(row);
 
-    for (let i=0; i<itemsCount; i++) {
-        let id = idItem + "-col-" + i;
-        let col = $("<div id='" + id + "' class='col-sm-4'></div>");
+        for (let i=0; i<itemsCount; i++) {
+            let id = idItem + "-col-" + i;
+            let col = $("<div id='" + id + "' class='col-sm-4'></div>");
 
-        row.append(col);
-    }
+            row.append(col);
+        }
 
-    initFiltering();
+        initFiltering();
+    });
 }
-
-//Init filtering
 function initFiltering() {
     let search = $("#filter-search"),
         month = $("#filter-month");
@@ -165,30 +166,28 @@ function loadPage(first=true) {
             clearPagination();
         }
 
-        let item = $("<div></div>");
+        let item = $(itemHtml.html());
 
         if (json.length == 0) {
             let id = idItem + "-col-" + 0;
             let col = $("#"+id);
 
-            item.html("<h4 class='text-center'>No events found<h4>")
+            item.html("<h4>No events found<h4>")
             col.html(item.html());
 
             $("#next").addClass("disabled");
         } else {
-            item.load("/pages/components/" + idItem + "-card.html", function(responseTxt, statusTxt, xhr) {
-                for (let i=0; i<json.length; i++) {
-                    let data = json[i];
-        
-                    let id = idItem + "-col-" + i;
-                    let col = $("#"+id);
-        
-                    col.html(item.html());
-                    fillItem(col, data);
-                }
+            for (let i=0; i<json.length; i++) {
+                let data = json[i];
+    
+                let id = idItem + "-col-" + i;
+                let col = $("#"+id);
+    
+                col.html(item.html());
+                fillItem(col, data);
+            }
 
-                $("#next").removeClass("disabled");
-            });
+            $("#next").removeClass("disabled");
         }
         
     });
