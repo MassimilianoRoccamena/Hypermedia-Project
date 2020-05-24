@@ -49,16 +49,9 @@ function sendHandler() {
                     } else {
                         let message = {"name":name,"email":email,"title":title,"body":body}
                         
-                        fetch("/api/message",{ 
-                                            method: "post",
-                                            body: JSON.stringify(message)
-                                        })
-                        .then(function() {
+                        $.post("/api/message", message, function() {
                             alert("Message sent");
                         })
-                        .catch(function() {
-                            alert("Something went wrong");
-                        });
                     }
                 }
             }
