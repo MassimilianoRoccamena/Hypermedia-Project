@@ -111,10 +111,14 @@ function initFiltering() {
         month = $("#filter-month");
 
     search.change(function() {
+        currentPage = 1;
         loadPage(false);
+        $("#previous").addClass("disabled");
     })
     month.change(function() {
+        currentPage = 1;
         loadPage(false);
+        $("#previous").addClass("disabled");
     })
 }
 
@@ -162,7 +166,7 @@ function loadPage(first=true) {
         let item = $("<div></div>");
 
         if (json.length == 0) {
-            let id = idItem + "-col-" + 0;
+            let id = idItem + "-col-" + 1;
             let col = $("#"+id);
 
             item.html("<h4>No events found<h4>")
