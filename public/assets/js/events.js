@@ -89,12 +89,12 @@ function getMonth(month) {
 
 //Init component
 function initPagination() {
+    //Grid
     let root = $("#" + idGroup);
     let container = $("<div class='container'></div>");
     root.append(container);
     let row = $("<div class='row'></div>");
     container.append(row);
-
     for (let i=0; i<itemsCount; i++) {
         let id = idItem + "-col-" + i;
         let col = $("<div id='" + id + "' class='col-sm-4'></div>");
@@ -102,12 +102,9 @@ function initPagination() {
         row.append(col);
     }
 
-    initFiltering();
-}
-function initFiltering() {
+    //Filtering
     let search = $("#filter-search"),
         month = $("#filter-month");
-
     search.change(function() {
         currentPage = 1;
         loadPage(false);
