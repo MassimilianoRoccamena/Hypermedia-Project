@@ -97,7 +97,7 @@ exports.getEventsItems = function(offset,search,month) {
 
       return sqlDb('Event')
           .where('name','like','%'+search+'%')
-          .andWhere('date','like','%-'+month+'-%')
+          .andWhereRaw('EXTRACT(MONTH FROM date::date) = ?', [month])
           .limit(limVal)
           .offset(offset*12)
           .select('id_event','location','date','name','photo_url');
@@ -119,7 +119,7 @@ exports.getEventsItems = function(offset,search,month) {
       }
       
       return sqlDb('Event')
-          .where('date','like','%-'+month+'-%')
+          .whereRaw('EXTRACT(MONTH FROM date::date) = ?', [month])
           .limit(limVal)
           .offset(offset*12)
           .select('id_event','location','date','name','photo_url');
