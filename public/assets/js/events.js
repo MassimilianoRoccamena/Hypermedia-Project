@@ -194,14 +194,18 @@ function loadPage(first=true) {
 
 //Switch next items page
 function nextPage() {
-    currentPage += 1;
-    loadPage(false);
+    if (!$("#next").hasClass("disabled")) {
+        currentPage += 1;
+        loadPage(false);
 
-    if (currentPage == 2) {
-        $("#previous").removeClass("disabled");
+        if (currentPage == 2) {
+            $("#previous").removeClass("disabled");
+        }
+
+        $("#page-number").text("Page " + currentPage);
+    } else {
+        throw new Error("Page " + currentPage + " is last page")
     }
-
-    $("#page-number").text("Page " + currentPage);
 }
 
 //Switch next items page
@@ -216,6 +220,6 @@ function previousPage() {
 
         $("#page-number").text("Page " + currentPage);
     } else {
-        throw new Error("page 1 is first page")
+        throw new Error("Page 1 is first page")
     }
 }
