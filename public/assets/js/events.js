@@ -208,6 +208,8 @@ function loadPage(first=true) {
 
             if (json.length == 12) {
                 $("#next").removeClass("disabled");
+            } else {
+                $("#next").addClass("disabled");
             }
         }
     });
