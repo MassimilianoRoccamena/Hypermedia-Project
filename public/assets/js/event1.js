@@ -57,12 +57,11 @@ function loadData() {
         let gallery = $("#gallery");
         for (let i = 0; i < json[0].photo_url.length; i++) {
             let col = $("<div class='col-lg-3 col-md-4 col-6 gallery-elem'></div>");
-            col.load("/pages/components/photo-gallery.html", function(responseTxt, statusTxt, xhr){
-                let image = col.find("#image");
-                href = json[0].photo_url[i];
-                image.attr("href",href)
-                image.append("<img class='img-fluid img-thumbnail gallery-shadow' src='" + href + "' alt=''>");
-            })
+            let a = $('<a href="#" class="d-block py-2 h-100" id="image"></a>');
+            href = json[0].photo_url[i];
+            a.attr("href",href)
+            a.append("<img class='img-fluid img-thumbnail gallery-shadow' src='" + href + "' alt=''>");
+            col.append(a);
             gallery.append(col);
         }
     });
