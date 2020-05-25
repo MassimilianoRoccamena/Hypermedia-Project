@@ -59,8 +59,21 @@ exports.getArticleServiceItemByID = function(id_article) {
  * returns List
  **/
 exports.getArticlesItems = function(offset,search) {
-  return sqlDb("Article")
+  let limVal=6;
+
+  //search
+  if (search != "" && search != null && search != undefined) {
+    //1
+    return sqlDb("Article")
+          .where('title','like','%'+search+'%')
+          .limit(limVal)
+          .offset(offset*limVal)
           .select('id_article','author','publication_date','photo1_url','title');
+  } else {
+    //0
+    return sqlDb("Article")
+          .select('id_article','author','publication_date','photo1_url','title');
+  }
 }
 
 

@@ -1,6 +1,3 @@
-//Loaded component
-let itemComponent = $("<div></div>");
-
 $(document).ready(function () {
 
     //Orientation info
@@ -18,7 +15,6 @@ $(document).ready(function () {
             nextPage();
         })
     });
-    let linkComponent = "/pages/components/" + idItem + "-card.html";
     itemComponent.load(linkComponent, function(responseTxt, statusTxt, xhr) {
         initPagination();
         loadPage();
@@ -47,6 +43,8 @@ var currentPage = 1,
     itemsCount = 12,
     idGroup = "people",
     idItem = "person",
+    linkComponent = "/pages/components/" + idItem + "-card.html",
+    itemComponent = $("<div></div>"),
     fillItem = function(col, data) {
         let personLink = col.find("#personLink");
         let href = $("<a href='/pages/person.html?id=" + data.id_person + "'><h5 class='card-title text-center'></h5></a>")
