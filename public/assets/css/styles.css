@@ -45,13 +45,15 @@ iframe {
 .btn-custom {
     font-size: 130%;
     padding: 3%;
-    background-color: #8d6e63;
-    border-color: #8d6e63;
-    box-shadow: 10px 10px 5px #dfc298;
+    background-color: #e64a19;
+    border-color: #e64a19;
+    color: #fffde7;
+    box-shadow: 0px 0px 10px #852508;
 }
 .btn-custom:hover {
-    background-color: #bcaaa4;
-    border-color: #bcaaa4;
+    background-color: #ff8a65;
+    border-color: #ff8a65;
+    box-shadow: 0px 0px 12px #a02d0a;
 }
 
 #filter-search {
