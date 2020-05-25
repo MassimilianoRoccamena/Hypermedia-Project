@@ -12,6 +12,10 @@ h1, h2, h3, h4, h5, h6 {
     color: #3e2723;
 }
 
+hr {
+    color: #795548;
+}
+
 .link-custom {
     color: #bcaaa4;
 }
@@ -25,6 +29,10 @@ h1, h2, h3, h4, h5, h6 {
 .card-custom {
     box-shadow: 0 0 10px #795548;
     background-color: #ffe0b2;
+}
+.row-custom {
+    height: 70%;
+    box-shadow: 0 0 15px #795548;
 }
 video {
     box-shadow: 0 0 15px #795548;
