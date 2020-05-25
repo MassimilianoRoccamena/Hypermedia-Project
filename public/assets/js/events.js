@@ -171,7 +171,6 @@ function loadPage(first=true) {
             throw new Error("HTTP error, status = " + res.status); 
         }
         return res.json();
-
     }).then(function (json) {
         //Unprint loading
         let id = idItem + "-col-" + 0;
