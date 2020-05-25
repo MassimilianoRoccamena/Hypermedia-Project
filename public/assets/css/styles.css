@@ -26,18 +26,19 @@ hr {
 .img-shadow {
     box-shadow: 0 0 15px #795548;
 }
+video {
+    box-shadow: 0 0 15px #795548;
+}
+iframe {
+    box-shadow: 0 0 15px #795548;
+}
+
 .card-custom {
     box-shadow: 0 0 10px #795548;
     background-color: #ffe0b2;
 }
 .row-custom {
-    height: 70%;
-    box-shadow: 0 0 15px #795548;
-}
-video {
-    box-shadow: 0 0 15px #795548;
-}
-iframe {
+    width: 80%;
     box-shadow: 0 0 15px #795548;
 }
 
