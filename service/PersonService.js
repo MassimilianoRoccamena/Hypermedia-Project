@@ -19,8 +19,20 @@ exports.personDbSetup = function(s) {
  * returns List
  **/
 exports.getPeopleItems = function(offset,search) {
-  return sqlDb("Person")
+  let limVal=12;
+
+  //search
+  if (search != "" && search != null && search != undefined) {
+    //1
+    return sqlDb("Person")
+          .limit(limVal)
+          .offset(offset*limVal)
           .select('id_person','photo_url','name');
+  } else {
+    //0
+    return sqlDb("Person")
+          .select('id_person','photo_url','name');
+  }
 }
 
 

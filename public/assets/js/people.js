@@ -1,3 +1,6 @@
+//Loaded component
+let itemComponent = $("<div></div>");
+
 $(document).ready(function () {
 
     //Orientation info
@@ -15,9 +18,11 @@ $(document).ready(function () {
             nextPage();
         })
     });
-
-    initPagination();
-    loadPage();
+    linkComponent = "/pages/components/" + idItem + "-card.html";
+    itemComponent.load(linkComponent, function(responseTxt, statusTxt, xhr) {
+        initPagination();
+        loadPage();
+    });
 });
 
 //------------------------------------- ORIENTATION INFO -----------------------------------------
@@ -56,22 +61,41 @@ var currentPage = 1,
 
 //Init component
 function initPagination() {
+    //Grid
     let root = $("#" + idGroup);
     let container = $("<div class='container'></div>");
     root.append(container);
     let row = $("<div class='row align-items-center'></div>");
     container.append(row);
-
     for (let i=0; i<itemsCount; i++) {
         let id = idItem + "-col-" + i;
         let col = $("<div id='" + id + "' class='col-sm-4'></div>");
 
         row.append(col);
     }
+
+    //Filtering
+    let search = $("#filter-search");
+    search.change(function() {
+        currentPage = 1;
+        loadPage(false);
+        $("#previous").addClass("disabled");
+        $("#page-number").text("Page " + currentPage);
+    });
+}
+
+//Clear items
+function clearPagination() {
+    for (let i=0; i<itemsCount; i++) {
+        let id = idItem + "-col-" + i;
+        let col = $("#"+id);
+        col.empty();
+    }
 }
 
 //Load group page
 function loadPage(first=true) {
+    //First setup
     if (!first) {
         for (let i=0; i<itemsCount; i++) {
             let id = idItem + "-col-" + i;
@@ -81,15 +105,52 @@ function loadPage(first=true) {
         }
     }
 
-    fetch("/api/" + idGroup + "/?offset=" + currentPage).then(function (res) {
+    //Set filtering
+    let search = $("#filter-search").val();
+    let path = "/api/" + idGroup + "?offset=" + (currentPage-1);
+    if (search != "" && search != null && search != undefined) {
+        path += "&search=" + search;
+    }
+
+    //Clear and draw
+    if (!first) {
+        clearPagination();
+    }
+
+    let item = $("<div></div>");
+
+    //Print loading
+    let id = idItem + "-col-" + 0;
+    let col = $("#"+id);
+    item.html("<h6>Loading...<h6>")
+    col.html(item.html());
+
+    //Items request
+    fetch(path).then(function (res) {
         if (!res.ok) { 
             throw new Error("HTTP error, status = " + res.status); 
         }
         return res.json();
     }).then(function (json) {
-        let item = $("<div></div>");
+        //Unprint loading
+        let id = idItem + "-col-" + 0;
+        let col = $("#"+id);
+        col.empty();
 
-        item.load("/pages/components/" + idItem + "-card.html", function(responseTxt, statusTxt, xhr) {
+        //No data
+        if (json.length == 0) {
+            let id = idItem + "-col-" + 0;
+            let col = $("#"+id);
+
+            item.html("<h4>No events found<h4>")
+            col.html(item.html());
+
+            $("#next").addClass("disabled");
+
+        //Some data
+        } else {
+            item.html(itemComponent.html());
+
             for (let i=0; i<json.length; i++) {
                 let data = json[i];
     
@@ -99,20 +160,30 @@ function loadPage(first=true) {
                 col.html(item.html());
                 fillItem(col, data);
             }
-        });
+
+            if (json.length == 12) {
+                $("#next").removeClass("disabled");
+            } else {
+                $("#next").addClass("disabled");
+            }
+        }
     });
 }
 
 //Switch next items page
 function nextPage() {
-    currentPage += 1;
-    loadPage(false);
+    if (!$("#next").hasClass("disabled")) {
+        currentPage += 1;
+        loadPage(false);
 
-    if (currentPage == 2) {
-        $("#previous").removeClass("disabled");
+        if (currentPage == 2) {
+            $("#previous").removeClass("disabled");
+        }
+
+        $("#page-number").text("Page " + currentPage);
+    } else {
+        throw new Error("Page " + currentPage + " is last page")
     }
-
-    $("#page-number").text("Page " + currentPage);
 }
 
 //Switch next items page
@@ -127,6 +198,6 @@ function previousPage() {
 
         $("#page-number").text("Page " + currentPage);
     } else {
-        throw new Error("page 1 is first page")
+        throw new Error("Page 1 is first page")
     }
 }
