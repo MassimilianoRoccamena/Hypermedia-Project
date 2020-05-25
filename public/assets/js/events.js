@@ -206,7 +206,7 @@ function loadPage(first=true) {
                 fillItem(col, data);
             }
 
-            if (json.length < 12) {
+            if (json.length == 12) {
                 $("#next").removeClass("disabled");
             }
         }
