@@ -16,9 +16,9 @@ $(document).ready(function () {
         $("#next").click(function() {
             nextPage();
         })
-    }).then(function() {
+
         itemComponent.load("/pages/components/" + idItem + "-card.html");
-    });
+    })
 
     initPagination();
     loadPage();
@@ -42,7 +42,7 @@ function addLink(text, link) {
 //---------------------------------------- PAGINATION --------------------------------------------
 
 //Global variables
-var currentPage = 1,
+let currentPage = 1,
     itemsCount = 12,
     idGroup = "events",
     idItem = "event",
