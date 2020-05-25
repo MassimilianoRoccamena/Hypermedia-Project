@@ -88,7 +88,7 @@ function loadData() {
             col.load("/pages/components/" + item + "-card.html", function(responseTxt, statusTxt, xhr) {
                 let relatedImage = col.find("#photo");
                 let articleLink = col.find("#articleLink");
-                let href = $("<a href='/pages/article.html?id=" + json[i].id_article +"'><h5 class='card-title text-center'></h5></a>");
+                let href = $("<a href='/pages/article.html?id=" + json[i].id_article +"'><h5 class='card-title'></h5></a>");
                 articleLink.append(href);
                 relatedImage.append("<img class='card-img-top' src='" + json[i].photo1_url + "'></img>");
                 let relatedTitle = col.find(".card-title");

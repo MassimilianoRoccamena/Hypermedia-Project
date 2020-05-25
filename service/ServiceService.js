@@ -114,7 +114,7 @@ exports.getServicesItems = function(offset,search) {
         .select('id_service','presentation','name','photo_url')
         .then(data => {
           return data.map(e => {
-            e.presentation = e.presentation.substring(0,120);
+            e.presentation = e.presentation.substring(0,171);
             return e;
           })
         });
