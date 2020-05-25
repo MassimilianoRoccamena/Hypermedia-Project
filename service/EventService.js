@@ -71,7 +71,13 @@ exports.getEventServicesItemsByID = function(id_event) {
   return sqlDb('Service')
           .join('ServicesEvents','Service.id_service','=','ServicesEvents.id_service')
           .select('Service.id_service','Service.presentation','Service.name','Service.photo_url')
-          .where('ServicesEvents.id_event', id_event);
+          .where('ServicesEvents.id_event', id_event)
+          .then(data => {
+            return data.map(e => {
+              e.presentation = e.presentation.substring(0,71);
+              return e;
+            })
+          });
 }
 
 

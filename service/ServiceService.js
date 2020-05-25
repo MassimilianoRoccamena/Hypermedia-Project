@@ -18,62 +18,14 @@ exports.serviceDbSetup = function(s) {
  * returns List
  **/
 exports.getRelatedServicesItemsByID = function(id_service) {
-/*  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "presentation" : "presentation",
-  "name" : "name",
-  "photo_url" : "photo_url",
-  "id_service" : 0
-}, {
-  "presentation" : "presentation",
-  "name" : "name",
-  "photo_url" : "photo_url",
-  "id_service" : 0
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  });*/
-  return sqlDb.from('Service')
-        .join('RelatedServices','Service.id_service','=','RelatedServices.id_service2')
-        .where('RelatedServices.id_service1', id_service)
-        .select('Service.presentation','Service.name','Service.photo_url','Service.id_service')
-        .union(function(){
-          this.select('Service.presentation','Service.name','Service.photo_url','Service.id_service')
-              .where('RelatedServices.id_service2',id_service)
-              .from('Service')
-              .join('RelatedServices','Service.id_service','=','RelatedServices.id_service1')
-        });
-}
-
-
-/**
- * Get service page 1 data by ID
- *
- * id_service Long ID of service to return
- * returns Service1
- **/
-exports.getService1ByID = function(id_service) {
-  /* return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "presentation" : "presentation",
-  "name" : "name",
-  "photo_url" : [ "photo_url", "photo_url" ],
-  "id_service" : 0
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  }); */
-
   return sqlDb.from("Service")
-          .select('presentation','name','photo_url','id_service').where("id_service", "=", id_service);
+          .select('presentation','name','photo_url','id_service').where("id_service", "=", id_service)
+          .then(data => {
+            return data.map(e => {
+              e.presentation = e.presentation.substring(0,71);
+              return e;
+            })
+          });
 }
 
 
@@ -84,21 +36,6 @@ exports.getService1ByID = function(id_service) {
  * returns Service2
  **/
 exports.getService2ByID = function(id_service) {
-  /* return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "name" : "name",
-  "location" : "location",
-  "id_service" : 0,
-  "informations" : "informations"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
-  }); */
-
   return sqlDb.from("Service").select('name','location','id_service','informations').where("id_service", "=", id_service);
 }
 
@@ -157,7 +94,7 @@ exports.getServicesItems = function(offset,search) {
         .select('id_service','presentation','name','photo_url')
         .then(data => {
           return data.map(e => {
-            e.presentation = e.presentation.substring(0,71);
+            e.presentation = e.presentation.substring(0,101);
             return e;
           })
         });
