@@ -152,10 +152,12 @@ function loadPage(first=true) {
         path += "&month=" + m;
     }
 
-    //Clear grid content
+    //Clear and draw
     if (!first) {
         clearPagination();
     }
+
+    let item = $("<div></div>");
 
     //Print loading
     let id = idItem + "-col-" + 0;
@@ -176,8 +178,7 @@ function loadPage(first=true) {
         let col = $("#"+id);
         col.empty();
 
-        let item = $("<div></div>");
-
+        //No data
         if (json.length == 0) {
             let id = idItem + "-col-" + 0;
             let col = $("#"+id);
@@ -186,6 +187,8 @@ function loadPage(first=true) {
             col.html(item.html());
 
             $("#next").addClass("disabled");
+
+        //Some data
         } else {
             item.load("/pages/components/" + idItem + "-card.html", function(responseTxt, statusTxt, xhr) {
                 for (let i=0; i<json.length; i++) {
