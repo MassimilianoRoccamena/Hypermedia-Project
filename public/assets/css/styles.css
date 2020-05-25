@@ -44,10 +44,6 @@ iframe {
     border-color: #bcaaa4;
 }
 
-
-/*
-    Filtering inputs
-*/
 #filter-search {
     box-shadow: 0 0 10px #8d6e63;
     border-color: #a59590;
@@ -81,7 +77,7 @@ iframe {
 }
 .btn-pagination {
     font-size: 130%;
-    padding: 3%;
+    padding: 0.5%;
     background-color: #fb8c00;
     border-color: #fb8c00;
     color: #8d6e63;
@@ -91,11 +87,13 @@ iframe {
     background-color: #ffcc80;
     border-color: #ffcc80;
     color: #a1887f;
+    box-shadow: 0px 0px 10px #cf927b;
 }
-.btn-pagination:disabled {
+.btn-pagination.disabled {
     background-color: #ffecb3;
     border-color: #ffecb3;
     color: #bcaaa4;
+    box-shadow: 0px 0px 10px #cf927b;
 }
 .btn-send {
     font-size: 130%;
