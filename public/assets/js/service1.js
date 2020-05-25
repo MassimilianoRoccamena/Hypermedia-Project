@@ -117,7 +117,7 @@ function loadData() {
                 let relatedTitle = col.find(".card-title");
                 relatedTitle.append(json[i].name);
                 let presentationBlock = col.find("#presentation");
-                presentationBlock.text(json[i].presentation);
+                presentationBlock.text(json[i].presentation+"...");
             }); 
         }
     });
