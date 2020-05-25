@@ -110,12 +110,33 @@ exports.getServicePeopleItemsByID = function(id_service) {
  * returns List
  **/
 exports.getServicesItems = function(offset,search) {
-  return sqlDb('Service')
-        .select('id_service','presentation','name','photo_url')
-        .then(data => {
-          return data.map(e => {
-            e.presentation = e.presentation.substring(0,171);
-            return e;
-          })
-        });
+  let limVal=6;
+
+  //search
+  if (search != "" && search != null && search != undefined) {
+    //1
+    return sqlDb('Service')
+          .where('name','like','%'+search+'%')
+          .limit(limVal)
+          .offset(offset*6)
+          .select('id_service','presentation','name','photo_url')
+          .then(data => {
+            return data.map(e => {
+              e.presentation = e.presentation.substring(0,171);
+              return e;
+            })
+          });
+  } else {
+    //0
+    return sqlDb('Service')
+          .limit(limVal)
+          .offset(offset*6)
+          .select('id_service','presentation','name','photo_url')
+          .then(data => {
+            return data.map(e => {
+              e.presentation = e.presentation.substring(0,171);
+              return e;
+            })
+          });
+  }
 }
