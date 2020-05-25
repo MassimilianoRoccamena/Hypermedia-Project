@@ -163,7 +163,7 @@ function loadPage(first=true) {
                 fillItem(col, data);
             }
 
-            if (json.length == 6) {
+            if (json.length == 12) {
                 $("#next").removeClass("disabled");
             } else {
                 $("#next").addClass("disabled");

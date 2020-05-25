@@ -59,7 +59,7 @@ exports.getArticleServiceItemByID = function(id_article) {
  * returns List
  **/
 exports.getArticlesItems = function(offset,search) {
-  let limVal=6;
+  let limVal=12;
 
   //search
   if (search != "" && search != null && search != undefined) {
