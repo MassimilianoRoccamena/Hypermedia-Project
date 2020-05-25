@@ -1,18 +1,14 @@
 <!--pagination-->
 <div class="container">
     <div class="row align-items-center justify-content-end">
-        <nav aria-label="...">
-            <ul class="pagination">
-                <li id="previous" class="page-item btn disabled">
-                    <span class="page-link btn-pagination">Previous</span>
-                </li>
-                <li id="page-number" class="page-item px-3">
-                    Page 1
-                </li>
-                <li id="next" class="page-item btn">
-                    <span class="page-link btn-pagination">Next</span>
-                </li>
-            </ul>
-        </nav>
+        <div class="col-1">
+            <a id="previous" class="btn btn-info btn-pagination disabled">Previous</a>
+        </div>
+        <div class="col-1 d-flex justify-content-center px-2">
+            <h6 id="page-number" class="pagination-page pl-3">Page 1</h6>
+        </div>
+        <div class="col-1">
+            <a id="next" class="btn btn-info btn-pagination">Next</a>
+        </div>
     </div>
 </div>
