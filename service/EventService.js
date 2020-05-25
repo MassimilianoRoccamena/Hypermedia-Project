@@ -105,14 +105,14 @@ exports.getEventsItems = function(offset,search,month) {
           .where('name','like','%'+search+'%')
           .andWhereRaw('EXTRACT(MONTH FROM date::date) = ?', [month])
           .limit(limVal)
-          .offset(offset*12)
+          .offset(offset*limVal)
           .select('id_event','location','date','name','photo_url');
     //10
     } else {
       return sqlDb('Event')
           .where('name','like','%'+search+'%')
           .limit(limVal)
-          .offset(offset*12)
+          .offset(offset*limVal)
           .select('id_event','location','date','name','photo_url');
     }
   } else {
@@ -127,13 +127,13 @@ exports.getEventsItems = function(offset,search,month) {
       return sqlDb('Event')
           .whereRaw('EXTRACT(MONTH FROM date::date) = ?', [month])
           .limit(limVal)
-          .offset(offset*12)
+          .offset(offset*limVal)
           .select('id_event','location','date','name','photo_url');
     //00
     } else {
       return sqlDb('Event')
           .limit(limVal)
-          .offset(offset*12)
+          .offset(offset*limVal)
           .select('id_event','location','date','name','photo_url');
     }
   }

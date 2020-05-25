@@ -118,7 +118,7 @@ exports.getServicesItems = function(offset,search) {
     return sqlDb('Service')
           .where('name','like','%'+search+'%')
           .limit(limVal)
-          .offset(offset*6)
+          .offset(offset*limVal)
           .select('id_service','presentation','name','photo_url')
           .then(data => {
             return data.map(e => {
@@ -130,7 +130,7 @@ exports.getServicesItems = function(offset,search) {
     //0
     return sqlDb('Service')
           .limit(limVal)
-          .offset(offset*6)
+          .offset(offset*limVal)
           .select('id_service','presentation','name','photo_url')
           .then(data => {
             return data.map(e => {
