@@ -1,3 +1,4 @@
+//Loaded component
 let itemComponent = $("<div></div>");
 
 $(document).ready(function () {
@@ -17,7 +18,8 @@ $(document).ready(function () {
             nextPage();
         })
     })
-    itemComponent.load("/pages/components/" + idItem + "-card.html", function(responseTxt, statusTxt, xhr) {
+    linkComponent = "/pages/components/" + idItem + "-card.html";
+    itemComponent.load(linkComponent, function(responseTxt, statusTxt, xhr) {
         initPagination();
         loadPage();
     });
@@ -204,7 +206,9 @@ function loadPage(first=true) {
                 fillItem(col, data);
             }
 
-            $("#next").removeClass("disabled");
+            if (json.length == 12) {
+                $("#next").removeClass("disabled");
+            }
         }
     });
 }
