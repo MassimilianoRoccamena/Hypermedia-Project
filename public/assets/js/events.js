@@ -1,4 +1,4 @@
-let itemComponent;
+let itemComponent = $("<div></div>");
 
 $(document).ready(function () {
 
