@@ -1,3 +1,5 @@
+let itemComponent;
+
 $(document).ready(function () {
 
     //Orientation info
@@ -14,6 +16,8 @@ $(document).ready(function () {
         $("#next").click(function() {
             nextPage();
         })
+    }).then(function() {
+        itemComponent.load("/pages/components/" + idItem + "-card.html");
     });
 
     initPagination();
@@ -189,21 +193,20 @@ function loadPage(first=true) {
 
         //Some data
         } else {
-            item.load("/pages/components/" + idItem + "-card.html", function(responseTxt, statusTxt, xhr) {
-                for (let i=0; i<json.length; i++) {
-                    let data = json[i];
-        
-                    let id = idItem + "-col-" + i;
-                    let col = $("#"+id);
-        
-                    col.html(item.html());
-                    fillItem(col, data);
-                }
+            item.html(itemComponent.html());
 
-                $("#next").removeClass("disabled");
-            });
+            for (let i=0; i<json.length; i++) {
+                let data = json[i];
+    
+                let id = idItem + "-col-" + i;
+                let col = $("#"+id);
+    
+                col.html(item.html());
+                fillItem(col, data);
+            }
+
+            $("#next").removeClass("disabled");
         }
-        
     });
 }
 
