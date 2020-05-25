@@ -19,9 +19,6 @@ h1, h2, h3, h4, h5, h6 {
     color: #3e2723;
 }
 
-/* 
-    Main block shadowing
-*/
 .img-shadow {
     box-shadow: 0 0 15px #795548;
 }
@@ -33,36 +30,20 @@ video {
 }
 iframe {
     box-shadow: 0 0 15px #795548;
-}548;
-}
-.gallery-row {
-    overflow-x: auto;
-    overflow-y:hidden;
-    white-space: nowrap;
-    flex-wrap: nowrap;
-}
-.gallery-elem {
-    display: inline-block;
 }
 
+.btn-custom {
+    font-size: 130%;
+    padding: 3%;
+    background-color: #8d6e63;
+    border-color: #8d6e63;
+    box-shadow: 10px 10px 5px #dfc298;
+}
+.btn-custom:hover {
+    background-color: #bcaaa4;
+    border-color: #bcaaa4;
+}
 
-/* 
-    Contacts page
-*/
-.jumbotron-custom {
-    background-color: #ffcc80;
-    width: 60%;
-    box-shadow: 0 0 15px #795548;
-}
-@media only screen and (max-width: 768px) {
-    .jumbotron-custom {
-        width: 80%;
-    }
-}
-.input-message {
-    box-shadow: 0 0 10px #8d6e63;
-    border-color: #a59590;
-}
 
 /*
     Filtering inputs
@@ -77,28 +58,26 @@ iframe {
 }
 
 /*
-    Buttons
-*/
-.pagination-page {
-    font-size: 130%;
-}
-
-/*
     Photo gallery
 */
 .gallery-shadow {
     box-shadow: 0 0 10px #795
 }
-.btn-custom {
-    font-size: 130%;
-    padding: 3%;
-    background-color: #8d6e63;
-    border-color: #8d6e63;
-    box-shadow: 10px 10px 5px #dfc298;
+.gallery-row {
+    overflow-x: auto;
+    overflow-y:hidden;
+    white-space: nowrap;
+    flex-wrap: nowrap;
 }
-.btn-custom:hover {
-    background-color: #bcaaa4;
-    border-color: #bcaaa4;
+.gallery-elem {
+    display: inline-block;
+}
+
+/*
+    Pagination
+*/
+.pagination-page {
+    font-size: 130%;
 }
 .btn-pagination {
     font-size: 130%;
@@ -128,28 +107,6 @@ iframe {
 .btn-send:hover {
     background-color: #bcaaa4;
     border-color: #bcaaa4;
-}
-
-/*
-    Faq page
-*/
-.accordion-custom {
-    box-shadow: 0 0 10px #795548;
-}
-.accordion-custom-card {
-    border-color: #f57c00;
-}
-.accordion-custom-card > .card-header {
-    background-color: #ffb74d;
-}
-.accordion-custom-title {
-    color: #3e2723;
-}
-.accordion-custom-title:hover {
-    color: #ffecb3;
-}
-.accordion-custom-body {
-    background-color: #ffecb3;
 }
 
 /*
@@ -276,9 +233,25 @@ body {
     width: 60%;
 }
 
-/*
-    Social
+/* 
+    Contacts page
 */
+.jumbotron-custom {
+    background-color: #ffcc80;
+    width: 60%;
+    box-shadow: 0 0 15px #795548;
+}
+@media only screen and (max-width: 768px) {
+    .jumbotron-custom {
+        width: 80%;
+    }
+}
+
+.input-message {
+    box-shadow: 0 0 10px #8d6e63;
+    border-color: #a59590;
+}
+
 .fl{
     color: white;
 }
@@ -308,4 +281,26 @@ body {
 .fa-reddit{
     background: #FF5700;
     color: white;
+}
+
+/*
+    Faq page
+*/
+.accordion-custom {
+    box-shadow: 0 0 10px #795548;
+}
+.accordion-custom-card {
+    border-color: #f57c00;
+}
+.accordion-custom-card > .card-header {
+    background-color: #ffb74d;
+}
+.accordion-custom-title {
+    color: #3e2723;
+}
+.accordion-custom-title:hover {
+    color: #ffecb3;
+}
+.accordion-custom-body {
+    background-color: #ffecb3;
 }
