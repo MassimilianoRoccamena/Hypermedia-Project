@@ -40,7 +40,7 @@ function addLink(text, link) {
 
 //Global variables
 var currentPage = 1,
-    itemsCount = 12,
+    itemsCount = 6,
     idGroup = "services",
     idItem = "service",
     linkComponent = "/pages/components/" + idItem + "-row.html",
