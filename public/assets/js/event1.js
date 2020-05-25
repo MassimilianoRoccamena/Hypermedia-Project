@@ -87,6 +87,8 @@ function loadData() {
                 relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url[0] + "'></img>");
                 let relatedTitle = col.find(".card-title");
                 relatedTitle.append(json[i].name);
+                let presentationBlock = col.find("#presentation");
+                presentationBlock.text(json[i].presentation);
             }); 
         }
     });
