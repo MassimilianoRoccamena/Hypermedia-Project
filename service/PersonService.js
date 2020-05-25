@@ -25,6 +25,7 @@ exports.getPeopleItems = function(offset,search) {
   if (search != "" && search != null && search != undefined) {
     //1
     return sqlDb("Person")
+          .where('name','like','%'+search+'%')
           .limit(limVal)
           .offset(offset*limVal)
           .select('id_person','photo_url','name');

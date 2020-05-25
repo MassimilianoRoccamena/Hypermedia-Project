@@ -1,6 +1,3 @@
-//Loaded component
-let itemComponent = $("<div></div>");
-
 $(document).ready(function () {
 
     //Orientation info
@@ -18,7 +15,6 @@ $(document).ready(function () {
             nextPage();
         })
     });
-    linkComponent = "/pages/components/" + idItem + "-row.html";
     itemComponent.load(linkComponent, function(responseTxt, statusTxt, xhr) {
         initPagination();
         loadPage();
@@ -47,6 +43,8 @@ var currentPage = 1,
     itemsCount = 12,
     idGroup = "services",
     idItem = "service",
+    linkComponent = "/pages/components/" + idItem + "-row.html",
+    itemComponent = $("<div></div>");
     fillItem = function(row, data) {
         var photo = row.find("#photo");
         let link = row.find("#serviceLink");

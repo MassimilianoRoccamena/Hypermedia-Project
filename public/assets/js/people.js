@@ -18,7 +18,7 @@ $(document).ready(function () {
             nextPage();
         })
     });
-    linkComponent = "/pages/components/" + idItem + "-card.html";
+    let linkComponent = "/pages/components/" + idItem + "-card.html";
     itemComponent.load(linkComponent, function(responseTxt, statusTxt, xhr) {
         initPagination();
         loadPage();
