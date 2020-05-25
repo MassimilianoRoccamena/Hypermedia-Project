@@ -16,12 +16,11 @@ $(document).ready(function () {
         $("#next").click(function() {
             nextPage();
         })
-
-        itemComponent.load("/pages/components/" + idItem + "-card.html");
     })
-
-    initPagination();
-    loadPage();
+    itemComponent.load("/pages/components/" + idItem + "-card.html", function(responseTxt, statusTxt, xhr) {
+        initPagination();
+        loadPage();
+    });
 });
 
 //------------------------------------- ORIENTATION INFO -----------------------------------------
