@@ -130,6 +130,7 @@ function clearPagination() {
 
 //Load group page
 function loadPage(first=true) {
+    //First setup
     if (!first) {
         for (let i=0; i<itemsCount; i++) {
             let id = idItem + "-col-" + i;
@@ -139,6 +140,7 @@ function loadPage(first=true) {
         }
     }
 
+    //Set filtering
     let search = $("#filter-search").val(),
         month = $("#filter-month option:selected").text(),
         m = getMonth(month);
@@ -150,15 +152,29 @@ function loadPage(first=true) {
         path += "&month=" + m;
     }
 
+    //Clear grid content
+    if (!first) {
+        clearPagination();
+    }
+
+    //Print loading
+    let id = idItem + "-col-" + 0;
+    let col = $("#"+id);
+    item.html("<h6>Loading...<h6>")
+    col.html(item.html());
+
+    //Items request
     fetch(path).then(function (res) {
         if (!res.ok) { 
             throw new Error("HTTP error, status = " + res.status); 
         }
         return res.json();
+
     }).then(function (json) {
-        if (!first) {
-            clearPagination();
-        }
+        //Unprint loading
+        let id = idItem + "-col-" + 0;
+        let col = $("#"+id);
+        col.empty();
 
         let item = $("<div></div>");
 
