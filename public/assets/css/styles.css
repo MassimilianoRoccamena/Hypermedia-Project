@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 hr {
-    color: #795548;
+    color: #5d4037;
 }
 
 .link-custom {
@@ -38,7 +38,7 @@ iframe {
     background-color: #ffe0b2;
 }
 .row-custom {
-    width: 80%;
+    width: 100%;
     box-shadow: 0 0 15px #795548;
 }
 
