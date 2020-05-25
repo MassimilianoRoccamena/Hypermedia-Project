@@ -98,7 +98,7 @@ function initPagination() {
     let root = $("#" + idGroup);
     let container = $("<div class='container'></div>");
     root.append(container);
-    let row = $("<div class='row'></div>");
+    let row = $("<div class='row align-items-center'></div>");
     container.append(row);
     for (let i=0; i<itemsCount; i++) {
         let id = idItem + "-col-" + i;
