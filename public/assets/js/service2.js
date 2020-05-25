@@ -72,19 +72,28 @@ function loadData() {
     })
     .then(function(json){
         let row = $("#related-people");
-        for(let i=0;i<json.length;i++){
-            let col = $("<div class='col-sm-4'></div>");
-            row.append(col);
-            relatedItem = "person";
-            col.load("/pages/components/" + relatedItem + "-card.html", function(responseTxt, statusTxt, xhr) {
-                let relatedImage = col.find("#photo");
-                let personLink = col.find("#personLink");
-                let href = $("<a href='/pages/person.html?id=" + json[i].id_person + "'><h5 class='card-title text-center'></h5></a>")
-                personLink.append(href);
-                relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url + "'></img>");
-                let relatedTitle = col.find(".card-title");
-                relatedTitle.append(json[i].name);
-            }); 
+
+        //No data
+        if(json.length == 0){
+            let error = $("<h4>No people found<h4>");
+            row.append(error)
+
+        //Some data
+        } else {
+            for(let i=0;i<json.length;i++){
+                let col = $("<div class='col-sm-4'></div>");
+                row.append(col);
+                relatedItem = "person";
+                col.load("/pages/components/" + relatedItem + "-card.html", function(responseTxt, statusTxt, xhr) {
+                    let relatedImage = col.find("#photo");
+                    let personLink = col.find("#personLink");
+                    let href = $("<a href='/pages/person.html?id=" + json[i].id_person + "'><h5 class='card-title text-center'></h5></a>")
+                    personLink.append(href);
+                    relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url + "'></img>");
+                    let relatedTitle = col.find(".card-title");
+                    relatedTitle.append(json[i].name);
+                }); 
+            }
         }
     });
 }

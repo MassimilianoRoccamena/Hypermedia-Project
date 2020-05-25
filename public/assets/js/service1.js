@@ -75,23 +75,32 @@ function loadData() {
     })
     .then(function(json){
         let row = $("#related-events");
-        for(let i=0;i<json.length;i++){
-            let col = $("<div class='col-sm-4'></div>");
-            row.append(col);
-            relatedItem = "event";
-            col.load("/pages/components/" + relatedItem + "-card.html", function(responseTxt, statusTxt, xhr) {
-                let relatedImage = col.find("#photo");
-                let eventLink = col.find("#eventLink");
-                let href = $("<a href='/pages/event1.html?id=" + json[i].id_event + "'><h5 class='card-title mb-3'></h5></a>");
-                eventLink.append(href);
-                relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url[0] + "'></img>");
-                let relatedTitle = col.find(".card-title");
-                relatedTitle.append(json[i].name);
-                let relatedDate = col.find("#date");
-                relatedDate.append(json[i].date.substring(0,10));
-                let relatedLocation = col.find("#location");
-                relatedLocation.append(json[i].location);
-            }); 
+
+        //No data
+        if(json.length == 0){
+            let error = $("<h4>No events found<h4>");
+            row.append(error)
+
+        //Some data
+        } else {
+            for(let i=0;i<json.length;i++){
+                let col = $("<div class='col-sm-4'></div>");
+                row.append(col);
+                relatedItem = "event";
+                col.load("/pages/components/" + relatedItem + "-card.html", function(responseTxt, statusTxt, xhr) {
+                    let relatedImage = col.find("#photo");
+                    let eventLink = col.find("#eventLink");
+                    let href = $("<a href='/pages/event1.html?id=" + json[i].id_event + "'><h5 class='card-title mb-3'></h5></a>");
+                    eventLink.append(href);
+                    relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url[0] + "'></img>");
+                    let relatedTitle = col.find(".card-title");
+                    relatedTitle.append(json[i].name);
+                    let relatedDate = col.find("#date");
+                    relatedDate.append(json[i].date.substring(0,10));
+                    let relatedLocation = col.find("#location");
+                    relatedLocation.append(json[i].location);
+                }); 
+            }
         }
     });
 
@@ -104,21 +113,30 @@ function loadData() {
     })
     .then(function(json){
         let row = $("#related-services");
-        for(let i=0;i<json.length;i++){
-            let col = $("<div class='col-sm-4'></div>");
-            row.append(col);
-            relatedItem = "service";
-            col.load("/pages/components/" + relatedItem + "-card.html", function(responseTxt, statusTxt, xhr) {
-                let relatedImage = col.find("#photo");
-                let serviceLInk = col.find("#serviceLink");
-                let href = $("<a href='/pages/service1.html?id=" + json[i].id_service + "'><h5 class='card-title text-center'></h5></a>");
-                serviceLInk.append(href);
-                relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url[0] + "'></img>");
-                let relatedTitle = col.find(".card-title");
-                relatedTitle.append(json[i].name);
-                let presentationBlock = col.find("#presentation");
-                presentationBlock.text(json[i].presentation+"...");
-            }); 
+
+        //No data
+        if(json.length == 0){
+            let error = $("<h4>No services found<h4>");
+            row.append(error)
+
+        //Some data
+        } else {
+            for(let i=0;i<json.length;i++){
+                let col = $("<div class='col-sm-4'></div>");
+                row.append(col);
+                relatedItem = "service";
+                col.load("/pages/components/" + relatedItem + "-card.html", function(responseTxt, statusTxt, xhr) {
+                    let relatedImage = col.find("#photo");
+                    let serviceLInk = col.find("#serviceLink");
+                    let href = $("<a href='/pages/service1.html?id=" + json[i].id_service + "'><h5 class='card-title text-center'></h5></a>");
+                    serviceLInk.append(href);
+                    relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url[0] + "'></img>");
+                    let relatedTitle = col.find(".card-title");
+                    relatedTitle.append(json[i].name);
+                    let presentationBlock = col.find("#presentation");
+                    presentationBlock.text(json[i].presentation+"...");
+                }); 
+            }
         }
     });
 }

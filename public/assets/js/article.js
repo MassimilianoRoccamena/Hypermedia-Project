@@ -81,11 +81,11 @@ function loadData() {
         return response.json();
     })
     .then(function(json){
-        let row = $("#cards");
+        let row = $("#related-articles");
 
         //No data
         if(json.length == 0){
-            let error = $("<h4>There are no articles for this Service!<h4>");
+            let error = $("<h4>No articles found<h4>");
             row.append(error)
 
         //Some data
