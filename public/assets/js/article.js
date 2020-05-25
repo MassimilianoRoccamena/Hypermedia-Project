@@ -82,22 +82,31 @@ function loadData() {
     })
     .then(function(json){
         let row = $("#cards");
-        for(let i=0;i<json.length;i++){
-            let col = $("<div class='col-sm-4'></div>");
-            row.append(col);
-            col.load("/pages/components/" + item + "-card.html", function(responseTxt, statusTxt, xhr) {
-                let relatedImage = col.find("#photo");
-                let articleLink = col.find("#articleLink");
-                let href = $("<a href='/pages/article.html?id=" + json[i].id_article +"'><h5 class='card-title'></h5></a>");
-                articleLink.append(href);
-                relatedImage.append("<img class='card-img-top' src='" + json[i].photo1_url + "'></img>");
-                let relatedTitle = col.find(".card-title");
-                relatedTitle.append(json[i].title);
-                let relatedAuthor = col.find("#author");
-                relatedAuthor.append(json[i].author);
-                let relatedDate = col.find("#date");
-                relatedDate.append(json[i].publication_date.substring(0,10));
-            }); 
+
+        //No data
+        if(json.length == 0){
+            let error = $("<h4>There are no articles for this Service!<h4>");
+            row.append(error)
+
+        //Some data
+        } else {
+            for(let i=0;i<json.length;i++){
+                let col = $("<div class='col-sm-4'></div>");
+                row.append(col);
+                col.load("/pages/components/" + item + "-card.html", function(responseTxt, statusTxt, xhr) {
+                    let relatedImage = col.find("#photo");
+                    let articleLink = col.find("#articleLink");
+                    let href = $("<a href='/pages/article.html?id=" + json[i].id_article +"'><h5 class='card-title'></h5></a>");
+                    articleLink.append(href);
+                    relatedImage.append("<img class='card-img-top' src='" + json[i].photo1_url + "'></img>");
+                    let relatedTitle = col.find(".card-title");
+                    relatedTitle.append(json[i].title);
+                    let relatedAuthor = col.find("#author");
+                    relatedAuthor.append(json[i].author);
+                    let relatedDate = col.find("#date");
+                    relatedDate.append(json[i].publication_date.substring(0,10));
+                }); 
+            }
         }
     });
 }

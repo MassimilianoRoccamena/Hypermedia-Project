@@ -96,7 +96,6 @@ function loadPage(first=true) {
         if(json.length == 0){
             let error = $("#label");
             error.text("There are no articles for this Service!")
-            return;
 
         //Some data
         } else {
