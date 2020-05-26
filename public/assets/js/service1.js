@@ -45,6 +45,8 @@ function loadData() {
         return response.json();
     })
     .then(function(json){
+        var info = $("#info-service");
+        info.text(json[0].name);
         let h1 = $("#name");
         let page2Link = $("#page2Link");
         let href = $("<a href='/pages/service2.html?id=" + id + "' class='btn btn-info btn-custom' role='button'>Informations</a>");
@@ -54,7 +56,6 @@ function loadData() {
         articleLink.append(href);
         let p = $("#presentation_text");
         h1.append(json[0].name);
-        
         p.append(json[0].presentation);
 
         //Load photo gallery 
