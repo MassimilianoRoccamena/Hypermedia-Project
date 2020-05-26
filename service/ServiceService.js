@@ -110,7 +110,7 @@ exports.getServicePeopleItemsByID = function(id_service) {
  * returns List
  **/
 exports.getServicesItems = function(offset,search) {
-  let limVal=6;
+  let limVal=8;
 
   //search
   if (search != "" && search != null && search != undefined) {

@@ -40,7 +40,7 @@ function addLink(text, link) {
 
 //Global variables
 var currentPage = 1,
-    itemsCount = 6,
+    itemsCount = 8,
     idGroup = "services",
     idItem = "service",
     linkComponent = "/pages/components/" + idItem + "-row.html",
@@ -142,7 +142,7 @@ function loadPage(first=true) {
                 }
             }
 
-            if (json.length == 6) {
+            if (json.length == itemsCount) {
                 $("#next").removeClass("disabled");
             } else {
                 $("#next").addClass("disabled");
