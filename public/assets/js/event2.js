@@ -5,7 +5,7 @@ $(document).ready(function () {
     $('#orientation-info').load("/pages/components/orientation-info.html", function(responseTxt, statusTxt, xhr) {
         addLink("Home", "/");
         addLink("Events", "/pages/events.html");
-        addLink("Event", "/pages/event1.html?id=" + id);
+        addLink("Event", "/pages/event1.html?id=" + id, "info-event");
         addLabel("Informations");
     });
 
@@ -23,7 +23,13 @@ function addLabel(text) {
 }
 
 //Create orientation info link
-function addLink(text, link) {
+function addLink(text, link, identifier="") {
+    let li = null;
+    if (identifier != "") {
+        li = $("<li class='breadcrumb-item'><a href='" + link + "'>"+ text +"</a></li>")
+    } else {
+        li = $("<li class='breadcrumb-item'></li>")
+    }
     let li = $("<li class='breadcrumb-item'><a href='" + link + "'>"+ text +"</a></li>")
     $("#orientation-ol").append(li);
 }
@@ -43,6 +49,8 @@ function loadData() {
         return response.json();
     })
     .then(function(json){
+        var info = $("#info-event");
+        info.text(json[0].name);
         let page1Link = $("#page1Link");
         let href = $("<a href='/pages/event1.html?id=" + id +"' class='btn btn-info btn-custom' role='button'>Description</a>");
         page1Link.append(href);

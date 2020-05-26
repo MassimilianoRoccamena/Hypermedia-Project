@@ -26,7 +26,7 @@ function addLabel(text) {
 function addLink(text, link, identifier="") {
     let li = null;
     if (identifier != "") {
-        li = $("<li class='breadcrumb-item' id='info-person'></li>")
+        li = $("<li class='breadcrumb-item'><a href='" + link + "'>"+ text +"</a></li>")
     } else {
         li = $("<li class='breadcrumb-item'></li>")
     }

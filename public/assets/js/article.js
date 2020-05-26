@@ -4,7 +4,7 @@ $(document).ready(function () {
     $('#orientation-info').load("/pages/components/orientation-info.html", function(responseTxt, statusTxt, xhr) {
         addLink("Home", "/");
         addLink("Articles", "/pages/articles.html");
-        addLabel("Article");
+        addLabel("Article", "id-article");
     });
 
     //Data load
@@ -14,7 +14,13 @@ $(document).ready(function () {
 //------------------------------------- ORIENTATION INFO -----------------------------------------
 
 //Create orientation info label
-function addLabel(text) {
+function addLabel(text, identifier="") {
+    let li = null;
+    if (identifier != "") {
+        li = $("<li class='breadcrumb-item' id='info-person'></li>")
+    } else {
+        li = $("<li class='breadcrumb-item'></li>")
+    }
     let li = $("<li class='breadcrumb-item'></li>")
     li.text(text);
     $("#orientation-ol").append(li);
@@ -43,6 +49,7 @@ function loadData() {
         return response.json();
     })
     .then(function(json){
+        var info = $("#info-article");
         let title = $("#head");
         let author = $("#author");
         let photo1 = $("#photo1");
@@ -50,6 +57,7 @@ function loadData() {
         let date = $("#date");
         let body = $("#text");
         
+        info.text(json[0].title);
         title.append(json[0].title);
         author.append(json[0].author);
         date.append(json[0].publication_date.substring(0,10));
