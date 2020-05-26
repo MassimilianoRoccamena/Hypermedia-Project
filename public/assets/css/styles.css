@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 hr {
-    border: 1px solid #5d4037;
+    border: 1px solid #d39582;
 }
 
 .link-custom {
@@ -25,6 +25,16 @@ hr {
 
 .img-shadow {
     box-shadow: 0 0 15px #795548;
+}
+.carousel {
+    box-shadow: 0 0 15px #795548;
+}
+.carousel-item {
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 video {
     box-shadow: 0 0 15px #795548;
@@ -85,6 +95,10 @@ iframe {
 }
 .gallery-elem {
     display: inline-block;
+}
+
+#carousel-gallery > .carousel-inner > .carousel-item {
+    height: 80vh;
 }
 
 /*
@@ -233,17 +247,8 @@ body {
 /*
     Home page
 */
-#carousel {
-    box-shadow: 0 0 15px #795548;
-}
-.carousel-item {
+#carousel-intro > .carousel-inner > .carousel-item {
     height: 90vh;
-    min-height: 350px;
-    background: no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 }
 .video{
     width: 60%;

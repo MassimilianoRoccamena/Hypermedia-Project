@@ -8,7 +8,9 @@ $(document).ready(function () {
     });
 
     //Data load
-    loadData();
+    itemComponent.load("/pages/components/carousel-gallery.html", function(responseTxt, statusTxt, xhr) {
+        loadData();
+    });
 });
 
 //------------------------------------- ORIENTATION INFO -----------------------------------------
@@ -27,6 +29,8 @@ function addLink(text, link) {
 }
 
 //----------------------------------------- DATA LOAD -------------------------------------------
+
+var itemComponent = $("<div></div>");
 
 //Load service data
 function loadData() {
@@ -54,16 +58,25 @@ function loadData() {
         p.append(json[0].presentation);
 
         //Load photo gallery 
+        let urlList = json[0].photo_url;
         let gallery = $("#gallery");
-        for (let i = 0; i < json[0].photo_url.length; i++) {
-            let col = $("<div class='col-lg-3 col-md-4 col-6 gallery-elem'></div>");
-            let a = $('<a href="#" class="d-block py-2 h-100" id="image"></a>');
-            href = json[0].photo_url[i];
-            a.attr("href",href)
-            a.append("<img class='img-fluid img-thumbnail gallery-shadow' src='" + href + "' alt=''>");
-            col.append(a);
-            gallery.append(col);
+        let item = $("<div></div>");
+        item.html(itemComponent.html());
+        let indicators = item.find(".carousel-indicators");
+        let inner = item.find(".carousel-inner");
+        for (let i = 0; i < urlList.length; i++) {
+            let currentIndicator = $("<li data-target='#carousel-gallery' data-slide-to=" + i + "></li>");
+            if (i == 0) {
+                currentIndicator.addClass("active");
+            }
+            indicators.append(currenntIndicator);
+            let currenntItem = $("<div class='carousel-item' style='background-image: url('" + urlList[i] + "')'></div>");
+            if (i == 0) {
+                currentItem.addClass("active");
+            }
+            inner.append(currenntItem);
         }
+        gallery.html(item.html());
     });
 
     //Load related events
