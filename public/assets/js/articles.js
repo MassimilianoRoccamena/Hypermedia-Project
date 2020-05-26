@@ -120,6 +120,7 @@ function loadPage(first=true) {
     }
 
     let item = $("<div></div>");
+    $("#next").addClass("disabled");
 
     //Print loading
     let id = idItem + "-col-" + 0;
@@ -147,8 +148,6 @@ function loadPage(first=true) {
             item.html("<h4>No events found<h4>")
             col.html(item.html());
 
-            $("#next").addClass("disabled");
-
         //Some data
         } else {
             item.html(itemComponent.html());
@@ -165,8 +164,6 @@ function loadPage(first=true) {
 
             if (json.length == itemsCount) {
                 $("#next").removeClass("disabled");
-            } else {
-                $("#next").addClass("disabled");
             }
         }
     });

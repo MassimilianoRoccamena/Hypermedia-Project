@@ -102,6 +102,7 @@ function loadPage(first=true) {
     }
 
     let item = $("<div></div>");
+    $("#next").addClass("disabled");
 
     //Print loading
     item.html("<h6>Loading...<h6>")
@@ -144,8 +145,6 @@ function loadPage(first=true) {
 
             if (json.length == itemsCount) {
                 $("#next").removeClass("disabled");
-            } else {
-                $("#next").addClass("disabled");
             }
         }
     });
