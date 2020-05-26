@@ -26,9 +26,9 @@ function addLabel(text) {
 function addLink(text, link, identifier="") {
     let li = null;
     if (identifier != "") {
-        li = $("<li class='breadcrumb-item' id='"+identifier+"'><a href='" + link + "'>"+ text +"</a></li>")
+        li = $("<li class='breadcrumb-item' id='"+identifier+"'><a href='" + link + "'>"+ text +"</a></li>");
     } else {
-        li = $("<li class='breadcrumb-item'></li>")
+        li = $("<li class='breadcrumb-item'><a href='" + link + "'>"+ text +"</a></li>");
     }
     $("#orientation-ol").append(li);
 }
