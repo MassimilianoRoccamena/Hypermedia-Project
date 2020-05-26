@@ -5,7 +5,7 @@ $(document).ready(function () {
     $('#orientation-info').load("/pages/components/orientation-info.html", function(responseTxt, statusTxt, xhr) {
         addLink("Home", "/");
         addLink("Services", "/pages/services.html");
-        addLink("Service", "/pages/service1.html?id=" + id);
+        addLink("Service", "/pages/service1.html?id=" + id, "info-service");
         addLabel("Articles");
     });
     //Pagination
@@ -25,8 +25,13 @@ function addLabel(text) {
 }
 
 //Create orientation info link
-function addLink(text, link) {
-    let li = $("<li class='breadcrumb-item'><a href='" + link + "'>"+ text +"</a></li>")
+function addLink(text, link, identifier="") {
+    let li = null;
+    if (identifier != "") {
+        li = $("<li class='breadcrumb-item' id='"+identifier+"'><a href='" + link + "'>"+ text +"</a></li>")
+    } else {
+        li = $("<li class='breadcrumb-item'></li>")
+    }
     $("#orientation-ol").append(li);
 }
 
@@ -99,6 +104,8 @@ function loadPage(first=true) {
 
         //Some data
         } else {
+            var info = $("#info-service");
+            info.text(json[0].name);
             let item = $("<div></div>");
             let se = $("#service");
             let href = $("<a href='/pages/service1.html?id=" + json[0].id_service +"'>" + json[0].name + "</a>");

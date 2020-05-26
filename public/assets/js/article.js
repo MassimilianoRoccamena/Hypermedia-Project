@@ -21,7 +21,6 @@ function addLabel(text, identifier="") {
     } else {
         li = $("<li class='breadcrumb-item'></li>")
     }
-    let li = $("<li class='breadcrumb-item'></li>")
     li.text(text);
     $("#orientation-ol").append(li);
 }
