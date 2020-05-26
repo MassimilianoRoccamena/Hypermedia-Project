@@ -43,10 +43,10 @@ function loadData() {
     .then(function(json){
         let h1 = $("#name");
         let page2Link = $("#page2Link");
-        let href = $("<a href='/pages/service2.html?id=" + id + "' class='btn btn-info btn-custom' role='button'>Go to informations</a>");
+        let href = $("<a href='/pages/service2.html?id=" + id + "' class='btn btn-info btn-custom' role='button'>Informations</a>");
         page2Link.append(href);
         let articleLink = $("#articleLink");
-        href = $("<a href='/pages/service-articles.html?id=" + id +"' class='btn btn-info btn-custom' role='button'>Go to related articles</a>");
+        href = $("<a href='/pages/service-articles.html?id=" + id +"' class='btn btn-info btn-custom' role='button'>Articles</a>");
         articleLink.append(href);
         let p = $("#presentation_text");
         h1.append(json[0].name);
