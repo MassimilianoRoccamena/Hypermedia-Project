@@ -7,10 +7,10 @@ $(document).ready(function () {
         addLink("Services", "/pages/services.html");
         addLink("Service", "/pages/service1.html?id=" + id, "info-service");
         addLabel("Informations");
-    });
 
-    //Data load
-    loadData();
+        //Data load
+        loadData();
+    });
 });
 
 //------------------------------------- ORIENTATION INFO -----------------------------------------

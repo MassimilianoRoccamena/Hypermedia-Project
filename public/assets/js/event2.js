@@ -7,10 +7,10 @@ $(document).ready(function () {
         addLink("Events", "/pages/events.html");
         addLink("Event", "/pages/event1.html?id=" + id, "info-event");
         addLabel("Informations");
-    });
 
-    //Data load
-    loadData();
+        //Data load
+        loadData();
+    });
 });
 
 //------------------------------------- ORIENTATION INFO -----------------------------------------

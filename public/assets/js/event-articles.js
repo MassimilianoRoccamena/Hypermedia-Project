@@ -7,11 +7,12 @@ $(document).ready(function () {
         addLink("Events", "/pages/events.html");
         addLink("Event", "/pages/event1.html?id=" + id, "info-event");
         addLabel("Articles");
-    });
-    //Pagination
-    itemComponent.load(linkComponent, function(responseTxt, statusTxt, xhr) {
-        initPagination();
-        loadPage();
+
+        //Pagination
+        itemComponent.load(linkComponent, function(responseTxt, statusTxt, xhr) {
+            initPagination();
+            loadPage();
+        });
     });
 });
 

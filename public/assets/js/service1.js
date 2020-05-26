@@ -5,11 +5,11 @@ $(document).ready(function () {
         addLink("Home", "/");
         addLink("Services", "/pages/services.html");
         addLabel("Service", "info-service");
-    });
 
-    //Data load
-    itemComponent.load("/pages/components/carousel-gallery.html", function(responseTxt, statusTxt, xhr) {
-        loadData();
+        //Data load
+        itemComponent.load("/pages/components/carousel-gallery.html", function(responseTxt, statusTxt, xhr) {
+            loadData();
+        });
     });
 });
 

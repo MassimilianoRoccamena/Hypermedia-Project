@@ -5,9 +5,9 @@ $(document).ready(function () {
         addLink("Home", "/");
         addLink("People", "/pages/people.html");
         addLabel("Person", "info-person");
-    });
 
-    loadData();
+        loadData();
+    });
 });
 
 //------------------------------------- ORIENTATION INFO -----------------------------------------

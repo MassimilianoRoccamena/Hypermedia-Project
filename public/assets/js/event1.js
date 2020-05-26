@@ -5,12 +5,13 @@ $(document).ready(function () {
         addLink("Home", "/");
         addLink("Events", "/pages/events.html");
         addLabel("Event", "info-event");
+
+        //Data load
+        itemComponent.load("/pages/components/carousel-gallery.html", function(responseTxt, statusTxt, xhr) {
+            loadData();
+        });
     });
 
-    //Data load
-    itemComponent.load("/pages/components/carousel-gallery.html", function(responseTxt, statusTxt, xhr) {
-        loadData();
-    });
 });
 
 //------------------------------------- ORIENTATION INFO -----------------------------------------
