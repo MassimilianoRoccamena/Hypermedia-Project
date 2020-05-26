@@ -70,12 +70,12 @@ function loadData() {
             if (i == 0) {
                 currentIndicator.addClass("active");
             }
-            indicators.append(currenntIndicator);
+            indicators.append(currentIndicator);
             let currenntItem = $("<div class='carousel-item' style='background-image: url('" + urlList[i] + "')'></div>");
             if (i == 0) {
                 currentItem.addClass("active");
             }
-            inner.append(currenntItem);
+            inner.append(currentItem);
         }
         gallery.html(item.html());
     });
