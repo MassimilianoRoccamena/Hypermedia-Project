@@ -55,6 +55,11 @@ iframe {
     border-color: #fda68b;
     box-shadow: 0px 0px 10px #a02d0a;
 }
+.btn-custom:active {
+    background-color: #fda68b;
+    border-color: #fda68b;
+    box-shadow: 0px 0px 10px #a02d0a;
+}
 
 #filter-search {
     box-shadow: 0 0 10px #8d6e63;
