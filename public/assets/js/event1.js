@@ -19,7 +19,7 @@ $(document).ready(function () {
 function addLabel(text, identifier="") {
     let li = null;
     if (identifier != "") {
-        li = $("<li class='breadcrumb-item' id='info-person'></li>")
+        li = $("<li class='breadcrumb-item' id='"+identifier+"'></li>")
     } else {
         li = $("<li class='breadcrumb-item'></li>")
     }

@@ -4,7 +4,7 @@ $(document).ready(function () {
     $('#orientation-info').load("/pages/components/orientation-info.html", function(responseTxt, statusTxt, xhr) {
         addLink("Home", "/");
         addLink("People", "/pages/people.html");
-        addLabel("Person", "id-person");
+        addLabel("Person", "info-person");
     });
 
     loadData();
@@ -16,7 +16,7 @@ $(document).ready(function () {
 function addLabel(text, identifier="") {
     let li = null;
     if (identifier != "") {
-        li = $("<li class='breadcrumb-item' id='info-person'></li>")
+        li = $("<li class='breadcrumb-item' id='"+identifier+"'></li>")
     } else {
         li = $("<li class='breadcrumb-item'></li>")
     }

@@ -4,7 +4,7 @@ $(document).ready(function () {
     $('#orientation-info').load("/pages/components/orientation-info.html", function(responseTxt, statusTxt, xhr) {
         addLink("Home", "/");
         addLink("Articles", "/pages/articles.html");
-        addLabel("Article", "id-article");
+        addLabel("Article", "info-article");
     });
 
     //Data load
