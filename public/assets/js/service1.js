@@ -71,8 +71,7 @@ function loadData() {
             }
             indicators.append(currentIndicator);
             let currentItem = $( "<div class='carousel-item'></div>");
-            currentItem.css("background-image", urlList[i]);
-            let currentItem = $(s);
+            currentItem.css("background-image", "url('" + urlList[i] + "')");
             if (i == 0) {
                 currentItem.addClass("active");
             }
