@@ -187,8 +187,12 @@ body {
     color: rgba(255,255,255,1) ;
     font-size: 120%;
     font-weight: 600;
-    margin-left:4rem;
   /*  margin-right:4rem;*/
+}
+@media only screen and (min-width: 768px) { /* collapsed bug fix -lg */
+    .nav-link {
+        margin-left:4rem;
+    }
 }
 .nav-link:hover {
   color: rgba(255,255,255,1) !important;  
