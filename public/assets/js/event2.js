@@ -58,7 +58,7 @@ function loadData() {
         date.append(json[0].date.substring(0,10));
         location.append(json[0].location);
 
-        let iframe = "<iframe src='https://maps.google.com/maps?q=" + location  + "&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' style='height: 50vh; width: 80%;'></iframe>";
+        let iframe = "<iframe src='https://maps.google.com/maps?q=" + json[0].location  + "&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' style='height: 50vh; width: 80%;'></iframe>";
         let map = $("#map-container-google-9");
         map.append($(iframe));
     });
