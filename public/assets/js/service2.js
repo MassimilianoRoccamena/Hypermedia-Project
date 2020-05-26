@@ -5,7 +5,7 @@ $(document).ready(function () {
     $('#orientation-info').load("/pages/components/orientation-info.html", function(responseTxt, statusTxt, xhr) {
         addLink("Home", "/");
         addLink("Services", "/pages/services.html");
-        addLink("Service", "/pages/service1.html?id=" + id);
+        addLink("Service", "/pages/service1.html?id=" + id, "info-service");
         addLabel("Informations");
     });
 
@@ -23,15 +23,20 @@ function addLabel(text) {
 }
 
 //Create orientation info link
-function addLink(text, link) {
-    let li = $("<li class='breadcrumb-item'><a href='" + link + "'>"+ text +"</a></li>")
+function addLink(text, link, identifier="") {
+    let li = null;
+    if (identifier != "") {
+        li = $("<li class='breadcrumb-item' id='info-person'></li>")
+    } else {
+        li = $("<li class='breadcrumb-item'></li>")
+    }
     $("#orientation-ol").append(li);
 }
 
 //----------------------------------------- DATA LOAD -------------------------------------------
 
-let item = "service"
-let id = getParameter();
+let item = "service",
+    id = getParameter();
 
 //Load service data
 function loadData() {
@@ -47,6 +52,8 @@ function loadData() {
         return response.json();
     })
     .then(function(json){
+        var info = $("#info-service");
+        info.text(json[0].name);
         let page1Link = $("#page1Link");
         let href = $("<a href='/pages/service1.html?id=" + id +"' class='btn btn-info btn-custom' role='button'>Presentation</a>");
         page1Link.append(href);

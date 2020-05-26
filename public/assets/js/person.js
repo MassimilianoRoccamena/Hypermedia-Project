@@ -14,10 +14,11 @@ $(document).ready(function () {
 
 //Create orientation info label
 function addLabel(text, identifier="") {
+    let li = null;
     if (identifier != "") {
-        let li = $("<li class='breadcrumb-item' id='info-person'></li>")
+        li = $("<li class='breadcrumb-item' id='info-person'></li>")
     } else {
-        let li = $("<li class='breadcrumb-item'></li>")
+        li = $("<li class='breadcrumb-item'></li>")
     }
     li.text(text);
     $("#orientation-ol").append(li);
