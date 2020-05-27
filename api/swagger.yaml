@@ -1008,8 +1008,6 @@ definitions:
       title: "Title"
   RelatedArticles:
     type: "object"
-    required:
-    - "id_article"
     properties:
       articles:
         type: "array"
