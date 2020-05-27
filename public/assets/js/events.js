@@ -56,7 +56,7 @@ let currentPage = 1,
         date.append(data.date.substring(0,10));
         location.append(data.location);
         name.text(data.name);
-        let img = $("<img src='" + data.photo_url[0] + "' style='width: 100%;'>");
+        let img = $("<img src='" + data.photo_url + "' style='width: 100%;'>");
         photo.append(img);
     }
 

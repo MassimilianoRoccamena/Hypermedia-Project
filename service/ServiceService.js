@@ -31,6 +31,7 @@ exports.getRelatedServicesItemsByID = function(id_service) {
         .then(data => {
           return data.map(e => {
             e.presentation = e.presentation.substring(0,71);
+            e.photo_url = e.photo_url[0];
             return e;
           })
         });
@@ -92,7 +93,13 @@ exports.getServiceEventsItemsByID = function(id_service) {
   return sqlDb('Event')
           .join('ServicesEvents', 'ServicesEvents.id_event','=','Event.id_event')
           .where('ServicesEvents.id_service', id_service)
-          .select('Event.id_event','Event.date','Event.name','Event.location','Event.photo_url');
+          .select('Event.id_event','Event.date','Event.name','Event.location','Event.photo_url')
+          .then(data => {
+            return data.map(e => {
+              e.photo_url = e.photo_url[0];
+              return e;
+            })
+          });
 }
 
 
@@ -131,6 +138,7 @@ exports.getServicesItems = function(offset,search) {
           .then(data => {
             return data.map(e => {
               e.presentation = e.presentation.substring(0,171);
+              e.photo_url = e.photo_url[0];
               return e;
             })
           });
@@ -143,6 +151,7 @@ exports.getServicesItems = function(offset,search) {
           .then(data => {
             return data.map(e => {
               e.presentation = e.presentation.substring(0,171);
+              e.photo_url = e.photo_url[0];
               return e;
             })
           });

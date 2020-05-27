@@ -115,7 +115,7 @@ function loadData() {
                     let href = $("<a href='/pages/service1.html?id=" + json[i].id_service + "'><h5 class='card-title text-center'></h5></a>");
                     serviceLink.append(href);
                     let relatedImage = col.find("#photo");
-                    relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url[0] + "'></img>");
+                    relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url + "'></img>");
                     let relatedTitle = col.find(".card-title");
                     relatedTitle.append(json[i].name);
                     let presentationBlock = col.find("#presentation");
@@ -151,7 +151,7 @@ function loadData() {
                     let href = $("<a href='/pages/event1.html?id=" + json[i].id_event + "'><h5 class='card-title mb-3'></h5></a>");
                     eventLink.append(href);
                     let relatedImage = col.find("#photo");
-                    relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url[0] + "'></img>");
+                    relatedImage.append("<img class='card-img-top' src='" + json[i].photo_url + "'></img>");
                     let relatedTitle = col.find(".card-title");
                     relatedTitle.append(json[i].name);
                     let relatedDate = col.find("#date");

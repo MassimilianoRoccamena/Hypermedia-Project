@@ -83,6 +83,7 @@ exports.getEventServicesItemsByID = function(id_event) {
           .then(data => {
             return data.map(e => {
               e.presentation = e.presentation.substring(0,71);
+              e.photo_url = e.photo_url[0];
               return e;
             })
           });
@@ -114,14 +115,26 @@ exports.getEventsItems = function(offset,search,month) {
           .andWhereRaw('EXTRACT(MONTH FROM date::date) = ?', [month])
           .limit(limVal)
           .offset(offset*limVal)
-          .select('id_event','location','date','name','photo_url');
+          .select('id_event','location','date','name','photo_url')
+          .then(data => {
+            return data.map(e => {
+              e.photo_url = e.photo_url[0];
+              return e;
+            })
+          });
     //10
     } else {
       return sqlDb('Event')
           .where('name','like','%'+search+'%')
           .limit(limVal)
           .offset(offset*limVal)
-          .select('id_event','location','date','name','photo_url');
+          .select('id_event','location','date','name','photo_url')
+          .then(data => {
+            return data.map(e => {
+              e.photo_url = e.photo_url[0];
+              return e;
+            })
+          });
     }
   } else {
     //01
@@ -136,13 +149,25 @@ exports.getEventsItems = function(offset,search,month) {
           .whereRaw('EXTRACT(MONTH FROM date::date) = ?', [month])
           .limit(limVal)
           .offset(offset*limVal)
-          .select('id_event','location','date','name','photo_url');
+          .select('id_event','location','date','name','photo_url')
+          .then(data => {
+            return data.map(e => {
+              e.photo_url = e.photo_url[0];
+              return e;
+            })
+          });
     //00
     } else {
       return sqlDb('Event')
           .limit(limVal)
           .offset(offset*limVal)
-          .select('id_event','location','date','name','photo_url');
+          .select('id_event','location','date','name','photo_url')
+          .then(data => {
+            return data.map(e => {
+              e.photo_url = e.photo_url[0];
+              return e;
+            })
+          });
     }
   }
 }
@@ -164,6 +189,12 @@ exports.getRelatedEventsItemsByID = function(id_event) {
               .where('RelatedEvents.id_event2',id_event)
               .from('Event')
               .join('RelatedEvents','Event.id_event','=','RelatedEvents.id_event1')
-        });
+        })
+        .then(data => {
+          return data.map(e => {
+            e.photo_url = e.photo_url[0];
+            return e;
+          })
+        });;
 }
 
