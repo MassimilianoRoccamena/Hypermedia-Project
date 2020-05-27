@@ -116,7 +116,10 @@ function loadPage(first=true) {
     }
 
     let item = $("<div></div>");
+    
+    //Pagination buttons loading
     $("#next").addClass("disabled");
+    $("#previous").addClass("disabled");
 
     //Print loading
     let id = idItem + "-col-" + 0;
@@ -131,7 +134,7 @@ function loadPage(first=true) {
         }
         return res.json();
     }).then(function (json) {
-        //Unprint loading
+        //Print unloading
         let id = idItem + "-col-" + 0;
         let col = $("#"+id);
         col.empty();
@@ -158,11 +161,17 @@ function loadPage(first=true) {
                 fillItem(col, data);
             }
 
+            //Pagination buttons unloading
             if (json.length == itemsCount) {
                 $("#next").removeClass("disabled");
             }
         }
     });
+
+    //Pagination buttons unloading
+    if (currentPage != 1) {
+        $("#previous").removeClass("disabled");
+    }
 }
 
 //Switch next items page
