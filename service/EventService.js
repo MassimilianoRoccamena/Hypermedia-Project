@@ -47,8 +47,8 @@ exports.getEventArticlesItemsByID = function(id_event) {
           .then(data1 => {
             let out = {'articles':data1,'name':''};
             sqlDb('Event')
-                .select('name')
                 .where('id_event', '=', id_event)
+                .select('name')
                 .then((data2) => {
                     out['name'] = data2['name'];
                     return out;
