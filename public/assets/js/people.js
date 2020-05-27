@@ -77,7 +77,6 @@ function initPagination() {
     search.change(function() {
         currentPage = 1;
         loadPage(false);
-        $("#previous").addClass("disabled");
         $("#page-number").text("Page " + currentPage);
     });
 }
