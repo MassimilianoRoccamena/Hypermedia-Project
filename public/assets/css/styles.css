@@ -54,7 +54,8 @@ hr {
     background-size: cover;
 }
 video {
-    
+    width: 85%;
+    height: auto;
 }
 iframe {
     box-shadow: 0 0 10px rgba(254,174,119,1);
