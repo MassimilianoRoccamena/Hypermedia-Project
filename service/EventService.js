@@ -49,7 +49,7 @@ exports.getEventArticlesItemsByID = function(id_event) {
                   .where('id_event', '=', id_event)
                   .select('name')
                   .then((data2) => {
-                      return {'articles':data1,'name':data2};
+                      return {'articles':data1,'name':data2[0].name};
                   });
           });
 }
