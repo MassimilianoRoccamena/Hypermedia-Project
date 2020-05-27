@@ -26,11 +26,7 @@ function addLabel(text) {
 function addLink(text, link, identifier="") {
     let li = null;
     if (identifier != "") {
-        li = $("<li class='breadcrumb-item' id='"+identifier+"'></li>");
-        let href = $("<a></a>");
-        href.attr("href", link);
-        href.text(text);
-        li.append(href);
+        li = $("<li class='breadcrumb-item'><a id='"+ identifier +"' href='" + link + "'>"+ text +"</a></li>");
     } else {
         li = $("<li class='breadcrumb-item'><a href='" + link + "'>"+ text +"</a></li>");
     }
