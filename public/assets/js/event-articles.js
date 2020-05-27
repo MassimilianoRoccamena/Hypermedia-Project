@@ -97,6 +97,7 @@ function loadPage(first=true) {
     }).then(function (json) {
         let info = $("#info-event");
         info.text(json.name);
+        document.title = json.name;
 
         //Unprint loading
         container.empty();

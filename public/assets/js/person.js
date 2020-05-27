@@ -56,6 +56,7 @@ function loadData() {
         var number = $("#number"); 
         
         info.text(json[0].name);
+        document.title = json[0].name;
         name.append(json[0].name);
         role.append(json[0].role);
         description.append(json[0].description);

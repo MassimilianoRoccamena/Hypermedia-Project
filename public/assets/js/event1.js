@@ -55,6 +55,7 @@ function loadData() {
     .then(function(json){
         var info = $("#info-event");
         info.text(json[0].name);
+        document.title = json[0].name;
         var h1 = $("#name");
         var p = $("#description-text");
         let page2Link = $("#page2Link");
