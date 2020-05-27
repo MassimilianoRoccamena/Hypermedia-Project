@@ -99,7 +99,7 @@ function loadPage(first=true) {
         container.empty();
 
         //No data
-        if(json.length == 0){
+        if(json.articles.length == 0){
             let error = $("#label");
             error.text("No articles found for this service")
 
