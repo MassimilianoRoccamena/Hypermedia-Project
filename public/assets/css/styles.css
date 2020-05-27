@@ -54,6 +54,7 @@ hr {
     background-size: cover;
 }
 video {
+    box-shadow: 0 0 10px rgba(254,174,119,1);
     width: 85%;
     height: auto;
 }
@@ -94,15 +95,13 @@ iframe {
 }
 
 #filter-search {
-
     border-color: darkorange;
     border: solid 3px;
     color:orange;
 }
 #filter-month {
-
     border-color: darkorange;
-     border: solid 3px;
+    border: solid 3px;
     color:orange;
 }
 
