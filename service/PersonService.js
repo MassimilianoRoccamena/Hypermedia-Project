@@ -32,6 +32,8 @@ exports.getPeopleItems = function(offset,search) {
   } else {
     //0
     return sqlDb("Person")
+          .limit(limVal)
+          .offset(offset*limVal)
           .select('id_person','photo_url','name');
   }
 }

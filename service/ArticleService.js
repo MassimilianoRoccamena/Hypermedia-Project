@@ -72,6 +72,8 @@ exports.getArticlesItems = function(offset,search) {
   } else {
     //0
     return sqlDb("Article")
+          .limit(limVal)
+          .offset(offset*limVal)
           .select('id_article','author','publication_date','photo1_url','title');
   }
 }
