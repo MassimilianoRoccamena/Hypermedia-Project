@@ -42,8 +42,17 @@ exports.getEvent2ByID = function(id_event) {
 exports.getEventArticlesItemsByID = function(id_event) {
   return sqlDb('Article')
           .join('Event','Article.id_event','=','Event.id_event')
-          .select('Article.id_article','Article.author','Article.publication_date','Article.photo1_url','Article.title','Article.id_event','Event.name')
-          .where('Article.id_event', id_event);
+          .select('Article.id_article','Article.author','Article.publication_date','Article.photo1_url','Article.title','Article.id_event')
+          .where('Article.id_event', id_event)
+          .then(data1 => {
+            let out = {"articles":data1};
+            sqlDb('Event')
+                .select('name')
+                .where('id_event', '=', id_event).then((data2) => {
+                    out['name'] = data2['name'];
+                });
+            return out;
+          });
 }
 
 

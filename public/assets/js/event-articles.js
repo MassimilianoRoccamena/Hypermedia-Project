@@ -106,15 +106,15 @@ function loadPage(first=true) {
         //Some data
         } else {
             var info = $("#info-event");
-            info.text(json[0].name);
+            info.text(json.name);
             let ev = $("#event");
-            let href = $("<a href='/pages/event1.html?id=" + json[0].id_event +"'>" + json[0].name + "</a>");
+            let href = $("<a href='/pages/event1.html?id=" + id +"'>" + json.name + "</a>");
             ev.append(href);
 
             item.html(itemComponent.html());
 
             for (let i=0; i<json.length; i++) {
-                let data = json[i];
+                let data = json.articles[i];
                 
                 let row = $("<div></div>");
                 row.html(item.html());

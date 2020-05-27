@@ -69,8 +69,17 @@ exports.getService2ByID = function(id_service) {
 exports.getServiceArticlesItemsByID = function(id_service) {
   return sqlDb('Article')
           .join('Service','Service.id_service','=','Article.id_service')
-          .select('Article.id_article','Article.author','Article.publication_date','Article.photo1_url','Article.title','Article.id_service','Service.name')
-          .where('Article.id_service', id_service);
+          .select('Article.id_article','Article.author','Article.publication_date','Article.photo1_url','Article.title','Article.id_service')
+          .where('Article.id_service', id_service)
+          .then(data1 => {
+            let out = {"articles":data1};
+            sqlDb('Service')
+                .select('name')
+                .where('id_service', '=', id_service).then((data2) => {
+                    out['name'] = data2['name'];
+                });
+            return out;
+          });
 }
 
 

@@ -203,9 +203,7 @@ paths:
         "200":
           description: "Successful operation"
           schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/ArticleItem"
+            $ref: "#/definitions/RelatedArticles"
         "400":
           description: "Invalid ID"
         "404":
@@ -397,9 +395,7 @@ paths:
         "200":
           description: "Successful operation"
           schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/ArticleItem"
+            $ref: "#/definitions/RelatedArticles"
         "400":
           description: "Invalid ID"
         "404":
@@ -1010,6 +1006,32 @@ definitions:
       publication_date: "2000-01-23"
       photo_url: "/assets/img/event1.jpg"
       title: "Title"
+  RelatedArticles:
+    type: "object"
+    required:
+    - "id_article"
+    properties:
+      articles:
+        type: "array"
+        items:
+          $ref: "#/definitions/ArticleItem"
+      name:
+        type: "string"
+    xml:
+      name: "RelatedArticles"
+    example:
+      name: "Subject"
+      articles:
+      - id_article: 0
+        author: "Author"
+        publication_date: "2000-01-23"
+        photo_url: "/assets/img/event1.jpg"
+        title: "Title"
+      - id_article: 0
+        author: "Author"
+        publication_date: "2000-01-23"
+        photo_url: "/assets/img/event1.jpg"
+        title: "Title"
   Contact:
     type: "object"
     required:
