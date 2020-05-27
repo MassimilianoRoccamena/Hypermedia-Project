@@ -72,7 +72,7 @@ exports.getServiceArticlesItemsByID = function(id_service) {
           .select('Article.id_article','Article.author','Article.publication_date','Article.photo1_url','Article.title','Article.id_service')
           .where('Article.id_service', id_service)
           .then(data1 => {
-            let out = {"articles":data1};
+            let out = {'articles':data1,'name':''};
             sqlDb('Service')
                 .select('name')
                 .where('id_service', '=', id_service).then((data2) => {
