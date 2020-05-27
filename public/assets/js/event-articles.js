@@ -113,7 +113,7 @@ function loadPage(first=true) {
 
             item.html(itemComponent.html());
 
-            for (let i=0; i<json.length; i++) {
+            for (let i=0; i<json.articles.length; i++) {
                 let data = json.articles[i];
                 
                 let row = $("<div></div>");

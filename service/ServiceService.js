@@ -77,8 +77,8 @@ exports.getServiceArticlesItemsByID = function(id_service) {
                 .select('name')
                 .where('id_service', '=', id_service).then((data2) => {
                     out['name'] = data2['name'];
+                    return out;
                 });
-            return out;
           });
 }
 

@@ -50,8 +50,8 @@ exports.getEventArticlesItemsByID = function(id_event) {
                 .select('name')
                 .where('id_event', '=', id_event).then((data2) => {
                     out['name'] = data2['name'];
+                    return out;
                 });
-            return out;
           });
 }
 
