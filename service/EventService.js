@@ -45,13 +45,11 @@ exports.getEventArticlesItemsByID = function(id_event) {
           .select('Article.id_article','Article.author','Article.publication_date','Article.photo1_url','Article.title','Article.id_event')
           .where('Article.id_event', id_event)
           .then(data1 => {
-            let out = {'articles':data1,'name':''};
             return sqlDb('Event')
                   .where('id_event', '=', id_event)
                   .select('name')
                   .then((data2) => {
-                      out['name'] = data2['name'];
-                      return out;
+                      return {'articles':data1,'name':data2.name};
                   });
           });
 }
