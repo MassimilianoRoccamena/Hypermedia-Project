@@ -41,7 +41,7 @@ hr {
 }
 
 .img-shadow {
-
+    box-shadow: 0 0 10px rgba(254,174,119,1);
 }
 .carousel {
     box-shadow: 0 0 10px rgba(254,174,119,1);
