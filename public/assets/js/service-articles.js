@@ -95,6 +95,9 @@ function loadPage(first=true) {
         }
         return res.json();
     }).then(function (json) {
+        let info = $("#info-service");
+        info.text(json.name);
+
         //Unprint loading
         container.empty();
 
@@ -105,8 +108,6 @@ function loadPage(first=true) {
 
         //Some data
         } else {
-            var info = $("#info-service");
-            info.text(json.name);
             let item = $("<div></div>");
             let se = $("#service");
             let href = $("<a href='/pages/service1.html?id=" + id +"'>" + json.name + "</a>");

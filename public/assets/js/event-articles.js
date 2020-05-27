@@ -95,6 +95,9 @@ function loadPage(first=true) {
         }
         return res.json();
     }).then(function (json) {
+        let info = $("#info-event");
+        info.text(json.name);
+
         //Unprint loading
         container.empty();
 
@@ -105,8 +108,6 @@ function loadPage(first=true) {
 
         //Some data
         } else {
-            var info = $("#info-event");
-            info.text(json.name);
             let ev = $("#event");
             let href = $("<a href='/pages/event1.html?id=" + id +"'>" + json.name + "</a>");
             ev.append(href);
