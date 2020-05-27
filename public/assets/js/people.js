@@ -178,11 +178,6 @@ function nextPage() {
     if (!$("#next").hasClass("disabled")) {
         currentPage += 1;
         loadPage(false);
-
-        if (currentPage == 2) {
-            $("#previous").removeClass("disabled");
-        }
-
         $("#page-number").text("Page " + currentPage);
     } else {
         throw new Error("Page " + currentPage + " is last page")
@@ -194,11 +189,6 @@ function previousPage() {
     if (currentPage > 1) {
         currentPage -= 1;
         loadPage(false);
-
-        if (currentPage == 1) {
-            $("#previous").addClass("disabled");
-        }
-
         $("#page-number").text("Page " + currentPage);
     } else {
         throw new Error("Page 1 is first page")
