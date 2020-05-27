@@ -123,7 +123,7 @@ function loadPage(first=true) {
 
         //No data
         if (json.length == 0) {
-            item.html("<h4>No events found<h4>")
+            item.html("<h4>No services found<h4>")
             container.html(item.html());
 
             $("#next").addClass("disabled");

@@ -144,7 +144,7 @@ function loadPage(first=true) {
             let id = idItem + "-col-" + 0;
             let col = $("#"+id);
 
-            item.html("<h4>No events found<h4>")
+            item.html("<h4>No people found<h4>")
             col.html(item.html());
 
         //Some data
