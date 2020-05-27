@@ -17,14 +17,35 @@
     <!--orientation info-->
     <section id="orientation-info"></section>
     
-    <!--intro-->
-    <section id="intro" class="pt-3">
+    <!--presentation-->
+    <section id="presentation" class="py-3">
         <div class="container text-center">
             <h1>Our Association</h1>
-            <br>
-            <div class="py-5">
-                <img class="img-shadow" src="/assets/img/group%20photo.jpg" width="100%">
+
+            <!--photo-gallery-->
+            <div id="photo-gallery" class="py-5">
+                <div id="carousel-gallery" class="carousel slide" data-ride="carousel-gallery">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-gallery" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-gallery" data-slide-to="1"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active" style="background-image: url('/assets/img/group%20photo.jpg')">
+                        </div>
+                        <div class="carousel-item" style="background-image: url('https://source.unsplash.com/bF2vsubyHcQ/1920x1080')">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carousel-gallery" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel-gallery" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
             </div>
+            
             <p>Child4Help is a humanitarian association created by Lorenzo Romanò, Massimiliano Roccamena and Elena Buttolo whose fundamental aim is to provide help to needy children around the world. The association is committed to providing a series of services that guarantee important possibilities for children in need such as the possibility to study or to have a welcoming home. To increase the community's awareness of these services Child4Help is also committed to organizing events for anyone who wants to help do their part. The number of locations of the association is currently very limited but our aim is to continue to grow without limits and to be able to do good in every part of the world.</p>
             <br>
             <div class="row">
@@ -38,36 +59,6 @@
                     <br>
                     <a href="/pages/association3.html" class="btn btn-info btn-custom" role="button">History</a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!--photo gallery-->
-    <section id="photo-gallery" class="py-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <h1>Photo Gallery</h1>
-            </div>
-            <br>
-            <div id="carousel-gallery" class="carousel slide" data-ride="carousel-gallery">
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-gallery" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-gallery" data-slide-to="1"></li>
-                </ol>
-                <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/LAaSoL0LrYs/1920x1080')">
-                    </div>
-                    <div class="carousel-item" style="background-image: url('https://source.unsplash.com/bF2vsubyHcQ/1920x1080')">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carousel-gallery" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carousel-gallery" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
             </div>
         </div>
     </section>
