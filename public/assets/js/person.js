@@ -59,7 +59,7 @@ function loadData() {
         name.append(json[0].name);
         role.append(json[0].role);
         description.append(json[0].description);
-        let img = $("<img class='p-3 img-shadow' src='" + json[0].photo_url + "' style='border-radius: 50%; width: 100%;'>");
+        let img = $("<img class='p-3' src='" + json[0].photo_url + "' style='border-radius: 50%; width: 100%;'>");
         photo.append(img);
         email.append(json[0].email_address);
         number.append(json[0].phone_number);
