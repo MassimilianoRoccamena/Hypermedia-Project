@@ -104,7 +104,7 @@ function loadPage(first=true) {
         //No data
         if(json.articles.length == 0){
             let error = $("#label");
-            error.text("No articles found for this service")
+            error.text("No articles found for this event")
 
         //Some data
         } else {
