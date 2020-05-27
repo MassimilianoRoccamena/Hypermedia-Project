@@ -139,18 +139,6 @@ iframe {
     background-color:  rgba(254,174,119,1);
     border-color:  rgba(254,174,119,1);
     color: white;
-
-}
-.btn-send {
-    font-size: 130%;
-    padding: 3%;
-    background-color: #8d6e63;
-    border-color: #8d6e63;
-    box-shadow: 0 0 10px #795548;
-}
-.btn-send:hover {
-    background-color: #bcaaa4;
-    border-color: #bcaaa4;
 }
 
 /*
@@ -308,19 +296,43 @@ body {
     Contacts page
 */
 .jumbotron-custom {
-    background-color: #ffcc80;
+    background-color: rgba(254,174,119,0.5);
+    border-color: rgba(254,174,119,0.5);
     width: 60%;
-    box-shadow: 0 0 15px #795548;
+    box-shadow: 0 0 7px coral;
 }
 @media only screen and (max-width: 768px) {
     .jumbotron-custom {
         width: 80%;
     }
 }
+.btn-send {
+    font-size: 130%;
+    padding: 3%;
+    background: coral;
+    background-color: linear-gradient(60deg, rgba(254,174,119,1) 0%, rgba(255,88,0,1) 100%);
+    border-color: rgba(254,174,119,1);
+    color: white;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-radius: 2em;
+    box-shadow: 0 0 10px rgba(254,174,119,0.7);
+}
+.btn-send:hover {
+    background-color: coral ;
+    border-color: coral;
+}
+.btn-send:active {
+    background-color: coral;
+    border-color: coral;
+}
 
 .input-message {
-    box-shadow: 0 0 10px #8d6e63;
-    border-color: #a59590;
+    border-color: orange;
+    border: solid 2px;
+    color:orange;
 }
 
 .fl{
