@@ -75,10 +75,12 @@ exports.getServiceArticlesItemsByID = function(id_service) {
             let out = {'articles':data1,'name':''};
             sqlDb('Service')
                 .select('name')
-                .where('id_service', '=', id_service).then((data2) => {
+                .where('id_service', '=', id_service)
+                .then((data2) => {
                     out['name'] = data2['name'];
                     return out;
                 });
+            return out;
           });
 }
 
