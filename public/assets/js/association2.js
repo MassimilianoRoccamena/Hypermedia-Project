@@ -46,9 +46,9 @@ function LoadData() {
 
             let div = $("<div></div>")
             let name = $("<h4>" + elem.name + "</h4>");
-            let phone = $("<h6>" + elem.phone + "</h6>");
-            let email = $("<h6>" + elem.email + "</h6>");
-            let location = $("<h6>" + elem.location + "</h6>");
+            let phone = $("<p>" + elem.phone + "</p>");
+            let email = $("<p>" + elem.email + "</p>");
+            let location = $("<p>" + elem.location + "</p>");
 
             div.append(name);
             div.append(phone);
