@@ -76,8 +76,6 @@ paths:
             $ref: "#/definitions/Service1"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Service not found"
       x-swagger-router-controller: "Service"
   /service2/{id_service}:
     get:
@@ -102,8 +100,6 @@ paths:
             $ref: "#/definitions/Service2"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Service not found"
       x-swagger-router-controller: "Service"
   /service/{id_service}/related:
     get:
@@ -129,8 +125,6 @@ paths:
               $ref: "#/definitions/ServiceItem"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Service not found"
       x-swagger-router-controller: "Service"
   /service/{id_service}/events:
     get:
@@ -156,8 +150,6 @@ paths:
               $ref: "#/definitions/EventItem"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Service not found"
       x-swagger-router-controller: "Service"
   /service/{id_service}/people:
     get:
@@ -183,8 +175,6 @@ paths:
               $ref: "#/definitions/PersonItem"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Service not found"
       x-swagger-router-controller: "Service"
   /service/{id_service}/articles:
     get:
@@ -208,8 +198,6 @@ paths:
             $ref: "#/definitions/RelatedArticles"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Service not found"
       x-swagger-router-controller: "Service"
   /events:
     get:
@@ -271,8 +259,6 @@ paths:
             $ref: "#/definitions/Event1"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Event not found"
       x-swagger-router-controller: "Event"
   /event2/{id_event}:
     get:
@@ -297,8 +283,6 @@ paths:
             $ref: "#/definitions/Event2"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Event not found"
       x-swagger-router-controller: "Event"
   /event/{id_event}/related:
     get:
@@ -324,8 +308,6 @@ paths:
               $ref: "#/definitions/EventItem"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Event not found"
       x-swagger-router-controller: "Event"
   /event/{id_event}/services:
     get:
@@ -351,8 +333,6 @@ paths:
               $ref: "#/definitions/ServiceItem"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Event not found"
       x-swagger-router-controller: "Event"
   /event/{id_event}/person:
     get:
@@ -377,8 +357,6 @@ paths:
             $ref: "#/definitions/PersonLabel"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Event not found"
       x-swagger-router-controller: "Event"
   /event/{id_event}/articles:
     get:
@@ -402,8 +380,6 @@ paths:
             $ref: "#/definitions/RelatedArticles"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Event not found"
       x-swagger-router-controller: "Event"
   /people:
     get:
@@ -457,8 +433,6 @@ paths:
             $ref: "#/definitions/Person"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Person not found"
       x-swagger-router-controller: "Person"
   /person/{id_person}/services:
     get:
@@ -484,8 +458,6 @@ paths:
               $ref: "#/definitions/ServiceLabel"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Person not found"
       x-swagger-router-controller: "Person"
   /person/{id_person}/events:
     get:
@@ -511,8 +483,6 @@ paths:
               $ref: "#/definitions/EventItem"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Person not found"
       x-swagger-router-controller: "Person"
   /articles:
     get:
@@ -566,8 +536,6 @@ paths:
             $ref: "#/definitions/Article"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Article not found"
       x-swagger-router-controller: "Article"
   /article/{id_article}/related:
     get:
@@ -593,8 +561,6 @@ paths:
               $ref: "#/definitions/ArticleItem"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Article not found"
       x-swagger-router-controller: "Article"
   /article/{id_article}/service:
     get:
@@ -619,8 +585,6 @@ paths:
             $ref: "#/definitions/ServiceItem"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Article not found"
       x-swagger-router-controller: "Article"
   /article/{id_article}/event:
     get:
@@ -645,8 +609,6 @@ paths:
             $ref: "#/definitions/EventItem"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Article not found"
       x-swagger-router-controller: "Article"
   /contacts:
     get:
@@ -688,8 +650,6 @@ paths:
             $ref: "#/definitions/Contact"
         "400":
           description: "Invalid ID"
-        "404":
-          description: "Contact not found"
       x-swagger-router-controller: "Contact"
   /message:
     post:
