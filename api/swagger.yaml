@@ -50,6 +50,8 @@ paths:
             type: "array"
             items:
               $ref: "#/definitions/ServiceItem"
+        "400":
+          description: "Invalid offset"
       x-swagger-router-controller: "Service"
   /service1/{id_service}:
     get:
@@ -243,6 +245,8 @@ paths:
             type: "array"
             items:
               $ref: "#/definitions/EventItem"
+        "400":
+          description: "Invalid offset or month"
       x-swagger-router-controller: "Event"
   /event1/{id_event}:
     get:
@@ -427,6 +431,8 @@ paths:
             type: "array"
             items:
               $ref: "#/definitions/PersonItem"
+        "400":
+          description: "Invalid offset"
       x-swagger-router-controller: "Person"
   /person/{id_person}:
     get:
@@ -534,6 +540,8 @@ paths:
             type: "array"
             items:
               $ref: "#/definitions/ArticleItem"
+        "400":
+          description: "Invalid offset"
       x-swagger-router-controller: "Article"
   /article/{id_article}:
     get:
