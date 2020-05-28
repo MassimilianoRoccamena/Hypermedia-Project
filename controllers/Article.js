@@ -14,7 +14,7 @@ module.exports.getArticleByID = function getArticleByID (req, res, next) {
     });
 };
 
-module.exports.getArticleEventItemByID = function getArticleEventItemByID (req, res, next) {
+module.exports.getArticleEventIDByID = function getArticleEventIDByID (req, res, next) {
   var id_article = req.swagger.params['id_article'].value;
   Article.getArticleEventItemByID(id_article)
     .then(function (response) {
@@ -25,7 +25,7 @@ module.exports.getArticleEventItemByID = function getArticleEventItemByID (req, 
     });
 };
 
-module.exports.getArticleServiceItemByID = function getArticleServiceItemByID (req, res, next) {
+module.exports.getArticleServiceIDByID = function getArticleServiceIDByID (req, res, next) {
   var id_article = req.swagger.params['id_article'].value;
   Article.getArticleServiceItemByID(id_article)
     .then(function (response) {

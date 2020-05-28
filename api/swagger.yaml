@@ -566,8 +566,8 @@ paths:
     get:
       tags:
       - "article"
-      summary: "Get service item of a selected article by ID"
-      operationId: "getArticleServiceItemByID"
+      summary: "Get service ID of a selected article by ID"
+      operationId: "getArticleServiceIDByID"
       produces:
       - "application/json"
       - "application/xml"
@@ -582,7 +582,8 @@ paths:
         "200":
           description: "Successful operation"
           schema:
-            $ref: "#/definitions/ServiceItem"
+            type: integer
+            format: "int64"
         "400":
           description: "Invalid ID"
       x-swagger-router-controller: "Article"
@@ -590,8 +591,8 @@ paths:
     get:
       tags:
       - "article"
-      summary: "Get event item of a selected article by ID"
-      operationId: "getArticleEventItemByID"
+      summary: "Get event ID of a selected article by ID"
+      operationId: "getArticleEventIDByID"
       produces:
       - "application/json"
       - "application/xml"
@@ -606,7 +607,8 @@ paths:
         "200":
           description: "Successful operation"
           schema:
-            $ref: "#/definitions/EventItem"
+            type: integer
+            format: "int64"
         "400":
           description: "Invalid ID"
       x-swagger-router-controller: "Article"

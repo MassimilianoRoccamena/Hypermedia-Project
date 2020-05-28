@@ -68,14 +68,14 @@ function loadData() {
         photo2.append(img2);
 
         let subjectLink = $("#subjectLink");
-        let idSubject;
+        let idSubject = json;
         let entitySubject;
-        if (json.id_service){
-            idSubject = json.id_service;
+        if (json){
             entitySubject = "service";
+            subjectLink.text("Service of this article");
         } else{
-            idSubject = json.id_event;
             entitySubject = "event";
+            subjectLink.text("Event of this article");
         }
         let href = "/pages/" + entitySubject + "1.html?id=" + idSubject;
         subjectLink.attr("href", href);

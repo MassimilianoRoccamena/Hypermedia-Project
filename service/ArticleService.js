@@ -29,35 +29,35 @@ exports.getArticleByID = function(id_article) {
 
 
 /**
- * Get event item of a selected article by ID
+ * Get event ID of a selected article by ID
  *
  * id_article Long ID of article to search for event
- * returns EventItem
+ * returns Long
  **/
-exports.getArticleEventItemByID = function(id_article) {
+exports.getArticleEventIDByID = function(id_article) {
   return sqlDb('Event')
           .join('Article', 'Article.id_event','=','Event.id_event')
           .where('Article.id_article', id_article)
-          .select('Event.id_event','Event.name','Event.date','Event.location','Event.photo_url')
+          .select('Event.id_event')
           .then(data => {
-            return data[0]
+            return data[0].id_event;
           });
 }
 
 
 /**
- * Get service item of a selected article by ID
+ * Get service ID of a selected article by ID
  *
  * id_article Long ID of article to search for service
- * returns ServiceItem
+ * returns Long
  **/
-exports.getArticleServiceItemByID = function(id_article) {
+exports.getArticleServiceIDByID = function(id_article) {
   return sqlDb('Service')
           .join('Article', 'Article.id_service','=','Service.id_service')
           .where('Article.id_article', id_article)
-          .select('Service.id_service','Service.name','Service.presentation','Service.photo_url')
+          .select('Service.id_service')
           .then(data => {
-            return data[0]
+            return data[0].id_service;
           });
 }
 
