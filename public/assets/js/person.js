@@ -67,7 +67,7 @@ function loadData() {
         var email = $("#email");
         var number = $("#number"); 
         
-        truncInfo(json.name, 20);
+        truncInfo(json.name, 25);
         name.append(json.name);
         role.append(json.role);
         description.append(json.description);

@@ -68,7 +68,7 @@ function loadData() {
         let date = $("#date");
         let body = $("#text");
         
-        truncInfo(json.title, 20);
+        truncInfo(json.title, 25);
         title.append(json.title);
         author.append(json.author);
         date.append(json.publication_date.substring(0,10));

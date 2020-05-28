@@ -109,7 +109,7 @@ function loadPage(first=true) {
         }
         return res.json();
     }).then(function (json) {
-        truncInfo(json.name, 20);
+        truncInfo(json.name, 25);
 
         //Unprint loading
         container.empty();

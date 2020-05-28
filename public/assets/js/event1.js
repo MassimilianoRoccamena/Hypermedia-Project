@@ -66,7 +66,7 @@ function loadData() {
         return response.json();
     })
     .then(function(json){
-        truncInfo(json.name, 20);
+        truncInfo(json.name, 25);
         let h1 = $("#name");
         let p = $("#description-text");
         let page2Link = $("#page2Link");
