@@ -18,7 +18,13 @@ exports.contactDbSetup = function(s) {
  * returns Contact
  **/
 exports.getContactByID = function(id_contact) {
-  return sqlDb.from("Contact").select("*").where("id_contact", "=", id_contact)[0]
+  return sqlDb
+        .from("Contact")
+        .select("*")
+        .where("id_contact", "=", id_contact)
+        .then(data => {
+          return data[0]
+        });
 }
 
 
@@ -28,6 +34,7 @@ exports.getContactByID = function(id_contact) {
  * returns List
  **/
 exports.getContacts = function() {
-  return sqlDb.from("Contact").select("*");
+  return sqlDb("Contact")
+        .select("*");
 }
 

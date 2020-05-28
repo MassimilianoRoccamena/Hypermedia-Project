@@ -19,7 +19,12 @@ exports.articleDbSetup = function(s) {
  * returns Article
  **/
 exports.getArticleByID = function(id_article) {
-  return sqlDb.from("Article").select("*").where("id_article", "=", id_article)[0];
+  return sqlDb("Article")
+        .select("*")
+        .where("id_article", "=", id_article)
+        .then(data => {
+          return data[0]
+        });
 }
 
 
@@ -33,7 +38,10 @@ exports.getArticleEventItemByID = function(id_article) {
   return sqlDb('Event')
           .join('Article', 'Article.id_event','=','Event.id_event')
           .where('Article.id_article', id_article)
-          .select('Event.id_event','Event.name','Event.date','Event.location','Event.photo_url')[0];
+          .select('Event.id_event','Event.name','Event.date','Event.location','Event.photo_url')
+          .then(data => {
+            return data[0]
+          });
 }
 
 
@@ -47,7 +55,10 @@ exports.getArticleServiceItemByID = function(id_article) {
   return sqlDb('Service')
           .join('Article', 'Article.id_service','=','Service.id_service')
           .where('Article.id_article', id_article)
-          .select('Service.id_service','Service.name','Service.presentation','Service.photo_url')[0];
+          .select('Service.id_service','Service.name','Service.presentation','Service.photo_url')
+          .then(data => {
+            return data[0]
+          });
 }
 
 
@@ -86,7 +97,7 @@ exports.getArticlesItems = function(offset,search) {
  * returns List
  **/
 exports.getRelatedArticlesItemsByID = function(id_article) {
-  return sqlDb.from('Article')
+  return sqlDb('Article')
         .join('RelatedArticles','Article.id_article','=','RelatedArticles.id_article2')
         .where('RelatedArticles.id_article1',id_article)
         .select('Article.id_article','Article.author','Article.publication_date','Article.photo1_url','Article.title')

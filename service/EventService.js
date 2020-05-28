@@ -18,7 +18,12 @@ exports.eventDbSetup = function(s) {
  * returns Event1
  **/
 exports.getEvent1ByID = function(id_event) {
-  return sqlDb.from("Event").select('id_event','name','description','photo_url').where("id_event", "=", id_event)[0];
+  return sqlDb("Event")
+        .select('id_event','name','description','photo_url')
+        .where("id_event", "=", id_event)
+        .then(data => {
+          return data[0]
+        });
 }
 
 
@@ -29,7 +34,12 @@ exports.getEvent1ByID = function(id_event) {
  * returns Event2
  **/
 exports.getEvent2ByID = function(id_event) {
-  return sqlDb.from("Event").select('id_event','name','date','pract_info','location').where("id_event", "=", id_event)[0];
+  return sqlDb("Event")
+        .select('id_event','name','date','pract_info','location')
+        .where("id_event", "=", id_event)
+        .then(data => {
+          return data[0]
+        });
 }
 
 
@@ -65,7 +75,10 @@ exports.getEventPersonLabelByID = function(id_event) {
   return sqlDb('Person')
           .join('Event', 'Person.id_person','=','Event.id_person')
           .where('Event.id_event', id_event)
-          .select('Person.id_person', 'Person.name')[0];
+          .select('Person.id_person', 'Person.name')
+          .then(data => {
+            return data[0]
+          });
 }
 
 

@@ -46,7 +46,11 @@ exports.getRelatedServicesItemsByID = function(id_service) {
  **/
 exports.getService1ByID = function(id_service) {
   return sqlDb.from("Service")
-          .select('presentation','name','photo_url','id_service').where("id_service", "=", id_service)[0];
+          .select('presentation','name','photo_url','id_service')
+          .where("id_service", "=", id_service)
+          .then(data => {
+            return data[0]
+          });
 }
 
 
@@ -57,7 +61,12 @@ exports.getService1ByID = function(id_service) {
  * returns Service2
  **/
 exports.getService2ByID = function(id_service) {
-  return sqlDb.from("Service").select('name','location','id_service','informations').where("id_service", "=", id_service)[0];
+  return sqlDb("Service")
+        .select('name','location','id_service','informations')
+        .where("id_service", "=", id_service)
+        .then(data => {
+          return data[0]
+        });
 }
 
 
