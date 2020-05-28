@@ -46,7 +46,7 @@ exports.getPeopleItems = function(offset,search) {
  * returns Person
  **/
 exports.getPersonByID = function(id_person) {
-  return sqlDb.from("Person").select('*').where("id_person", "=", id_person);
+  return sqlDb.from("Person").select('*').where("id_person", "=", id_person)[0];
 }
 
 

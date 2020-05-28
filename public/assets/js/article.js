@@ -56,25 +56,25 @@ function loadData() {
         let date = $("#date");
         let body = $("#text");
         
-        info.text(json[0].title);
-        document.title = json[0].title;
-        title.append(json[0].title);
-        author.append(json[0].author);
-        date.append(json[0].publication_date.substring(0,10));
-        body.append(json[0].body);
-        let img1 = $("<img src='" + json[0].photo1_url + "' class='img-shadow' style='width: 100%;'>");
-        let img2 = $("<img src='" + json[0].photo2_url + "' class='img-shadow' style='width: 100%;'>");
+        info.text(json.title);
+        document.title = json.title;
+        title.append(json.title);
+        author.append(json.author);
+        date.append(json.publication_date.substring(0,10));
+        body.append(json.body);
+        let img1 = $("<img src='" + json.photo1_url + "' class='img-shadow' style='width: 100%;'>");
+        let img2 = $("<img src='" + json.photo2_url + "' class='img-shadow' style='width: 100%;'>");
         photo1.append(img1);
         photo2.append(img2);
 
         let subjectLink = $("#subjectLink");
         let idSubject;
         let entitySubject;
-        if (json[0].id_service){
-            idSubject = json[0].id_service;
+        if (json.id_service){
+            idSubject = json.id_service;
             entitySubject = "service";
         } else{
-            idSubject = json[0].id_event;
+            idSubject = json.id_event;
             entitySubject = "event";
         }
         let href = "/pages/" + entitySubject + "1.html?id=" + idSubject;

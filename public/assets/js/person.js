@@ -55,15 +55,15 @@ function loadData() {
         var email = $("#email");
         var number = $("#number"); 
         
-        info.text(json[0].name);
-        document.title = json[0].name;
-        name.append(json[0].name);
-        role.append(json[0].role);
-        description.append(json[0].description);
-        let img = $("<img class='p-3' src='" + json[0].photo_url + "' style='border-radius: 50%; width: 100%;'>");
+        info.text(json.name);
+        document.title = json.name;
+        name.append(json.name);
+        role.append(json.role);
+        description.append(json.description);
+        let img = $("<img class='p-3' src='" + json.photo_url + "' style='border-radius: 50%; width: 100%;'>");
         photo.append(img);
-        email.append(json[0].email_address);
-        number.append(json[0].phone_number);
+        email.append(json.email_address);
+        number.append(json.phone_number);
     });
 
     //Load related services

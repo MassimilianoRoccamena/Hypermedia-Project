@@ -54,8 +54,8 @@ function loadData() {
     })
     .then(function(json){
         var info = $("#info-event");
-        info.text(json[0].name);
-        document.title = json[0].name;
+        info.text(json.name);
+        document.title = json.name;
         var h1 = $("#name");
         var p = $("#description-text");
         let page2Link = $("#page2Link");
@@ -64,11 +64,11 @@ function loadData() {
         let articleLink = $("#articleLink");
         href = $("<a href='/pages/event-articles.html?id=" + id +"' class='btn btn-info btn-custom' role='button'>Articles</a>");
         articleLink.append(href);
-        h1.append(json[0].name);
-        p.append(json[0].description);
+        h1.append(json.name);
+        p.append(json.description);
 
         //Load photo gallery 
-        let urlList = json[0].photo_url;
+        let urlList = json.photo_url;
         let gallery = $("#gallery");
         let item = $("<div></div>");
         item.html(itemComponent.html());

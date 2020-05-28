@@ -18,7 +18,7 @@ exports.contactDbSetup = function(s) {
  * returns Contact
  **/
 exports.getContactByID = function(id_contact) {
-  return sqlDb.from("Contact").select("*").where("id_contact", "=", id_contact);
+  return sqlDb.from("Contact").select("*").where("id_contact", "=", id_contact)[0]
 }
 
 

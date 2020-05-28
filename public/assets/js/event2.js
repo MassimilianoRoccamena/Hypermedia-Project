@@ -49,8 +49,8 @@ function loadData() {
     })
     .then(function(json){
         var orInfo = $("#info-event");
-        orInfo.text(json[0].name);
-        document.title = json[0].name;
+        orInfo.text(json.name);
+        document.title = json.name;
         let page1Link = $("#page1Link");
         let href = $("<a href='/pages/event1.html?id=" + id +"' class='btn btn-info btn-custom' role='button'>Description</a>");
         page1Link.append(href);
@@ -61,12 +61,12 @@ function loadData() {
         let info = $("#info");
         let date = $("#date");
         let location = $("#location");
-        name.append(json[0].name);
-        info.append(json[0].pract_info);
-        date.append(json[0].date.substring(0,10));
-        location.append(json[0].location);
+        name.append(json.name);
+        info.append(json.pract_info);
+        date.append(json.date.substring(0,10));
+        location.append(json.location);
 
-        let iframe = "<iframe src='https://maps.google.com/maps?q=" + json[0].location  + "&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' style='height: 50vh; width: 80%;'></iframe>";
+        let iframe = "<iframe src='https://maps.google.com/maps?q=" + json.location  + "&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' style='height: 50vh; width: 80%;'></iframe>";
         let map = $("#map-container-google-9");
         map.append($(iframe));
     });
@@ -80,7 +80,7 @@ function loadData() {
     })
     .then(function(json){
         let personLink = $("#personLink");
-        let href = $("<a href='/pages/person.html?id=" + json[0].id_person +"'><h5 class='link-custom'>" + json[0].name + "</h5></a>")
+        let href = $("<a href='/pages/person.html?id=" + json.id_person +"'><h5 class='link-custom'>" + json.name + "</h5></a>")
         personLink.append(href);
     });
 }

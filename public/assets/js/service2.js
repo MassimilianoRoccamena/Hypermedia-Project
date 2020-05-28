@@ -53,19 +53,19 @@ function loadData() {
     })
     .then(function(json){
         var info = $("#info-service");
-        info.text(json[0].name);
-        document.title = json[0].name;
+        info.text(json.name);
+        document.title = json.name;
         let page1Link = $("#page1Link");
         let href = $("<a href='/pages/service1.html?id=" + id +"' class='btn btn-info btn-custom' role='button'>Presentation</a>");
         page1Link.append(href);
         let articleLink = $("#articleLink");
         href = $("<a href='/pages/service-articles.html?id=" + id +"' class='btn btn-info btn-custom' role='button'>Articles</a>");
         articleLink.append(href);
-        h1.append(json[0].name);
-        p.append(json[0].informations);
+        h1.append(json.name);
+        p.append(json.informations);
         
         for(i = 0; i < json[0].location.length; i++){
-            let h5 = $("<h5>" + json[0].location[i] +"</h5>");
+            let h5 = $("<h5>" + json.location[i] +"</h5>");
             locationDiv.append(h5);
         }
         
