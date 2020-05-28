@@ -185,34 +185,35 @@ body {
 .navbar-dark .navbar-nav .nav-link {
     color: rgba(255,255,255,1);
 }
-.nav-link {
-    color: rgba(255,255,255,1) ;
-    font-size: 120%;
-    font-weight: 600;
-  /*  margin-right:4rem;*/
-}
+
+
 @media only screen and (min-width: 768px) { /* collapsed bug fix -lg */
     .nav-link {
         margin-left:4rem;
     }
 }
-.nav-link:hover {
-  color: rgba(255,255,255,1) !important;  
+
+
+span {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
 }
-.nav-link::after {
+
+span::after {
     content: '';
-    display: flex;
-    width: 0px;
-    height: 2.5px;
+    display: block;
+    width: 0;
+    height: 2px;
     background: white;
     transition: width .3s;
 }
-.nav-link:hover{
-    text-decoration: none;
-}
-.nav-link:hover::after {
+
+span:hover::after {
     width: 100%;
 }
+
+
 .nav li {
     font-family: 'Balsamiq Sans', cursive;;
 }
