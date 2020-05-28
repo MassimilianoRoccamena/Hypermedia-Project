@@ -38,6 +38,19 @@ function addLink(text, link, identifier="") {
 let item = "service",
     id = getParameter();
 
+//Print truncated info
+function truncInfo(text, len) {
+    let info = $("#info-service");
+    let text2 = text.substring(0,len+1);
+    if (text2.length < text.length) {
+        text = text2 + "...";
+    } else {
+        text = text2;
+    }
+    info.text(text);
+    document.title = text;
+}
+
 //Load service data
 function loadData() {
     var h1 = $("#name");
@@ -52,9 +65,7 @@ function loadData() {
         return response.json();
     })
     .then(function(json){
-        var info = $("#info-service");
-        info.text(json.name);
-        document.title = json.name;
+        truncInfo(json.name, 20);
         let page1Link = $("#page1Link");
         let href = $("<a href='/pages/service1.html?id=" + id +"' class='btn btn-info btn-custom' role='button'>Presentation</a>");
         page1Link.append(href);

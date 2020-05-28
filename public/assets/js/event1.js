@@ -44,7 +44,7 @@ let item = "event",
 
 //Print truncated info
 function truncInfo(text, len) {
-    var info = $("#info-event");
+    let info = $("#info-event");
     let text2 = text.substring(0,len+1);
     if (text2.length < text.length) {
         text = text2 + "...";

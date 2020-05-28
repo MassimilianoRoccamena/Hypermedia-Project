@@ -36,6 +36,19 @@ let item = "person"
 let id = getParameter();
 let relatedItem;
 
+//Print truncated info
+function truncInfo(text, len) {
+    var info = $("#info-person");
+    let text2 = text.substring(0,len+1);
+    if (text2.length < text.length) {
+        text = text2 + "...";
+    } else {
+        text = text2;
+    }
+    info.text(text);
+    document.title = text;
+}
+
 //Load person data
 function loadData() {
     
@@ -47,7 +60,6 @@ function loadData() {
         return response.json();
     })
     .then(function(json){
-        var info = $("#info-person");
         var name = $("#name");
         var role = $("#role");
         var description = $("#description-text");
@@ -55,8 +67,7 @@ function loadData() {
         var email = $("#email");
         var number = $("#number"); 
         
-        info.text(json.name);
-        document.title = json.name;
+        truncInfo(json.name, 20);
         name.append(json.name);
         role.append(json.role);
         description.append(json.description);
