@@ -34,8 +34,20 @@ function addLink(text, link) {
 //----------------------------------------- DATA LOAD -------------------------------------------
 
 
-let item = "article"
-let id = getParameter();
+let item = "article",
+    id = getParameter();
+
+//Print truncated info
+function truncInfo(text, len) {
+    let text2 = text.substring(0,len+1);
+    if (text2.length < text.length) {
+        text = text2 + "...";
+    } else {
+        text = text2;
+    }
+    info.text(text);
+    document.title = text;
+}
 
 //Load article data
 function loadData() {
@@ -56,8 +68,7 @@ function loadData() {
         let date = $("#date");
         let body = $("#text");
         
-        info.text(json.title);
-        document.title = json.title;
+        truncInfo(title, 20);
         title.append(json.title);
         author.append(json.author);
         date.append(json.publication_date.substring(0,10));
