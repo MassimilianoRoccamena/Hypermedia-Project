@@ -14,6 +14,28 @@ module.exports.getArticleByID = function getArticleByID (req, res, next) {
     });
 };
 
+module.exports.getArticleEventIDByID = function getArticleEventIDByID (req, res, next) {
+  var id_article = req.swagger.params['id_article'].value;
+  Article.getArticleEventItemByID(id_article)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
+
+module.exports.getArticleServiceIDByID = function getArticleServiceIDByID (req, res, next) {
+  var id_article = req.swagger.params['id_article'].value;
+  Article.getArticleServiceItemByID(id_article)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
+
 module.exports.getArticlesItems = function getArticlesItems (req, res, next) {
   var offset = req.swagger.params['offset'].value;
   var search = req.swagger.params['search'].value;

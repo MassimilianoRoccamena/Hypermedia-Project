@@ -36,7 +36,7 @@ module.exports.getService2ByID = function getService2ByID (req, res, next) {
     });
 };
 
-module.exports.getServiceRelatedArticlesByID = function getServiceRelatedArticlesByID (req, res, next) {
+module.exports.getServiceArticlesItemsByID = function getServiceArticlesItemsByID (req, res, next) {
   var id_service = req.swagger.params['id_service'].value;
   Service.getServiceArticlesItemsByID(id_service)
     .then(function (response) {
