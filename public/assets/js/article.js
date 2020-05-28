@@ -39,6 +39,7 @@ let item = "article",
 
 //Print truncated info
 function truncInfo(text, len) {
+    var info = $("#info-article");
     let text2 = text.substring(0,len+1);
     if (text2.length < text.length) {
         text = text2 + "...";
@@ -60,7 +61,6 @@ function loadData() {
         return response.json();
     })
     .then(function(json){
-        var info = $("#info-article");
         let title = $("#head");
         let author = $("#author");
         let photo1 = $("#photo1");

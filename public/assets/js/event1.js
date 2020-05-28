@@ -42,6 +42,19 @@ let item = "event",
     relatedItem,
     id = getParameter();
 
+//Print truncated info
+function truncInfo(text, len) {
+    var info = $("#info-event");
+    let text2 = text.substring(0,len+1);
+    if (text2.length < text.length) {
+        text = text2 + "...";
+    } else {
+        text = text2;
+    }
+    info.text(text);
+    document.title = text;
+}
+
 //Load event data
 function loadData() {
     
@@ -53,11 +66,9 @@ function loadData() {
         return response.json();
     })
     .then(function(json){
-        var info = $("#info-event");
-        info.text(json.name);
-        document.title = json.name;
-        var h1 = $("#name");
-        var p = $("#description-text");
+        truncInfo(json.name, 20);
+        let h1 = $("#name");
+        let p = $("#description-text");
         let page2Link = $("#page2Link");
         let href = $("<a href='/pages/event2.html?id=" + id + "' class='btn btn-info btn-custom' role='button'>Informations</a>");
         page2Link.append(href);
