@@ -149,7 +149,7 @@ border-radius: 2rem;
     border-color:  rgba(254,174,119,1);
     color: white;
 }
-.btn-pagination.disabled {
+.btn-pagination:disabled {
     background-color:  rgba(254,174,119,1);
     border-color:  rgba(254,174,119,1);
     color: white;
