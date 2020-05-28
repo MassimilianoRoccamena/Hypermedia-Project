@@ -71,6 +71,20 @@ function initPagination() {
     root.append(container);
 }
 
+
+//Print truncated info
+function truncInfo(text, len) {
+    let info = $("#info-service");
+    let text2 = text.substring(0,len+1);
+    if (text2.length < text.length) {
+        text = text2 + "...";
+    } else {
+        text = text2;
+    }
+    info.text(text);
+    document.title = text;
+}
+
 //Load group page
 function loadPage(first=true) {
     let container = $("#" + idGroup).find(".container")
@@ -95,9 +109,7 @@ function loadPage(first=true) {
         }
         return res.json();
     }).then(function (json) {
-        let info = $("#info-service");
-        info.text(json.name);
-        document.title = json.name;
+        truncInfo(json.name, 20);
 
         //Unprint loading
         container.empty();
