@@ -22,7 +22,7 @@
 
 ### Web Architecture
 
-Describe here, with a diagram, the components of your web application and how they interact. Highlight which parts belong to the application layer, data layer or presentation layer. How did you ensure that HTML is not rendered server side?
+The web application is based on a Service Oriented Application (SOA) pattern, as a 3-tiered architecture web site. Presentation layer is realized using Html+Javscript+CSS+Bootstrap web pages, served by the web server at addresses / (home page) and /pages (other pages). Application layer is implemented in Node.js and provides static assets (pages,scripts,styles,media) and application endpoints to the client at address /api. Backend implementation also includes the following packages: connect and serve-static for basic web serving functionalities, js-yaml and swagger-tools for API design, pg and knex for application database handling. Data layer is implemented using a PostgreSQL DBMS connected to the application server. Application and database servers are both hosted on Heroku PaaS cloud.
 
 ### API
 
