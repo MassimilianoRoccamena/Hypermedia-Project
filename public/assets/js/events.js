@@ -4,9 +4,8 @@ $(document).ready(function () {
     $('#orientation-info').load("/pages/components/orientation-info.html", function(responseTxt, statusTxt, xhr) {
         addLink("Home", "/");
         addLabel("Events");
-    
-    //Pagination
-    }).then(() => {
+
+        //Pagination
         itemComponent.load(linkComponent, function(responseTxt, statusTxt, xhr) {
             $('#pagination').load("/pages/components/pagination.html", function(responseTxt, statusTxt, xhr) {
                 $("#previous").click(function() {
@@ -20,7 +19,7 @@ $(document).ready(function () {
                 loadPage();
             })
         });
-    });
+    })
 });
 
 //------------------------------------- ORIENTATION INFO -----------------------------------------
@@ -41,7 +40,7 @@ function addLink(text, link) {
 //---------------------------------------- PAGINATION --------------------------------------------
 
 //Global variables
-let currentPage = 1,
+var currentPage = 1,
     itemsCount = 12,
     idGroup = "events",
     idItem = "event",

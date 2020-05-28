@@ -4,20 +4,21 @@ $(document).ready(function () {
     $('#orientation-info').load("/pages/components/orientation-info.html", function(responseTxt, statusTxt, xhr) {
         addLink("Home", "/");
         addLabel("Articles");
-    });
 
-    //Pagination
-    $('#pagination').load("/pages/components/pagination.html", function(responseTxt, statusTxt, xhr) {
-        $("#previous").click(function() {
-            previousPage();
-        })
-        $("#next").click(function() {
-            nextPage();
-        })
-    });
-    itemComponent.load(linkComponent, function(responseTxt, statusTxt, xhr) {
-        initPagination();
-        loadPage();
+        //Pagination
+        itemComponent.load(linkComponent, function(responseTxt, statusTxt, xhr) {
+            $('#pagination').load("/pages/components/pagination.html", function(responseTxt, statusTxt, xhr) {
+                $("#previous").click(function() {
+                    previousPage();
+                })
+                $("#next").click(function() {
+                    nextPage();
+                })
+
+                initPagination();
+                loadPage();
+            })
+        });
     });
 });
 
