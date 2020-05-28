@@ -1,0 +1,1 @@
+pandoc ./public/backend/main.md -f markdown -t html -s -o ./public/backend/main.html
