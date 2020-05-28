@@ -75,7 +75,7 @@ function loadData() {
         h1.append(json.name);
         p.append(json.informations);
         
-        for(i = 0; i < json[0].location.length; i++){
+        for(i = 0; i < json.location.length; i++){
             let h5 = $("<h5>" + json.location[i] +"</h5>");
             locationDiv.append(h5);
         }
