@@ -71,12 +71,12 @@ exports.getService2ByID = function(id_service) {
 
 
 /**
- * Get articles items of a selected service by ID
+ * Get related articles data of a selected service by ID
  *
  * id_service Long ID of service to search for articles
- * returns List
+ * returns RelatedArticles
  **/
-exports.getServiceArticlesItemsByID = function(id_service) {
+exports.getServiceRelatedArticlesByID = function(id_service) {
   return sqlDb('Article')
           .join('Service','Service.id_service','=','Article.id_service')
           .select('Article.id_article','Article.author','Article.publication_date','Article.photo1_url','Article.title','Article.id_service')

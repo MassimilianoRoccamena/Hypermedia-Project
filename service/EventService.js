@@ -44,12 +44,12 @@ exports.getEvent2ByID = function(id_event) {
 
 
 /**
- * Get articles items of a selected event by ID
+ * Get related articles data of a selected event by ID
  *
  * id_event Long ID of event to search for articles
- * returns List
+ * returns RelatedArticles
  **/
-exports.getEventArticlesItemsByID = function(id_event) {
+exports.getEventRelatedArticlesByID = function(id_event) {
   return sqlDb('Article')
           .join('Event','Article.id_event','=','Event.id_event')
           .select('Article.id_article','Article.author','Article.publication_date','Article.photo1_url','Article.title','Article.id_event')

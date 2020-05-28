@@ -29,40 +29,6 @@ exports.getArticleByID = function(id_article) {
 
 
 /**
- * Get event ID of a selected article by ID
- *
- * id_article Long ID of article to search for event
- * returns Long
- **/
-exports.getArticleEventIDByID = function(id_article) {
-  return sqlDb('Event')
-          .join('Article', 'Article.id_event','=','Event.id_event')
-          .where('Article.id_article', id_article)
-          .select('Event.id_event')
-          .then(data => {
-            return data[0].id_event;
-          });
-}
-
-
-/**
- * Get service ID of a selected article by ID
- *
- * id_article Long ID of article to search for service
- * returns Long
- **/
-exports.getArticleServiceIDByID = function(id_article) {
-  return sqlDb('Service')
-          .join('Article', 'Article.id_service','=','Service.id_service')
-          .where('Article.id_article', id_article)
-          .select('Service.id_service')
-          .then(data => {
-            return data[0].id_service;
-          });
-}
-
-
-/**
  * Get articles items
  *
  * offset Integer Pagination offset

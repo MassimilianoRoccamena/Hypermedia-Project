@@ -25,7 +25,7 @@ module.exports.getEvent2ByID = function getEvent2ByID (req, res, next) {
     });
 };
 
-module.exports.getEventArticlesItemsByID = function getEventArticlesItemsByID (req, res, next) {
+module.exports.getEventRelatedArticlesByID = function getEventRelatedArticlesByID (req, res, next) {
   var id_event = req.swagger.params['id_event'].value;
   Event.getEventArticlesItemsByID(id_event)
     .then(function (response) {
