@@ -22,7 +22,7 @@
 
 ### Web Architecture
 
-The web application is based on a Service Oriented Application (SOA) pattern, as a 3-tiered architecture web site. Presentation layer is realized using Html+Javscript+CSS+Bootstrap web pages, served by the web server at addresses / (home page) and /pages (other pages). Application layer is implemented in Node.js and provides static assets (pages,scripts,styles,media) and application endpoints to the client at address /api. Backend implementation also includes the following packages: connect and serve-static for basic web serving functionalities, js-yaml and swagger-tools for API design, pg and knex for application database handling. Data layer is implemented using a PostgreSQL DBMS connected to the application server. Application and database servers are both hosted on Heroku PaaS cloud.
+The web application is based on a Service Oriented Application pattern, as a 3-tiered web site application. Presentation layer is realized using Html+Javscript+CSS+Bootstrap web pages, served by the web server at addresses / (home page) and /pages (other pages). Application layer is implemented in Node.js and provides static assets (pages,scripts,styles,media) and application endpoints at address /api. Data layer is implemented using a PostgreSQL DBMS connected to the application server. Application and database servers are both hosted on Heroku and Heroku Postgres PaaS cloud.
 
 ### API
 
@@ -41,7 +41,13 @@ Describe with an ER diagram the model used in the data layer of your web applica
 ## Implementation
 
 ### Tools used
-Describe here which tools, languages and frameworks did you use for the backend of the application.
+The application implementation includes the following packages dependencies:
+>- connect: web application framework
+>- swagger-tools: provides a middleware for easy OpenAPI server implementation
+>- js-yaml: for loading .yaml swagger specification
+>- serve-static: provides static assets (html,css,img..) request handling
+>- knex: exposes useful db query methods
+>- pg: provides postgres dbms handling
 
 ### Discussion
 
@@ -55,8 +61,10 @@ Describe here:
 
 ### Task assignment
 
-Describe here how development tasks have been subdivided among members of the group, e.g.:
-> - Foo worked on front end (80%) and OpenAPI Spec (20% of the time) > - Bar worked on ....
+Describe here how development tasks have been subdivided among members of the group:
+> - Massimiliano: Design 10%, Frontend 29%, OpenAPI 28%, Backend 29%, Documentation 4%
+> - Lorenzo: Design 10%, Frontend 40%, OpenAPI 10%, Backend 40%, Documentation 0%
+> - Elena: Design 98%, Frontend 2%, OpenAPI 0%, Backend 0%, Documentation 0%
 
 ### Analysis of existing API
 
