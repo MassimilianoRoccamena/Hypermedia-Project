@@ -113,7 +113,7 @@ function loadData() {
 
         //No data
         if(json.length == 0){
-            let error = $("<h4>No services found<h4>");
+            let error = $("<h4>No services found</h4>");
             row.append(error)
 
         //Some data
@@ -149,7 +149,7 @@ function loadData() {
 
         //No data
         if(json.length == 0){
-            let error = $("<h4>No events found<h4>");
+            let error = $("<h4>No events found</h4>");
             row.append(error)
 
         //Some data

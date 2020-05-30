@@ -94,7 +94,7 @@ function loadData() {
 
         //No data
         if(json.length == 0){
-            let error = $("<h4>No people found<h4>");
+            let error = $("<h4>No people found</h4>");
             row.append(error)
 
         //Some data
