@@ -47,11 +47,11 @@ function sendHandler() {
                     if (body == "") {
                         alert("You must insert a body!");
                     } else {
-                        let message = {"name":name,"email":email,"title":title,"body":body}
+                        let message = {"sender_name":name,"sender_email":email,"title":title,"body":body};
                         
                         $.post("/api/message", message, function() {
                             alert("Message sent");
-                        })
+                        });
                     }
                 }
             }
