@@ -49,7 +49,7 @@ function sendHandler() {
                     } else {
                         let message = {sender_name: name, sender_email: email, title: title, body:body};
                         
-                        post('api/message',message);
+                        post('/api/message',message);
                     }
                 }
             }
