@@ -24,6 +24,8 @@
 
 The web application is based on a Service Oriented Application pattern, as a 3-tiered web site application. Presentation layer is realized using Html+Javscript+CSS+Bootstrap web pages, served by the web server at addresses / (home page) and /pages (other pages). Application layer is implemented in Node.js and provides static assets (pages,scripts,styles,media) and application endpoints at address /api. Data layer is implemented using a PostgreSQL DBMS connected to the application server. Application and database servers are both hosted on Heroku and Heroku Postgres PaaS cloud.
 
+Main components which realize the business logic are: Service, Event, Person, Article, Contact, Message.
+
 ### API
 
 #### REST compliance
@@ -32,22 +34,25 @@ Describe here to what extent did you follow REST principles and what are the rea
 
 #### OpenAPI Resource models
 
-Describe here synthetically, which models you have introduced for resources.
+Mostly each resource provided by the API can be mapped to one or more database table projected models. For mostly each entity, one projection of the the table is always used: the entity item model, which is used to represent one topic inside one small list element. Each semantic relation request produces only presentation significant data. Each to-n relation request produces an array of items, except for RelatedArticles which incapsulates the array with the subject name. Person and Article are represented using one page, so there is one model representing the page data. Service and Event are two page presented, so there are two models for each presentation projection. Contact and Message can only be read/posted.
+
+Group requests also produces an array, but is also implemented paginating (with fixed limit) and filtering the related table. For example you can search page 2 of a name and month filtered event with the request /events?offset=1&search=name&month=July.
 
 ### Data model
 
-Describe with an ER diagram the model used in the data layer of your web application. How these map to the OpenAPI data model?
+Below the related database tables diagram is presented. Each request minimizes presentation information needed, refining and increasing overall data transmission efficiency as described in previous section.
 
 ## Implementation
 
 ### Tools used
-The application implementation includes the following packages dependencies:
->- connect: web application framework
->- swagger-tools: provides a middleware for easy OpenAPI server implementation
->- js-yaml: for loading .yaml swagger specification
->- serve-static: provides static assets (html,css,img..) request handling
->- knex: exposes useful db query methods
->- pg: provides postgres dbms handling
+
+- connect: web application framework
+- swagger-tools: provides a middleware for easy OpenAPI server implementation
+- js-yaml: for loading .yaml swagger specification
+- serve-static: provides static assets (html,css,img..) request handling
+- knex: exposes useful db query methods
+- pg: provides postgres dbms handling
+- heroku: handles project deployment on Heroku cloud
 
 ### Discussion
 
@@ -61,10 +66,9 @@ Describe here:
 
 ### Task assignment
 
-Describe here how development tasks have been subdivided among members of the group:
-> - Massimiliano: Design 10%, Frontend 29%, OpenAPI 28%, Backend 29%, Documentation 4%
-> - Lorenzo: Design 10%, Frontend 40%, OpenAPI 10%, Backend 40%, Documentation 0%
-> - Elena: Design 98%, Frontend 2%, OpenAPI 0%, Backend 0%, Documentation 0%
+- Massimiliano: Design 10%, Frontend 29%, OpenAPI 28%, Backend 29%, Documentation 4%
+- Lorenzo: Design 10%, Frontend 40%, OpenAPI 10%, Backend 40%, Documentation 0%
+- Elena: Design 85%, Frontend 15%, OpenAPI 0%, Backend 0%, Documentation 0%
 
 ### Analysis of existing API
 
