@@ -53,7 +53,6 @@ function sendHandler() {
                             contentType: 'application/json',
                             data: JSON.stringify(message),
                             dataType: 'json',
-                            processData: false,
                             success: function(data){
                                 alert("Message sent");
                             },
