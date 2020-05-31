@@ -47,17 +47,17 @@ function sendHandler() {
                     if (body == "") {
                         alert("You must insert a body!");
                     } else {
-                        let message = {sender_name: name, sender_email: email, title: title, body:body};
+                        let message = {"sender_name": name, "sender_email": email, "title": title, "body":body};
                         
                         $.ajax({
                             contentType: 'application/json',
                             data: JSON.stringify(message),
                             dataType: 'json',
-                            success: function(data){
+                            success: function(){
                                 alert("Message sent");
                             },
-                            error: function( jqXhr, textStatus, errorThrown ){
-                                alert( "error:" + errorThrown );
+                            error: function( data,jqXhr, textStatus, errorThrown ){
+                                alert( "data: " + data + " error: " + errorThrown );
                             },
                             type: 'POST',
                             url: '/api/message'
