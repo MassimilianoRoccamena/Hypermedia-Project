@@ -57,7 +57,7 @@ function sendHandler() {
                                 alert("Message sent");
                             },
                             error: function( jqXhr, textStatus, errorThrown ){
-                                console.log( errorThrown );
+                                alert( "error:" + errorThrown );
                             },
                             type: 'POST',
                             url: '/api/message'
