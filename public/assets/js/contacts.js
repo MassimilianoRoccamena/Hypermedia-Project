@@ -49,9 +49,19 @@ function sendHandler() {
                     } else {
                         let message = {sender_name: name, sender_email: email, title: title, body:body};
                         
-                       $.post("/api/message", JSON.stringify(message),function(){
-                           alert("Message sent");
-                       });
+                        $.ajax({
+                            contentType: 'application/json',
+                            data: JSON.stringify(message),
+                            dataType: 'json',
+                            success: function(data){
+                                alert("Message sent");
+                            },
+                            error: function(status){
+                                alert("status:" + status);
+                            },
+                            type: 'POST',
+                            url: '/api/message'
+                        });
                     }
                 }
             }
