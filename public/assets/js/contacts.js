@@ -53,11 +53,12 @@ function sendHandler() {
                             contentType: 'application/json',
                             data: JSON.stringify(message),
                             dataType: 'json',
+                            processData: false,
                             success: function(data){
                                 alert("Message sent");
                             },
-                            error: function(status){
-                                alert("status:" + status);
+                            error: function( jqXhr, textStatus, errorThrown ){
+                                console.log( errorThrown );
                             },
                             type: 'POST',
                             url: '/api/message'
