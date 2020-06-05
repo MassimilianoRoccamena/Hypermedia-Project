@@ -3,7 +3,6 @@ const sqlDbFactory = require("knex");
 let { articleDbSetup } = require("./ArticleService");
 let { contactDbSetup } = require("./ContactService");
 let { eventDbSetup } = require("./EventService");
-let { messageDbSetup } = require("./MessageService");
 let { personDbSetup } = require("./PersonService");
 let { serviceDbSetup } = require("./ServiceService");
 
@@ -19,7 +18,6 @@ function setupDataLayer() {
     articleDbSetup(sqlDb);
     contactDbSetup(sqlDb);
     eventDbSetup(sqlDb);
-    messageDbSetup(sqlDb);
     personDbSetup(sqlDb);
     serviceDbSetup(sqlDb);
     console.log('Data layer ready at ' + process.env.DATABASE_URL);
