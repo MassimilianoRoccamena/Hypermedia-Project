@@ -65,14 +65,14 @@
 <ul>
 <li>Deliverable D0: the web application is accessible at <a href="https://child4help.herokuapp.com">this address</a>.</li>
 <li>Deliverable D2: the YAML or JSON file containing the specification of the app API can be found at <a href="https://child4help.herokuapp.com/backend/spec.yaml">this address</a>.</li>
-<li>Deliverable D3: the SwaggerUI page of the same API is available at <a href="https://child4help.herokuapp.com/backend/swaggerui">this address</a>.</li>
+<li>Deliverable D3: the SwaggerUI page of the same API is available at <a href="https://child4help.herokuapp.com/backend/swaggerui/index.html">this address</a>.</li>
 <li>Deliverable D4: the source code of D0 is available as a zip file at <a href="https://child4help.herokuapp.com/backend/app.zip">this address</a>.</li>
 <li>Deliverable D5: the address of the online source control repository is available <a href="https://github.com/MassimilianoRoccamena/Hypermedia-Project.git">this address</a>. We hereby declare that this is a private repository and, upon request, we will give access to the instructors.</li>
 </ul>
 <h2 id="specification">Specification</h2>
 <h3 id="web-architecture">Web Architecture</h3>
 <p>The web application is based on a Service Oriented Application pattern, as a 3-tiered web site application. Presentation layer is realized using Html+Javscript+CSS+Bootstrap web pages, served by the web server at addresses / (home page) and /pages (other pages). Application layer is implemented in Node.js and provides static assets (pages,scripts,styles,media) and application endpoints at address /api. Data layer is implemented using a PostgreSQL DBMS connected to the application server. Application and database servers are both hosted on Heroku and Heroku Postgres PaaS cloud.</p>
-<p>Main components which realize the business logic are: Service, Event, Person, Article, Contact, Message.</p>
+<p>Main components which realize the business logic are: Service, Event, Person, Article, Contact</p>
 <img src="/assets/img/backend/components.png" width="100%">
 <h3 id="api">API</h3>
 <h4 id="rest-compliance">REST compliance</h4>

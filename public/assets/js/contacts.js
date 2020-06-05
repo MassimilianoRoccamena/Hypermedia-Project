@@ -47,21 +47,7 @@ function sendHandler() {
                     if (body == "") {
                         alert("You must insert a body!");
                     } else {
-                        let message = {"sender_name": name, "sender_email": email, "title": title, "body":body};
-                        
-                        $.ajax({
-                            contentType: 'application/json',
-                            data: JSON.stringify(message),
-                            dataType: 'json',
-                            success: function(){
-                                alert("Message sent");
-                            },
-                            error: function( data,jqXhr, textStatus, errorThrown ){
-                                console.log( "data: " + data + " error: " + errorThrown );
-                            },
-                            type: 'POST',
-                            url: '/api/message'
-                        });
+                        alert("Message sent")
                     }
                 }
             }

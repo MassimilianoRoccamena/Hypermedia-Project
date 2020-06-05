@@ -18,8 +18,7 @@ tags:
   description: "Articles about the association"
 - name: "contact"
   description: "Contacts of the association"
-- name: "message"
-  description: "Messages posted by users for the association"
+
 schemes:
 - "https"
 - "http"
@@ -603,31 +602,7 @@ paths:
         "400":
           description: "Invalid ID"
       x-swagger-router-controller: "Contact"
-  /message:
-    post:
-      tags:
-      - "message"
-      summary: "Post new message"
-      operationId: "addMessage"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - in: "body"
-        name: "message"
-        description: "Message object to be posted"
-        required: true
-        schema:
-          $ref: "#/definitions/Message"
-      responses:
-        "200":
-          description: "Successful operation"
-        "400":
-          description: "Invalid input"
-      x-swagger-router-controller: "Message"
+  
 definitions:
   Service1:
     type: "object"
@@ -975,28 +950,4 @@ definitions:
       name: "Name"
       location: "Location"
       id_contact: 0
-  Message:
-    type: "object"
-    required:
-    - "id_message"
-    properties:
-      id_message:
-        type: "integer"
-        format: "int64"
-      sender_name:
-        type: "string"
-      sender_email:
-        type: "string"
-        format: "email"
-      title:
-        type: "string"
-      body:
-        type: "string"
-    xml:
-      name: "Message"
-    example:
-      id_message: 0
-      sender_name: "Name"
-      title: "title"
-      body: "body"
-      sender_email: "abc@def.com"
+  
