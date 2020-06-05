@@ -1,0 +1,1034 @@
+// Exports swagger file
+
+export default `---
+swagger: "2.0"
+info:
+  description: "Hypermedia project by Roccamena, Romanò, Buttolo"
+  version: "1.0.0"
+  title: "Child4Help"
+  termsOfService: "http://swagger.io/terms/"
+host: "child4help.herokuapp.com"
+basePath: "/api"
+tags:
+- name: "service"
+  description: "Services of the association"
+- name: "event"
+  description: "Events of the association"
+- name: "person"
+  description: "People in the association"
+- name: "article"
+  description: "Articles about the association"
+- name: "contact"
+  description: "Contacts of the association"
+  
+schemes:
+- "https"
+- "http"
+paths:
+  /services:
+    get:
+      tags:
+      - "service"
+      summary: "Get services items"
+      operationId: "getServicesItems"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset"
+        required: true
+        type: "integer"
+      - name: "search"
+        in: "query"
+        description: "Text search"
+        required: false
+        type: "string"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ServiceItem"
+      x-swagger-router-controller: "Service"
+  /service1/{id_service}:
+    get:
+      tags:
+      - "service"
+      summary: "Get service page 1 data by ID"
+      operationId: "getService1ByID"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "id_service"
+        in: "path"
+        description: "ID of service to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Service1"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Service not found"
+      x-swagger-router-controller: "Service"
+  /service2/{id_service}:
+    get:
+      tags:
+      - "service"
+      summary: "Get service page 2 data by ID"
+      operationId: "getService2ByID"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "id_service"
+        in: "path"
+        description: "ID of service to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Service2"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Service not found"
+      x-swagger-router-controller: "Service"
+  /service/{id_service}/related:
+    get:
+      tags:
+      - "service"
+      summary: "Get related services items of a selected service by ID"
+      operationId: "getRelatedServicesItemsByID"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id_service"
+        in: "path"
+        description: "ID of service to search for related"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ServiceItem"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Service not found"
+      x-swagger-router-controller: "Service"
+  /service/{id_service}/events:
+    get:
+      tags:
+      - "service"
+      summary: "Get events items of a selected service by ID"
+      operationId: "getServiceEventsItemsByID"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id_service"
+        in: "path"
+        description: "ID of service to search for events"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/EventItem"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Service not found"
+      x-swagger-router-controller: "Service"
+  /service/{id_service}/people:
+    get:
+      tags:
+      - "service"
+      summary: "Get people items of a selected service by ID"
+      operationId: "getServicePeopleItemsByID"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id_service"
+        in: "path"
+        description: "ID of service to search for people"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/PersonItem"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Service not found"
+      x-swagger-router-controller: "Service"
+  /service/{id_service}/articles:
+    get:
+      tags:
+      - "service"
+      summary: "Get articles items of a selected service by ID"
+      operationId: "getServiceArticlesItemsByID"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id_service"
+        in: "path"
+        description: "ID of service to search for articles"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/RelatedArticles"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Service not found"
+      x-swagger-router-controller: "Service"
+  /events:
+    get:
+      tags:
+      - "event"
+      summary: "Get events items"
+      operationId: "getEventsItems"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset"
+        required: true
+        type: "integer"
+      - name: "search"
+        in: "query"
+        description: "Text search"
+        required: false
+        type: "string"
+      - name: "month"
+        in: "query"
+        description: "Month search"
+        required: false
+        type: "integer"
+        maximum: 12
+        minimum: 0
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/EventItem"
+      x-swagger-router-controller: "Event"
+  /event1/{id_event}:
+    get:
+      tags:
+      - "event"
+      summary: "Get event page 1 data by ID"
+      operationId: "getEvent1ByID"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "id_event"
+        in: "path"
+        description: "ID of event to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Event1"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Event not found"
+      x-swagger-router-controller: "Event"
+  /event2/{id_event}:
+    get:
+      tags:
+      - "event"
+      summary: "Get event page 2 data by ID"
+      operationId: "getEvent2ByID"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "id_event"
+        in: "path"
+        description: "ID of event to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Event2"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Event not found"
+      x-swagger-router-controller: "Event"
+  /event/{id_event}/related:
+    get:
+      tags:
+      - "event"
+      summary: "Get related events items of a selected event by ID"
+      operationId: "getRelatedEventsItemsByID"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id_event"
+        in: "path"
+        description: "ID of event to search for related"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/EventItem"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Event not found"
+      x-swagger-router-controller: "Event"
+  /event/{id_event}/services:
+    get:
+      tags:
+      - "event"
+      summary: "Get services items of a selected event by ID"
+      operationId: "getEventServicesItemsByID"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id_event"
+        in: "path"
+        description: "ID of event to search for services"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ServiceItem"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Event not found"
+      x-swagger-router-controller: "Event"
+  /event/{id_event}/person:
+    get:
+      tags:
+      - "event"
+      summary: "Get person label of a selected event by ID"
+      operationId: "getEventPersonLabelByID"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "id_event"
+        in: "path"
+        description: "ID of event to search for person"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/PersonLabel"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Event not found"
+      x-swagger-router-controller: "Event"
+  /event/{id_event}/articles:
+    get:
+      tags:
+      - "event"
+      summary: "Get articles items of a selected event by ID"
+      operationId: "getEventArticlesItemsByID"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id_event"
+        in: "path"
+        description: "ID of event to search for articles"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/RelatedArticles"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Event not found"
+      x-swagger-router-controller: "Event"
+  /people:
+    get:
+      tags:
+      - "person"
+      summary: "Getl people items"
+      operationId: "getPeopleItems"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset"
+        required: true
+        type: "integer"
+      - name: "search"
+        in: "query"
+        description: "Text search"
+        required: false
+        type: "string"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/PersonItem"
+      x-swagger-router-controller: "Person"
+  /person/{id_person}:
+    get:
+      tags:
+      - "person"
+      summary: "Get person page data by ID"
+      operationId: "getPersonByID"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "id_person"
+        in: "path"
+        description: "ID of person to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Person"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Person not found"
+      x-swagger-router-controller: "Person"
+  /person/{id_person}/services:
+    get:
+      tags:
+      - "person"
+      summary: "Get services labels of a selected person by ID"
+      operationId: "getPersonServicesLabelsByID"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id_person"
+        in: "path"
+        description: "ID of person to search for services"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ServiceLabel"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Person not found"
+      x-swagger-router-controller: "Person"
+  /person/{id_person}/events:
+    get:
+      tags:
+      - "person"
+      summary: "Get events items of a selected person by ID"
+      operationId: "getPersonEventsItemsByID"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id_person"
+        in: "path"
+        description: "ID of person to search for events"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/EventItem"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Person not found"
+      x-swagger-router-controller: "Person"
+  /articles:
+    get:
+      tags:
+      - "article"
+      summary: "Get articles items"
+      operationId: "getArticlesItems"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "offset"
+        in: "query"
+        description: "Pagination offset"
+        required: true
+        type: "integer"
+      - name: "search"
+        in: "query"
+        description: "Text search"
+        required: false
+        type: "string"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ArticleItem"
+      x-swagger-router-controller: "Article"
+  /article/{id_article}:
+    get:
+      tags:
+      - "article"
+      summary: "Get article page data by ID"
+      operationId: "getArticleByID"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "id_article"
+        in: "path"
+        description: "ID of article to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Article"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Article not found"
+      x-swagger-router-controller: "Article"
+  /article/{id_article}/related:
+    get:
+      tags:
+      - "article"
+      summary: "Get related articles items of a selected article by ID"
+      operationId: "getRelatedArticlesItemsByID"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id_article"
+        in: "path"
+        description: "ID of article to search for related"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ArticleItem"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Article not found"
+      x-swagger-router-controller: "Article"
+  /article/{id_article}/service:
+    get:
+      tags:
+      - "article"
+      summary: "Get service item of a selected article by ID"
+      operationId: "getArticleServiceItemByID"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "id_article"
+        in: "path"
+        description: "ID of article to search for service"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/ServiceItem"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Article not found"
+      x-swagger-router-controller: "Article"
+  /article/{id_article}/event:
+    get:
+      tags:
+      - "article"
+      summary: "Get event item of a selected article by ID"
+      operationId: "getArticleEventItemByID"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "id_article"
+        in: "path"
+        description: "ID of article to search for event"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/EventItem"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Article not found"
+      x-swagger-router-controller: "Article"
+  /contacts:
+    get:
+      tags:
+      - "contact"
+      summary: "Get contacts"
+      operationId: "getContacts"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Contact"
+      x-swagger-router-controller: "Contact"
+  /contact/{id_contact}:
+    get:
+      tags:
+      - "contact"
+      summary: "Get contact by ID"
+      operationId: "getContactByID"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "id_contact"
+        in: "path"
+        description: "ID of contact to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Contact"
+        "400":
+          description: "Invalid ID"
+        "404":
+          description: "Contact not found"
+      x-swagger-router-controller: "Contact"
+  
+definitions:
+  Service1:
+    type: "object"
+    required:
+    - "id_service"
+    properties:
+      id_service:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      presentation:
+        type: "string"
+      photo_url:
+        type: "array"
+        items:
+          type: "string"
+    xml:
+      name: "Service1"
+    example:
+      presentation: "Presentation"
+      name: "Name"
+      photo_url:
+      - "/assets/img/service1.jpg"
+      - "/assets/img/service1.jpg"
+      id_service: 0
+  Service2:
+    type: "object"
+    required:
+    - "id_service"
+    properties:
+      id_service:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      informations:
+        type: "string"
+      location:
+        type: "array"
+        items:
+          type: "string"
+    xml:
+      name: "Service2"
+    example:
+      name: "Name"
+      location:
+      - "Location1"
+      - "Location2"
+      id_service: 0
+      informations: "Informations"
+  ServiceItem:
+    type: "object"
+    required:
+    - "id_service"
+    properties:
+      id_service:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      presentation:
+        type: "string"
+      photo_url:
+        type: "string"
+    xml:
+      name: "ServiceItem"
+    example:
+      presentation: "Presentation"
+      name: "Name"
+      photo_url: "/assets/img/service1.jpg"
+      id_service: 0
+  ServiceLabel:
+    type: "object"
+    required:
+    - "id_service"
+    properties:
+      id_service:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+    xml:
+      name: "ServiceLabel"
+    example:
+      name: "Name"
+      id_service: 0
+  Event1:
+    type: "object"
+    required:
+    - "id_event"
+    properties:
+      id_event:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      description:
+        type: "string"
+      photo_url:
+        type: "array"
+        items:
+          type: "string"
+    xml:
+      name: "EventPage1"
+    example:
+      name: "Name"
+      description: "Description"
+      id_event: 0
+      photo_url:
+      - "/assets/img/event1.jpg"
+      - "/assets/img/event1.jpg"
+  Event2:
+    type: "object"
+    required:
+    - "id_event"
+    properties:
+      id_event:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      date:
+        type: "string"
+        format: "date"
+      location:
+        type: "string"
+      pract_info:
+        type: "string"
+    xml:
+      name: "Event2"
+    example:
+      date: "2000-01-23"
+      name: "Name"
+      pract_info: "Informations"
+      location: "Location"
+      id_event: 0
+  EventItem:
+    type: "object"
+    required:
+    - "id_event"
+    properties:
+      id_event:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      date:
+        type: "string"
+        format: "date"
+      location:
+        type: "string"
+      photo_url:
+        type: "string"
+    xml:
+      name: "EventItem"
+    example:
+      date: "2000-01-23"
+      name: "Name"
+      location: "Location"
+      id_event: 0
+      photo_url: "/assets/img/event1.jpg"
+  Person:
+    type: "object"
+    required:
+    - "id_person"
+    properties:
+      id_person:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      role:
+        type: "string"
+      email_address:
+        type: "string"
+        format: "email"
+      phone_number:
+        type: "string"
+      description:
+        type: "string"
+      photo_url:
+        type: "string"
+      starting_date:
+        type: "string"
+        format: "date"
+    xml:
+      name: "Person"
+    example:
+      id_person: 0
+      role: "Role"
+      email_address: "abc@def.com"
+      starting_date: "2000-01-23"
+      name: "Name"
+      description: "Description"
+      phone_number: "332702093"
+      photo_url: "/assets/img/event1.jpg"
+  PersonItem:
+    type: "object"
+    required:
+    - "id_person"
+    properties:
+      id_person:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      photo_url:
+        type: "string"
+    xml:
+      name: "PersonItem"
+    example:
+      id_person: 0
+      name: "Name"
+      photo_url: "/assets/img/event1.jpg"
+  PersonLabel:
+    type: "object"
+    required:
+    - "id_person"
+    properties:
+      id_person:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+    xml:
+      name: "PersonLabel"
+    example:
+      id_person: 0
+      name: "Name"
+  Article:
+    type: "object"
+    required:
+    - "id_article"
+    properties:
+      id_article:
+        type: "integer"
+        format: "int64"
+      id_service:
+        type: "integer"
+        format: "int64"
+      id_event:
+        type: "integer"
+        format: "int64"
+      author:
+        type: "string"
+      publication_date:
+        type: "string"
+        format: "date"
+      email_address:
+        type: "string"
+        format: "email"
+      title:
+        type: "string"
+      body:
+        type: "string"
+      photo1_url:
+        type: "string"
+      photo2_url:
+        type: "string"
+    xml:
+      name: "Article"
+    example:
+      id_article: 0
+      photo1_url: "/assets/img/service1.jpg"
+      email_address: "abc@def.com"
+      author: "Author"
+      publication_date: "2000-01-23"
+      id_event: 1
+      photo2_url: "/assets/img/event1.jpg"
+      title: "Title"
+      body: "Body"
+      id_service: 6
+  ArticleItem:
+    type: "object"
+    required:
+    - "id_article"
+    properties:
+      id_article:
+        type: "integer"
+        format: "int64"
+      author:
+        type: "string"
+      publication_date:
+        type: "string"
+        format: "date"
+      title:
+        type: "string"
+      photo_url:
+        type: "string"
+    xml:
+      name: "ArticleItem"
+    example:
+      id_article: 0
+      author: "Author"
+      publication_date: "2000-01-23"
+      photo_url: "/assets/img/event1.jpg"
+      title: "Title"
+  RelatedArticles:
+    type: "object"
+    properties:
+      articles:
+        type: "array"
+        items:
+          $ref: "#/definitions/ArticleItem"
+      name:
+        type: "string"
+    xml:
+      name: "RelatedArticles"
+    example:
+      name: "Subject"
+      articles:
+      - id_article: 0
+        author: "Author"
+        publication_date: "2000-01-23"
+        photo_url: "/assets/img/event1.jpg"
+        title: "Title"
+      - id_article: 0
+        author: "Author"
+        publication_date: "2000-01-23"
+        photo_url: "/assets/img/event1.jpg"
+        title: "Title"
+  Contact:
+    type: "object"
+    required:
+    - "id_contact"
+    properties:
+      id_contact:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      phone:
+        type: "string"
+      email_address:
+        type: "string"
+        format: "email"
+      location:
+        type: "string"
+    xml:
+      name: "Contact"
+    example:
+      email_address: "abc@def.com"
+      phone: "3472383072"
+      name: "Name"
+      location: "Location"
+      id_contact: 0`
