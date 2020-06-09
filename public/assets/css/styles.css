@@ -65,10 +65,10 @@ hr {
 }
 
 .link-custom {
-    color: #5398FF;
+    color: #5398FF !important;
 }
 .link-custom:hover {
-    color: #5398FF;
+    color: #5398FF !important;
 }
 
 .img-shadow {
@@ -523,5 +523,5 @@ margin-top: -10rem !important;
 }
 
 #related-services  {
-margin-top:3rem;
+margin-top:3rem !important;
 }
