@@ -505,5 +505,7 @@ element.style {
 
 img {
 border-top-left-radius: 2rem !important;
-border-top-right-radius: 2rem !important;    
+border-top-right-radius: 2rem !important;   
+border-bottom-right-radius: 0rem !important;
+border-bottom-left-radius: 0rem !important;   
 }
