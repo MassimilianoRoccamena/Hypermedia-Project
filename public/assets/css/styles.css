@@ -500,9 +500,9 @@ element.style {
 
 .card-title {
     margin-bottom: .75rem;
-    color: white; }
+    color: white !important; }
 
 
-#photo {
+img {
 border-radius:2rem;
 }
