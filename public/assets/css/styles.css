@@ -66,10 +66,12 @@ hr {
 
 .link-custom {
     color: #5398FF !important;
+    text-decoration: none;
 }
 .link-custom:hover {
     color: #5398FF !important;
 }
+
 
 .img-shadow {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 155, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -514,7 +516,7 @@ border-radius: 2rem !important;
 
 /*per allineare foto a testo nelle persone*/
 .p-3 {
-padding: none!important; 
+padding: 0rem! important; 
 }
 
 /*per alzare testo descrizione nelle persone*/
@@ -523,5 +525,5 @@ margin-top: -10rem !important;
 }
 
 #related-services  {
-margin-top:3rem !important;
+margin-top:6.5rem !important;
 }
