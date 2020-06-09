@@ -61,7 +61,7 @@ h4{
 }
 
 hr {
-    border: 1px solid #5398FFco;
+    border: 1px solid #5398FF;
 }
 
 .link-custom {
@@ -109,8 +109,6 @@ border-radius: 2rem;
 .btn-custom {
     font-size: 130%;
     padding: 3%;
-    background: coral;
-    /*background-color: linear-gradient(60deg, rgba(254,174,119,1) 0%, rgba(255,88,0,1) 100%);*/
     background-color: ghostwhite;
     border-color: #5398FF;
     color: white;
@@ -132,8 +130,18 @@ border-radius: 2rem;
     border-color:#5398FF;
 }
 
+.btn-custom:focus {
+     background-color: ghostwhite;
+    border-color:#5398FF;   
+}
+
 .btn {
 border: 1.5px solid transparent;
+}
+
+.btn:focus {
+    background-color: ghostwhite;
+    border-color:#5398FF;    
 }
 
 .btn-info {
@@ -146,6 +154,12 @@ border: 1.5px solid transparent;
 .btn-info:hover {
 color:#5398FF;
 
+}
+
+.btn-info:focus {
+  background-color: ghostwhite !important;
+    border-color: #7BB0FF !important;
+    color:#5398FF !important;
 }
 
 #filter-search {
@@ -194,6 +208,12 @@ color:#5398FF;
     background-color:  #DCDCDC;
     border-color:  #DCDCDC;
     color: white;
+}
+
+.btn-pagination:focus {
+      background-color: #5398FF;
+    border-color:  #5398FF;
+    color: white;  
 }
 
 /*
@@ -475,4 +495,14 @@ font-family: 'Work Sans', sans-serif;
 element.style {
     border-radius: 10rem;
     width: 100%;
+}
+
+
+.card-title {
+    margin-bottom: .75rem;
+    color: white; }
+
+
+#photo {
+border-radius:2rem;
 }
