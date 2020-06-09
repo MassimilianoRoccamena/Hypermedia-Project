@@ -493,19 +493,21 @@ font-family: 'Work Sans', sans-serif;
 
 
 element.style {
-    border-radius: 10rem;
+
     width: 100%;
 }
 
 
 .card-title {
     margin-bottom: .75rem;
-    color: white !important; }
+    color:#5398FF  !important; }
 
 
 img {
-border-top-left-radius: 2rem !important;
-border-top-right-radius: 2rem !important;   
-border-bottom-right-radius: 0rem !important;
-border-bottom-left-radius: 0rem !important;   
+border-radius: 2rem !important;
+ 
 }
+
+.card-custom {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 155, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: ghostwhite; }
