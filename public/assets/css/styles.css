@@ -65,10 +65,10 @@ hr {
 }
 
 .link-custom {
-    color: coral;
+    color: #5398FF;
 }
 .link-custom:hover {
-    color: #414656;
+    color: #5398FF;
 }
 
 .img-shadow {
@@ -511,3 +511,17 @@ border-radius: 2rem !important;
 .card-custom {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 155, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
     background-color: ghostwhite !important; }
+
+/*per allineare foto a testo nelle persone*/
+.p-3 {
+padding: none!important; 
+}
+
+/*per alzare testo descrizione nelle persone*/
+#decription-text {
+margin-top: -10rem !important;
+}
+
+#related-services  {
+margin-top:3rem;
+}
