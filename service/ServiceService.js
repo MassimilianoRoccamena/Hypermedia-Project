@@ -30,7 +30,7 @@ exports.getRelatedServicesItemsByID = function(id_service) {
         })
         .then(data => {
           return data.map(e => {
-            e.presentation = e.presentation.substring(0,71);
+            e.presentation = e.presentation.substring(0,100);
             e.photo_url = e.photo_url[0];
             return e;
           })
