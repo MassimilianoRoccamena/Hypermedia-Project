@@ -532,10 +532,14 @@ margin-top:6.5rem !important;
 
 /*levare freccine nei caroselli*/
 
-.carousel-control-next-icon, .carousel-control-prev-icon {
+.no-arrow>.carousel-control-next-icon{
     display: none !important;   
 }
 
-.carousel-indicators li {
+.no-arrow>.carousel-control-prev-icon {
+     display: none !important;      
+}
+
+.no-arrow>.carousel-indicators li {
  display: none !important;   
 }
