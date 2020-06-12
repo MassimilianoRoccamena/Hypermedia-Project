@@ -55,7 +55,7 @@ var currentPage = 1,
         let img = $("<img src='" + data.photo_url + "' class='row-custom'>");
         photo.append(img);
         link.append(href);
-        presentation.text(data.presentation+"...");
+        presentation.text(data.presentation);
     }
 
 //Init component
