@@ -206,7 +206,7 @@ color:#5398FF;
     border-color: #5398FF;
     color: #5398FF;
 }
-.btn-pagination:disabled {
+.btn.disabled{
     background-color:  #DCDCDC !important;
     border-color:  #DCDCDC;
     color: white !important;
