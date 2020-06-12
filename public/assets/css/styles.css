@@ -207,9 +207,9 @@ color:#5398FF;
     color: #5398FF;
 }
 .btn.disabled{
-    background-color:  white!important;
-    border-color:  white !important;
-    color: #DCDCDC; !important;
+    background-color:  #DCDCDC !important;
+    border-color:  #DCDCDC;
+    color: white !important;
 }
 
 .btn-pagination:focus {
