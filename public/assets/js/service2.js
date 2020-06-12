@@ -67,10 +67,10 @@ function loadData() {
     .then(function(json){
         truncInfo(json.name, 25);
         let page1Link = $("#page1Link");
-        let href = $("<a href='/pages/service1.html?id=" + id +"' class='btn btn-info btn-custom' role='button'>Presentation</a>");
+        let href = $("<a href='/pages/service1.html?id=" + id +"' class='btn btn-info btn-custom' role='button'>Back to presentation</a>");
         page1Link.append(href);
         let articleLink = $("#articleLink");
-        href = $("<a href='/pages/service-articles.html?id=" + id +"' class='btn btn-info btn-custom' role='button'>Articles</a>");
+        href = $("<a href='/pages/service-articles.html?id=" + id +"' class='btn btn-info btn-custom' role='button'>What has been written about</a>");
         articleLink.append(href);
         h1.append(json.name);
         p.append(json.informations);
