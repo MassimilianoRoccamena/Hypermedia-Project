@@ -146,7 +146,7 @@ exports.getServicesItems = function(offset,search) {
           .select('id_service','presentation','name','photo_url')
           .then(data => {
             return data.map(e => {
-              e.presentation = e.presentation.substring(0,200);
+              e.presentation = e.presentation.substring(0,300);
               e.photo_url = e.photo_url[0];
               return e;
             })
@@ -159,7 +159,7 @@ exports.getServicesItems = function(offset,search) {
           .select('id_service','presentation','name','photo_url')
           .then(data => {
             return data.map(e => {
-              e.presentation = e.presentation.substring(0,200);
+              e.presentation = e.presentation.substring(0,300);
               e.photo_url = e.photo_url[0];
               return e;
             })
