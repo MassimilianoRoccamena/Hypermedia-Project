@@ -141,10 +141,10 @@ border-radius: 2rem;
 border: 1.5px solid transparent;
 }
 
-.btn:focus {
+/*.btn:focus {
     background-color: ghostwhite;
     border-color:#5398FF;    
-}
+} */
 
 .btn-info {
  background-color: ghostwhite;
@@ -158,11 +158,11 @@ color:#5398FF;
 
 }
 
-.btn-info:focus {
+/*.btn-info:focus {
   background-color: ghostwhite !important;
     border-color: #7BB0FF !important;
     color:#5398FF !important;
-}
+} */
 
 #filter-search {
     border-color: #5398FF;
