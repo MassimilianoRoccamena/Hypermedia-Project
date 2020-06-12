@@ -148,21 +148,21 @@ border: 1.5px solid transparent;
 
 .btn-info {
  background-color: ghostwhite;
-    border-color: #7BB0FF;
-    color:#5398FF;
+    border-color: #7BB0FF
+    color:#7BB0FF;
 
 }
 
 .btn-info {
     color: white;
-    background-color: #5398FF !important;
-    border-color: #5398FF !important;
+    background-color: #7BB0FF !important;
+    border-color: #7BB0FF !important;
 }
 
 .btn-info:hover {
     color: #fff; 
-    background-color: #5398FF !important;
-    border-color:  #5398FF !important;
+    background-color: #7BB0FF !important;
+    border-color:  #7BB0FF !important;
 }
 
 /*.btn-info:focus {
