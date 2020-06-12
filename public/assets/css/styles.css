@@ -193,7 +193,7 @@ color:#5398FF;
     padding: 0.5%;
     background-color: white;
     border-color: white;
-    color: white;
+    color:#5398FF !important;
     padding-left: 0.8em;
     padding-right: 0.8em;
     padding-top: 0.2em;
@@ -202,14 +202,14 @@ color:#5398FF;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 155, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .btn-pagination:hover {
-    background-color: #5398FF;
-    border-color:  #5398FF;
-    color: white;
+    background-color: white;
+    border-color: #5398FF;
+    color: #5398FF;
 }
 .btn-pagination:disabled {
-    background-color:  #DCDCDC;
+    background-color:  #DCDCDC !important;
     border-color:  #DCDCDC;
-    color: white;
+    color: white !important;
 }
 
 .btn-pagination:focus {
@@ -528,19 +528,3 @@ margin-top: -10rem !important;
 margin-top:6.5rem !important;
 }
 
-
-
-/*levare freccine nei caroselli*/
-
-
-.no-arrow > .carousel-control-next-icon{
-    display: none !important;   
-}
-
-.no-arrow > .carousel-control-prev-icon {
-     display: none !important;      
-}
-
-.no-arrow > .carousel-indicators li {
- display: none !important;   
-}
