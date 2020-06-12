@@ -210,6 +210,7 @@ color:#5398FF;
     background-color:  #DCDCDC !important;
     border-color:  #DCDCDC;
     color: white !important;
+    opacity: 1 !important;
 }
 
 .btn-pagination:focus {
