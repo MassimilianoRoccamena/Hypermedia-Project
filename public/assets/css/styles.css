@@ -61,7 +61,7 @@ h4{
 }
 
 hr {
-    border: 1px solid #5398FF;
+    border: white;
 }
 
 .link-custom {
@@ -105,7 +105,6 @@ border-radius: 2rem;
 }
 .row-custom {
     width: 100%;
-    box-shadow: 0 4px 8px 0 rgba(155, 155, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .btn-custom {
@@ -261,6 +260,18 @@ body {
 @media only screen and (min-width: 768px) { /* collapsed bug fix -lg */
     .nav-link {
         margin-left:4rem;
+    }
+}
+
+
+/* elimina foto in services e mette testo a tutta colonna*/
+@media only screen and (max-width: 768px) { 
+    .col {
+        flex-basis:0 !important;
+    }
+    
+    .row-custom {
+    display:none;
     }
 }
 
