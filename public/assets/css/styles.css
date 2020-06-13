@@ -43,7 +43,7 @@ p {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     line-height: normal;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -214,8 +214,8 @@ border: 1.5px solid transparent;
     color: #5398FF;
 }
 .btn.disabled{
-    background-color:  #DCDCDC !important;
-    border-color:  #DCDCDC;
+    background-color: lightgray!important;
+    border-color: lightgray;
     color: white !important;
     opacity: 1 !important;
 }
