@@ -280,7 +280,7 @@ body {
 
 }
     
-    p {
+    p, h5, h6 {
     padding-left:1rem !important;
     padding-right:1rem !important;
     }
