@@ -267,7 +267,7 @@ body {
 /* elimina foto in services e mette testo a tutta colonna*/
 @media only screen and (max-width: 768px) { 
     .col {
-        flex-basis:initial;
+    flex-basis:initial;
     }
     
     .row-custom {
@@ -279,6 +279,11 @@ body {
     padding-left: 1rem !important;
 
 }
+    
+    p {
+    padding-left:1rem !important;
+    padding-right:1rem !important;
+    }
 }
 
 
