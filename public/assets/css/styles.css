@@ -273,6 +273,12 @@ body {
     .row-custom {
     display:none;
     }
+    
+    .container {
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+}
 }
 
 
