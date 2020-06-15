@@ -34,10 +34,6 @@ a:hover{
     color:white;
 }
 
-
-/*.col{
-padding-right: 10rem; 
-padding-left: 10rem;}*/
 p {
     color: #414656;
     font-family: 'Roboto', sans-serif;
@@ -257,7 +253,7 @@ body {
 }
 
 
-@media only screen and (min-width: 768px) { /* collapsed bug fix -lg */
+@media only screen and (min-width: 768px) {
     .nav-link {
         margin-left:4rem;
     }
@@ -267,22 +263,22 @@ body {
 /* elimina foto in services e mette testo a tutta colonna*/
 @media only screen and (max-width: 768px) { 
     .col {
-    flex-basis:initial;
+        flex-basis:initial;
     }
     
     .row-custom {
-    display:none;
+        display:none;
     }
     
     .container {
-    padding-right: 1rem !important;
-    padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        padding-left: 1rem !important;
 
-}
+    }
     
     p, h5, h6 {
-    padding-left:1rem !important;
-    padding-right:1rem !important;
+        padding-left:1rem !important;
+        padding-right:1rem !important;
     }
 }
 

@@ -56,7 +56,7 @@ var currentPage = 1,
         let date = row.find("#date");
         let author = row.find("#author");
         
-        let img = $("<img src='" + data.photo1_url + "' style='width: 100%;'>");
+        let img = $("<img src='" + data.photo1_url + "' class='row-custom'>");
         photo.append(img);
         name.text(data.title);
         date.text(data.publication_date.substring(0,10));
