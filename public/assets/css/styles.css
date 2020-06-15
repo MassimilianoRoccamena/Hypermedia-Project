@@ -258,30 +258,6 @@ body {
     }
 }
 
-
-/* Dynamic item row on width */
-@media only screen and (max-width: 768px) { 
-    .col {
-        flex-basis:initial;
-    }
-    
-    /* .row-custom {
-        display:none;
-    } */
-    
-    .container {
-        padding-right: 1rem !important;
-        padding-left: 1rem !important;
-
-    }
-    
-    p, h5, h6 {
-        padding-left:1rem !important;
-        padding-right:1rem !important;
-    }
-}
-
-
 span {
     display: inline-block;
     color: white;
