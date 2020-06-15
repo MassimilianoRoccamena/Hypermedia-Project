@@ -491,13 +491,10 @@ font-family: 'Work Sans', sans-serif;
     background-color: white;
 }
 
-
-
 element.style {
 
     width: 100%;
 }
-
 
 .card-title {
     margin-bottom: .75rem;
@@ -505,8 +502,7 @@ element.style {
 
 
 img {
-border-radius: 2rem !important;
- 
+    border-radius: 2rem !important;
 }
 
 .card-custom {
@@ -515,22 +511,14 @@ border-radius: 2rem !important;
 
 /*per allineare foto a testo nelle persone*/
 .p-3 {
-padding: 0rem! important; 
+    padding: 0rem! important; 
 }
 
 /*per alzare testo descrizione nelle persone*/
 #decription-text {
-margin-top: -10rem !important;
+    margin-top: -10rem !important;
 }
 
 #related-services  {
-margin-top:1rem !important;
-}
-
-.container {
-    width: 100%;
-    padding-right: initial;
-    padding-left: initial;
-    margin-right: auto;
-    margin-left: auto;
+    margin-top:1rem !important;
 }
