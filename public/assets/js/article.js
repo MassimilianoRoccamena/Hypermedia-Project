@@ -84,11 +84,11 @@ function loadData() {
         if (json.id_service){
             idSubject = json.id_service
             entitySubject = "service";
-            subjectLink.text("Service of this article");
+            subjectLink.text("Go to related service");
         } else{
             idSubject = json.id_event
             entitySubject = "event";
-            subjectLink.text("Event of this article");
+            subjectLink.text("Go to related event");
         }
         let href = "/pages/" + entitySubject + "1.html?id=" + idSubject;
         subjectLink.attr("href", href);
