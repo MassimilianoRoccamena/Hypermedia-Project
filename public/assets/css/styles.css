@@ -516,13 +516,13 @@ element.style {
     margin-top:1rem !important;
 }
 
-img {
-    border-radius:0rem !important;
+#photo {
+    border-radius:1rem !important;
 }
 
 .card {
-    border-top-left-radius: 0rem;
-    border-top-right-radius: 0rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
     border-bottom-left-radius: 1rem;
 }
