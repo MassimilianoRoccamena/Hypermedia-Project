@@ -265,9 +265,9 @@ body {
         flex-basis:initial;
     }
     
-    .row-custom {
+    /* .row-custom {
         display:none;
-    }
+    } */
     
     .container {
         padding-right: 1rem !important;
@@ -316,7 +316,7 @@ span:hover::after {
     background-color: rgba(83, 152, 255, 0.5);
     color: white;
     font-style: italic;
-font-family: 'Work Sans', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     padding-left: 2em;
     padding-right: 2em;
     padding-top: 1em;
@@ -334,7 +334,7 @@ font-family: 'Work Sans', sans-serif;
 }
 @media only screen and (max-width: 576px) {
     .breadcrumb {
-    margin-top: 1.5rem;
+        margin-top: 1.5rem;
     }
 }
 .breadcrumb-item {
