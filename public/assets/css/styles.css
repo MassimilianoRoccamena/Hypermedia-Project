@@ -259,7 +259,7 @@ body {
 }
 
 
-/* elimina foto in services e mette testo a tutta colonna*/
+/* Dynamic item row on width */
 @media only screen and (max-width: 768px) { 
     .col {
         flex-basis:initial;
@@ -287,7 +287,6 @@ span {
     color: white;
     text-decoration: none;
 }
-
 span::after {
     content: '';
     display: block;
@@ -297,16 +296,15 @@ span::after {
     transition: width .3s;
     
 }
-
 span:hover::after {
     width: 100%;
 }
 
 
 .nav li {
-font-family: 'Work Sans', sans-serif;
-font-weight: 300;
-font-size: 1.5rem;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
 }
 
 /*
