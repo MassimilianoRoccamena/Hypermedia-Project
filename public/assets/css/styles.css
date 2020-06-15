@@ -43,7 +43,7 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-font-family: 'Work Sans', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-weight: 00;
     color: #5398FF;
 }
@@ -128,7 +128,7 @@ border-radius: 2rem;
 }
 
 .btn-custom:focus {
-     background-color: ghostwhite;
+    background-color: ghostwhite;
     border-color:#5398FF;   
 }
 
@@ -215,7 +215,7 @@ border: 1.5px solid transparent;
 }
 
 .btn-pagination:focus {
-      background-color: #5398FF;
+    background-color: #5398FF;
     border-color:  #5398FF;
     color: white;  
 }
@@ -425,7 +425,7 @@ span:hover::after {
 
 .fl{
     color: white;
-font-family: 'Work Sans', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-size: 1.2rem;
     text-transform: capitalize;
 }
