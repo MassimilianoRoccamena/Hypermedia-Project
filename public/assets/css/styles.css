@@ -504,8 +504,6 @@ element.style {
     margin-top: -10rem !important;
 }
 
-
-
 img {
     border-radius:1rem !important;
 }
@@ -518,11 +516,7 @@ img {
 }
 
 .container-fluid {
-background-color: #7BB0FF;
-}
-
-.margindown {
-    margin-top: 10.5rem !important;
+    background-color: #7BB0FF;
 }
 
 .card-text {
