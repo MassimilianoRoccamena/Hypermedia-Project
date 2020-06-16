@@ -519,7 +519,7 @@ img {
 }
 
 /*person*/
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 576px) {
     #description-text {
         margin-top: 9%;
     }
