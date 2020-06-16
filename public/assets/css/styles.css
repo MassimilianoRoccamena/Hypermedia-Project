@@ -139,20 +139,15 @@ border: 1.5px solid transparent;
 } */
 
 .btn-info {
- background-color: ghostwhite;
+ background-color: white;
     border-color: #7BB0FF;
     color:  #7BB0FF;
 }
 
-.btn-info {
-    color: white;
-    background-color: #7BB0FF !important;
-    border-color: #7BB0FF !important;
-}
 
 .btn-info:hover {
-    color: #fff; 
-    background-color: #7BB0FF !important;
+    color: #7BB0FF; 
+    background-color: ghostwhite !important;
     border-color:  #7BB0FF !important;
 }
 
@@ -525,4 +520,8 @@ img {
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
     border-bottom-left-radius: 1rem;
+}
+
+.container-fluid {
+background-color: #7BB0FF;
 }
