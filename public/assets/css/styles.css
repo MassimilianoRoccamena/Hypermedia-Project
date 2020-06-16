@@ -302,7 +302,7 @@ span:hover::after {
     }
     
     .col {
-    flex-basis:1 !important;
+    flex-basis:initial !important;
     }
 }
 @media only screen and (max-width: 576px) {
