@@ -520,7 +520,10 @@ img {
 
 /*person*/
 @media only screen and (max-width: 768px) {
-    #related-services, #description-text {
-        margin-top: 10%;
+    #description-text {
+        margin-top: 9%;
+    }
+    #related-services {
+        margin-top: 7%;
     }
 }
