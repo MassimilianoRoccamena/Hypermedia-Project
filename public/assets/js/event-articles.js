@@ -12,11 +12,10 @@ $(document).ready(function () {
         itemComponent.load(linkComponent, function(responseTxt, statusTxt, xhr) {
             initPagination();
             loadPage();
-            var docHeight = $(window).height();
-            var footerHeight = $('#footer').outerHeight();
-            var footerTop = $('#footer').position().top + footerHeight;
-            if (footerTop < docHeight) {
-                $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
+            if( $(document.body).height() < $(window).height() ) {
+                $("#footer").css({position: "absolute", bottom:"0px"});
+            } else {
+                $("#footer").css({position: ""});
             }
         });
     });
