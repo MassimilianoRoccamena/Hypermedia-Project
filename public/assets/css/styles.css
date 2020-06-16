@@ -296,6 +296,10 @@ span:hover::after {
     .breadcrumb {
         margin-top: 2rem;
     }
+    
+    #photo {
+    display:none;
+    }
 }
 @media only screen and (max-width: 576px) {
     .breadcrumb {
