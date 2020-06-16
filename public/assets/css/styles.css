@@ -105,7 +105,7 @@ iframe {
     padding: 3%;
     background-color: ghostwhite;
     border-color: #5398FF;
-    color: white;
+    color: #5398FF;
     padding-left: 2em;
     padding-right: 2em;
     padding-top: 1em;
@@ -116,7 +116,7 @@ iframe {
 }
 .btn-custom:hover {
     background-color: ghostwhite;
-    border-color: #5398FF;
+    border-color: #5398FF !important;
     transform:scale(1.1);
 }
 .btn-custom:active {
