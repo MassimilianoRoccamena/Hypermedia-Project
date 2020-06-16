@@ -61,7 +61,7 @@ hr {
 }
 
 .link-custom {
-    color: #5398FF !important;
+    color: #7BB0FF !important;
     text-decoration: none;
 }
 .link-custom:hover {
@@ -524,4 +524,8 @@ img {
 
 .container-fluid {
 background-color: #7BB0FF;
+}
+
+.margindown {
+    margin-top: 5.5rem !important;
 }
