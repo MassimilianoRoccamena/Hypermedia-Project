@@ -491,16 +491,7 @@ element.style {
 
 .card-custom {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 155, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
-    background-color: ghostwhite !important; }
-
-/*per allineare foto a testo nelle persone*/
-.p-3 {
-    padding: 0rem! important; 
-}
-
-/*per alzare testo descrizione nelle persone*/
-#decription-text {
-    margin-top: -10rem !important;
+    background-color: ghostwhite !important; 
 }
 
 img {
@@ -525,4 +516,11 @@ img {
 
 .card-text:last-child {
     margin-bottom: unset !important;
+}
+
+/*person*/
+@media only screen and (max-width: 768px) {
+    #related-services, #description-text {
+        margin-top: 10%;
+    }
 }
