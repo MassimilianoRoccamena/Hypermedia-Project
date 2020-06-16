@@ -105,7 +105,7 @@ iframe {
     padding: 3%;
     background-color: ghostwhite;
     border-color: #5398FF;
-    color: #5398FF;
+    color: #5398FF !important;
     padding-left: 2em;
     padding-right: 2em;
     padding-top: 1em;
@@ -131,20 +131,21 @@ iframe {
 
 .btn {
 border: 1.5px solid transparent;
+color: #5398FF !important;
 }
 
 
 .btn-info {
  background-color: ghostwhite;
     border-color: ghostwhite;
-    color:  #5398FF;
+    color:  #5398FF !important;
 }
 
 
 .btn-info:hover {
     color: black; 
     background-color: ghostwhite !important;
-    border-color:  ghostwhite !important;
+    border-color: #5398FF !important;
 }
 
 /*.btn-info:focus {
