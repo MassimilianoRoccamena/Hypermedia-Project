@@ -313,10 +313,10 @@ span:hover::after {
     }
     
     hr {
-    border: lightblue;
+    border: #7BB0FF;
     height:2px;
     width:100%;
-    background: lightblue;
+    background: #7BB0FF;
 }
     
     .fa {
