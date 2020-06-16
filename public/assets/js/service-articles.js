@@ -12,6 +12,9 @@ $(document).ready(function () {
         itemComponent.load(linkComponent, function(responseTxt, statusTxt, xhr) {
             initPagination();
             loadPage();
+            if( $(document.body).height() < $(window).height() ) {
+                $("#footer").css({position: "absolute", bottom:"0px", width: "100%"});
+            } 
         });
     });
 });
