@@ -14,10 +14,11 @@ $(document).ready(function () {
             loadPage();
         });
     });
-    if( $(document.body).height() < $(window).height() ) {
-        $("#footer").css({position: "absolute", bottom:"0px", width: "100%"});
-    } 
+   
 });
+if( $(document.body).height() < $(window).height() ) {
+    $("#footer").css({position: "absolute", bottom:"0px", width: "100%"});
+} 
 
 //------------------------------------- ORIENTATION INFO -----------------------------------------
 
