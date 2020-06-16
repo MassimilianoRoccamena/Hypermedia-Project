@@ -136,7 +136,7 @@ border: 1.5px solid transparent;
 
 .btn-info {
  background-color: ghostwhite;
-    border-color: #5398FF;
+    border-color: ghostwhite;
     color:  #5398FF;
 }
 
@@ -144,7 +144,7 @@ border: 1.5px solid transparent;
 .btn-info:hover {
     color: black; 
     background-color: ghostwhite !important;
-    border-color:  #5398FF !important;
+    border-color:  ghostwhite !important;
 }
 
 /*.btn-info:focus {
