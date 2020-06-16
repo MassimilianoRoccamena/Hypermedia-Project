@@ -318,6 +318,10 @@ span:hover::after {
     width:100%;
     background: #7BB0FF;
 }
+    
+    .fa {
+        margin: 0.5rem;
+    }
 
 }
 .breadcrumb-item {
