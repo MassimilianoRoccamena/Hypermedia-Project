@@ -133,22 +133,18 @@ iframe {
 border: 1.5px solid transparent;
 }
 
-/*.btn:focus {
-    background-color: ghostwhite;
-    border-color:#5398FF;    
-} */
 
-/*.btn-info {
+.btn-info {
  background-color: ghostwhite;
-    border-color: #7BB0FF;
-    color:  #7BB0FF;
+    border-color: #5398FF;
+    color:  #5398FF;
 }
 
 
 .btn-info:hover {
-    color: #7BB0FF; 
+    color: black; 
     background-color: ghostwhite !important;
-    border-color:  #7BB0FF !important;
+    border-color:  #5398FF !important;
 }
 
 /*.btn-info:focus {
