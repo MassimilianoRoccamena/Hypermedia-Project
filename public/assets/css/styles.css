@@ -311,6 +311,11 @@ span:hover::after {
     .col {
     flex-basis:initial !important;
     }
+    
+    hr {
+    border: #7BB0FF;
+}
+
 }
 .breadcrumb-item {
     color: #0f6fff;
