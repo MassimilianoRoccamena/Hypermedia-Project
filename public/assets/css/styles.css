@@ -530,4 +530,9 @@ background-color: #7BB0FF;
 
 .card-text {
     font-size: 1.1rem;
+    margin-bottom: unset !important;
+}
+
+.card-text:last-child {
+    margin-bottom: unset !important;
 }
